@@ -23,14 +23,12 @@ export function Navbar() {
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
     
-    // Hide nav on scroll down, show on scroll up
     if (latest > previous && latest > 150) {
       setHidden(true);
     } else {
       setHidden(false);
     }
     
-    // Add glassmorphism background when scrolled down
     if (latest > 50) {
       setIsScrolled(true);
     } else {
@@ -38,7 +36,6 @@ export function Navbar() {
     }
   });
 
-  // Hide main navbar completely on Games page (after all hooks are invoked)
   if (pathname?.startsWith("/games")) return null;
 
   return (

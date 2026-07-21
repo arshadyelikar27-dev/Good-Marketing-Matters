@@ -98,12 +98,10 @@ export function Services() {
   const transform = useTransform(rotation, (value) => `rotate3d(0, 1, 0, ${value}deg)`);
   const controls = useAnimation();
 
-  // Infinite Auto-Rotation
   useEffect(() => {
     let animationFrame: number;
     
     const updateRotation = () => {
-      // Pause rotation if the user is hovering over a specific card
       if (hoveredIndex === null) {
         rotation.set(rotation.get() + 0.08); 
       }
