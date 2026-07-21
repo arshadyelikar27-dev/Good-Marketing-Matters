@@ -69,13 +69,33 @@ Page.displayName = "Page";
 
 export function Testimonials() {
   const [mounted, setMounted] = useState(false);
+  const [bookDimensions, setBookDimensions] = useState({ width: 340, height: 460 });
   const bookRef = useRef<any>(null);
-
-  const isSmallScreen = useMediaQuery("(min-width: 640px)");
-  const smallerDevice = !isSmallScreen;
 
   useEffect(() => {
     setMounted(true);
+    const handleResize = () => {
+      const w = typeof window !== "undefined" ? window.innerWidth : 1000;
+      // Calculate available width for 2-page book spread
+      const containerWidth = Math.min(w - 20, 1000); 
+      // Each page width is half of spread width so BOTH left & right pages fit comfortably side-by-side
+      let pageW = Math.floor((containerWidth - 12) / 2);
+      
+      // Clamp page width between 140px and 360px
+      pageW = Math.max(140, Math.min(360, pageW));
+      
+      // Aspect ratio height calculation
+      let pageH = Math.floor(pageW * 1.35);
+      if (w < 480) {
+        pageH = Math.floor(pageW * 1.4);
+      }
+
+      setBookDimensions({ width: pageW, height: pageH });
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleFlip = (pageNum: number) => {
@@ -85,12 +105,12 @@ export function Testimonials() {
   };
 
   return (
-    <section id="reviews" className="relative w-full min-h-screen py-24 md:py-32 bg-white text-black flex flex-col items-center justify-center overflow-hidden">
+    <section id="reviews" className="relative w-full min-h-screen py-16 sm:py-24 md:py-32 bg-white text-black flex flex-col items-center justify-center overflow-hidden">
       {/* Background glowing orb */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] md:w-[40vw] h-[80vw] md:h-[40vw] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
 
       {/* Header */}
-      <div className="container relative z-10 mx-auto px-6 mb-12 text-center flex flex-col items-center">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 mb-6 sm:mb-12 text-center flex flex-col items-center">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -104,7 +124,7 @@ export function Testimonials() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-heading text-4xl md:text-6xl font-bold mb-4"
+          className="font-heading text-3xl sm:text-4xl md:text-6xl font-bold mb-4"
         >
           What Our <span className="text-primary">Clients Say</span>
         </motion.h2>
@@ -114,92 +134,93 @@ export function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-base sm:text-lg text-black/70 max-w-xl mx-auto"
+          className="text-sm sm:text-base md:text-lg text-black/70 max-w-xl mx-auto px-2"
         >
           Flip through the pages of our client storybook to see how GMM drives real growth.
         </motion.p>
       </div>
 
       {/* 3D FlipBook Container */}
-      <div className="w-full relative z-10 flex justify-center items-center py-6 px-4">
+      <div className="w-full relative z-10 flex justify-center items-center py-2 sm:py-6 px-1 sm:px-4 overflow-hidden">
         {mounted && (
           <HTMLFlipBook
+            key={`spread-${bookDimensions.width}-${bookDimensions.height}`}
             ref={bookRef}
-            width={smallerDevice ? 310 : 360}
-            height={smallerDevice ? 460 : 500}
+            width={bookDimensions.width}
+            height={bookDimensions.height}
             showCover={true}
-            usePortrait={smallerDevice}
+            usePortrait={false}
             startPage={0}
             size="fixed"
-            minWidth={300}
-            maxWidth={400}
-            minHeight={400}
+            minWidth={130}
+            maxWidth={420}
+            minHeight={240}
             maxHeight={550}
             drawShadow={true}
-            flippingTime={900}
+            flippingTime={800}
             startZIndex={0}
             autoSize={false}
             maxShadowOpacity={0.5}
             mobileScrollSupport={true}
             clickEventForward={true}
             useMouseEvents={true}
-            swipeDistance={30}
+            swipeDistance={20}
             showPageCorners={true}
             disableFlipByClick={false}
-            className="shadow-2xl rounded-2xl"
+            className="shadow-2xl rounded-2xl max-w-full"
             style={{ margin: "0 auto" }}
           >
             {/* FRONT COVER */}
-            <Page className="bg-black text-white p-8 flex flex-col justify-between items-center text-center border-r border-amber-500/30">
-              <div className="w-full flex justify-between items-center pt-2 border-b border-white/20 pb-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-primary">GMM Edition</span>
-                <Sparkles className="w-5 h-5 text-primary animate-pulse" />
+            <Page className="bg-black text-white p-3 sm:p-6 md:p-8 flex flex-col justify-between items-center text-center border-r border-amber-500/30">
+              <div className="w-full flex justify-between items-center pt-1 border-b border-white/20 pb-2 sm:pb-4">
+                <span className="text-[8px] sm:text-[10px] md:text-xs font-bold uppercase tracking-widest text-primary">GMM Edition</span>
+                <Sparkles className="w-3 h-3 sm:w-4 sm:h-5 text-primary animate-pulse" />
               </div>
 
               <div className="my-auto flex flex-col items-center">
-                <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center text-black font-black text-4xl mb-6 shadow-[0_0_30px_rgba(249,192,0,0.5)]">
+                <div className="w-10 h-10 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-primary flex items-center justify-center text-black font-black text-xl sm:text-3xl md:text-4xl mb-2 sm:mb-4 md:mb-6 shadow-[0_0_30px_rgba(249,192,0,0.5)]">
                   G
                 </div>
-                <h1 className="text-3xl sm:text-4xl font-black font-heading tracking-tight mb-2">
+                <h1 className="text-lg sm:text-2xl md:text-4xl font-black font-heading tracking-tight mb-1 sm:mb-2">
                   Client <span className="text-primary">Stories</span>
                 </h1>
-                <div className="w-16 h-1 bg-primary rounded-full my-4" />
-                <p className="text-xs text-white/70 max-w-xs leading-relaxed font-medium">
+                <div className="w-8 sm:w-12 md:w-16 h-0.5 sm:h-1 bg-primary rounded-full my-2 sm:my-3" />
+                <p className="text-[9px] sm:text-xs text-white/70 max-w-xs leading-relaxed font-medium">
                   Read authentic reviews and feedback from industry leaders who scaled with GMM.
                 </p>
               </div>
 
-              <div className="w-full pt-4 border-t border-white/20 flex items-center justify-between text-xs text-white/50">
+              <div className="w-full pt-2 sm:pt-4 border-t border-white/20 flex items-center justify-between text-[9px] sm:text-xs text-white/50">
                 <span>Click corner to flip</span>
-                <ChevronRight className="w-4 h-4 text-primary animate-bounce" />
+                <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-primary animate-bounce" />
               </div>
             </Page>
 
             {/* INDEX / TABLE OF CONTENTS PAGE */}
-            <Page className="bg-zinc-100 p-8 flex flex-col justify-between border-r border-black/10">
+            <Page className="bg-zinc-100 p-3 sm:p-6 md:p-8 flex flex-col justify-between border-r border-black/10">
               <div>
-                <div className="flex items-center justify-between border-b border-black/10 pb-4 mb-6">
-                  <h3 className="font-heading font-black text-xl text-black">Table of Contents</h3>
-                  <span className="text-xs font-bold text-black/40">Page 1</span>
+                <div className="flex items-center justify-between border-b border-black/10 pb-2 mb-2 sm:mb-4">
+                  <h3 className="font-heading font-black text-xs sm:text-lg md:text-xl text-black">Table of Contents</h3>
+                  <span className="text-[8px] sm:text-[10px] md:text-xs font-bold text-black/40">Page 1</span>
                 </div>
                 
-                <ol className="space-y-4">
+                <ol className="space-y-1.5 sm:space-y-3">
                   {testimonialsData.map((t, idx) => (
                     <li
                       key={t.id}
                       onClick={() => handleFlip(idx + 2)}
-                      className="flex items-center justify-between p-2.5 rounded-xl hover:bg-black/5 transition-colors cursor-pointer group"
+                      className="flex items-center justify-between p-1 sm:p-2 rounded-lg sm:rounded-xl hover:bg-black/5 transition-colors cursor-pointer group"
                     >
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-primary/20 text-black font-bold flex items-center justify-center text-xs border border-primary/30">
+                      <div className="flex items-center gap-1.5 sm:gap-2.5">
+                        <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-primary/20 text-black font-bold flex items-center justify-center text-[9px] sm:text-xs border border-primary/30 shrink-0">
                           {t.name.charAt(0)}
                         </div>
-                        <div>
-                          <div className="text-xs font-bold text-black group-hover:text-primary transition-colors">{t.name}</div>
-                          <div className="text-[10px] text-black/50">{t.company}</div>
+                        <div className="min-w-0">
+                          <div className="text-[10px] sm:text-xs font-bold text-black group-hover:text-primary transition-colors truncate">{t.name}</div>
+                          <div className="text-[8px] sm:text-[10px] text-black/50 truncate">{t.company}</div>
                         </div>
                       </div>
-                      <span className="text-xs font-mono font-bold text-black/40 group-hover:text-black">
+                      <span className="text-[8px] sm:text-[10px] font-mono font-bold text-black/40 group-hover:text-black shrink-0">
                         Pg {idx + 2}
                       </span>
                     </li>
@@ -207,60 +228,60 @@ export function Testimonials() {
                 </ol>
               </div>
 
-              <div className="text-[11px] text-black/40 text-center font-medium">
-                Click any name to jump directly to page 📖
+              <div className="text-[8px] sm:text-[10px] text-black/40 text-center font-medium pt-1">
+                Click any name to jump 📖
               </div>
             </Page>
 
             {/* TESTIMONIAL PAGES */}
             {testimonialsData.map((t, idx) => (
-              <Page key={t.id} className="bg-white p-8 flex flex-col justify-between border-r border-black/10">
-                <div className="flex items-center justify-between border-b border-black/10 pb-4">
-                  <span className="text-xs font-bold text-primary uppercase tracking-wider">Testimonial</span>
-                  <span className="text-xs font-mono font-bold text-black/40">Page {idx + 2}</span>
+              <Page key={t.id} className="bg-white p-3 sm:p-6 md:p-8 flex flex-col justify-between border-r border-black/10">
+                <div className="flex items-center justify-between border-b border-black/10 pb-2">
+                  <span className="text-[8px] sm:text-xs font-bold text-primary uppercase tracking-wider">Testimonial</span>
+                  <span className="text-[8px] sm:text-xs font-mono font-bold text-black/40">Page {idx + 2}</span>
                 </div>
 
-                <div className="my-auto flex flex-col items-center text-center">
+                <div className="my-auto flex flex-col items-center text-center px-0.5">
                   {/* Star Rating */}
-                  <div className="flex gap-1 mb-6">
+                  <div className="flex gap-0.5 sm:gap-1 mb-2 sm:mb-4">
                     {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                      <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 fill-primary text-primary" />
                     ))}
                   </div>
 
                   {/* Review Quote */}
-                  <p className="text-sm sm:text-base font-medium leading-relaxed text-black/90 italic mb-6">
+                  <p className="text-[10px] sm:text-xs md:text-base font-medium leading-tight sm:leading-relaxed text-black/90 italic mb-2 sm:mb-4">
                     "{t.review}"
                   </p>
 
                   {/* Client Info */}
                   <div className="flex flex-col items-center">
-                    <div className="w-14 h-14 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center font-black text-black text-xl mb-3 shadow-md">
+                    <div className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center font-black text-black text-sm sm:text-lg md:text-xl mb-1 sm:mb-2 shadow-md">
                       {t.name.charAt(0)}
                     </div>
-                    <h4 className="font-heading font-bold text-black text-base">{t.name}</h4>
-                    <span className="text-xs text-black/60 font-medium">{t.jobtitle}, {t.company}</span>
+                    <h4 className="font-heading font-bold text-black text-xs sm:text-sm md:text-base">{t.name}</h4>
+                    <span className="text-[9px] sm:text-xs text-black/60 font-medium">{t.jobtitle}, {t.company}</span>
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-black/10 text-center text-[10px] text-black/40">
-                  Great Marketing Matters • Client Reviews
+                <div className="pt-2 sm:pt-3 border-t border-black/10 text-center text-[8px] sm:text-[10px] text-black/40">
+                  GMM • Reviews
                 </div>
               </Page>
             ))}
 
             {/* BACK COVER */}
-            <Page className="bg-black text-white p-8 flex flex-col items-center justify-center text-center">
-              <Sparkles className="w-12 h-12 text-primary mb-4 animate-bounce" />
-              <h2 className="text-3xl font-black font-heading text-white mb-2">Thank You!</h2>
-              <p className="text-sm text-white/70 max-w-xs mb-6 font-medium">
-                We appreciate our clients' trust and look forward to scaling your brand next!
+            <Page className="bg-black text-white p-3 sm:p-6 md:p-8 flex flex-col items-center justify-center text-center">
+              <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-primary mb-2 sm:mb-3 animate-bounce" />
+              <h2 className="text-lg sm:text-2xl md:text-3xl font-black font-heading text-white mb-1 sm:mb-2">Thank You!</h2>
+              <p className="text-[10px] sm:text-xs md:text-sm text-white/70 max-w-xs mb-3 sm:mb-5 font-medium">
+                We appreciate our clients' trust!
               </p>
               <a
                 href="#contact"
-                className="px-6 py-3 rounded-full bg-primary text-black font-bold text-xs hover:bg-white transition-colors shadow-lg"
+                className="px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full bg-primary text-black font-bold text-[9px] sm:text-xs hover:bg-white transition-colors shadow-lg"
               >
-                Become Our Next Success Story
+                Become Next Story
               </a>
             </Page>
           </HTMLFlipBook>

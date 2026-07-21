@@ -61,39 +61,39 @@ export function GamesToggle() {
   return (
     <>
       {/* FLOATING TOGGLE BUTTON - Bottom Right */}
-      <div className="fixed bottom-6 right-6 z-50 pointer-events-auto">
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 pointer-events-auto">
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.92 }}
-          className="relative group flex items-center gap-3 px-5 py-3.5 rounded-full bg-black text-white font-heading font-bold shadow-[0_10px_30px_rgba(0,0,0,0.3)] border border-primary/40 hover:border-primary transition-all duration-300 overflow-hidden"
+          className="relative group flex items-center gap-2.5 sm:gap-3 px-4 sm:px-5 py-3 sm:py-3.5 rounded-full bg-black text-white font-heading font-bold shadow-[0_10px_30px_rgba(0,0,0,0.3)] border border-primary/40 hover:border-primary transition-all duration-300 overflow-hidden"
         >
           {/* Animated Glowing Ring */}
           <span className="absolute -inset-full w-[200%] h-[200%] bg-gradient-to-r from-transparent via-primary/30 to-transparent group-hover:animate-shine pointer-events-none" />
 
           {/* Pulse Dot */}
-          <span className="relative flex h-3 w-3">
+          <span className="relative flex h-2.5 w-2.5 sm:h-3 sm:w-3">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3 bg-primary"></span>
           </span>
 
-          <Gamepad2 className="w-5 h-5 text-primary group-hover:rotate-12 transition-transform duration-300" />
+          <Gamepad2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary group-hover:rotate-12 transition-transform duration-300" />
           
-          <span className="text-sm tracking-wide hidden sm:inline-block">
+          <span className="text-xs sm:text-sm tracking-wide hidden sm:inline-block">
             {isOpen ? "Close Arena" : "Mini Games"}
           </span>
 
           {/* Sparkles Icon */}
-          <Sparkles className="w-4 h-4 text-primary opacity-80" />
+          <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary opacity-80" />
         </motion.button>
       </div>
 
       {/* POPUP MODAL */}
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-[9990] flex items-center justify-center p-4 sm:p-6 pointer-events-auto">
+          <div className="fixed inset-0 z-[9990] flex items-center justify-center p-3 sm:p-6 pointer-events-auto">
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -109,7 +109,7 @@ export function GamesToggle() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.85, y: 30 }}
               transition={{ type: "spring", stiffness: 350, damping: 25 }}
-              className="relative w-full max-w-2xl bg-white rounded-[2.5rem] p-6 sm:p-8 shadow-2xl border border-black/10 overflow-hidden z-10"
+              className="relative w-full max-w-2xl bg-white rounded-[2rem] sm:rounded-[2.5rem] p-5 sm:p-8 shadow-2xl border border-black/10 overflow-y-auto max-h-[85vh] z-10"
             >
               {/* Header */}
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-black/10">

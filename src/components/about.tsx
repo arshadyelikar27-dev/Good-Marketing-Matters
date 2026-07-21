@@ -40,16 +40,16 @@ export function AboutAnimation() {
   }, { scope: containerRef });
 
   return (
-    <section id="about" ref={containerRef} className="py-28 md:py-36 bg-white relative overflow-hidden w-full">
+    <section id="about" ref={containerRef} className="py-16 sm:py-28 md:py-36 bg-white relative overflow-hidden w-full">
       
       {/* EFFECT 1: Background Parallax Text */}
-      <div className="absolute top-[15%] left-0 w-full overflow-hidden pointer-events-none opacity-[0.03] flex flex-col gap-4 select-none font-heading font-black text-[18vw] leading-[0.85] tracking-tighter whitespace-nowrap text-black">
+      <div className="absolute top-[15%] left-0 w-full overflow-hidden pointer-events-none opacity-[0.03] flex flex-col gap-4 select-none font-heading font-black text-[22vw] sm:text-[18vw] leading-[0.85] tracking-tighter whitespace-nowrap text-black">
         <motion.div style={{ x: xLeft }}>WHO WE ARE WHO WE ARE</motion.div>
         <motion.div style={{ x: xRight }}>DIGITAL MASTERY DIGITAL MASTERY</motion.div>
       </div>
 
-      <div className="container max-w-[1600px] mx-auto px-6 md:px-12 relative z-10">
-        <div className="grid md:grid-cols-12 gap-16 items-center">
+      <div className="container max-w-[1600px] mx-auto px-4 sm:px-6 md:px-12 relative z-10">
+        <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
           
           {/* IMAGE GRID - Left Side */}
           <div className="md:col-span-5 relative h-[56vh] md:h-[580px] w-full group hidden md:block">
@@ -78,11 +78,11 @@ export function AboutAnimation() {
 
           {/* EFFECT 2: GSAP Scroll Reveal Text - Right Side */}
           <div className="md:col-span-12 lg:col-span-6 lg:col-start-7 flex flex-col justify-center">
-            <p className="text-primary font-bold text-sm tracking-widest uppercase mb-6 font-heading">
+            <p className="text-primary font-bold text-xs sm:text-sm tracking-widest uppercase mb-4 sm:mb-6 font-heading">
               About GMM Agency
             </p>
             
-            <h3 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[1.2] tracking-tight">
+            <h3 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black leading-[1.25] tracking-tight">
               <span className="highlight-text bg-clip-text text-transparent font-heading inline-block" style={{ 
                 backgroundImage: "linear-gradient(to right, #000000 50%, rgba(0,0,0,0.15) 50%)", 
                 backgroundSize: "200% 100%", 

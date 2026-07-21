@@ -534,33 +534,33 @@ function GamesPageContent() {
         }} 
       />
 
-      <div className="container mx-auto px-6 pt-8 pb-24 relative z-10 max-w-5xl flex-1 flex flex-col">
+      <div className="container mx-auto px-4 sm:px-6 pt-6 sm:pt-8 pb-24 relative z-10 max-w-5xl flex-1 flex flex-col">
         {/* Top Navbar */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-6 sm:mb-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-black text-white font-bold text-sm hover:bg-white hover:text-black transition-all shadow-md"
+            className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-black text-white font-bold text-xs sm:text-sm hover:bg-white hover:text-black transition-all shadow-md"
           >
-            <ArrowLeft className="w-4 h-4" /> Back to Website
+            <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> Back to Website
           </Link>
 
-          <div className="flex items-center gap-2 font-heading font-black text-xl text-black">
-            <Gamepad2 className="w-7 h-7 text-black" /> GMM Arcade
+          <div className="flex items-center gap-2 font-heading font-black text-lg sm:text-xl text-black">
+            <Gamepad2 className="w-6 h-6 sm:w-7 sm:h-7 text-black" /> GMM Arcade
           </div>
         </div>
 
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="font-heading font-black text-4xl sm:text-6xl text-black mb-2">
+        <div className="text-center mb-6 sm:mb-8">
+          <h1 className="font-heading font-black text-3xl sm:text-6xl text-black mb-2">
             Mini Games <span className="text-white">Arena</span>
           </h1>
-          <p className="text-black/70 text-sm sm:text-base max-w-xl mx-auto font-medium">
+          <p className="text-black/70 text-xs sm:text-base max-w-xl mx-auto font-medium px-2">
             Take a quick mental break! Play any of our 4 interactive mini-games directly in your browser.
           </p>
         </div>
 
         {/* 4 Tabs Selector */}
-        <div className="flex items-center justify-center gap-2 sm:gap-3 mb-10 overflow-x-auto pb-2">
+        <div className="flex items-center justify-start sm:justify-center gap-1.5 sm:gap-3 mb-8 sm:mb-10 overflow-x-auto pb-2 px-1 no-scrollbar">
           {[
             { id: "memory", label: "Memory Match", icon: Brain },
             { id: "tictactoe", label: "Tic-Tac-Toe", icon: Trophy },
@@ -573,13 +573,13 @@ function GamesPageContent() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-5 py-3 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 whitespace-nowrap shadow-sm ${
+                className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 whitespace-nowrap shadow-sm ${
                   isActive
                     ? "bg-black text-primary shadow-xl scale-105"
                     : "bg-white/70 text-black hover:bg-white"
                 }`}
               >
-                <Icon className="w-4 h-4" /> {tab.label}
+                <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> {tab.label}
               </button>
             );
           })}

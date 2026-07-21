@@ -27,21 +27,21 @@ const LinkedinIcon = ({ className }: { className?: string }) => (
 
 export function Footer() {
   return (
-    <footer id="contact" className="bg-black text-white py-20 relative overflow-hidden w-full">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+    <footer id="contact" className="bg-black text-white py-12 sm:py-16 md:py-20 relative overflow-hidden w-full">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12 sm:mb-16">
           
           {/* Brand & CTA */}
-          <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2 group inline-flex mb-6">
-              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-black font-bold text-2xl group-hover:scale-110 transition-transform">
+          <div className="sm:col-span-2">
+            <Link href="/" className="flex items-center gap-2 group inline-flex mb-4 sm:mb-6">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-primary flex items-center justify-center text-black font-bold text-xl sm:text-2xl group-hover:scale-110 transition-transform">
                 G
               </div>
-              <span className="font-heading font-bold text-3xl tracking-tight text-white group-hover:text-primary transition-colors">
+              <span className="font-heading font-bold text-2xl sm:text-3xl tracking-tight text-white group-hover:text-primary transition-colors">
                 GMM.
               </span>
             </Link>
-            <p className="text-white/70 max-w-sm mb-8 text-lg">
+            <p className="text-white/70 max-w-sm mb-6 sm:mb-8 text-base sm:text-lg">
               Elevating brands through strategic digital marketing, stunning design, and cutting-edge development.
             </p>
             
@@ -50,7 +50,7 @@ export function Footer() {
               href="https://forms.google.com/" 
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-black rounded-full font-bold text-lg hover:bg-primary/90 transition-all hover:scale-105 shadow-[0_0_20px_rgba(249,192,0,0.3)]"
+              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-primary text-black rounded-full font-bold text-base sm:text-lg hover:bg-primary/90 transition-all hover:scale-105 shadow-[0_0_20px_rgba(249,192,0,0.3)]"
             >
               Contact Us <ArrowRight className="w-5 h-5" />
             </a>
@@ -58,8 +58,8 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-heading font-bold text-xl mb-6 text-primary">Contact</h4>
-            <ul className="flex flex-col gap-4 text-white/70">
+            <h4 className="font-heading font-bold text-lg sm:text-xl mb-4 sm:mb-6 text-primary">Contact</h4>
+            <ul className="flex flex-col gap-3 sm:gap-4 text-white/70 text-sm sm:text-base">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-1" />
                 <span>123 Innovation Drive,<br/>Tech City, TC 10010</span>
@@ -77,24 +77,24 @@ export function Footer() {
 
           {/* Socials & Links */}
           <div>
-            <h4 className="font-heading font-bold text-xl mb-6 text-primary">Follow Us</h4>
-            <div className="flex gap-4 mb-8">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors">
+            <h4 className="font-heading font-bold text-lg sm:text-xl mb-4 sm:mb-6 text-primary">Follow Us</h4>
+            <div className="flex gap-3 sm:gap-4 mb-6 sm:mb-8">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" aria-label="Facebook">
                 <FacebookIcon className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" aria-label="Twitter">
                 <TwitterIcon className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" aria-label="Instagram">
                 <InstagramIcon className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" aria-label="LinkedIn">
                 <LinkedinIcon className="w-5 h-5" />
               </a>
             </div>
 
-            <h4 className="font-heading font-bold text-xl mb-6 text-primary">Legal</h4>
-            <ul className="flex flex-col gap-2 text-white/70">
+            <h4 className="font-heading font-bold text-lg sm:text-xl mb-4 sm:mb-6 text-primary">Legal</h4>
+            <ul className="flex flex-col gap-2 text-white/70 text-sm sm:text-base">
               <li><Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
               <li><Link href="#" className="hover:text-primary transition-colors">Terms of Service</Link></li>
             </ul>
@@ -103,13 +103,13 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="pt-8 border-t border-white/10 text-center text-white/50">
+        <div className="pt-6 sm:pt-8 border-t border-white/10 text-center text-xs sm:text-sm text-white/50">
           <p>&copy; {new Date().getFullYear()} Great Marketing Matters (GMM). All rights reserved.</p>
         </div>
       </div>
       
       {/* Decorative large letter */}
-      <div className="absolute -bottom-20 -right-10 text-[20vw] font-black text-white/5 font-heading pointer-events-none leading-none select-none">
+      <div className="absolute -bottom-14 sm:-bottom-20 -right-10 text-[24vw] sm:text-[20vw] font-black text-white/5 font-heading pointer-events-none leading-none select-none">
         GMM.
       </div>
     </footer>

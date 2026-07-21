@@ -52,7 +52,7 @@ export function Navbar() {
     >
       <div
         className={cn(
-          "pointer-events-auto flex items-center justify-between px-6 py-3 rounded-full transition-all duration-300 w-full max-w-5xl border border-black/15 shadow-sm",
+          "pointer-events-auto flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all duration-300 w-full max-w-5xl border border-black/15 shadow-sm",
           isScrolled 
             ? "bg-white/80 backdrop-blur-md shadow-lg border-black/20" 
             : "bg-white/60 backdrop-blur-sm"
@@ -62,7 +62,7 @@ export function Navbar() {
           <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xl group-hover:scale-110 transition-transform">
             G
           </div>
-          <span className="font-heading font-bold text-xl tracking-tight text-black group-hover:text-primary transition-colors">
+          <span className="font-heading font-bold text-lg sm:text-xl tracking-tight text-black group-hover:text-primary transition-colors">
             GMM
           </span>
         </Link>
@@ -92,8 +92,9 @@ export function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-black"
+          className="md:hidden text-black p-1 rounded-lg focus:outline-none"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle Navigation Menu"
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -101,7 +102,7 @@ export function Navbar() {
       
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="absolute top-[80px] left-4 right-4 bg-white/95 backdrop-blur-xl border border-black/10 rounded-3xl p-6 flex flex-col gap-4 pointer-events-auto shadow-2xl">
+        <div className="absolute top-[75px] sm:top-[80px] left-4 right-4 bg-white/95 backdrop-blur-xl border border-black/10 rounded-3xl p-6 flex flex-col gap-4 pointer-events-auto shadow-2xl max-h-[calc(100vh-100px)] overflow-y-auto">
           {navLinks.map((link) => (
             <Link
               key={link.name}

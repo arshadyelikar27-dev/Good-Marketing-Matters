@@ -87,9 +87,10 @@ const services = [
 export function Services() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   
-  // 3D Carousel Mathematics
-  const isScreenSizeSm = useMediaQuery("(max-width: 640px)");
-  const cylinderWidth = isScreenSizeSm ? 1500 : 2500;
+  // 3D Carousel Mathematics with fine-grained responsive breakpoints
+  const isMobileXs = useMediaQuery("(max-width: 480px)");
+  const isMobileSm = useMediaQuery("(max-width: 640px)");
+  const cylinderWidth = isMobileXs ? 1200 : isMobileSm ? 1600 : 2500;
   const faceCount = services.length;
   const faceWidth = cylinderWidth / faceCount;
   const radius = cylinderWidth / (2 * Math.PI);
@@ -113,14 +114,14 @@ export function Services() {
   }, [rotation, hoveredIndex]);
 
   return (
-    <section id="services" className="py-32 w-full relative z-10 bg-[#F9C000] text-black overflow-hidden">
-      <div className="container mx-auto px-6 max-w-7xl relative z-20">
-        <div className="flex flex-col items-center text-center mb-20">
+    <section id="services" className="py-20 sm:py-32 w-full relative z-10 bg-[#F9C000] text-black overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-20">
+        <div className="flex flex-col items-center text-center mb-12 sm:mb-20">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="font-heading text-4xl md:text-5xl font-bold mb-4"
+            className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
           >
             Our Core <span className="text-white">Services</span>
           </motion.h2>
@@ -129,7 +130,7 @@ export function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.1 }}
-            className="text-black/70 text-lg max-w-2xl"
+            className="text-black/70 text-base sm:text-lg max-w-2xl px-2"
           >
             We leverage cutting-edge technology and creative strategies to elevate your brand in the digital landscape. Drag the cards to explore.
           </motion.p>

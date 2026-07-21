@@ -87,10 +87,10 @@ export function Hero() {
       </motion.div>
 
       {/* Content */}
-      <div className="container relative z-10 mx-auto px-6 flex flex-col items-center text-center">
-        <div ref={textRef} className="max-w-5xl overflow-hidden flex flex-col items-center gap-6">
-          <div className="overflow-hidden">
-            <h1 className="reveal-text font-heading text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 flex flex-col items-center text-center">
+        <div ref={textRef} className="max-w-5xl overflow-hidden flex flex-col items-center gap-4 sm:gap-6">
+          <div className="overflow-hidden w-full">
+            <h1 className="reveal-text font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight">
               Great Marketing <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#FFEA5A] to-[#A1824F]">
                 Matters.
@@ -98,24 +98,24 @@ export function Hero() {
             </h1>
           </div>
           
-          <div className="overflow-hidden max-w-2xl mt-4">
-            <p className="reveal-text text-lg md:text-xl text-black/70 font-medium">
+          <div className="overflow-hidden max-w-2xl mt-2 sm:mt-4 px-2">
+            <p className="reveal-text text-base sm:text-lg md:text-xl text-black/70 font-medium leading-relaxed">
               We are a premium digital agency crafting extraordinary brand experiences, intelligent SEO optimization, and stunning web & app development.
             </p>
           </div>
           
-          <div className="overflow-hidden mt-8">
-            <div className="reveal-text flex flex-col sm:flex-row items-center gap-4">
+          <div className="overflow-hidden mt-6 sm:mt-8 w-full sm:w-auto">
+            <div className="reveal-text flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full">
               <Link 
                 href="#services" 
-                className="group flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold text-lg hover:bg-primary/90 transition-all hover:scale-105"
+                className="group flex items-center justify-center gap-2 w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-primary text-primary-foreground rounded-full font-bold text-base sm:text-lg hover:bg-primary/90 transition-all hover:scale-105 shadow-lg"
               >
                 Explore Services
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link 
                 href="#contact" 
-                className="px-8 py-4 border border-black/20 text-black rounded-full font-bold text-lg hover:bg-black/5 transition-all"
+                className="flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 border border-black/20 text-black rounded-full font-bold text-base sm:text-lg hover:bg-black/5 transition-all"
               >
                 Get a Proposal
               </Link>
@@ -124,22 +124,6 @@ export function Hero() {
         </div>
       </div>
       
-      {/* Scroll indicator */}
-      <motion.div 
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 1 }}
-      >
-        <span className="text-xs uppercase tracking-[0.2em] text-black/50 font-bold">Scroll Down</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-primary/50 to-transparent relative overflow-hidden">
-          <motion.div 
-            className="absolute top-0 left-0 w-full h-1/2 bg-primary"
-            animate={{ y: ["0%", "200%"] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-          />
-        </div>
-      </motion.div>
     </section>
   );
 }
