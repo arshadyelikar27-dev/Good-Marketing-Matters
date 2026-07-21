@@ -15,7 +15,7 @@ const items = [
 
 export function Clients() {
   return (
-    <section className="py-32 w-full bg-primary overflow-hidden relative">
+    <section id="clients" className="py-32 w-full bg-primary overflow-hidden relative">
       
       {/* A subtle dotted background effect */}
       <div className="absolute inset-0 opacity-10 pointer-events-none" style={{

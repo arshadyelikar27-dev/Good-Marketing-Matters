@@ -8,8 +8,10 @@ import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
+  { name: "Home", href: "/" },
   { name: "Services", href: "#services" },
   { name: "About", href: "#about" },
+  { name: "Clients", href: "#clients" },
   { name: "Reviews", href: "#reviews" },
 ];
 
@@ -61,7 +63,7 @@ export function Navbar() {
             G
           </div>
           <span className="font-heading font-bold text-xl tracking-tight text-black group-hover:text-primary transition-colors">
-            GMM.
+            GMM
           </span>
         </Link>
 
