@@ -3,6 +3,7 @@ import { Outfit, Inter } from "next/font/google";
 import { LenisProvider } from "@/components/lenis-provider";
 import { Navbar } from "@/components/navbar";
 import { CustomCursor } from "@/components/cursor";
+import { GamesToggle } from "@/components/games-toggle";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -35,6 +36,7 @@ export default function RootLayout({
         <LenisProvider>
           <Navbar />
           {children}
+          <GamesToggle />
         </LenisProvider>
       </body>
     </html>

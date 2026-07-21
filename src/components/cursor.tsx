@@ -36,7 +36,9 @@ export function CustomCursor() {
         target.closest("button") ||
         target.closest("a") ||
         target.classList.contains("hoverable") ||
-        target.closest(".hoverable")
+        target.closest(".hoverable") ||
+        target.classList.contains("cursor-pointer") ||
+        target.closest(".cursor-pointer")
       ) {
         setCursorState("hover");
       } else if (target.closest(".cursor-hide")) {
@@ -63,7 +65,7 @@ export function CustomCursor() {
     <div className="pointer-events-none hidden md:block">
       {/* INNER DOT */}
       <motion.div
-        className="fixed top-0 left-0 w-3 h-3 bg-[#F9C000] rounded-full pointer-events-none z-[9999] mix-blend-difference origin-center"
+        className="fixed top-0 left-0 w-3 h-3 bg-[#F9C000] rounded-full pointer-events-none z-[99999] mix-blend-difference origin-center"
         style={{
           x: springX,
           y: springY,
@@ -78,7 +80,7 @@ export function CustomCursor() {
       
       {/* OUTER CIRCLE / HOVER STATE */}
       <motion.div
-        className="fixed top-0 left-0 w-10 h-10 border-[1.5px] border-[#F9C000] rounded-full pointer-events-none z-[9998] mix-blend-difference flex justify-center items-center origin-center"
+        className="fixed top-0 left-0 w-10 h-10 border-[1.5px] border-[#F9C000] rounded-full pointer-events-none z-[99999] mix-blend-difference flex justify-center items-center origin-center"
         style={{
           x: outerSpringX,
           y: outerSpringY,

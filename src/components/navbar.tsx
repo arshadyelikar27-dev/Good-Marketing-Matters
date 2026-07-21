@@ -5,14 +5,16 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { name: "Services", href: "#services" },
-  { name: "Process", href: "#process" },
+  { name: "About", href: "#about" },
   { name: "Reviews", href: "#reviews" },
 ];
 
 export function Navbar() {
+  const pathname = usePathname();
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,6 +38,9 @@ export function Navbar() {
     }
   });
 
+  // Hide main navbar completely on Games page (after all hooks are invoked)
+  if (pathname?.startsWith("/games")) return null;
+
   return (
     <motion.nav
       variants={{
@@ -48,10 +53,10 @@ export function Navbar() {
     >
       <div
         className={cn(
-          "pointer-events-auto flex items-center justify-between px-6 py-3 rounded-full transition-all duration-300 w-full max-w-5xl",
+          "pointer-events-auto flex items-center justify-between px-6 py-3 rounded-full transition-all duration-300 w-full max-w-5xl border border-black/15 shadow-sm",
           isScrolled 
-            ? "bg-white/70 backdrop-blur-md border border-black/10 shadow-lg" 
-            : "bg-transparent border-transparent"
+            ? "bg-white/80 backdrop-blur-md shadow-lg border-black/20" 
+            : "bg-white/60 backdrop-blur-sm"
         )}
       >
         <Link href="/" className="flex items-center gap-2 group">

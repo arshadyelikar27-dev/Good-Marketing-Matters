@@ -28,11 +28,10 @@ export function AboutAnimation() {
     gsap.utils.toArray<HTMLElement>(".highlight-text").forEach((text) => {
       ScrollTrigger.create({
         trigger: text,
-        start: "top 80%",   // Animation starts when element reaches 80% of viewport height
-        end: "bottom 50%",  // Animation ends when element reaches 50% of viewport height
-        scrub: 1,           // Ties animation directly to scrollbar (scrubbing effect)
+        start: "top 85%",   // Animation starts when element reaches 85% of viewport height
+        end: "bottom 45%",  // Animation ends when element reaches 45% of viewport height
+        scrub: 0.5,         // Smooth scrub
         animation: gsap.to(text, {
-          color: "#000000", // The final text color
           backgroundPositionX: "0%", 
           ease: "none",
         }),
@@ -83,21 +82,19 @@ export function AboutAnimation() {
               About GMM Agency
             </p>
             
-            <h3 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[1.2] tracking-tight text-black/10">
-              <span className="highlight-text bg-clip-text font-heading" style={{ 
-                backgroundImage: "linear-gradient(to right, #000000 50%, rgba(0,0,0,0.1) 50%)", 
+            <h3 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[1.2] tracking-tight">
+              <span className="highlight-text bg-clip-text text-transparent font-heading inline-block" style={{ 
+                backgroundImage: "linear-gradient(to right, #000000 50%, rgba(0,0,0,0.15) 50%)", 
                 backgroundSize: "200% 100%", 
                 backgroundPositionX: "100%", 
-                transition: "background-position-x 0.1s" 
               }}>
                 We are a team of visionary designers, developers, and marketers.
               </span>
               <br /><br />
-              <span className="highlight-text bg-clip-text font-heading" style={{ 
-                backgroundImage: "linear-gradient(to right, #000000 50%, rgba(0,0,0,0.1) 50%)", 
+              <span className="highlight-text bg-clip-text text-transparent font-heading inline-block" style={{ 
+                backgroundImage: "linear-gradient(to right, #000000 50%, rgba(0,0,0,0.15) 50%)", 
                 backgroundSize: "200% 100%", 
                 backgroundPositionX: "100%", 
-                transition: "background-position-x 0.1s" 
               }}>
                 We don't just build websites; we engineer digital experiences that drive massive growth for your brand.
               </span>

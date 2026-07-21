@@ -15,7 +15,7 @@ const items = [
 
 export function Clients() {
   return (
-    <section className="py-32 w-full bg-white overflow-hidden relative">
+    <section className="py-32 w-full bg-primary overflow-hidden relative">
       
       {/* A subtle dotted background effect */}
       <div className="absolute inset-0 opacity-10 pointer-events-none" style={{
@@ -25,7 +25,7 @@ export function Clients() {
 
       <div className="container mx-auto px-6 mb-16 text-center relative z-10">
         <h2 className="font-heading text-4xl md:text-5xl font-bold text-black">
-          Trusted by <span className="text-primary">Industry Leaders</span>
+          Trusted by <span className="text-white">Industry Leaders</span>
         </h2>
       </div>
 

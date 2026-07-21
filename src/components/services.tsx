@@ -91,6 +91,22 @@ export function Services() {
   const transform = useTransform(rotation, (value) => `rotate3d(0, 1, 0, ${value}deg)`);
   const controls = useAnimation();
 
+  // Infinite Auto-Rotation
+  useEffect(() => {
+    let animationFrame: number;
+    
+    const updateRotation = () => {
+      // Pause rotation if the user is hovering over a specific card
+      if (hoveredIndex === null) {
+        rotation.set(rotation.get() + 0.08); 
+      }
+      animationFrame = requestAnimationFrame(updateRotation);
+    };
+    
+    animationFrame = requestAnimationFrame(updateRotation);
+    return () => cancelAnimationFrame(animationFrame);
+  }, [rotation, hoveredIndex]);
+
   return (
     <section id="services" className="py-32 w-full relative z-10 bg-[#F9C000] text-black overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl relative z-20">
@@ -115,7 +131,10 @@ export function Services() {
         </div>
       </div>
 
-      <div className="relative h-[550px] md:h-[700px] w-full overflow-hidden flex items-center justify-center -mt-10" style={{ perspective: "1200px" }}>
+      <div 
+        className="relative h-[550px] md:h-[700px] w-full overflow-hidden flex items-center justify-center -mt-10" 
+        style={{ perspective: "1200px" }}
+      >
         <motion.div
           drag="x"
           className="relative flex h-full origin-center cursor-grab justify-center active:cursor-grabbing"
