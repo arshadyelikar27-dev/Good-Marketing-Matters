@@ -115,7 +115,7 @@ export function Services() {
         </div>
       </div>
 
-      <div className="relative h-[450px] w-full overflow-hidden flex items-center justify-center -mt-10" style={{ perspective: "1200px" }}>
+      <div className="relative h-[550px] md:h-[700px] w-full overflow-hidden flex items-center justify-center -mt-10" style={{ perspective: "1200px" }}>
         <motion.div
           drag="x"
           className="relative flex h-full origin-center cursor-grab justify-center active:cursor-grabbing"
@@ -152,12 +152,14 @@ export function Services() {
                 style={{
                   width: `${faceWidth}px`,
                   transform: `rotateY(${idx * (360 / faceCount)}deg) translateZ(${radius}px)`,
+                  backfaceVisibility: "hidden", // Hides cards when they rotate to the back
+                  WebkitBackfaceVisibility: "hidden"
                 }}
               >
                 {/* The Original Card Design */}
                 <div 
                   className={cn(
-                    "relative group w-full h-[380px] rounded-[2.5rem] p-8 overflow-hidden border border-black/10 bg-white/30 backdrop-blur-md transition-all duration-500 flex flex-col justify-between",
+                    "relative group w-full h-[360px] rounded-3xl p-8 overflow-hidden border border-black/10 bg-white/80 backdrop-blur-xl transition-all duration-500 flex flex-col justify-between",
                     isHovered ? "shadow-[0_0_40px_rgba(0,0,0,0.1)] border-white/50 scale-[1.02]" : "scale-100"
                   )}
                 >
@@ -171,7 +173,7 @@ export function Services() {
                   
                   {/* Content */}
                   <div className="relative z-10 flex flex-col h-full gap-6">
-                    <div className="w-16 h-16 shrink-0 rounded-full bg-white/40 border border-white/40 flex items-center justify-center group-hover:bg-white group-hover:border-white transition-colors duration-500">
+                    <div className="w-16 h-16 shrink-0 rounded-full bg-white border border-white flex items-center justify-center group-hover:bg-white group-hover:border-white transition-colors duration-500 shadow-sm">
                       <Icon className="w-8 h-8 text-black group-hover:text-black transition-colors duration-500" />
                     </div>
                     
