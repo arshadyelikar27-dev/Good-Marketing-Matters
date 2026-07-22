@@ -89,7 +89,7 @@ export function CustomCursor() {
         }}
         animate={{
           scale: cursorState === "hover" ? 2 : cursorState === "hidden" ? 0 : 1,
-          backgroundColor: cursorState === "hover" ? "var(--primary)" : "rgba(88, 76, 221, 0)",
+          backgroundColor: cursorState === "hover" ? "var(--primary)" : "rgba(238, 255, 59, 0)",
           borderWidth: cursorState === "hover" ? "0px" : "1.5px"
         }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}

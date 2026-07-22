@@ -105,7 +105,7 @@ export function Testimonials() {
   };
 
   return (
-    <section id="reviews" className="relative w-full min-h-screen py-16 sm:py-24 md:py-32 bg-white text-black flex flex-col items-center justify-center overflow-hidden">
+    <section id="reviews" className="relative w-full min-h-screen py-16 sm:py-24 md:py-32 bg-[#0A0A0A] text-white flex flex-col items-center justify-center overflow-hidden">
       {/* Background glowing orb */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] md:w-[40vw] h-[80vw] md:h-[40vw] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
 
@@ -115,7 +115,7 @@ export function Testimonials() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/5 text-black font-bold text-xs uppercase tracking-widest mb-4"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 text-white font-bold text-xs uppercase tracking-widest mb-4"
         >
           <BookOpen className="w-4 h-4 text-primary" /> Interactive Client Book
         </motion.div>
@@ -134,7 +134,7 @@ export function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-sm sm:text-base md:text-lg text-black/70 max-w-xl mx-auto px-2"
+          className="text-sm sm:text-base md:text-lg text-[#BDBDBD] max-w-xl mx-auto px-2"
         >
           Flip through the pages of our client storybook to see how GMM drives real growth.
         </motion.p>
@@ -171,7 +171,7 @@ export function Testimonials() {
             style={{ margin: "0 auto" }}
           >
             {/* FRONT COVER */}
-            <Page className="bg-black text-white p-3 sm:p-6 md:p-8 flex flex-col justify-between items-center text-center border-r border-amber-500/30">
+            <Page className="bg-[#0A0A0A] text-white p-3 sm:p-6 md:p-8 flex flex-col justify-between items-center text-center border-r border-[#262626]">
               <div className="w-full flex justify-between items-center pt-1 border-b border-white/20 pb-2 sm:pb-4">
                 <span className="text-[8px] sm:text-[10px] md:text-xs font-bold uppercase tracking-widest text-primary">GMM Edition</span>
                 <Sparkles className="w-3 h-3 sm:w-4 sm:h-5 text-primary animate-pulse" />
@@ -197,11 +197,11 @@ export function Testimonials() {
             </Page>
 
             {/* INDEX / TABLE OF CONTENTS PAGE */}
-            <Page className="bg-zinc-100 p-3 sm:p-6 md:p-8 flex flex-col justify-between border-r border-black/10">
+            <Page className="bg-[#151515] p-3 sm:p-6 md:p-8 flex flex-col justify-between border-r border-[#262626]">
               <div>
-                <div className="flex items-center justify-between border-b border-black/10 pb-2 mb-2 sm:mb-4">
-                  <h3 className="font-heading font-black text-xs sm:text-lg md:text-xl text-black">Table of Contents</h3>
-                  <span className="text-[8px] sm:text-[10px] md:text-xs font-bold text-black/40">Page 1</span>
+                <div className="flex items-center justify-between border-b border-[#262626] pb-2 mb-2 sm:mb-4">
+                  <h3 className="font-heading font-black text-xs sm:text-lg md:text-xl text-white">Table of Contents</h3>
+                  <span className="text-[8px] sm:text-[10px] md:text-xs font-bold text-white/40">Page 1</span>
                 </div>
                 
                 <ol className="space-y-1.5 sm:space-y-3">
@@ -209,18 +209,18 @@ export function Testimonials() {
                     <li
                       key={t.id}
                       onClick={() => handleFlip(idx + 2)}
-                      className="flex items-center justify-between p-1 sm:p-2 rounded-lg sm:rounded-xl hover:bg-black/5 transition-colors cursor-pointer group"
+                      className="flex items-center justify-between p-1 sm:p-2 rounded-lg sm:rounded-xl hover:bg-white/5 transition-colors cursor-pointer group"
                     >
                       <div className="flex items-center gap-1.5 sm:gap-2.5">
-                        <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-primary/20 text-black font-bold flex items-center justify-center text-[9px] sm:text-xs border border-primary/30 shrink-0">
+                        <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-primary/20 text-[#0A0A0A] font-bold flex items-center justify-center text-[9px] sm:text-xs border border-primary/30 shrink-0">
                           {t.name.charAt(0)}
                         </div>
                         <div className="min-w-0">
-                          <div className="text-[10px] sm:text-xs font-bold text-black group-hover:text-primary transition-colors truncate">{t.name}</div>
-                          <div className="text-[8px] sm:text-[10px] text-black/50 truncate">{t.company}</div>
+                          <div className="text-[10px] sm:text-xs font-bold text-white group-hover:text-primary transition-colors truncate">{t.name}</div>
+                          <div className="text-[8px] sm:text-[10px] text-white/50 truncate">{t.company}</div>
                         </div>
                       </div>
-                      <span className="text-[8px] sm:text-[10px] font-mono font-bold text-black/40 group-hover:text-black shrink-0">
+                      <span className="text-[8px] sm:text-[10px] font-mono font-bold text-white/40 group-hover:text-white shrink-0">
                         Pg {idx + 2}
                       </span>
                     </li>
@@ -228,17 +228,17 @@ export function Testimonials() {
                 </ol>
               </div>
 
-              <div className="text-[8px] sm:text-[10px] text-black/40 text-center font-medium pt-1">
+              <div className="text-[8px] sm:text-[10px] text-white/40 text-center font-medium pt-1">
                 Click any name to jump 📖
               </div>
             </Page>
 
             {/* TESTIMONIAL PAGES */}
             {testimonialsData.map((t, idx) => (
-              <Page key={t.id} className="bg-white p-3 sm:p-6 md:p-8 flex flex-col justify-between border-r border-black/10">
-                <div className="flex items-center justify-between border-b border-black/10 pb-2">
+              <Page key={t.id} className="bg-[#151515] p-3 sm:p-6 md:p-8 flex flex-col justify-between border-r border-[#262626]">
+                <div className="flex items-center justify-between border-b border-[#262626] pb-2">
                   <span className="text-[8px] sm:text-xs font-bold text-primary uppercase tracking-wider">Testimonial</span>
-                  <span className="text-[8px] sm:text-xs font-mono font-bold text-black/40">Page {idx + 2}</span>
+                  <span className="text-[8px] sm:text-xs font-mono font-bold text-white/40">Page {idx + 2}</span>
                 </div>
 
                 <div className="my-auto flex flex-col items-center text-center px-0.5">
@@ -250,21 +250,21 @@ export function Testimonials() {
                   </div>
 
                   {/* Review Quote */}
-                  <p className="text-[10px] sm:text-xs md:text-base font-medium leading-tight sm:leading-relaxed text-black/90 italic mb-2 sm:mb-4">
+                  <p className="text-[10px] sm:text-xs md:text-base font-medium leading-tight sm:leading-relaxed text-white/90 italic mb-2 sm:mb-4">
                     "{t.review}"
                   </p>
 
                   {/* Client Info */}
                   <div className="flex flex-col items-center">
-                    <div className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center font-black text-black text-sm sm:text-lg md:text-xl mb-1 sm:mb-2 shadow-md">
+                    <div className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center font-black text-[#0A0A0A] text-sm sm:text-lg md:text-xl mb-1 sm:mb-2 shadow-md">
                       {t.name.charAt(0)}
                     </div>
-                    <h4 className="font-heading font-bold text-black text-xs sm:text-sm md:text-base">{t.name}</h4>
-                    <span className="text-[9px] sm:text-xs text-black/60 font-medium">{t.jobtitle}, {t.company}</span>
+                    <h4 className="font-heading font-bold text-white text-xs sm:text-sm md:text-base">{t.name}</h4>
+                    <span className="text-[9px] sm:text-xs text-white/60 font-medium">{t.jobtitle}, {t.company}</span>
                   </div>
                 </div>
 
-                <div className="pt-2 sm:pt-3 border-t border-black/10 text-center text-[8px] sm:text-[10px] text-black/40">
+                <div className="pt-2 sm:pt-3 border-t border-[#262626] text-center text-[8px] sm:text-[10px] text-white/40">
                   GMM • Reviews
                 </div>
               </Page>
@@ -279,7 +279,7 @@ export function Testimonials() {
               </p>
               <a
                 href="#contact"
-                className="px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full bg-primary text-black font-bold text-[9px] sm:text-xs hover:bg-white transition-colors shadow-lg"
+                className="px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full bg-primary text-[#0A0A0A] font-bold text-[9px] sm:text-xs hover:bg-[#E6F52F] transition-colors shadow-lg"
               >
                 Become Next Story
               </a>

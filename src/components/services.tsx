@@ -31,7 +31,7 @@ const services = [
     title: "Web Development",
     description: "High-performance, beautifully animated websites built with modern frameworks like Next.js and React.",
     icon: Monitor,
-    color: "from-blue-500/20 to-cyan-500/20",
+    color: "from-[#EEFF3B]/20 to-[#E6F52F]/10",
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
   },
   {
@@ -39,7 +39,7 @@ const services = [
     title: "App Development",
     description: "Native and cross-platform mobile applications that deliver seamless user experiences.",
     icon: Smartphone,
-    color: "from-purple-500/20 to-pink-500/20",
+    color: "from-[#EEFF3B]/15 to-[#262626]/50",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
   },
   {
@@ -47,7 +47,7 @@ const services = [
     title: "SEO Optimization",
     description: "Data-driven strategies to dominate search rankings and drive organic traffic.",
     icon: Search,
-    color: "from-emerald-500/20 to-teal-500/20",
+    color: "from-[#EEFF3B]/20 to-[#151515]/50",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
   },
   {
@@ -55,7 +55,7 @@ const services = [
     title: "Ads Promotion",
     description: "Targeted PPC and social media campaigns that maximize ROI and conversion rates.",
     icon: Target,
-    color: "from-orange-500/20 to-red-500/20",
+    color: "from-[#E6F52F]/20 to-[#EEFF3B]/10",
     image: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?auto=format&fit=crop&w=800&q=80",
   },
   {
@@ -71,7 +71,7 @@ const services = [
     title: "Graphic Designing",
     description: "Stunning visuals, illustrations, and marketing collateral crafted by expert designers.",
     icon: PenTool,
-    color: "from-indigo-500/20 to-blue-500/20",
+    color: "from-[#EEFF3B]/25 to-[#262626]/30",
     image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80",
   },
   {
@@ -79,7 +79,7 @@ const services = [
     title: "Business Marketing",
     description: "Comprehensive marketing strategies tailored to scale your B2B or B2C enterprise.",
     icon: TrendingUp,
-    color: "from-rose-500/20 to-pink-500/20",
+    color: "from-[#E6F52F]/15 to-[#EEFF3B]/20",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
   }
 ];
@@ -123,14 +123,14 @@ export function Services() {
             viewport={{ once: true, margin: "-100px" }}
             className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
           >
-            Our Core <span className="text-white">Services</span>
+            Our Core <span className="text-[#0A0A0A]">Services</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.1 }}
-            className="text-black/70 text-base sm:text-lg max-w-2xl px-2"
+            className="text-[#0A0A0A]/70 text-base sm:text-lg max-w-2xl px-2"
           >
             We leverage cutting-edge technology and creative strategies to elevate your brand in the digital landscape. Drag the cards to explore.
           </motion.p>
@@ -182,13 +182,13 @@ export function Services() {
                 }}
               >
                 {/* The Card Design */}
-                <div 
-                  className={cn(
-                    "relative group w-full h-[360px] rounded-3xl p-8 overflow-hidden border transition-all duration-500 flex flex-col justify-between cursor-pointer",
-                    isHovered 
-                      ? "shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-white/50 scale-[1.03]" 
-                      : "border-black/10 bg-white/80 backdrop-blur-xl scale-100"
-                  )}
+                  <div 
+                    className={cn(
+                      "relative group w-full h-[360px] rounded-3xl p-8 overflow-hidden border transition-all duration-500 flex flex-col justify-between cursor-pointer",
+                      isHovered 
+                        ? "shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-primary/50 scale-[1.03]" 
+                        : "border-[#262626] bg-[#151515]/90 backdrop-blur-xl scale-100"
+                    )}
                 >
                   {/* Hover Image Reveal */}
                   <div 
@@ -218,12 +218,12 @@ export function Services() {
                   {/* Content */}
                   <div className="relative z-10 flex flex-col h-full gap-6">
                     <div 
-                      className={cn(
-                        "w-16 h-16 shrink-0 rounded-full border flex items-center justify-center transition-all duration-500 shadow-sm",
-                        isHovered 
-                          ? "bg-primary border-primary text-black scale-110 shadow-lg shadow-primary/30" 
-                          : "bg-white border-white text-black"
-                      )}
+                        className={cn(
+                          "w-16 h-16 shrink-0 rounded-full border flex items-center justify-center transition-all duration-500 shadow-sm",
+                          isHovered 
+                            ? "bg-primary border-primary text-[#0A0A0A] scale-110 shadow-lg shadow-primary/30" 
+                            : "bg-[#262626] border-[#262626] text-white"
+                        )}
                     >
                       <Icon className="w-8 h-8 transition-transform duration-500 group-hover:scale-110" />
                     </div>
@@ -232,7 +232,7 @@ export function Services() {
                       <h3 
                         className={cn(
                           "text-2xl font-bold mb-3 font-heading transition-colors duration-300",
-                          isHovered ? "text-white" : "text-black"
+                          isHovered ? "text-white" : "text-white"
                         )}
                       >
                         {service.title}
@@ -240,7 +240,7 @@ export function Services() {
                       <p 
                         className={cn(
                           "leading-relaxed text-sm transition-colors duration-300",
-                          isHovered ? "text-white/90" : "text-black/70"
+                          isHovered ? "text-white/90" : "text-white/70"
                         )}
                       >
                         {service.description}

@@ -40,10 +40,10 @@ export function AboutAnimation() {
   }, { scope: containerRef });
 
   return (
-    <section id="about" ref={containerRef} className="py-16 sm:py-28 md:py-36 bg-white relative overflow-hidden w-full">
+    <section id="about" ref={containerRef} className="py-16 sm:py-28 md:py-36 bg-[#0A0A0A] relative overflow-hidden w-full">
       
       {/* EFFECT 1: Background Parallax Text */}
-      <div className="absolute top-[15%] left-0 w-full overflow-hidden pointer-events-none opacity-[0.03] flex flex-col gap-4 select-none font-heading font-black text-[22vw] sm:text-[18vw] leading-[0.85] tracking-tighter whitespace-nowrap text-black">
+      <div className="absolute top-[15%] left-0 w-full overflow-hidden pointer-events-none opacity-[0.04] flex flex-col gap-4 select-none font-heading font-black text-[22vw] sm:text-[18vw] leading-[0.85] tracking-tighter whitespace-nowrap text-white">
         <motion.div style={{ x: xLeft }}>WHO WE ARE WHO WE ARE</motion.div>
         <motion.div style={{ x: xRight }}>DIGITAL MASTERY DIGITAL MASTERY</motion.div>
       </div>
@@ -70,7 +70,7 @@ export function AboutAnimation() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="absolute bottom-0 right-0 w-2/3 h-[290px] overflow-hidden rounded-3xl border-8 border-white shadow-2xl"
+              className="absolute bottom-0 right-0 w-2/3 h-[290px] overflow-hidden rounded-3xl border-8 border-[#151515] shadow-2xl"
             >
               <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070')] bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105" />
             </motion.div>
@@ -84,7 +84,7 @@ export function AboutAnimation() {
             
             <h3 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black leading-[1.25] tracking-tight">
               <span className="highlight-text bg-clip-text text-transparent font-heading inline-block" style={{ 
-                backgroundImage: "linear-gradient(to right, #000000 50%, rgba(0,0,0,0.15) 50%)", 
+                backgroundImage: "linear-gradient(to right, #FFFFFF 50%, rgba(255,255,255,0.12) 50%)", 
                 backgroundSize: "200% 100%", 
                 backgroundPositionX: "100%", 
               }}>
@@ -92,7 +92,7 @@ export function AboutAnimation() {
               </span>
               <br /><br />
               <span className="highlight-text bg-clip-text text-transparent font-heading inline-block" style={{ 
-                backgroundImage: "linear-gradient(to right, #000000 50%, rgba(0,0,0,0.15) 50%)", 
+                backgroundImage: "linear-gradient(to right, #FFFFFF 50%, rgba(255,255,255,0.12) 50%)", 
                 backgroundSize: "200% 100%", 
                 backgroundPositionX: "100%", 
               }}>

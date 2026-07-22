@@ -81,7 +81,7 @@ export function Hero() {
                 </Link>
                 <Link 
                   href="#contact" 
-                  className="flex items-center justify-center w-full sm:w-auto px-7 py-4 border border-border text-foreground rounded-full font-bold text-base sm:text-lg hover:bg-black/5 transition-all"
+                  className="flex items-center justify-center w-full sm:w-auto px-7 py-4 border border-[#262626] text-foreground rounded-full font-bold text-base sm:text-lg hover:bg-[#151515] transition-all"
                 >
                   Get a Proposal
                 </Link>
