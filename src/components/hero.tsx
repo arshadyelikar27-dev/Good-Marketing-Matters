@@ -4,7 +4,7 @@ import { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { HeroIllustration } from "@/components/hero-illustration";
 
@@ -52,13 +52,6 @@ export function Hero() {
           {/* LEFT COLUMN: Typography & CTAs */}
           <div ref={textRef} className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
             
-            {/* Top Badge */}
-            <div className="overflow-hidden">
-              <div className="reveal-text inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-xs uppercase tracking-widest">
-                <Sparkles className="w-4 h-4 text-primary animate-pulse" /> Premium Digital Agency
-              </div>
-            </div>
-
             {/* Main Heading */}
             <div className="overflow-hidden w-full">
               <h1 className="reveal-text font-heading text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-bold tracking-tighter leading-[1.08]">
