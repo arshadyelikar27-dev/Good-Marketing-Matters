@@ -31,7 +31,7 @@ export default function RootLayout({
       lang="en"
       className={`dark ${outfit.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-background text-foreground overflow-x-hidden selection:bg-[#F9C000] selection:text-black cursor-none md:cursor-auto">
+      <body className="min-h-full flex flex-col font-sans bg-background text-foreground overflow-x-hidden selection:bg-primary selection:text-primary-foreground cursor-none md:cursor-auto">
         <CustomCursor />
         <LenisProvider>
           <Navbar />

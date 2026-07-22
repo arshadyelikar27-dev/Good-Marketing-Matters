@@ -63,7 +63,7 @@ const services = [
     title: "Brand Marketing",
     description: "Building strong, memorable brand identities that resonate with your target audience.",
     icon: Briefcase,
-    color: "from-[#F9C000]/20 to-[#A1824F]/20",
+    color: "from-primary/20 to-primary/10",
     image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
   },
   {
@@ -114,7 +114,7 @@ export function Services() {
   }, [rotation, hoveredIndex]);
 
   return (
-    <section id="services" className="py-20 sm:py-32 w-full relative z-10 bg-[#F9C000] text-black overflow-hidden">
+    <section id="services" className="py-20 sm:py-32 w-full relative z-10 bg-primary text-primary-foreground overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-20">
         <div className="flex flex-col items-center text-center mb-12 sm:mb-20">
           <motion.h2 

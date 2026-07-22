@@ -4,14 +4,15 @@ import { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { HeroIllustration } from "@/components/hero-illustration";
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 1000], [0, 300]);
+  const y = useTransform(scrollY, [0, 1000], [0, 150]);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -19,12 +20,12 @@ export function Hero() {
     // Text reveal animation
     const ctx = gsap.context(() => {
       gsap.from(".reveal-text", {
-        y: 100,
+        y: 60,
         opacity: 0,
         duration: 1,
-        stagger: 0.2,
+        stagger: 0.12,
         ease: "power4.out",
-        delay: 0.2
+        delay: 0.1
       });
     }, containerRef);
 
@@ -34,96 +35,75 @@ export function Hero() {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden pt-20 bg-white text-black"
+      className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden pt-28 pb-16 lg:pt-32 lg:pb-24 bg-background text-foreground"
     >
-      {/* Background Animated Illustration */}
+      {/* Background glow orb */}
       <motion.div 
         style={{ y }}
-        className="absolute inset-0 z-0 flex items-center justify-center opacity-40 pointer-events-none"
+        className="absolute inset-0 z-0 flex items-center justify-center opacity-30 pointer-events-none"
       >
-        <svg viewBox="0 0 1000 1000" className="w-[120vw] h-[120vh] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <motion.circle
-            cx="500"
-            cy="500"
-            r="300"
-            stroke="url(#gold-gradient)"
-            strokeWidth="2"
-            fill="transparent"
-            initial={{ pathLength: 0, rotate: 0 }}
-            animate={{ pathLength: 1, rotate: 360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          />
-          <motion.circle
-            cx="500"
-            cy="500"
-            r="400"
-            stroke="url(#gold-gradient)"
-            strokeWidth="1"
-            fill="transparent"
-            initial={{ pathLength: 0, rotate: 360 }}
-            animate={{ pathLength: 1, rotate: 0 }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          />
-          <motion.path
-            d="M 200,500 Q 500,100 800,500 T 200,500"
-            stroke="#000000"
-            strokeWidth="0.5"
-            fill="transparent"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }}
-            className="opacity-10"
-          />
-          <defs>
-            <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#F9C000" />
-              <stop offset="100%" stopColor="#A1824F" />
-            </linearGradient>
-          </defs>
-        </svg>
-        
-        {/* Glow orb */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-primary/10 rounded-full blur-[120px]" />
+        <div className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] bg-primary/15 rounded-full blur-[140px]" />
       </motion.div>
 
-      {/* Content */}
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 flex flex-col items-center text-center">
-        <div ref={textRef} className="max-w-5xl overflow-hidden flex flex-col items-center gap-4 sm:gap-6">
-          <div className="overflow-hidden w-full">
-            <h1 className="reveal-text font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight">
-              Great Marketing <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#FFEA5A] to-[#A1824F]">
-                Matters.
-              </span>
-            </h1>
-          </div>
+      {/* Main 2-Column Container */}
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          <div className="overflow-hidden max-w-2xl mt-2 sm:mt-4 px-2">
-            <p className="reveal-text text-base sm:text-lg md:text-xl text-black/70 font-medium leading-relaxed">
-              We are a premium digital agency crafting extraordinary brand experiences, intelligent SEO optimization, and stunning web & app development.
-            </p>
-          </div>
-          
-          <div className="overflow-hidden mt-6 sm:mt-8 w-full sm:w-auto">
-            <div className="reveal-text flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full">
-              <Link 
-                href="#services" 
-                className="group flex items-center justify-center gap-2 w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-primary text-primary-foreground rounded-full font-bold text-base sm:text-lg hover:bg-primary/90 transition-all hover:scale-105 shadow-lg"
-              >
-                Explore Services
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link 
-                href="#contact" 
-                className="flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 border border-black/20 text-black rounded-full font-bold text-base sm:text-lg hover:bg-black/5 transition-all"
-              >
-                Get a Proposal
-              </Link>
+          {/* LEFT COLUMN: Typography & CTAs */}
+          <div ref={textRef} className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
+            
+            {/* Top Badge */}
+            <div className="overflow-hidden">
+              <div className="reveal-text inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-xs uppercase tracking-widest">
+                <Sparkles className="w-4 h-4 text-primary animate-pulse" /> Premium Digital Agency
+              </div>
             </div>
+
+            {/* Main Heading */}
+            <div className="overflow-hidden w-full">
+              <h1 className="reveal-text font-heading text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-bold tracking-tighter leading-[1.08]">
+                Great Marketing <br/>
+                <span className="text-primary">
+                  Matters
+                </span>
+              </h1>
+            </div>
+            
+            {/* Subtitle description */}
+            <div className="overflow-hidden max-w-xl">
+              <p className="reveal-text text-base sm:text-lg md:text-xl text-body-text font-medium leading-relaxed">
+                We craft extraordinary brand experiences, intelligent SEO optimization, and high-converting web & mobile apps tailored for rapid growth.
+              </p>
+            </div>
+            
+            {/* Action Buttons */}
+            <div className="overflow-hidden pt-2 w-full sm:w-auto">
+              <div className="reveal-text flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full">
+                <Link 
+                  href="#services" 
+                  className="group flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-4 bg-primary text-primary-foreground rounded-full font-bold text-base sm:text-lg hover:bg-primary-hover transition-all hover:scale-105 shadow-xl shadow-primary/25"
+                >
+                  Explore Services
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link 
+                  href="#contact" 
+                  className="flex items-center justify-center w-full sm:w-auto px-7 py-4 border border-border text-foreground rounded-full font-bold text-base sm:text-lg hover:bg-black/5 transition-all"
+                >
+                  Get a Proposal
+                </Link>
+              </div>
+            </div>
+
           </div>
+
+          {/* RIGHT COLUMN: Premium Animated SVG Illustration */}
+          <div className="lg:col-span-6 flex items-center justify-center w-full">
+            <HeroIllustration />
+          </div>
+
         </div>
       </div>
-      
     </section>
   );
 }

@@ -524,7 +524,7 @@ function GamesPageContent() {
   const [activeTab, setActiveTab] = useState(initialGame);
 
   return (
-    <main className="min-h-screen w-full bg-[#F9C000] text-black relative flex flex-col pb-32 sm:pb-48">
+    <main className="min-h-screen w-full bg-primary text-primary-foreground relative flex flex-col pb-32 sm:pb-48">
       {/* Background Dotted Effect */}
       <div 
         className="absolute inset-0 opacity-10 pointer-events-none" 
@@ -610,7 +610,7 @@ function GamesPageContent() {
 
 export default function GamesPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-[#F9C000] flex items-center justify-center font-bold text-black">Loading Arcade...</div>}>
+    <Suspense fallback={<div className="min-h-screen bg-primary flex items-center justify-center font-bold text-primary-foreground">Loading Arcade...</div>}>
       <GamesPageContent />
     </Suspense>
   );

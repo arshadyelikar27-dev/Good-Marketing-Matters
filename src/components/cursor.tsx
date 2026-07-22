@@ -65,7 +65,7 @@ export function CustomCursor() {
     <div className="pointer-events-none hidden md:block">
       {/* INNER DOT */}
       <motion.div
-        className="fixed top-0 left-0 w-3 h-3 bg-[#F9C000] rounded-full pointer-events-none z-[99999] mix-blend-difference origin-center"
+        className="fixed top-0 left-0 w-3 h-3 bg-primary rounded-full pointer-events-none z-[99999] mix-blend-difference origin-center"
         style={{
           x: springX,
           y: springY,
@@ -80,7 +80,7 @@ export function CustomCursor() {
       
       {/* OUTER CIRCLE / HOVER STATE */}
       <motion.div
-        className="fixed top-0 left-0 w-10 h-10 border-[1.5px] border-[#F9C000] rounded-full pointer-events-none z-[99999] mix-blend-difference flex justify-center items-center origin-center"
+        className="fixed top-0 left-0 w-10 h-10 border-[1.5px] border-primary rounded-full pointer-events-none z-[99999] mix-blend-difference flex justify-center items-center origin-center"
         style={{
           x: outerSpringX,
           y: outerSpringY,
@@ -89,7 +89,7 @@ export function CustomCursor() {
         }}
         animate={{
           scale: cursorState === "hover" ? 2 : cursorState === "hidden" ? 0 : 1,
-          backgroundColor: cursorState === "hover" ? "rgba(249, 192, 0, 1)" : "rgba(249, 192, 0, 0)",
+          backgroundColor: cursorState === "hover" ? "var(--primary)" : "rgba(88, 76, 221, 0)",
           borderWidth: cursorState === "hover" ? "0px" : "1.5px"
         }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
