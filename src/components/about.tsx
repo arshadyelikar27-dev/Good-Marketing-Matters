@@ -24,17 +24,17 @@ export function AboutAnimation() {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Selects all elements with the 'highlight-text' class
-    gsap.utils.toArray<HTMLElement>(".highlight-text").forEach((text) => {
-      ScrollTrigger.create({
-        trigger: text,
-        start: "top 85%",   // Animation starts when element reaches 85% of viewport height
-        end: "bottom 45%",  // Animation ends when element reaches 45% of viewport height
-        scrub: 0.5,         // Smooth scrub
-        animation: gsap.to(text, {
-          backgroundPositionX: "0%", 
-          ease: "none",
-        }),
+    const targets = gsap.utils.toArray<HTMLElement>(".highlight-text", containerRef.current);
+    targets.forEach((text) => {
+      gsap.to(text, {
+        backgroundPositionX: "0%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: text,
+          start: "top 85%",
+          end: "bottom 45%",
+          scrub: 0.5,
+        },
       });
     });
   }, { scope: containerRef });

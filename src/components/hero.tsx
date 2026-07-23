@@ -19,14 +19,18 @@ export function Hero() {
     
     // Text reveal animation
     const ctx = gsap.context(() => {
-      gsap.from(".reveal-text", {
-        y: 60,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.12,
-        ease: "power4.out",
-        delay: 0.1
-      });
+      gsap.fromTo(
+        ".reveal-text",
+        { y: 60, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.12,
+          ease: "power4.out",
+          delay: 0.1,
+        }
+      );
     }, containerRef);
 
     return () => ctx.revert();
