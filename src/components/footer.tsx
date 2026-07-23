@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Mail, Phone, MapPin, CheckCircle2 } from "lucide-react";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { KineticDarkBgFX } from "@/components/section-background-fx";
 
 const FacebookIcon = ({ className }: { className?: string }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -50,6 +51,7 @@ export function Footer() {
 
   return (
     <footer id="contact" className="bg-black text-white py-16 sm:py-24 relative overflow-hidden w-full border-t border-white/10">
+      <KineticDarkBgFX />
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <ScrollReveal>
           {/* QUICK INLINE CONTACT FORM WITH FOCUS GLOW & CHECKMARK DRAW ANIMATION */}

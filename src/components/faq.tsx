@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { KineticYellowBgFX } from "@/components/section-background-fx";
 
 const faqs = [
   {
@@ -33,6 +34,7 @@ export function FAQ() {
 
   return (
     <section id="faq" className="py-20 sm:py-28 bg-primary text-[#0A0A0A] relative z-10 overflow-hidden select-none">
+      <KineticYellowBgFX />
       {/* Subtle dotted background pattern */}
       <div
         className="absolute inset-0 opacity-10 pointer-events-none"

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { KineticYellowBgFX } from "@/components/section-background-fx";
 
 const items = [
   "Google",
@@ -20,6 +21,7 @@ export function Clients() {
 
   return (
     <section id="clients" className="py-16 sm:py-24 md:py-32 w-full bg-primary overflow-hidden relative select-none">
+      <KineticYellowBgFX />
       {/* Subtle dotted background pattern */}
       <div
         className="absolute inset-0 opacity-10 pointer-events-none"

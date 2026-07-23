@@ -5,6 +5,7 @@ import { motion, useAnimation, useMotionValue, useTransform } from "framer-motio
 import { Monitor, Smartphone, Search, Target, Briefcase, PenTool, TrendingUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useEffect } from "react";
+import { KineticYellowBgFX } from "@/components/section-background-fx";
 
 const IS_SERVER = typeof window === "undefined";
 
@@ -115,6 +116,7 @@ export function Services() {
 
   return (
     <section id="services" className="py-20 sm:py-32 w-full relative z-10 bg-primary text-primary-foreground overflow-hidden">
+      <KineticYellowBgFX />
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-20">
         <div className="flex flex-col items-center text-center mb-12 sm:mb-20">
           <motion.h2 

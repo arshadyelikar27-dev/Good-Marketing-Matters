@@ -5,6 +5,7 @@ import HTMLFlipBook from "react-pageflip";
 import { motion } from "framer-motion";
 import { Star, BookOpen, ChevronRight, Sparkles } from "lucide-react";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { KineticDarkBgFX } from "@/components/section-background-fx";
 
 interface Testimonial {
   id: number;
@@ -125,6 +126,7 @@ export function Testimonials() {
 
   return (
     <section id="reviews" className="relative w-full min-h-screen py-16 sm:py-24 md:py-32 bg-[#0A0A0A] text-white flex flex-col items-center justify-center overflow-hidden">
+      <KineticDarkBgFX />
       {/* Background Glowing Breathing Orb */}
       <motion.div
         animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.25, 0.15] }}

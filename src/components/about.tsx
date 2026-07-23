@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { KineticDarkBgFX } from "@/components/section-background-fx";
 
 // Animated Counter Hook (0 -> Target over 2s)
 function CounterNumber({ value, suffix = "+" }: { value: number; suffix?: string }) {
@@ -82,6 +83,7 @@ export function AboutAnimation() {
 
   return (
     <section id="about" ref={containerRef} className="py-16 sm:py-28 md:py-36 bg-[#0A0A0A] relative overflow-hidden w-full">
+      <KineticDarkBgFX />
       {/* EFFECT 1: Background Parallax Text (20% Speed) */}
       <div className="absolute top-[10%] left-0 w-full overflow-hidden pointer-events-none opacity-[0.04] flex flex-col gap-4 select-none font-heading font-black text-[22vw] sm:text-[18vw] leading-[0.85] tracking-tighter whitespace-nowrap text-white">
         <motion.div style={{ x: xLeft }}>WHO WE ARE WHO WE ARE</motion.div>
