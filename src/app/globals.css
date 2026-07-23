@@ -160,3 +160,28 @@
 .preserve-3d {
   transform-style: preserve-3d;
 }
+
+/* Bottom sheet overscroll fix */
+.bottom-sheet-scroll {
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Scroll margin for section anchors (accounts for fixed navbar) */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Magnetic button base */
+.magnetic-wrap {
+  will-change: transform;
+  display: inline-block;
+}
+
+@keyframes text-glitch {
+  0%, 100% { clip-path: inset(0 0 100% 0); transform: translateX(0); }
+  20% { clip-path: inset(10% 0 60% 0); transform: translateX(-4px); }
+  40% { clip-path: inset(50% 0 20% 0); transform: translateX(4px); }
+  60% { clip-path: inset(80% 0 5% 0); transform: translateX(-2px); }
+  80% { clip-path: inset(30% 0 40% 0); transform: translateX(2px); }
+}

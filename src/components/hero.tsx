@@ -6,6 +6,8 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { HeroIllustration } from "@/components/hero-illustration";
 import { HeroReviewPopups } from "@/components/hero-review-popups";
+import { MagneticButton } from "@/components/magnetic-button";
+import { TextScramble } from "@/components/text-scramble";
 
 export function Hero() {
   // Generate 20 deterministic tiny floating yellow particles
@@ -70,7 +72,7 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* LEFT COLUMN: TYPOGRAPHY & CTAS */}
           <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
-            {/* HEADLINE LINE-BY-LINE REVEAL (SLIDE UP 50px, FADE IN, DELAY 0.2s) */}
+            {/* HEADLINE WITH TEXT SCRAMBLE EFFECT */}
             <div className="overflow-hidden w-full">
               <motion.h1
                 initial={{ opacity: 0, y: 50 }}
@@ -78,9 +80,20 @@ export function Hero() {
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.215, 0.61, 0.355, 1.0] }}
                 className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-bold tracking-tighter leading-[1.08]"
               >
-                Great Marketing <br />
+                <TextScramble
+                  text="Great Marketing "
+                  delay={600}
+                  duration={1200}
+                  className="inline"
+                />
+                <br />
                 <span className="text-primary drop-shadow-[0_0_25px_rgba(238,255,59,0.3)]">
-                  Matters
+                  <TextScramble
+                    text="Matters"
+                    delay={900}
+                    duration={1000}
+                    className="inline"
+                  />
                 </span>
               </motion.h1>
             </div>
@@ -93,11 +106,11 @@ export function Hero() {
                 transition={{ duration: 0.8, delay: 0.4, ease: [0.215, 0.61, 0.355, 1.0] }}
                 className="text-base sm:text-lg md:text-xl text-body-text font-medium leading-relaxed"
               >
-                We craft extraordinary brand experiences, intelligent SEO optimization, and high-converting web & mobile apps tailored for rapid growth.
+                We craft extraordinary brand experiences, intelligent SEO optimization, and high-converting web &amp; mobile apps tailored for rapid growth.
               </motion.p>
             </div>
 
-            {/* CTA BUTTONS APPEAR (SCALE 0.9 -> 1, FADE 0 -> 1, DELAY 0.6s) */}
+            {/* CTA BUTTONS WITH MAGNETIC EFFECT */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -105,13 +118,8 @@ export function Hero() {
               className="pt-2 w-full sm:w-auto"
             >
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full">
-                {/* PRIMARY EXPLORE SERVICES BUTTON */}
-                <motion.div
-                  whileHover={{ scale: 1.03, y: -6 }}
-                  whileTap={{ scale: 0.96 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                  className="w-full sm:w-auto"
-                >
+                {/* PRIMARY EXPLORE SERVICES BUTTON — MAGNETIC */}
+                <MagneticButton className="w-full sm:w-auto" strength={0.4}>
                   <Link
                     href="#services"
                     className="relative group flex items-center justify-center gap-2.5 w-full sm:w-auto px-8 py-4 bg-primary text-primary-foreground rounded-full font-black text-base sm:text-lg shadow-[0_10px_25px_rgba(238,255,59,0.3)] hover:shadow-[0_15px_35px_rgba(238,255,59,0.5)] transition-all overflow-hidden"
@@ -120,15 +128,10 @@ export function Hero() {
                     <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1.5 transition-transform duration-300" />
                     <span className="absolute -inset-full w-[200%] h-[200%] bg-gradient-to-r from-transparent via-white/50 to-transparent group-hover:animate-shine pointer-events-none" />
                   </Link>
-                </motion.div>
+                </MagneticButton>
 
-                {/* SECONDARY GET A PROPOSAL BUTTON */}
-                <motion.div
-                  whileHover={{ scale: 1.03, y: -6 }}
-                  whileTap={{ scale: 0.96 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                  className="w-full sm:w-auto"
-                >
+                {/* SECONDARY GET A PROPOSAL BUTTON — MAGNETIC */}
+                <MagneticButton className="w-full sm:w-auto" strength={0.4}>
                   <Link
                     href="#contact"
                     className="relative group flex items-center justify-center w-full sm:w-auto px-8 py-4 border border-[#262626] bg-[#151515]/80 text-foreground rounded-full font-bold text-base sm:text-lg hover:border-primary/50 hover:bg-[#151515] transition-all shadow-md overflow-hidden"
@@ -136,7 +139,7 @@ export function Hero() {
                     <span className="relative z-10">Get a Proposal</span>
                     <span className="absolute -inset-full w-[200%] h-[200%] bg-gradient-to-r from-transparent via-primary/20 to-transparent group-hover:animate-shine pointer-events-none" />
                   </Link>
-                </motion.div>
+                </MagneticButton>
               </div>
             </motion.div>
           </div>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Gamepad2, X, Sparkles, Brain, Trophy, Zap, Play, ArrowRight } from "lucide-react";
+import { Gamepad2, X, Brain, Trophy, Zap, Play, ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export const MINI_GAMES = [
@@ -60,33 +60,54 @@ export function GamesToggle() {
 
   return (
     <>
-      {/* FLOATING TOGGLE BUTTON - Bottom Right */}
-      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 pointer-events-auto">
+      {/* FLOATING TOGGLE — Right Edge, Vertically Centered, Connected to Edge */}
+      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 pointer-events-auto">
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          whileHover={{ scale: 1.08 }}
+          initial={{ x: 80, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 1.2, type: "spring", stiffness: 280, damping: 26 }}
+          whileHover={{ x: -5 }}
           whileTap={{ scale: 0.92 }}
-          className="relative group flex items-center gap-2.5 sm:gap-3 px-4 sm:px-5 py-3 sm:py-3.5 rounded-full bg-black text-white font-heading font-bold shadow-[0_10px_30px_rgba(0,0,0,0.3)] border border-primary/40 hover:border-primary transition-all duration-300 overflow-hidden"
+          aria-label="Open Mini Games"
+          className="relative flex flex-col items-center justify-center gap-3 px-3 py-6 bg-[#0A0A0A] border border-primary/40 border-r-0 rounded-l-2xl text-white shadow-[-6px_0px_30px_rgba(238,255,59,0.18)] hover:shadow-[-10px_0px_40px_rgba(238,255,59,0.35)] hover:border-primary/80 hover:bg-[#111] transition-all duration-300 group"
         >
-          {/* Animated Glowing Ring */}
-          <span className="absolute -inset-full w-[200%] h-[200%] bg-gradient-to-r from-transparent via-primary/30 to-transparent group-hover:animate-shine pointer-events-none" />
+          {/* Top & bottom accent lines */}
+          <span className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
+          <span className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
 
-          {/* Pulse Dot */}
-          <span className="relative flex h-2.5 w-2.5 sm:h-3 sm:w-3">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3 bg-primary"></span>
+          {/* Pulsing live dot */}
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
           </span>
 
-          <Gamepad2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary group-hover:rotate-12 transition-transform duration-300" />
-          
-          <span className="text-xs sm:text-sm tracking-wide hidden sm:inline-block">
-            {isOpen ? "Close Arena" : "Mini Games"}
-          </span>
+          {/* Icon: Gamepad or X */}
+          <AnimatePresence mode="wait">
+            {isOpen ? (
+              <motion.div
+                key="close"
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <X className="w-5 h-5 text-primary" />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="open"
+                initial={{ rotate: 90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: -90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Gamepad2 className="w-5 h-5 text-primary group-hover:scale-110 transition-transform duration-300" />
+              </motion.div>
+            )}
+          </AnimatePresence>
 
-          {/* Sparkles Icon */}
-          <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary opacity-80" />
+
         </motion.button>
       </div>
 

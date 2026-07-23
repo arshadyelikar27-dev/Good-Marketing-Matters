@@ -8,6 +8,10 @@ import { ScrollProgress } from "@/components/scroll-progress";
 import { AnimatedBackground } from "@/components/animated-background";
 import { LoadingScreen } from "@/components/loading-screen";
 import { FloatingContactButtons } from "@/components/floating-contact-buttons";
+import { ScrollToTop } from "@/components/scroll-to-top";
+import { CookieConsent } from "@/components/cookie-consent";
+import { ExitIntentPopup } from "@/components/exit-intent-popup";
+import { PageTransition } from "@/components/page-transition";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -20,9 +24,91 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://gmmagency.com";
+
 export const metadata: Metadata = {
-  title: "GMM - Great Marketing Matters",
-  description: "Premium Digital Agency providing Web Dev, SEO, and Brand Marketing.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "GMM — Great Marketing Matters | Digital Agency",
+    template: "%s | GMM Agency",
+  },
+  description:
+    "GMM is a premium digital agency delivering extraordinary brand experiences, intelligent SEO optimization, and high-converting web & mobile apps tailored for rapid business growth.",
+  keywords: [
+    "digital agency",
+    "web development",
+    "SEO optimization",
+    "brand marketing",
+    "mobile apps",
+    "UI/UX design",
+    "GMM agency",
+  ],
+  authors: [{ name: "GMM Agency" }],
+  creator: "GMM Agency",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "GMM Agency",
+    title: "GMM — Great Marketing Matters | Digital Agency",
+    description:
+      "Premium digital agency providing Web Development, SEO, and Brand Marketing to help businesses scale rapidly.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "GMM Agency — Great Marketing Matters",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GMM — Great Marketing Matters | Digital Agency",
+    description:
+      "Premium digital agency providing Web Development, SEO, and Brand Marketing to help businesses scale rapidly.",
+    images: ["/og-image.png"],
+    creator: "@gmmagency",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "GMM Agency",
+  description:
+    "Premium digital agency providing Web Development, SEO optimization, and Brand Marketing.",
+  url: siteUrl,
+  logo: `${siteUrl}/favicon.ico`,
+  sameAs: [],
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "IN",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    availableLanguage: ["English", "Hindi"],
+  },
+  offers: {
+    "@type": "AggregateOffer",
+    description:
+      "Web Development, SEO Optimization, Brand Marketing, Mobile App Development",
+  },
 };
 
 export default function RootLayout({
@@ -35,19 +121,29 @@ export default function RootLayout({
       lang="en"
       className={`dark ${outfit.variable} ${inter.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <link rel="canonical" href={siteUrl} />
+      </head>
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground overflow-x-hidden selection:bg-primary selection:text-primary-foreground cursor-none md:cursor-auto">
         <LoadingScreen />
         <ScrollProgress />
         <AnimatedBackground />
         <CustomCursor />
+        <PageTransition />
         <LenisProvider>
           <Navbar />
           {children}
           <FloatingContactButtons />
           <GamesToggle />
+          <ScrollToTop />
+          <CookieConsent />
+          <ExitIntentPopup />
         </LenisProvider>
       </body>
     </html>
   );
 }
-

@@ -9,42 +9,146 @@ export function HeroIllustration() {
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
+    // Respect prefers-reduced-motion
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     const ctx = gsap.context(() => {
-      // Smooth subtle entrance fade-in & rise on page load
-      gsap.fromTo(
-        svgRef.current,
-        { opacity: 0, scale: 0.96, y: 20 },
-        { opacity: 1, scale: 1, y: 0, duration: 1.2, ease: "power3.out" }
-      );
+      // ─── LAYER SELECTORS ─────────────────────────────────────────────
+      const yellowPaths  = svgRef.current?.querySelectorAll('[fill="#EEFF3B"]');
+      const whitePaths   = svgRef.current?.querySelectorAll('[fill="rgb(255,255,255)"]');
+      const darkPaths    = svgRef.current?.querySelectorAll('[fill="rgb(10,9,9)"]');
+      const accentPaths  = svgRef.current?.querySelectorAll('[fill="rgb(20,19,20)"]');
+      const grayPaths    = svgRef.current?.querySelectorAll('[fill="rgb(104,104,104)"]');
 
-      // Multi-layer depth animation: Animate yellow paths & white paths independently
-      const yellowPaths = svgRef.current?.querySelectorAll('[fill="#EEFF3B"]');
-      const whitePaths = svgRef.current?.querySelectorAll('[fill="rgb(255,255,255)"]');
+      if (prefersReduced) {
+        // Simple instant reveal for accessibility
+        gsap.set(svgRef.current, { opacity: 1 });
+        return;
+      }
 
+      // ─── STEP 1: DRAW-ON REVEAL ──────────────────────────────────────
+      // Each color layer fades + scales in sequentially, simulating drawing
+      gsap.set(svgRef.current, { opacity: 0 });
+
+      // 1a. Whole SVG entrance
+      gsap.to(svgRef.current, {
+        opacity: 1, scale: 1, y: 0,
+        duration: 0.5, ease: "power2.out",
+        delay: 0.1,
+      });
+
+      // 1b. Dark background layer — appears first (immediate, full opacity)
+      if (darkPaths && darkPaths.length > 0) {
+        gsap.fromTo(darkPaths,
+          { opacity: 0, scale: 0.97 },
+          {
+            opacity: 1, scale: 1,
+            duration: 0.6,
+            stagger: { each: 0.008, from: "start" },
+            ease: "power2.out",
+            delay: 0.3,
+          }
+        );
+      }
+
+      // 1c. White detail layer — appears second, slides up
+      if (whitePaths && whitePaths.length > 0) {
+        gsap.fromTo(whitePaths,
+          { opacity: 0, y: 12 },
+          {
+            opacity: 1, y: 0,
+            duration: 0.7,
+            stagger: { each: 0.01, from: "random" },
+            ease: "back.out(1.2)",
+            delay: 0.65,
+          }
+        );
+      }
+
+      // 1d. Yellow accent layer — appears last with a pop + glow feel
+      if (yellowPaths && yellowPaths.length > 0) {
+        gsap.fromTo(yellowPaths,
+          { opacity: 0, scale: 0.88, y: -8 },
+          {
+            opacity: 1, scale: 1, y: 0,
+            duration: 0.8,
+            stagger: { each: 0.015, from: "center" },
+            ease: "elastic.out(1, 0.6)",
+            delay: 1.1,
+          }
+        );
+      }
+
+      // 1e. Gray accents — subtle fade in last
+      if (grayPaths && grayPaths.length > 0) {
+        gsap.fromTo(grayPaths,
+          { opacity: 0 },
+          { opacity: 1, duration: 0.5, stagger: 0.02, ease: "power1.out", delay: 1.4 }
+        );
+      }
+
+      // ─── STEP 2: INDEPENDENT LAYER FLOATING ──────────────────────────
+      // Yellow paths — fast float, slight rotate (energetic)
       if (yellowPaths && yellowPaths.length > 0) {
         gsap.to(yellowPaths, {
-          y: -6,
-          rotate: 0.5,
-          duration: 3,
-          stagger: 0.05,
+          y: -10,
+          x: 3,
+          rotate: 0.8,
+          scale: 1.012,
+          duration: 2.8,
+          stagger: { each: 0.06, from: "random" },
           repeat: -1,
           yoyo: true,
           ease: "sine.inOut",
+          delay: 1.8,
         });
       }
 
+      // White paths — slower, opposite phase (breathing effect)
       if (whitePaths && whitePaths.length > 0) {
         gsap.to(whitePaths, {
-          y: 4,
-          rotate: -0.5,
-          duration: 4,
+          y: 7,
+          x: -4,
+          rotate: -0.6,
+          scale: 0.993,
+          duration: 3.8,
+          stagger: { each: 0.05, from: "end" },
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          delay: 2.0,
+        });
+      }
+
+      // Dark paths — very slow, minimal movement (stable base)
+      if (darkPaths && darkPaths.length > 0) {
+        gsap.to(darkPaths, {
+          y: 3,
+          x: 1.5,
+          duration: 5.5,
+          stagger: { each: 0.03, from: "start" },
+          repeat: -1,
+          yoyo: true,
+          ease: "power1.inOut",
+          delay: 1.6,
+        });
+      }
+
+      // Accent paths — medium speed, perpendicular to yellow (cross-axis)
+      if (accentPaths && accentPaths.length > 0) {
+        gsap.to(accentPaths, {
+          y: -5,
+          x: -3,
+          rotate: 1.2,
+          duration: 3.2,
           stagger: 0.08,
           repeat: -1,
           yoyo: true,
           ease: "sine.inOut",
-          delay: 0.5,
+          delay: 2.2,
         });
       }
+
     }, containerRef);
 
     return () => ctx.revert();
@@ -61,6 +165,7 @@ export function HeroIllustration() {
       }}
       className="relative w-full max-w-[650px] lg:max-w-[700px] mx-auto flex items-center justify-center select-none cursor-pointer"
     >
+
 
       <svg
         ref={svgRef}
