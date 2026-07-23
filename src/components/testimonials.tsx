@@ -2,9 +2,9 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import HTMLFlipBook from "react-pageflip";
-import { useMediaQuery } from "@react-hook/media-query";
 import { motion } from "framer-motion";
 import { Star, BookOpen, ChevronRight, Sparkles } from "lucide-react";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 interface Testimonial {
   id: number;
@@ -13,7 +13,6 @@ interface Testimonial {
   company: string;
   review: string;
   rating: number;
-  image?: string;
 }
 
 const testimonialsData: Testimonial[] = [
@@ -24,7 +23,6 @@ const testimonialsData: Testimonial[] = [
     company: "TechFlow Inc.",
     review: "GMM transformed our digital presence completely. Our organic traffic increased by 150% within just three months of their SEO overhaul.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200",
   },
   {
     id: 2,
@@ -33,7 +31,6 @@ const testimonialsData: Testimonial[] = [
     company: "Bloom Cosmetics",
     review: "The new website design is absolutely stunning. Their team perfectly captured our brand's luxury aesthetic while ensuring lightning-fast load times.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200",
   },
   {
     id: 3,
@@ -42,7 +39,6 @@ const testimonialsData: Testimonial[] = [
     company: "Apex Startups",
     review: "Incredible attention to detail in their app development process. They didn't just build what we asked for; they built what we actually needed.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200",
   },
   {
     id: 4,
@@ -51,11 +47,9 @@ const testimonialsData: Testimonial[] = [
     company: "Global Logistics",
     review: "Their B2B marketing strategy was a game-changer. We're now consistently generating high-quality leads that convert into long-term clients.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200",
   },
 ];
 
-// Helper Page Wrapper for react-pageflip (forwardRef is required!)
 const Page = React.forwardRef<HTMLDivElement, { children: React.ReactNode; className?: string }>(
   ({ children, className = "" }, ref) => {
     return (
@@ -76,20 +70,13 @@ export function Testimonials() {
     setMounted(true);
     const handleResize = () => {
       const w = typeof window !== "undefined" ? window.innerWidth : 1000;
-      // Calculate available width for 2-page book spread
-      const containerWidth = Math.min(w - 20, 1000); 
-      // Each page width is half of spread width so BOTH left & right pages fit comfortably side-by-side
+      const containerWidth = Math.min(w - 20, 1000);
       let pageW = Math.floor((containerWidth - 12) / 2);
-      
-      // Clamp page width between 140px and 360px
       pageW = Math.max(140, Math.min(360, pageW));
-      
-      // Aspect ratio height calculation
       let pageH = Math.floor(pageW * 1.35);
       if (w < 480) {
         pageH = Math.floor(pageW * 1.4);
       }
-
       setBookDimensions({ width: pageW, height: pageH });
     };
 
@@ -97,6 +84,38 @@ export function Testimonials() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const flipDirectionRef = useRef<"forward" | "backward">("forward");
+
+  // AUTO ROTATE EVERY 3 SECONDS & REVERSE DIRECTION AT BOUNDARIES
+  useEffect(() => {
+    if (!mounted) return;
+    const interval = setInterval(() => {
+      if (bookRef.current?.pageFlip()) {
+        const pageFlipObj = bookRef.current.pageFlip();
+        const currentPage = pageFlipObj.getCurrentPageIndex();
+        const totalPages = pageFlipObj.getPageCount();
+
+        if (flipDirectionRef.current === "forward") {
+          if (currentPage + 2 >= totalPages) {
+            flipDirectionRef.current = "backward";
+            pageFlipObj.flipPrev();
+          } else {
+            pageFlipObj.flipNext();
+          }
+        } else {
+          if (currentPage <= 0) {
+            flipDirectionRef.current = "forward";
+            pageFlipObj.flipNext();
+          } else {
+            pageFlipObj.flipPrev();
+          }
+        }
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [mounted]);
 
   const handleFlip = (pageNum: number) => {
     if (bookRef.current?.pageFlip()) {
@@ -106,42 +125,36 @@ export function Testimonials() {
 
   return (
     <section id="reviews" className="relative w-full min-h-screen py-16 sm:py-24 md:py-32 bg-[#0A0A0A] text-white flex flex-col items-center justify-center overflow-hidden">
-      {/* Background glowing orb */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] md:w-[40vw] h-[80vw] md:h-[40vw] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
+      {/* Background Glowing Breathing Orb */}
+      <motion.div
+        animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.25, 0.15] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] md:w-[40vw] h-[80vw] md:h-[40vw] bg-primary/20 rounded-full blur-[140px] pointer-events-none"
+      />
 
       {/* Header */}
       <div className="container relative z-10 mx-auto px-4 sm:px-6 mb-6 sm:mb-12 text-center flex flex-col items-center">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 text-white font-bold text-xs uppercase tracking-widest mb-4"
-        >
-          <BookOpen className="w-4 h-4 text-primary" /> Interactive Client Book
-        </motion.div>
+        <ScrollReveal>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white font-bold text-xs uppercase tracking-widest mb-4">
+            <BookOpen className="w-4 h-4 text-primary" /> Interactive Client Storybook
+          </div>
 
-        <motion.h2 
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="font-heading text-3xl sm:text-4xl md:text-6xl font-bold mb-4"
-        >
-          What Our <span className="text-primary">Clients Say</span>
-        </motion.h2>
-        
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="text-sm sm:text-base md:text-lg text-[#BDBDBD] max-w-xl mx-auto px-2"
-        >
-          Flip through the pages of our client storybook to see how GMM drives real growth.
-        </motion.p>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-6xl font-black mb-4 tracking-tight">
+            What Our <span className="text-primary underline decoration-primary/30">Clients Say</span>
+          </h2>
+
+          <p className="text-sm sm:text-base md:text-lg text-[#BDBDBD] max-w-xl mx-auto px-2 leading-relaxed">
+            Flip through the pages of our client storybook to see how GMM drives real growth.
+          </p>
+        </ScrollReveal>
       </div>
 
-      {/* 3D FlipBook Container */}
-      <div className="w-full relative z-10 flex justify-center items-center py-2 sm:py-6 px-1 sm:px-4 overflow-hidden">
+      {/* FLOATING 3D FLIPBOOK CONTAINER WITH SLIGHT MOMENTUM FLOAT */}
+      <motion.div
+        animate={{ y: [-6, 6, -6] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        className="w-full relative z-10 flex justify-center items-center py-2 sm:py-6 px-1 sm:px-4 overflow-hidden"
+      >
         {mounted && (
           <HTMLFlipBook
             key={`spread-${bookDimensions.width}-${bookDimensions.height}`}
@@ -170,7 +183,7 @@ export function Testimonials() {
             className="shadow-2xl rounded-2xl max-w-full"
             style={{ margin: "0 auto" }}
           >
-            {/* FRONT COVER */}
+            {/* COVER */}
             <Page className="bg-[#0A0A0A] text-white p-3 sm:p-6 md:p-8 flex flex-col justify-between items-center text-center border-r border-[#262626]">
               <div className="w-full flex justify-between items-center pt-1 border-b border-white/20 pb-2 sm:pb-4">
                 <span className="text-[8px] sm:text-[10px] md:text-xs font-bold uppercase tracking-widest text-primary">GMM Edition</span>
@@ -191,19 +204,19 @@ export function Testimonials() {
               </div>
 
               <div className="w-full pt-2 sm:pt-4 border-t border-white/20 flex items-center justify-between text-[9px] sm:text-xs text-white/50">
-                <span>Click corner to flip</span>
+                <span>Auto-flips every 3s 📖</span>
                 <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-primary animate-bounce" />
               </div>
             </Page>
 
-            {/* INDEX / TABLE OF CONTENTS PAGE */}
+            {/* INDEX PAGE */}
             <Page className="bg-[#151515] p-3 sm:p-6 md:p-8 flex flex-col justify-between border-r border-[#262626]">
               <div>
                 <div className="flex items-center justify-between border-b border-[#262626] pb-2 mb-2 sm:mb-4">
                   <h3 className="font-heading font-black text-xs sm:text-lg md:text-xl text-white">Table of Contents</h3>
                   <span className="text-[8px] sm:text-[10px] md:text-xs font-bold text-white/40">Page 1</span>
                 </div>
-                
+
                 <ol className="space-y-1.5 sm:space-y-3">
                   {testimonialsData.map((t, idx) => (
                     <li
@@ -242,19 +255,16 @@ export function Testimonials() {
                 </div>
 
                 <div className="my-auto flex flex-col items-center text-center px-0.5">
-                  {/* Star Rating */}
                   <div className="flex gap-0.5 sm:gap-1 mb-2 sm:mb-4">
                     {[...Array(t.rating)].map((_, i) => (
                       <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 fill-primary text-primary" />
                     ))}
                   </div>
 
-                  {/* Review Quote */}
                   <p className="text-[10px] sm:text-xs md:text-base font-medium leading-tight sm:leading-relaxed text-white/90 italic mb-2 sm:mb-4">
                     "{t.review}"
                   </p>
 
-                  {/* Client Info */}
                   <div className="flex flex-col items-center">
                     <div className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center font-black text-[#0A0A0A] text-sm sm:text-lg md:text-xl mb-1 sm:mb-2 shadow-md">
                       {t.name.charAt(0)}
@@ -286,7 +296,7 @@ export function Testimonials() {
             </Page>
           </HTMLFlipBook>
         )}
-      </div>
+      </motion.div>
     </section>
   );
 }

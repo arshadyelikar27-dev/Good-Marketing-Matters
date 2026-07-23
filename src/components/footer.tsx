@@ -1,5 +1,10 @@
+"use client";
+
+import { useState, FormEvent } from "react";
 import Link from "next/link";
-import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Mail, Phone, MapPin, CheckCircle2 } from "lucide-react";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 const FacebookIcon = ({ className }: { className?: string }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -26,33 +31,124 @@ const LinkedinIcon = ({ className }: { className?: string }) => (
 );
 
 export function Footer() {
+  const [formState, setFormState] = useState({ name: "", email: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (!formState.email) return;
+
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      setFormState({ name: "", email: "", message: "" });
+      setTimeout(() => setIsSubmitted(false), 4000);
+    }, 1000);
+  };
+
   return (
-    <footer id="contact" className="bg-black text-white py-12 sm:py-16 md:py-20 relative overflow-hidden w-full">
+    <footer id="contact" className="bg-black text-white py-16 sm:py-24 relative overflow-hidden w-full border-t border-white/10">
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12 sm:mb-16">
-          
-          {/* Brand & CTA */}
-          <div className="sm:col-span-2">
-            <Link href="/" className="flex items-center gap-2 group inline-flex mb-4 sm:mb-6">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-primary flex items-center justify-center text-black font-bold text-xl sm:text-2xl group-hover:scale-110 transition-transform">
-                G
+        <ScrollReveal>
+          {/* QUICK INLINE CONTACT FORM WITH FOCUS GLOW & CHECKMARK DRAW ANIMATION */}
+          <div className="mb-16 bg-[#151515]/80 border border-[#262626] rounded-3xl p-6 sm:p-10 backdrop-blur-xl shadow-2xl">
+            <h3 className="font-heading font-black text-2xl sm:text-4xl text-white mb-2">
+              Start Your Project <span className="text-primary">With GMM</span>
+            </h3>
+            <p className="text-body-text text-sm sm:text-base mb-8">
+              Fill in your details below to receive a custom agency strategy proposal.
+            </p>
+
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="relative group">
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  value={formState.name}
+                  onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                  className="w-full px-5 py-3.5 rounded-full bg-[#0A0A0A] border border-[#262626] text-white text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/40 transition-all duration-300 placeholder:text-white/40"
+                />
               </div>
-              <span className="font-heading font-bold text-2xl sm:text-3xl tracking-tight text-white group-hover:text-primary transition-colors">
-                GMM.
+
+              <div className="relative group">
+                <input
+                  type="email"
+                  required
+                  placeholder="Your Email *"
+                  value={formState.email}
+                  onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                  className="w-full px-5 py-3.5 rounded-full bg-[#0A0A0A] border border-[#262626] text-white text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/40 transition-all duration-300 placeholder:text-white/40"
+                />
+              </div>
+
+              <div className="relative">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="relative group w-full px-6 py-3.5 bg-primary text-black rounded-full font-black text-sm hover:bg-primary-hover transition-all duration-300 hover:scale-[1.03] active:scale-[0.96] shadow-[0_0_20px_rgba(238,255,59,0.3)] hover:shadow-[0_0_30px_rgba(238,255,59,0.6)] flex items-center justify-center gap-2 overflow-hidden cursor-pointer"
+                >
+                  <AnimatePresence mode="wait">
+                    {isSubmitted ? (
+                      <motion.span
+                        key="success"
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="flex items-center gap-2 text-black font-black"
+                      >
+                        <CheckCircle2 className="w-5 h-5 text-black animate-bounce" />
+                        Proposal Requested!
+                      </motion.span>
+                    ) : isSubmitting ? (
+                      <motion.span key="submitting" className="animate-pulse">
+                        Processing...
+                      </motion.span>
+                    ) : (
+                      <motion.span key="idle" className="flex items-center gap-2">
+                        Get Instant Proposal <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
+                  <span className="absolute -inset-full w-[200%] h-[200%] bg-gradient-to-r from-transparent via-white/50 to-transparent group-hover:animate-shine pointer-events-none" />
+                </button>
+              </div>
+            </form>
+          </div>
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12 sm:mb-16">
+          {/* Brand & Floating Logo */}
+          <div className="sm:col-span-2">
+            <Link href="/" className="flex items-center gap-3 group inline-flex mb-4 sm:mb-6">
+              {/* SLOW FLOATING ANIMATION FOR LOGO */}
+              <motion.div
+                animate={{ y: [-4, 4, -4] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary flex items-center justify-center text-black font-black text-2xl group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(238,255,59,0.4)]"
+              >
+                G
+              </motion.div>
+              <span className="font-heading font-black text-2xl sm:text-3xl tracking-tight text-white group-hover:text-primary transition-colors">
+                GMM<span className="text-primary">.</span>
               </span>
             </Link>
-            <p className="text-white/70 max-w-sm mb-6 sm:mb-8 text-base sm:text-lg">
+
+            <p className="text-white/70 max-w-sm mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed">
               Elevating brands through strategic digital marketing, stunning design, and cutting-edge development.
             </p>
-            
-            {/* Google Form Link Button */}
-            <a 
-              href="https://forms.google.com/" 
+
+            <a
+              href="https://forms.google.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-primary text-black rounded-full font-bold text-base sm:text-lg hover:bg-primary/90 transition-all hover:scale-105 shadow-[0_0_20px_rgba(249,192,0,0.3)]"
+              className="relative group inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-black rounded-full font-bold text-base hover:bg-primary-hover transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(238,255,59,0.3)] overflow-hidden"
             >
-              Contact Us <ArrowRight className="w-5 h-5" />
+              <span className="relative z-10 flex items-center gap-2">
+                Open Full Form <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+              <span className="absolute -inset-full w-[200%] h-[200%] bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:animate-shine pointer-events-none" />
             </a>
           </div>
 
@@ -62,7 +158,7 @@ export function Footer() {
             <ul className="flex flex-col gap-3 sm:gap-4 text-white/70 text-sm sm:text-base">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-1" />
-                <span>123 Innovation Drive,<br/>Tech City, TC 10010</span>
+                <span>123 Innovation Drive,<br />Tech City, TC 10010</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
@@ -78,28 +174,43 @@ export function Footer() {
           {/* Socials & Links */}
           <div>
             <h4 className="font-heading font-bold text-lg sm:text-xl mb-4 sm:mb-6 text-primary">Follow Us</h4>
+            {/* SOCIAL ICONS HOVER ROTATE 10° + GLOW */}
             <div className="flex gap-3 sm:gap-4 mb-6 sm:mb-8">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" aria-label="Facebook">
-                <FacebookIcon className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" aria-label="Twitter">
-                <TwitterIcon className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" aria-label="Instagram">
-                <InstagramIcon className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" aria-label="LinkedIn">
-                <LinkedinIcon className="w-5 h-5" />
-              </a>
+              {[
+                { icon: FacebookIcon, label: "Facebook" },
+                { icon: TwitterIcon, label: "Twitter" },
+                { icon: InstagramIcon, label: "Instagram" },
+                { icon: LinkedinIcon, label: "LinkedIn" },
+              ].map((item, i) => {
+                const IconComp = item.icon;
+                return (
+                  <motion.a
+                    key={i}
+                    href="#"
+                    whileHover={{ rotate: 10, scale: 1.15 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors hover:shadow-[0_0_20px_rgba(238,255,59,0.8)]"
+                    aria-label={item.label}
+                  >
+                    <IconComp className="w-5 h-5" />
+                  </motion.a>
+                );
+              })}
             </div>
 
             <h4 className="font-heading font-bold text-lg sm:text-xl mb-4 sm:mb-6 text-primary">Legal</h4>
+            {/* LINKS UNDERLINE GROWS FROM LEFT */}
             <ul className="flex flex-col gap-2 text-white/70 text-sm sm:text-base">
-              <li><Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Terms of Service</Link></li>
+              {["Privacy Policy", "Terms of Service"].map((text) => (
+                <li key={text}>
+                  <Link href="#" className="relative inline-block hover:text-white transition-colors group">
+                    <span>{text}</span>
+                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300 origin-left" />
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
-
         </div>
 
         {/* Copyright */}
@@ -107,8 +218,8 @@ export function Footer() {
           <p>&copy; {new Date().getFullYear()} Great Marketing Matters (GMM). All rights reserved.</p>
         </div>
       </div>
-      
-      {/* Decorative large letter */}
+
+      {/* Decorative background logo typography */}
       <div className="absolute -bottom-14 sm:-bottom-20 -right-10 text-[24vw] sm:text-[20vw] font-black text-white/5 font-heading pointer-events-none leading-none select-none">
         GMM.
       </div>

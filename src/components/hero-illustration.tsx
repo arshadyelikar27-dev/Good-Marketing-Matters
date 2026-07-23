@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import gsap from "gsap";
 
 export function HeroIllustration() {
@@ -15,16 +16,52 @@ export function HeroIllustration() {
         { opacity: 0, scale: 0.96, y: 20 },
         { opacity: 1, scale: 1, y: 0, duration: 1.2, ease: "power3.out" }
       );
+
+      // Multi-layer depth animation: Animate yellow paths & white paths independently
+      const yellowPaths = svgRef.current?.querySelectorAll('[fill="#EEFF3B"]');
+      const whitePaths = svgRef.current?.querySelectorAll('[fill="rgb(255,255,255)"]');
+
+      if (yellowPaths && yellowPaths.length > 0) {
+        gsap.to(yellowPaths, {
+          y: -6,
+          rotate: 0.5,
+          duration: 3,
+          stagger: 0.05,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+      }
+
+      if (whitePaths && whitePaths.length > 0) {
+        gsap.to(whitePaths, {
+          y: 4,
+          rotate: -0.5,
+          duration: 4,
+          stagger: 0.08,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          delay: 0.5,
+        });
+      }
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <div
+    <motion.div
       ref={containerRef}
-      className="relative w-full max-w-[650px] lg:max-w-[700px] mx-auto flex items-center justify-center select-none"
+      animate={{ y: [-12, 0, -12] }}
+      transition={{
+        duration: 5,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+      className="relative w-full max-w-[650px] lg:max-w-[700px] mx-auto flex items-center justify-center select-none cursor-pointer"
     >
+
       <svg
         ref={svgRef}
         xmlns="http://www.w3.org/2000/svg"
@@ -512,6 +549,7 @@ export function HeroIllustration() {
         <path id="p-474" d="M 1022.34 215.424 C 1023.46 214.755 1024.91 215.086 1025.63 216.177 C 1026.36 217.267 1026.1 218.733 1025.04 219.507 C 1024.31 220.043 1023.35 220.133 1022.53 219.743 C 1021.72 219.353 1021.18 218.546 1021.14 217.642 C 1021.1 216.739 1021.56 215.886 1022.34 215.424 z" fill="rgb(10,9,9)" transform="translate(0,0)" />
         </g>
       </svg>
-    </div>
+    </motion.div>
   );
 }
+

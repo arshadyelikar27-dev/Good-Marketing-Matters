@@ -177,7 +177,7 @@ export function Services() {
                 style={{
                   width: `${faceWidth}px`,
                   transform: `rotateY(${idx * (360 / faceCount)}deg) translateZ(${radius}px)`,
-                  backfaceVisibility: "hidden", // Hides cards when they rotate to the back
+                  backfaceVisibility: "hidden",
                   WebkitBackfaceVisibility: "hidden"
                 }}
               >

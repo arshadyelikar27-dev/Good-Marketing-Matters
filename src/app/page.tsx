@@ -3,6 +3,7 @@ import { Services } from "@/components/services";
 import { AboutAnimation } from "@/components/about";
 import { Clients } from "@/components/clients";
 import { Testimonials } from "@/components/testimonials";
+import { FAQ } from "@/components/faq";
 import { Footer } from "@/components/footer";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <AboutAnimation />
       <Clients />
       <Testimonials />
+      <FAQ />
       <Footer />
     </main>
   );
