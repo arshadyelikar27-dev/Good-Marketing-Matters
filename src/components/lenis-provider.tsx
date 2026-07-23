@@ -15,27 +15,33 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.5,
+      syncTouch: true,
+      infinite: false,
     });
 
-    lenis.on('scroll', ScrollTrigger.update);
+    // Connect Lenis to GSAP ScrollTrigger
+    lenis.on("scroll", ScrollTrigger.update);
 
-    const updateGSAP = (time: number) => {
-      lenis.raf(time * 1000);
+    let animationFrameId: number;
+
+    const raf = (time: number) => {
+      lenis.raf(time);
+      animationFrameId = requestAnimationFrame(raf);
     };
 
-    gsap.ticker.add(updateGSAP);
-    gsap.ticker.lagSmoothing(0);
+    animationFrameId = requestAnimationFrame(raf);
 
-    // Refresh ScrollTrigger after Lenis setup
-    setTimeout(() => {
+    // Refresh ScrollTrigger to sync measurements
+    const refreshTimer = setTimeout(() => {
       ScrollTrigger.refresh();
-    }, 100);
+    }, 150);
 
     return () => {
+      cancelAnimationFrame(animationFrameId);
+      clearTimeout(refreshTimer);
       lenis.destroy();
-      gsap.ticker.remove(updateGSAP);
     };
   }, []);
 

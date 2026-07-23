@@ -32,25 +32,33 @@ export function Navbar() {
     }
   });
 
-  // Track active section automatically on scroll to move the indicator pill
+  // Track active section automatically on scroll with requestAnimationFrame throttling (60 FPS)
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 220; // Viewport offset
+    let ticking = false;
 
-      for (let i = navLinks.length - 1; i >= 0; i--) {
-        const element = document.getElementById(navLinks[i].id);
-        if (element) {
-          const top = element.offsetTop;
-          if (scrollPosition >= top) {
-            setActiveSection(navLinks[i].name);
-            break;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollPosition = window.scrollY + 220;
+
+          for (let i = navLinks.length - 1; i >= 0; i--) {
+            const element = document.getElementById(navLinks[i].id);
+            if (element) {
+              const top = element.offsetTop;
+              if (scrollPosition >= top) {
+                setActiveSection(navLinks[i].name);
+                break;
+              }
+            }
           }
-        }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial check
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
