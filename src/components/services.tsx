@@ -10,15 +10,12 @@ import { KineticYellowBgFX } from "@/components/section-background-fx";
 const IS_SERVER = typeof window === "undefined";
 
 function useMediaQuery(query: string, defaultValue = false) {
-  const [matches, setMatches] = useState<boolean>(() => {
-    if (IS_SERVER) return defaultValue;
-    return window.matchMedia(query).matches;
-  });
+  const [matches, setMatches] = useState<boolean>(defaultValue);
 
   useEffect(() => {
     const matchMedia = window.matchMedia(query);
     const handleChange = () => setMatches(matchMedia.matches);
-    handleChange();
+    handleChange(); // Initialize after hydration
     matchMedia.addEventListener("change", handleChange);
     return () => matchMedia.removeEventListener("change", handleChange);
   }, [query]);
@@ -91,7 +88,7 @@ export function Services() {
   // 3D Carousel Mathematics with fine-grained responsive breakpoints
   const isMobileXs = useMediaQuery("(max-width: 480px)");
   const isMobileSm = useMediaQuery("(max-width: 640px)");
-  const cylinderWidth = isMobileXs ? 1200 : isMobileSm ? 1600 : 2500;
+  const cylinderWidth = isMobileXs ? 900 : isMobileSm ? 1300 : 2500;
   const faceCount = services.length;
   const faceWidth = cylinderWidth / faceCount;
   const radius = cylinderWidth / (2 * Math.PI);
@@ -117,13 +114,13 @@ export function Services() {
   return (
     <section id="services" className="py-20 sm:py-32 w-full relative z-10 bg-primary text-primary-foreground overflow-hidden">
       <KineticYellowBgFX />
-      <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 max-w-7xl xl:max-w-[1400px] relative z-20">
         <div className="flex flex-col items-center text-center mb-12 sm:mb-20">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
+            className="font-heading text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4"
           >
             Our Core <span className="text-[#0A0A0A]">Services</span>
           </motion.h2>
@@ -132,7 +129,7 @@ export function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.1 }}
-            className="text-[#0A0A0A]/70 text-base sm:text-lg max-w-2xl px-2"
+            className="text-[#0A0A0A]/70 text-base sm:text-lg xl:text-xl max-w-2xl px-2"
           >
             We leverage cutting-edge technology and creative strategies to elevate your brand in the digital landscape. Drag the cards to explore.
           </motion.p>
@@ -140,7 +137,7 @@ export function Services() {
       </div>
 
       <div 
-        className="relative h-[550px] md:h-[700px] w-full overflow-hidden flex items-center justify-center -mt-10" 
+        className="relative h-[380px] sm:h-[450px] md:h-[700px] w-full overflow-hidden flex items-center justify-center -mt-6 sm:-mt-10" 
         style={{ perspective: "1200px" }}
       >
         <motion.div
@@ -186,7 +183,7 @@ export function Services() {
                 {/* The Card Design */}
                   <div 
                     className={cn(
-                      "relative group w-full h-[360px] rounded-3xl p-8 overflow-hidden border transition-all duration-500 flex flex-col justify-between cursor-pointer",
+                      "relative group w-full h-[280px] sm:h-[320px] md:h-[360px] rounded-2xl sm:rounded-3xl p-5 sm:p-8 overflow-hidden border transition-all duration-500 flex flex-col justify-between cursor-pointer",
                       isHovered 
                         ? "shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-primary/50 scale-[1.03]" 
                         : "border-[#262626] bg-[#151515]/90 backdrop-blur-xl scale-100"
@@ -218,22 +215,22 @@ export function Services() {
                   />
                   
                   {/* Content */}
-                  <div className="relative z-10 flex flex-col h-full gap-6">
+                  <div className="relative z-10 flex flex-col h-full gap-4 sm:gap-6">
                     <div 
                         className={cn(
-                          "w-16 h-16 shrink-0 rounded-full border flex items-center justify-center transition-all duration-500 shadow-sm",
+                          "w-12 h-12 sm:w-16 sm:h-16 shrink-0 rounded-full border flex items-center justify-center transition-all duration-500 shadow-sm",
                           isHovered 
                             ? "bg-primary border-primary text-[#0A0A0A] scale-110 shadow-lg shadow-primary/30" 
                             : "bg-[#262626] border-[#262626] text-white"
                         )}
                     >
-                      <Icon className="w-8 h-8 transition-transform duration-500 group-hover:scale-110" />
+                      <Icon className="w-6 h-6 sm:w-8 sm:h-8 transition-transform duration-500 group-hover:scale-110" />
                     </div>
                     
                     <div className="mt-auto">
                       <h3 
                         className={cn(
-                          "text-2xl font-bold mb-3 font-heading transition-colors duration-300",
+                          "text-lg sm:text-2xl font-bold mb-2 sm:mb-3 font-heading transition-colors duration-300",
                           isHovered ? "text-white" : "text-white"
                         )}
                       >
@@ -241,7 +238,7 @@ export function Services() {
                       </h3>
                       <p 
                         className={cn(
-                          "leading-relaxed text-sm transition-colors duration-300",
+                          "leading-tight sm:leading-relaxed text-xs sm:text-sm transition-colors duration-300",
                           isHovered ? "text-white/90" : "text-white/70"
                         )}
                       >

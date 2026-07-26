@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ChevronRight } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { MagneticButton } from "@/components/magnetic-button";
@@ -90,17 +91,20 @@ export function Navbar() {
           )}
         >
           {/* LOGO WITH 10% SHRINK ON SCROLL */}
-          <Link href="/" className="flex items-center gap-2.5 group">
+          <Link href="/" className="flex items-center group">
             <motion.div
               animate={{ scale: isScrolled ? 0.9 : 1 }}
               transition={{ duration: 0.3 }}
-              className="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-black text-xl group-hover:scale-110 shadow-[0_0_15px_rgba(238,255,59,0.4)] transition-transform"
+              className="relative w-28 h-10 sm:w-32 sm:h-12 transition-transform group-hover:scale-105"
             >
-              G
+              <Image 
+                src="/gmm-logo.png" 
+                alt="GMM Logo" 
+                fill
+                className="object-contain drop-shadow-[0_0_15px_rgba(238,255,59,0.2)]"
+                priority
+              />
             </motion.div>
-            <span className="font-heading font-black text-lg sm:text-xl tracking-tight text-white group-hover:text-primary transition-colors">
-              GMM<span className="text-primary">.</span>
-            </span>
           </Link>
 
           {/* DESKTOP LINKS WITH MOVING ACTIVE INDICATOR PILL */}

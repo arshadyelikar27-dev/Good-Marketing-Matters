@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Mail, Phone, MapPin, CheckCircle2 } from "lucide-react";
 import { ScrollReveal } from "@/components/scroll-reveal";
@@ -52,7 +53,7 @@ export function Footer() {
   return (
     <footer id="contact" className="bg-black text-white py-16 sm:py-24 relative overflow-hidden w-full border-t border-white/10">
       <KineticDarkBgFX />
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 max-w-7xl xl:max-w-[1400px] relative z-10">
         <ScrollReveal>
           {/* QUICK INLINE CONTACT FORM WITH FOCUS GLOW & CHECKMARK DRAW ANIMATION */}
           <div className="mb-16 bg-[#151515]/80 border border-[#262626] rounded-3xl p-6 sm:p-10 backdrop-blur-xl shadow-2xl">
@@ -120,21 +121,23 @@ export function Footer() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8 sm:gap-12 mb-12 sm:mb-16">
           {/* Brand & Floating Logo */}
-          <div className="sm:col-span-2">
-            <Link href="/" className="flex items-center gap-3 group inline-flex mb-4 sm:mb-6">
+          <div className="sm:col-span-2 xl:col-span-2">
+            <Link href="/" className="flex items-center group inline-flex mb-4 sm:mb-6">
               {/* SLOW FLOATING ANIMATION FOR LOGO */}
               <motion.div
                 animate={{ y: [-4, 4, -4] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary flex items-center justify-center text-black font-black text-2xl group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(238,255,59,0.4)]"
+                className="relative w-36 h-12 sm:w-44 sm:h-16 transition-transform group-hover:scale-105"
               >
-                G
+                <Image 
+                  src="/gmm-logo.png" 
+                  alt="GMM Logo" 
+                  fill
+                  className="object-contain drop-shadow-[0_0_20px_rgba(238,255,59,0.2)]"
+                />
               </motion.div>
-              <span className="font-heading font-black text-2xl sm:text-3xl tracking-tight text-white group-hover:text-primary transition-colors">
-                GMM<span className="text-primary">.</span>
-              </span>
             </Link>
 
             <p className="text-white/70 max-w-sm mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function LoadingScreen() {
@@ -56,58 +57,23 @@ export function LoadingScreen() {
           />
 
           <div className="relative z-10 flex flex-col items-center gap-6">
-            {/* Self-drawing Animated Logo Symbol */}
-            <div className="relative flex items-center justify-center">
-              <motion.svg
-                width="80"
-                height="80"
-                viewBox="0 0 100 100"
-                className="w-20 h-20 sm:w-24 sm:h-24"
+            {/* Animated PNG Logo Symbol */}
+            <div className="relative flex flex-col items-center justify-center gap-4">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className="relative w-48 h-20 sm:w-56 sm:h-24 drop-shadow-[0_0_25px_rgba(238,255,59,0.2)]"
               >
-                {/* Circle Outer Border */}
-                <motion.circle
-                  cx="50"
-                  cy="50"
-                  r="45"
-                  stroke="var(--primary)"
-                  strokeWidth="3"
-                  fill="none"
-                  initial={{ pathLength: 0, rotate: -90 }}
-                  animate={{ pathLength: 1, rotate: 0 }}
-                  transition={{ duration: 1.4, ease: "easeInOut" }}
+                <Image 
+                  src="/gmm-logo.png" 
+                  alt="GMM Logo" 
+                  fill
+                  className="object-contain"
+                  priority
                 />
-                {/* Text G */}
-                <motion.text
-                  x="50"
-                  y="62"
-                  textAnchor="middle"
-                  fill="var(--primary)"
-                  fontSize="48"
-                  fontWeight="900"
-                  fontFamily="var(--font-outfit)"
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.4, duration: 0.6 }}
-                >
-                  G
-                </motion.text>
-              </motion.svg>
+              </motion.div>
             </div>
-
-            {/* Brand Title */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              className="text-center"
-            >
-              <h2 className="font-heading font-black text-xl sm:text-2xl tracking-widest uppercase text-white">
-                GMM<span className="text-primary">.</span>
-              </h2>
-              <p className="text-[10px] text-white/50 tracking-widest uppercase mt-1">
-                Great Marketing Matters
-              </p>
-            </motion.div>
 
             {/* Progress Bar Container */}
             <div className="w-48 sm:w-64 h-[3px] bg-white/10 rounded-full overflow-hidden relative mt-4">

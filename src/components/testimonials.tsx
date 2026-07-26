@@ -135,7 +135,7 @@ export function Testimonials() {
       />
 
       {/* Header */}
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 mb-6 sm:mb-12 text-center flex flex-col items-center">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 max-w-7xl xl:max-w-[1400px] mb-6 sm:mb-12 text-center flex flex-col items-center">
         <ScrollReveal>
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white font-bold text-xs uppercase tracking-widest mb-4">
             <BookOpen className="w-4 h-4 text-primary" /> Interactive Client Storybook

@@ -68,8 +68,8 @@ export function Hero() {
       </div>
 
       {/* MAIN 2-COLUMN CONTAINER */}
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 max-w-7xl xl:max-w-[1400px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 xl:gap-16 items-center">
           {/* LEFT COLUMN: TYPOGRAPHY & CTAS */}
           <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
             {/* HEADLINE WITH TEXT SCRAMBLE EFFECT */}
@@ -78,7 +78,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.215, 0.61, 0.355, 1.0] }}
-                className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-bold tracking-tighter leading-[1.08]"
+                className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold tracking-tighter leading-[1.08]"
               >
                 <TextScramble
                   text="Great Marketing "
@@ -104,7 +104,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4, ease: [0.215, 0.61, 0.355, 1.0] }}
-                className="text-base sm:text-lg md:text-xl text-body-text font-medium leading-relaxed"
+                className="text-base sm:text-lg md:text-xl xl:text-2xl text-body-text font-medium leading-relaxed"
               >
                 We craft extraordinary brand experiences, intelligent SEO optimization, and high-converting web &amp; mobile apps tailored for rapid growth.
               </motion.p>
@@ -136,7 +136,7 @@ export function Hero() {
                     href="#contact"
                     className="relative group flex items-center justify-center w-full sm:w-auto px-8 py-4 border border-[#262626] bg-[#151515]/80 text-foreground rounded-full font-bold text-base sm:text-lg hover:border-primary/50 hover:bg-[#151515] transition-all shadow-md overflow-hidden"
                   >
-                    <span className="relative z-10">Get a Proposal</span>
+                    <span className="relative z-10 text-center">Get a Proposal</span>
                     <span className="absolute -inset-full w-[200%] h-[200%] bg-gradient-to-r from-transparent via-primary/20 to-transparent group-hover:animate-shine pointer-events-none" />
                   </Link>
                 </MagneticButton>
