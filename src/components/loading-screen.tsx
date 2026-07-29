@@ -63,10 +63,10 @@ export function LoadingScreen() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, ease: "easeOut" }}
-                className="relative w-48 h-20 sm:w-56 sm:h-24 drop-shadow-[0_0_25px_rgba(238,255,59,0.2)]"
+                className="relative w-[170px] h-[170px] drop-shadow-[0_0_25px_rgba(238,255,59,0.2)]"
               >
                 <Image 
-                  src="/gmm-logo.png" 
+                  src="/gmm-logo-white-text-cropped.png" 
                   alt="GMM Logo" 
                   fill
                   className="object-contain"

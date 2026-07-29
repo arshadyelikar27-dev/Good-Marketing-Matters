@@ -129,10 +129,10 @@ export function Footer() {
               <motion.div
                 animate={{ y: [-4, 4, -4] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="relative w-36 h-12 sm:w-44 sm:h-16 transition-transform group-hover:scale-105"
+                className="relative w-[170px] h-[170px] transition-transform group-hover:scale-105"
               >
                 <Image 
-                  src="/gmm-logo.png" 
+                  src="/gmm-logo-white-text-cropped.png" 
                   alt="GMM Logo" 
                   fill
                   className="object-contain drop-shadow-[0_0_20px_rgba(238,255,59,0.2)]"
