@@ -12,8 +12,8 @@ export const MINI_GAMES = [
     description: "Match agency tech & brand logos to test your focus!",
     icon: Brain,
     badge: "Puzzle",
-    color: "from-[#EEFF3B] to-[#E6F52F]",
-    bgAccent: "bg-[#EEFF3B]/10 text-[#EEFF3B]",
+    color: "from-[#D4E000] to-[#C0CB00]",
+    bgAccent: "bg-[#D4E000]/10 text-[#D4E000]",
   },
   {
     id: "tictactoe",
@@ -21,8 +21,8 @@ export const MINI_GAMES = [
     description: "Beat our smart AI bot in a strategic grid battle!",
     icon: Trophy,
     badge: "Strategy",
-    color: "from-[#EEFF3B] to-[#E6F52F]",
-    bgAccent: "bg-[#E6F52F]/10 text-[#EEFF3B]",
+    color: "from-[#D4E000] to-[#C0CB00]",
+    bgAccent: "bg-[#C0CB00]/10 text-[#D4E000]",
   },
   {
     id: "rps",
@@ -30,8 +30,8 @@ export const MINI_GAMES = [
     description: "Battle our smart AI in a classic showdown with win streaks!",
     icon: Gamepad2,
     badge: "Battle",
-    color: "from-[#EEFF3B] to-[#E6F52F]",
-    bgAccent: "bg-[#EEFF3B]/15 text-[#EEFF3B]",
+    color: "from-[#D4E000] to-[#C0CB00]",
+    bgAccent: "bg-[#D4E000]/15 text-[#D4E000]",
   },
   {
     id: "reflex",
@@ -39,8 +39,8 @@ export const MINI_GAMES = [
     description: "How fast are your reactions? Test speed in milliseconds!",
     icon: Zap,
     badge: "Action",
-    color: "from-[#EEFF3B] to-[#E6F52F]",
-    bgAccent: "bg-[#E6F52F]/15 text-[#EEFF3B]",
+    color: "from-[#D4E000] to-[#C0CB00]",
+    bgAccent: "bg-[#C0CB00]/15 text-[#D4E000]",
   },
 ];
 
@@ -70,7 +70,7 @@ export function GamesToggle() {
           whileHover={{ x: -5 }}
           whileTap={{ scale: 0.92 }}
           aria-label="Open Mini Games"
-          className="relative flex flex-col items-center justify-center gap-3 px-3 py-6 bg-[#0A0A0A] border border-primary/40 border-r-0 rounded-l-2xl text-white shadow-[-6px_0px_30px_rgba(238,255,59,0.18)] hover:shadow-[-10px_0px_40px_rgba(238,255,59,0.35)] hover:border-primary/80 hover:bg-[#111] transition-all duration-300 group"
+          className="relative flex flex-col items-center justify-center gap-3 px-3 py-6 bg-[#0D0020] border border-primary/40 border-r-0 rounded-l-2xl text-white shadow-[-6px_0px_30px_rgba(212, 224, 0,0.18)] hover:shadow-[-10px_0px_40px_rgba(212, 224, 0,0.35)] hover:border-primary/80 hover:bg-[#1A0038] transition-all duration-300 group"
         >
           {/* Top & bottom accent lines */}
           <span className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
@@ -135,7 +135,7 @@ export function GamesToggle() {
               {/* Header */}
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#262626]">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center text-[#0A0A0A] shadow-md">
+                  <div className="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center text-white shadow-md">
                     <Gamepad2 className="w-6 h-6" />
                   </div>
                   <div>
@@ -171,7 +171,7 @@ export function GamesToggle() {
                       whileHover={{ scale: 1.02, y: -2 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => handleLaunchGame(game.id)}
-                      className={`relative group p-5 rounded-2xl border border-[#262626] bg-[#0A0A0A] hover:border-primary/40 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-xl overflow-hidden ${
+                      className={`relative group p-5 rounded-2xl border border-[#262626] bg-[#0D0020] hover:border-primary/40 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-xl overflow-hidden ${
                         isLaunching ? "ring-2 ring-primary scale-[0.98]" : ""
                       }`}
                     >

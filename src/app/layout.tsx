@@ -10,7 +10,6 @@ import { LoadingScreen } from "@/components/loading-screen";
 import { FloatingContactButtons } from "@/components/floating-contact-buttons";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { CookieConsent } from "@/components/cookie-consent";
-import { ExitIntentPopup } from "@/components/exit-intent-popup";
 import { PageTransition } from "@/components/page-transition";
 import "./globals.css";
 
@@ -141,7 +140,6 @@ export default function RootLayout({
           <GamesToggle />
           <ScrollToTop />
           <CookieConsent />
-          <ExitIntentPopup />
         </LenisProvider>
       </body>
     </html>

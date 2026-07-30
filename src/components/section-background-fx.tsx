@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import { motion } from "framer-motion";
 
-// Kinetic floating geometric icons (crosshairs, rings, diamonds) for Yellow Sections (Services, FAQ, Clients)
+// Kinetic floating geometric icons for Purple Sections (Services, FAQ, Clients)
 export function KineticYellowBgFX() {
   const shapes = useMemo(() => {
     return Array.from({ length: 12 }).map((_, i) => ({
@@ -24,7 +24,7 @@ export function KineticYellowBgFX() {
           key={s.id}
           initial={{ opacity: 0.15, y: 0, rotate: 0 }}
           animate={{
-            opacity: [0.12, 0.28, 0.12],
+            opacity: [0.10, 0.22, 0.10],
             y: [0, -40, 30, 0],
             rotate: [0, 180, 360],
           }}
@@ -39,9 +39,9 @@ export function KineticYellowBgFX() {
             left: s.left,
             top: s.top,
           }}
-          className="font-mono font-black text-black text-lg sm:text-2xl opacity-20"
+          className="font-mono font-black text-lg sm:text-2xl opacity-20"
         >
-          {s.type}
+          <span style={{ color: "rgba(180, 130, 255, 0.5)" }}>{s.type}</span>
         </motion.div>
       ))}
     </div>
@@ -58,6 +58,14 @@ export function KineticDarkBgFX() {
       size: (i % 3) * 3 + 4,
       duration: (i % 5) * 3 + 12,
       delay: (i % 4) * 1.5,
+      // Alternate between yellow-green and lavender particles
+      color: i % 3 === 0 ? "#D4E000" : i % 3 === 1 ? "#9B6FD4" : "#7C3AED",
+      glow:
+        i % 3 === 0
+          ? "0 0 14px rgba(212, 224, 0, 0.6)"
+          : i % 3 === 1
+          ? "0 0 14px rgba(155, 111, 212, 0.6)"
+          : "0 0 14px rgba(124, 58, 237, 0.6)",
     }));
   }, []);
 
@@ -84,9 +92,9 @@ export function KineticDarkBgFX() {
             top: p.top,
             width: p.size,
             height: p.size,
-            backgroundColor: "#EEFF3B",
+            backgroundColor: p.color,
             borderRadius: "50%",
-            boxShadow: "0 0 14px rgba(238, 255, 59, 0.7)",
+            boxShadow: p.glow,
           }}
         />
       ))}

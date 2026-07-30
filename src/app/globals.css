@@ -54,43 +54,43 @@
 }
 
 :root {
-  --background: #0A0A0A;
+  --background: #0D0020;
   --foreground: #FFFFFF;
-  --surface: #151515;
-  --card: #151515;
+  --surface: #160030;
+  --card: #1A0038;
   --card-foreground: #FFFFFF;
-  --popover: #151515;
+  --popover: #1A0038;
   --popover-foreground: #FFFFFF;
-  --primary: #EEFF3B;
-  --primary-hover: #E6F52F;
-  --primary-foreground: #0A0A0A;
-  --secondary: #151515;
+  --primary: #D4E000;
+  --primary-hover: #C0CB00;
+  --primary-foreground: #FFFFFF;
+  --secondary: #1A0038;
   --secondary-foreground: #FFFFFF;
-  --muted: #262626;
-  --muted-foreground: #BDBDBD;
-  --accent: #EEFF3B;
-  --accent-foreground: #0A0A0A;
-  --destructive: #FF4D4D;
-  --border: #262626;
-  --input: #262626;
-  --ring: #EEFF3B;
-  --dark-section: #151515;
+  --muted: #2A0055;
+  --muted-foreground: #B89ED4;
+  --accent: #D4E000;
+  --accent-foreground: #0D0020;
+  --destructive: #FF4D6A;
+  --border: #2A0055;
+  --input: #2A0055;
+  --ring: #D4E000;
+  --dark-section: #160030;
   --heading: #FFFFFF;
-  --body-text: #BDBDBD;
-  --chart-1: #EEFF3B;
-  --chart-2: #E6F52F;
-  --chart-3: #151515;
-  --chart-4: #262626;
-  --chart-5: #BDBDBD;
+  --body-text: #C4A8E0;
+  --chart-1: #D4E000;
+  --chart-2: #9B6FD4;
+  --chart-3: #1A0038;
+  --chart-4: #2A0055;
+  --chart-5: #C4A8E0;
   --radius: 0.75rem;
-  --sidebar: #151515;
+  --sidebar: #160030;
   --sidebar-foreground: #FFFFFF;
-  --sidebar-primary: #EEFF3B;
-  --sidebar-primary-foreground: #0A0A0A;
-  --sidebar-accent: #262626;
+  --sidebar-primary: #D4E000;
+  --sidebar-primary-foreground: #0D0020;
+  --sidebar-accent: #2A0055;
   --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: #262626;
-  --sidebar-ring: #EEFF3B;
+  --sidebar-border: #2A0055;
+  --sidebar-ring: #D4E000;
 }
 
 @layer base {
@@ -147,8 +147,8 @@
 }
 
 .bg-animated-grid {
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgba(180, 130, 255, 0.07) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(180, 130, 255, 0.07) 1px, transparent 1px);
   background-size: 40px 40px;
   animation: gridMove 20s linear infinite;
 }

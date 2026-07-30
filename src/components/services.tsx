@@ -29,7 +29,7 @@ const services = [
     title: "Web Development",
     description: "High-performance, beautifully animated websites built with modern frameworks like Next.js and React.",
     icon: Monitor,
-    color: "from-[#EEFF3B]/20 to-[#E6F52F]/10",
+    color: "from-[#D4E000]/20 to-[#C0CB00]/10",
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
   },
   {
@@ -37,7 +37,7 @@ const services = [
     title: "App Development",
     description: "Native and cross-platform mobile applications that deliver seamless user experiences.",
     icon: Smartphone,
-    color: "from-[#EEFF3B]/15 to-[#262626]/50",
+    color: "from-[#D4E000]/15 to-[#262626]/50",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
   },
   {
@@ -45,7 +45,7 @@ const services = [
     title: "SEO Optimization",
     description: "Data-driven strategies to dominate search rankings and drive organic traffic.",
     icon: Search,
-    color: "from-[#EEFF3B]/20 to-[#151515]/50",
+    color: "from-[#D4E000]/20 to-[#151515]/50",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
   },
   {
@@ -53,7 +53,7 @@ const services = [
     title: "Ads Promotion",
     description: "Targeted PPC and social media campaigns that maximize ROI and conversion rates.",
     icon: Target,
-    color: "from-[#E6F52F]/20 to-[#EEFF3B]/10",
+    color: "from-[#C0CB00]/20 to-[#D4E000]/10",
     image: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?auto=format&fit=crop&w=800&q=80",
   },
   {
@@ -69,7 +69,7 @@ const services = [
     title: "Graphic Designing",
     description: "Stunning visuals, illustrations, and marketing collateral crafted by expert designers.",
     icon: PenTool,
-    color: "from-[#EEFF3B]/25 to-[#262626]/30",
+    color: "from-[#D4E000]/25 to-[#262626]/30",
     image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80",
   },
   {
@@ -77,7 +77,7 @@ const services = [
     title: "Business Marketing",
     description: "Comprehensive marketing strategies tailored to scale your B2B or B2C enterprise.",
     icon: TrendingUp,
-    color: "from-[#E6F52F]/15 to-[#EEFF3B]/20",
+    color: "from-[#C0CB00]/15 to-[#D4E000]/20",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
   }
 ];
@@ -112,7 +112,7 @@ export function Services() {
   }, [rotation, hoveredIndex]);
 
   return (
-    <section id="services" className="py-20 sm:py-32 w-full relative z-10 bg-primary text-primary-foreground overflow-hidden">
+    <section id="services" className="py-20 sm:py-32 w-full relative z-10 bg-surface text-foreground overflow-hidden">
       <KineticYellowBgFX />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 max-w-7xl xl:max-w-[1400px] relative z-20">
         <div className="flex flex-col items-center text-center mb-12 sm:mb-20">
@@ -122,14 +122,14 @@ export function Services() {
             viewport={{ once: true, margin: "-100px" }}
             className="font-heading text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4"
           >
-            Our Core <span className="text-[#0A0A0A]">Services</span>
+            Our Core <span className="text-primary">Services</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.1 }}
-            className="text-[#0A0A0A]/70 text-base sm:text-lg xl:text-xl max-w-2xl px-2"
+            className="text-body-text text-base sm:text-lg xl:text-xl max-w-2xl px-2"
           >
             We leverage cutting-edge technology and creative strategies to elevate your brand in the digital landscape. Drag the cards to explore.
           </motion.p>
@@ -220,7 +220,7 @@ export function Services() {
                         className={cn(
                           "w-12 h-12 sm:w-16 sm:h-16 shrink-0 rounded-full border flex items-center justify-center transition-all duration-500 shadow-sm",
                           isHovered 
-                            ? "bg-primary border-primary text-[#0A0A0A] scale-110 shadow-lg shadow-primary/30" 
+                            ? "bg-primary border-primary text-white scale-110 shadow-lg shadow-primary/30" 
                             : "bg-[#262626] border-[#262626] text-white"
                         )}
                     >

@@ -77,7 +77,7 @@ export function CustomCursor() {
     <div className="pointer-events-none hidden md:block">
       {/* INNER DOT */}
       <motion.div
-        className="fixed top-0 left-0 w-2.5 h-2.5 bg-primary rounded-full pointer-events-none z-[999999] mix-blend-difference origin-center shadow-[0_0_10px_rgba(238,255,59,0.8)]"
+        className="fixed top-0 left-0 w-2.5 h-2.5 bg-primary rounded-full pointer-events-none z-[999999] mix-blend-difference origin-center shadow-[0_0_10px_rgba(212, 224, 0,0.8)]"
         style={{
           x: springX,
           y: springY,
@@ -102,12 +102,12 @@ export function CustomCursor() {
         animate={{
           width: cursorState === "hover" ? 64 : cursorState === "click" ? 24 : 36,
           height: cursorState === "hover" ? 64 : cursorState === "click" ? 24 : 36,
-          backgroundColor: cursorState === "hover" ? "rgba(238, 255, 59, 0.95)" : "rgba(238, 255, 59, 0)",
+          backgroundColor: cursorState === "hover" ? "rgba(212, 224, 0, 0.95)" : "rgba(212, 224, 0, 0)",
           borderWidth: cursorState === "hover" ? "0px" : "1.5px",
-          borderColor: "rgba(238, 255, 59, 0.8)",
+          borderColor: "rgba(212, 224, 0, 0.8)",
           boxShadow: cursorState === "hover"
-            ? "0 0 30px rgba(238, 255, 59, 0.5)"
-            : "0 0 15px rgba(238, 255, 59, 0.2)",
+            ? "0 0 30px rgba(212, 224, 0, 0.5)"
+            : "0 0 15px rgba(212, 224, 0, 0.2)",
           scale: cursorState === "hidden" ? 0 : 1,
         }}
         transition={{ type: "spring", stiffness: 350, damping: 24 }}
@@ -118,7 +118,7 @@ export function CustomCursor() {
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.5 }}
-              className="text-[#0A0A0A] font-black text-[9px] tracking-widest uppercase font-heading select-none"
+              className="text-white font-black text-[9px] tracking-widest uppercase font-heading select-none"
             >
               {hoverText}
             </motion.span>

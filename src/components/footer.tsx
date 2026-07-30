@@ -71,7 +71,7 @@ export function Footer() {
                   placeholder="Your Name"
                   value={formState.name}
                   onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                  className="w-full px-5 py-3.5 rounded-full bg-[#0A0A0A] border border-[#262626] text-white text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/40 transition-all duration-300 placeholder:text-white/40"
+                  className="w-full px-5 py-3.5 rounded-full bg-[#0D0020] border border-[#262626] text-white text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/40 transition-all duration-300 placeholder:text-white/40"
                 />
               </div>
 
@@ -82,7 +82,7 @@ export function Footer() {
                   placeholder="Your Email *"
                   value={formState.email}
                   onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                  className="w-full px-5 py-3.5 rounded-full bg-[#0A0A0A] border border-[#262626] text-white text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/40 transition-all duration-300 placeholder:text-white/40"
+                  className="w-full px-5 py-3.5 rounded-full bg-[#0D0020] border border-[#262626] text-white text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/40 transition-all duration-300 placeholder:text-white/40"
                 />
               </div>
 
@@ -90,7 +90,7 @@ export function Footer() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="relative group w-full px-6 py-3.5 bg-primary text-black rounded-full font-black text-sm hover:bg-primary-hover transition-all duration-300 hover:scale-[1.03] active:scale-[0.96] shadow-[0_0_20px_rgba(238,255,59,0.3)] hover:shadow-[0_0_30px_rgba(238,255,59,0.6)] flex items-center justify-center gap-2 overflow-hidden cursor-pointer"
+                  className="relative group w-full px-6 py-3.5 bg-primary text-white rounded-full font-black text-sm hover:bg-primary-hover transition-all duration-300 hover:scale-[1.03] active:scale-[0.96] shadow-[0_0_20px_rgba(212, 224, 0,0.3)] hover:shadow-[0_0_30px_rgba(212, 224, 0,0.6)] flex items-center justify-center gap-2 overflow-hidden cursor-pointer"
                 >
                   <AnimatePresence mode="wait">
                     {isSubmitted ? (
@@ -99,9 +99,9 @@ export function Footer() {
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0 }}
-                        className="flex items-center gap-2 text-black font-black"
+                        className="flex items-center gap-2 text-white font-black"
                       >
-                        <CheckCircle2 className="w-5 h-5 text-black animate-bounce" />
+                        <CheckCircle2 className="w-5 h-5 text-white animate-bounce" />
                         Proposal Requested!
                       </motion.span>
                     ) : isSubmitting ? (
@@ -135,7 +135,7 @@ export function Footer() {
                   src="/gmm-logo-white-text-cropped.png" 
                   alt="GMM Logo" 
                   fill
-                  className="object-contain drop-shadow-[0_0_20px_rgba(238,255,59,0.2)]"
+                  className="object-contain drop-shadow-[0_0_20px_rgba(212, 224, 0,0.2)]"
                 />
               </motion.div>
             </Link>
@@ -148,7 +148,7 @@ export function Footer() {
               href="https://forms.google.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative group inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-black rounded-full font-bold text-base hover:bg-primary-hover transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(238,255,59,0.3)] overflow-hidden"
+              className="relative group inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-full font-bold text-base hover:bg-primary-hover transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(212, 224, 0,0.3)] overflow-hidden"
             >
               <span className="relative z-10 flex items-center gap-2">
                 Open Full Form <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -194,7 +194,7 @@ export function Footer() {
                     href="#"
                     whileHover={{ rotate: 10, scale: 1.15 }}
                     transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors hover:shadow-[0_0_20px_rgba(238,255,59,0.8)]"
+                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors hover:shadow-[0_0_20px_rgba(212, 224, 0,0.8)]"
                     aria-label={item.label}
                   >
                     <IconComp className="w-5 h-5" />

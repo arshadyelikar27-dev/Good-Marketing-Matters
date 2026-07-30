@@ -125,7 +125,7 @@ export function Testimonials() {
   };
 
   return (
-    <section id="reviews" className="relative w-full min-h-screen py-16 sm:py-24 md:py-32 bg-[#0A0A0A] text-white flex flex-col items-center justify-center overflow-hidden">
+    <section id="reviews" className="relative w-full min-h-screen py-16 sm:py-24 md:py-32 bg-[#0D0020] text-white flex flex-col items-center justify-center overflow-hidden">
       <KineticDarkBgFX />
       {/* Background Glowing Breathing Orb */}
       <motion.div
@@ -186,14 +186,14 @@ export function Testimonials() {
             style={{ margin: "0 auto" }}
           >
             {/* COVER */}
-            <Page className="bg-[#0A0A0A] text-white p-3 sm:p-6 md:p-8 flex flex-col justify-between items-center text-center border-r border-[#262626]">
+            <Page className="bg-[#0D0020] text-white p-3 sm:p-6 md:p-8 flex flex-col justify-between items-center text-center border-r border-[#262626]">
               <div className="w-full flex justify-between items-center pt-1 border-b border-white/20 pb-2 sm:pb-4">
                 <span className="text-[8px] sm:text-[10px] md:text-xs font-bold uppercase tracking-widest text-primary">GMM Edition</span>
                 <Sparkles className="w-3 h-3 sm:w-4 sm:h-5 text-primary animate-pulse" />
               </div>
 
               <div className="my-auto flex flex-col items-center">
-                <div className="w-10 h-10 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-primary flex items-center justify-center text-black font-black text-xl sm:text-3xl md:text-4xl mb-2 sm:mb-4 md:mb-6 shadow-[0_0_30px_rgba(249,192,0,0.5)]">
+                <div className="w-10 h-10 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-black text-xl sm:text-3xl md:text-4xl mb-2 sm:mb-4 md:mb-6 shadow-[0_0_30px_rgba(212,224,0,0.5)]">
                   G
                 </div>
                 <h1 className="text-lg sm:text-2xl md:text-4xl font-black font-heading tracking-tight mb-1 sm:mb-2">
@@ -227,7 +227,7 @@ export function Testimonials() {
                       className="flex items-center justify-between p-1 sm:p-2 rounded-lg sm:rounded-xl hover:bg-white/5 transition-colors cursor-pointer group"
                     >
                       <div className="flex items-center gap-1.5 sm:gap-2.5">
-                        <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-primary/20 text-[#0A0A0A] font-bold flex items-center justify-center text-[9px] sm:text-xs border border-primary/30 shrink-0">
+                        <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-primary/20 text-white font-bold flex items-center justify-center text-[9px] sm:text-xs border border-primary/30 shrink-0">
                           {t.name.charAt(0)}
                         </div>
                         <div className="min-w-0">
@@ -268,7 +268,7 @@ export function Testimonials() {
                   </p>
 
                   <div className="flex flex-col items-center">
-                    <div className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center font-black text-[#0A0A0A] text-sm sm:text-lg md:text-xl mb-1 sm:mb-2 shadow-md">
+                    <div className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center font-black text-white text-sm sm:text-lg md:text-xl mb-1 sm:mb-2 shadow-md">
                       {t.name.charAt(0)}
                     </div>
                     <h4 className="font-heading font-bold text-white text-xs sm:text-sm md:text-base">{t.name}</h4>
@@ -291,7 +291,7 @@ export function Testimonials() {
               </p>
               <a
                 href="#contact"
-                className="px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full bg-primary text-[#0A0A0A] font-bold text-[9px] sm:text-xs hover:bg-[#E6F52F] transition-colors shadow-lg"
+                className="px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full bg-primary text-white font-bold text-[9px] sm:text-xs hover:bg-[#C0CB00] transition-colors shadow-lg"
               >
                 Become Next Story
               </a>

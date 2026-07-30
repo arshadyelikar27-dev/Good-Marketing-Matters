@@ -33,7 +33,7 @@ export function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-20 sm:py-28 bg-primary text-[#0A0A0A] relative z-10 overflow-hidden select-none">
+    <section id="faq" className="py-20 sm:py-28 bg-surface text-foreground relative z-10 overflow-hidden select-none">
       <KineticYellowBgFX />
       {/* Subtle dotted background pattern */}
       <div
@@ -46,11 +46,11 @@ export function FAQ() {
 
       <div className="container max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
         <ScrollReveal className="text-center mb-12 sm:mb-16 flex flex-col items-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/10 border border-black/20 text-black font-bold text-xs uppercase tracking-widest mb-4">
-            <HelpCircle className="w-4 h-4 text-black" /> Got Questions?
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-primary font-bold text-xs uppercase tracking-widest mb-4">
+            <HelpCircle className="w-4 h-4 text-primary" /> Got Questions?
           </div>
 
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-black">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white">
             Frequently Asked <span className="text-white underline decoration-white/40">Questions</span>
           </h2>
         </ScrollReveal>
@@ -68,8 +68,8 @@ export function FAQ() {
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
                 className={`rounded-2xl transition-all duration-300 overflow-hidden shadow-2xl ${
                   isOpen
-                    ? "bg-[#0A0A0A] text-white border-2 border-black shadow-black/40"
-                    : "bg-[#0A0A0A]/90 text-white hover:bg-[#0A0A0A] border border-black/30"
+                    ? "bg-muted/60 text-white border-2 border-primary/40 shadow-primary/10"
+                    : "bg-muted/30 text-white hover:bg-muted/50 border border-white/10"
                 }`}
               >
                 <button
@@ -85,7 +85,7 @@ export function FAQ() {
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className={`w-9 h-9 rounded-full flex items-center justify-center border shrink-0 transition-colors ${
-                      isOpen ? "bg-primary text-black border-primary" : "bg-white/10 border-white/20 text-white"
+                      isOpen ? "bg-primary text-white border-primary" : "bg-white/10 border-white/20 text-white"
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />

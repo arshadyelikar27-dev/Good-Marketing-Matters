@@ -4,8 +4,6 @@ import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { HeroIllustration } from "@/components/hero-illustration";
-import { HeroReviewPopups } from "@/components/hero-review-popups";
 import { MagneticButton } from "@/components/magnetic-button";
 import { TextScramble } from "@/components/text-scramble";
 
@@ -50,9 +48,9 @@ export function Hero() {
               top: p.top,
               width: p.size,
               height: p.size,
-              backgroundColor: "#EEFF3B",
+              backgroundColor: "#D4E000",
               borderRadius: "50%",
-              boxShadow: "0 0 10px rgba(238, 255, 59, 0.6)",
+              boxShadow: "0 0 10px rgba(212, 224, 0, 0.6)",
             }}
           />
         ))}
@@ -69,9 +67,9 @@ export function Hero() {
 
       {/* MAIN 2-COLUMN CONTAINER */}
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 max-w-7xl xl:max-w-[1400px]">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 xl:gap-16 items-center">
-          {/* LEFT COLUMN: TYPOGRAPHY & CTAS */}
-          <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
+        <div className="grid grid-cols-1 gap-12 items-center">
+          {/* FULL WIDTH: TYPOGRAPHY & CTAS */}
+          <div className="flex flex-col items-center text-center space-y-6">
             {/* HEADLINE WITH TEXT SCRAMBLE EFFECT */}
             <div className="overflow-hidden w-full">
               <motion.h1
@@ -87,7 +85,7 @@ export function Hero() {
                   className="inline"
                 />
                 <br />
-                <span className="text-primary drop-shadow-[0_0_25px_rgba(238,255,59,0.3)]">
+                <span className="text-primary drop-shadow-[0_0_25px_rgba(212, 224, 0,0.3)]">
                   <TextScramble
                     text="Matters"
                     delay={900}
@@ -122,7 +120,7 @@ export function Hero() {
                 <MagneticButton className="w-full sm:w-auto" strength={0.4}>
                   <Link
                     href="#services"
-                    className="relative group flex items-center justify-center gap-2.5 w-full sm:w-auto px-8 py-4 bg-primary text-primary-foreground rounded-full font-black text-base sm:text-lg shadow-[0_10px_25px_rgba(238,255,59,0.3)] hover:shadow-[0_15px_35px_rgba(238,255,59,0.5)] transition-all overflow-hidden"
+                    className="relative group flex items-center justify-center gap-2.5 w-full sm:w-auto px-8 py-4 bg-primary text-primary-foreground rounded-full font-black text-base sm:text-lg shadow-[0_10px_25px_rgba(212, 224, 0,0.3)] hover:shadow-[0_15px_35px_rgba(212, 224, 0,0.5)] transition-all overflow-hidden"
                   >
                     <span className="relative z-10">Explore Services</span>
                     <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1.5 transition-transform duration-300" />
@@ -142,13 +140,6 @@ export function Hero() {
                 </MagneticButton>
               </div>
             </motion.div>
-          </div>
-
-          {/* RIGHT COLUMN: PREMIUM ANIMATED SVG ILLUSTRATION WITH FLOATING REVIEW POPUPS */}
-          <div className="lg:col-span-6 flex items-center justify-center w-full relative">
-            <HeroReviewPopups>
-              <HeroIllustration />
-            </HeroReviewPopups>
           </div>
         </div>
       </div>

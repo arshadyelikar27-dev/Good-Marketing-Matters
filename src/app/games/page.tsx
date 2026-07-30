@@ -85,7 +85,7 @@ function MemoryMatchGame() {
         </div>
         <button
           onClick={initializeGame}
-          className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-[#0A0A0A] text-xs font-black hover:bg-primary-hover transition-all duration-300 shadow-[0_0_15px_rgba(238,255,59,0.3)] cursor-pointer"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-white text-xs font-black hover:bg-primary-hover transition-all duration-300 shadow-[0_0_15px_rgba(212, 224, 0,0.3)] cursor-pointer"
         >
           <RotateCcw className="w-3.5 h-3.5" /> Restart
         </button>
@@ -101,7 +101,7 @@ function MemoryMatchGame() {
             onClick={() => handleCardClick(card.id)}
             className={`aspect-square rounded-2xl flex items-center justify-center text-3xl font-bold cursor-pointer transition-all duration-300 border ${
               card.matched
-                ? "bg-primary/20 text-primary border-primary shadow-[0_0_20px_rgba(238,255,59,0.4)]"
+                ? "bg-primary/20 text-primary border-primary shadow-[0_0_20px_rgba(212, 224, 0,0.4)]"
                 : card.flipped
                 ? "bg-[#151515] text-white border-2 border-primary shadow-2xl scale-105"
                 : "bg-[#151515]/80 text-white border-[#262626] hover:border-primary/60 hover:shadow-lg"
@@ -119,14 +119,14 @@ function MemoryMatchGame() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
-            className="mt-8 p-8 bg-[#151515] border-2 border-primary text-white rounded-3xl text-center shadow-[0_0_40px_rgba(238,255,59,0.3)] w-full max-w-md"
+            className="mt-8 p-8 bg-[#151515] border-2 border-primary text-white rounded-3xl text-center shadow-[0_0_40px_rgba(212, 224, 0,0.3)] w-full max-w-md"
           >
             <Sparkles className="w-12 h-12 mx-auto mb-3 text-primary animate-bounce" />
             <h3 className="font-heading font-black text-3xl mb-1 text-primary">Congratulations!</h3>
             <p className="text-sm font-medium mb-6 text-white/90">You matched all cards in {moves} moves!</p>
             <button
               onClick={initializeGame}
-              className="px-8 py-3.5 rounded-full bg-primary text-[#0A0A0A] font-black text-sm hover:bg-primary-hover transition-all duration-300 shadow-lg cursor-pointer"
+              className="px-8 py-3.5 rounded-full bg-primary text-white font-black text-sm hover:bg-primary-hover transition-all duration-300 shadow-lg cursor-pointer"
             >
               Play Again
             </button>
@@ -229,10 +229,10 @@ function TicTacToeGame() {
             onClick={() => handleClick(idx)}
             className={`rounded-2xl text-4xl sm:text-5xl font-black flex items-center justify-center transition-all duration-300 border cursor-pointer ${
               cell === "X"
-                ? "bg-[#0A0A0A] text-primary border-2 border-primary shadow-[0_0_15px_rgba(238,255,59,0.4)]"
+                ? "bg-[#0D0020] text-primary border-2 border-primary shadow-[0_0_15px_rgba(212, 224, 0,0.4)]"
                 : cell === "O"
-                ? "bg-white text-[#0A0A0A] border-2 border-white shadow-xl"
-                : "bg-[#0A0A0A]/80 border-[#262626] hover:border-primary/60"
+                ? "bg-white text-white border-2 border-white shadow-xl"
+                : "bg-[#0D0020]/80 border-[#262626] hover:border-primary/60"
             }`}
           >
             {cell}
@@ -253,7 +253,7 @@ function TicTacToeGame() {
         </span>
         <button
           onClick={resetGame}
-          className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-primary text-[#0A0A0A] text-xs font-black hover:bg-primary-hover transition-all duration-300 shadow-[0_0_15px_rgba(238,255,59,0.3)] cursor-pointer"
+          className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-primary text-white text-xs font-black hover:bg-primary-hover transition-all duration-300 shadow-[0_0_15px_rgba(212, 224, 0,0.3)] cursor-pointer"
         >
           <RotateCcw className="w-3.5 h-3.5" /> Next Round
         </button>
@@ -337,7 +337,7 @@ function RockPaperScissorsGame() {
               key={playerChoice || "none"}
               initial={{ scale: 0.5 }}
               animate={{ scale: 1 }}
-              className="w-24 h-24 rounded-2xl bg-[#0A0A0A] border-2 border-primary text-white flex items-center justify-center text-5xl shadow-[0_0_20px_rgba(238,255,59,0.3)]"
+              className="w-24 h-24 rounded-2xl bg-[#0D0020] border-2 border-primary text-white flex items-center justify-center text-5xl shadow-[0_0_20px_rgba(212, 224, 0,0.3)]"
             >
               {getEmoji(playerChoice)}
             </motion.div>
@@ -352,7 +352,7 @@ function RockPaperScissorsGame() {
               key={aiChoice || "waiting"}
               initial={{ scale: 0.5 }}
               animate={{ scale: 1 }}
-              className="w-24 h-24 rounded-2xl bg-[#0A0A0A] border border-[#262626] text-white flex items-center justify-center text-5xl shadow-xl"
+              className="w-24 h-24 rounded-2xl bg-[#0D0020] border border-[#262626] text-white flex items-center justify-center text-5xl shadow-xl"
             >
               {aiChoice ? getEmoji(aiChoice) : "❓"}
             </motion.div>
@@ -366,9 +366,9 @@ function RockPaperScissorsGame() {
             animate={{ opacity: 1, y: 0 }}
             className={`mt-6 text-lg font-black font-heading px-6 py-2 rounded-full border shadow-lg ${
               result === "win"
-                ? "bg-primary text-[#0A0A0A] border-primary shadow-[0_0_20px_rgba(238,255,59,0.4)]"
+                ? "bg-primary text-white border-primary shadow-[0_0_20px_rgba(212, 224, 0,0.4)]"
                 : result === "lose"
-                ? "bg-[#0A0A0A] text-white border-[#262626]"
+                ? "bg-[#0D0020] text-white border-[#262626]"
                 : "bg-[#262626] text-white border-[#262626]"
             }`}
           >
@@ -452,7 +452,7 @@ function ReflexTestGame() {
             : state === "waiting"
             ? "bg-red-500/90 text-white border-2 border-red-500 animate-pulse"
             : state === "ready"
-            ? "bg-primary text-[#0A0A0A] border-2 border-primary scale-[1.03] shadow-[0_0_50px_rgba(238,255,59,0.8)]"
+            ? "bg-primary text-white border-2 border-primary scale-[1.03] shadow-[0_0_50px_rgba(212, 224, 0,0.8)]"
             : "bg-primary/20 text-primary border-2 border-primary"
         }`}
       >
@@ -475,7 +475,7 @@ function ReflexTestGame() {
 
         {state === "ready" && (
           <>
-            <h3 className="font-heading font-black text-4xl mb-1 uppercase tracking-wider text-[#0A0A0A]">TAP NOW!</h3>
+            <h3 className="font-heading font-black text-4xl mb-1 uppercase tracking-wider text-white">TAP NOW!</h3>
           </>
         )}
 
@@ -495,7 +495,7 @@ function ReflexTestGame() {
                 e.stopPropagation();
                 startTest();
               }}
-              className="px-8 py-3 rounded-full bg-primary text-[#0A0A0A] font-black text-xs hover:bg-primary-hover transition-all duration-300 shadow-lg"
+              className="px-8 py-3 rounded-full bg-primary text-white font-black text-xs hover:bg-primary-hover transition-all duration-300 shadow-lg"
             >
               Try Again
             </button>
@@ -515,12 +515,12 @@ function GamesPageContent() {
   const [activeTab, setActiveTab] = useState(initialGame);
 
   return (
-    <main className="min-h-screen w-full bg-[#0A0A0A] text-white relative flex flex-col pb-32 sm:pb-48 select-none">
+    <main className="min-h-screen w-full bg-[#0D0020] text-white relative flex flex-col pb-32 sm:pb-48 select-none">
       {/* Background Dotted Pattern Effect */}
       <div 
         className="absolute inset-0 opacity-10 pointer-events-none" 
         style={{
-          backgroundImage: "radial-gradient(#EEFF3B 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(#D4E000 1px, transparent 1px)",
           backgroundSize: "24px 24px"
         }} 
       />
@@ -569,7 +569,7 @@ function GamesPageContent() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-2 px-4 sm:px-6 py-3 rounded-full font-black text-xs sm:text-sm transition-all duration-300 whitespace-nowrap cursor-pointer ${
                   isActive
-                    ? "bg-primary text-[#0A0A0A] border border-primary shadow-[0_0_20px_rgba(238,255,59,0.4)] scale-105"
+                    ? "bg-primary text-white border border-primary shadow-[0_0_20px_rgba(212, 224, 0,0.4)] scale-105"
                     : "bg-[#151515] text-[#BDBDBD] border border-[#262626] hover:border-primary/50 hover:text-white"
                 }`}
               >
@@ -604,7 +604,7 @@ function GamesPageContent() {
 
 export default function GamesPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center text-primary font-black">Loading Arena...</div>}>
+    <Suspense fallback={<div className="min-h-screen bg-[#0D0020] flex items-center justify-center text-primary font-black">Loading Arena...</div>}>
       <GamesPageContent />
     </Suspense>
   );
