@@ -3,14 +3,10 @@
 import { motion } from "framer-motion";
 
 const items = [
-  "Google",
-  "Microsoft",
-  "Spotify",
-  "Tesla",
-  "Netflix",
-  "Adobe",
-  "Meta",
-  "Amazon",
+  "Surya Dakshin Idli",
+  "Sunalk",
+  "Sindbaad Bhandi",
+  "Umang",
 ];
 
 export function Clients() {
@@ -19,7 +15,7 @@ export function Clients() {
       
       <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
         <h2 className="text-xl md:text-2xl font-medium text-white/50 tracking-tight">
-          Trusted by the world's most innovative teams
+          Trusted by our amazing clients
         </h2>
       </div>
 
