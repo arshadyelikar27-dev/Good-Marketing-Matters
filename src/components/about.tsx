@@ -21,7 +21,7 @@ export function AboutAnimation() {
   const opacity5 = useTransform(scrollYProgress, [0.6, 0.75], [0.2, 1]);
 
   return (
-    <section ref={containerRef} className="relative w-full py-48 md:py-64 flex flex-col items-center justify-center">
+    <section id="about" ref={containerRef} className="relative w-full py-48 md:py-64 flex flex-col items-center justify-center">
       
       <div className="max-w-5xl mx-auto px-6 text-center sm:text-left">
         <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-[6rem] font-semibold tracking-tighter leading-[1.1] text-white">

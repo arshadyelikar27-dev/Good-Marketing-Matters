@@ -21,7 +21,7 @@ export function Hero() {
   const subtitleOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
   return (
-    <section ref={containerRef} className="relative w-full h-[200vh]">
+    <section id="hero" ref={containerRef} className="relative w-full h-[200vh]">
       {/* Sticky container holds the content in place while we scroll */}
       <div className="sticky top-0 w-full h-screen flex flex-col justify-center overflow-hidden pointer-events-none px-6 sm:px-12 md:px-20 lg:px-32">
         

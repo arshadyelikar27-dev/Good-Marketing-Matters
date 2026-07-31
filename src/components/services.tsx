@@ -62,7 +62,7 @@ export function Services() {
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-65%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[400vh] w-full bg-transparent">
+    <section id="services" ref={targetRef} className="relative h-[400vh] w-full bg-transparent">
       
       {/* Sticky container that holds the horizontal track */}
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
