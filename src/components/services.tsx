@@ -31,12 +31,13 @@ function HorizontalServiceCard({ service }: { service: ServiceData }) {
   const Icon = service.icon;
 
   return (
-    <div 
-      ref={containerRef}
+    <Link 
+      href={`/services/${service.slug}`}
+      ref={containerRef as any}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onMouseMove={handleMouseMove}
-      className="group relative flex flex-col justify-between w-[85vw] sm:w-[400px] h-[480px] shrink-0 p-8 rounded-[2rem] bg-white/[0.03] backdrop-blur-3xl border border-white/10 overflow-hidden hover:bg-white/[0.05] hover:border-primary/50 transition-all duration-500"
+      className="group relative flex flex-col justify-between w-[85vw] sm:w-[400px] h-[480px] shrink-0 p-8 rounded-[2rem] bg-white/[0.03] backdrop-blur-3xl border border-white/10 overflow-hidden hover:bg-white/[0.05] hover:border-primary/50 transition-all duration-500 cursor-pointer block"
     >
       {/* Revealed Image that follows the cursor */}
       {service.imageUrl && (
@@ -78,14 +79,13 @@ function HorizontalServiceCard({ service }: { service: ServiceData }) {
       </div>
 
       <div className="mt-6 relative z-10 mix-blend-difference text-white">
-        <Link 
-          href={`/services/${service.slug}`}
-          className="inline-flex items-center gap-2 text-primary font-medium hover:text-white transition-colors"
+        <span 
+          className="inline-flex items-center gap-2 text-primary font-medium group-hover:text-white transition-colors"
         >
           Read More <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-        </Link>
+        </span>
       </div>
-    </div>
+    </Link>
   );
 }
 

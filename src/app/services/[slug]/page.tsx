@@ -91,26 +91,6 @@ export default function ServicePage() {
         </motion.div>
       </section>
 
-      {/* ─── STATS SECTION (Minimal Apple Style) ─── */}
-      <section className="relative z-20 py-24 px-6 md:px-16 lg:px-32 bg-transparent">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-16">
-            {s.stats.map((stat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, delay: i * 0.1, ease: EASE }}
-                className="flex flex-col items-start border-l border-white/10 pl-6"
-              >
-                <p className="text-5xl md:text-6xl font-medium tracking-tighter text-white mb-2">{stat.value}</p>
-                <p className="text-[#86868B] text-sm tracking-wide uppercase font-medium">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ─── CAPABILITIES (Bento Box Glassmorphism) ─── */}
       <section className="relative z-20 py-32 px-6 md:px-16 lg:px-32 bg-transparent">
@@ -168,7 +148,7 @@ export default function ServicePage() {
 
       {/* ─── MARQUEE STRIP ─── */}
       <div className="py-12 border-y border-white/5 bg-white/[0.01]">
-        <MarqueeText text={`Great Marketing Matters — ${s.title}`} />
+        <MarqueeText text={`Good Marketing Matters — ${s.title}`} />
       </div>
 
       {/* ─── WHY CHOOSE US (Sticky Storytelling) ─── */}

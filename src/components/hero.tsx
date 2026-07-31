@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -13,47 +14,61 @@ export function Hero() {
   });
 
   // Apple-style scaling and fading
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const textScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.2]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.4, 0.8], [1, 1, 0]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+
+  // Orb parallax
+  const orbScale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
+  const orbY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const orbRotate = useTransform(scrollYProgress, [0, 1], [0, 45]);
 
   // Secondary text fades in earlier and fades out faster
   const subtitleOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
   return (
-    <section id="hero" ref={containerRef} className="relative w-full h-[200vh]">
+    <section id="hero" ref={containerRef} className="relative w-full h-[300vh] bg-transparent">
       {/* Sticky container holds the content in place while we scroll */}
-      <div className="sticky top-0 w-full h-screen flex flex-col justify-center overflow-hidden pointer-events-none px-6 sm:px-12 md:px-20 lg:px-32">
-        
-        <motion.div 
-          style={{ scale, opacity, y }}
-          className="flex flex-col items-start justify-center text-left w-full max-w-[1600px] mx-auto mt-20 sm:mt-28 lg:mt-32"
+      <div className="sticky top-0 w-full h-screen flex flex-col justify-center overflow-hidden pointer-events-none">
+
+
+        {/* Cinematic Typography */}
+        <motion.div
+          style={{ scale: textScale, opacity: textOpacity, y: textY }}
+          className="relative z-10 flex flex-col items-start justify-center text-left w-full max-w-[1400px] mx-auto px-6 lg:px-12"
         >
-
-
-          {/* Massive Cinematic Typography */}
-          <h1 className="text-[14vw] sm:text-[12vw] leading-[0.85] font-semibold tracking-tighter text-white mix-blend-plus-lighter flex flex-col items-start">
-            <div className="flex items-center justify-start gap-[1.5vw] sm:gap-[1vw]">
-              <span>g</span>
-              <span className="inline-block w-[45vw] sm:w-[40vw] md:w-[36vw] h-[11vw] sm:h-[9vw] border-[1.5vw] sm:border-[1.2vw] border-white rounded-full mt-[1vw]" />
-              <span>d</span>
+          <div className="relative z-10 flex flex-col text-white lowercase font-medium tracking-tighter w-fit origin-left">
+            {/* Line 1: g [pill] od */}
+            <div className="flex items-center w-full mt-2">
+              <span className="text-[16vw] sm:text-[12vw] lg:text-[10vw] leading-[0.75]">g</span>
+              <div className="flex-1 h-[5vw] sm:h-[4vw] lg:h-[3.2vw] border-[1vw] sm:border-[0.8vw] lg:border-[0.7vw] border-white rounded-full mx-[1.5vw] sm:mx-[1vw] translate-y-[1.5vw] sm:translate-y-[1vw]" />
+              <span className="text-[16vw] sm:text-[12vw] lg:text-[10vw] leading-[0.75]">od</span>
             </div>
-            <span>marketing</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-white to-accent opacity-90">
+            {/* Line 2 */}
+            <span className="text-[16vw] sm:text-[12vw] lg:text-[10vw] leading-[0.8]">
+              marketing
+            </span>
+            {/* Line 3 */}
+            <span className="text-[16vw] sm:text-[12vw] lg:text-[10vw] leading-[0.8]">
               matters.
             </span>
-          </h1>
-
-          {/* Subtitle */}
-          <motion.p 
+          </div>
+          <motion.p
             style={{ opacity: subtitleOpacity }}
-            className="mt-12 max-w-2xl text-lg sm:text-2xl font-light text-white/60 tracking-tight"
+            className="mt-4 sm:mt-6 max-w-2xl text-xl sm:text-3xl italic font-serif text-primary tracking-wide"
           >
-            We engineer experiences that redefine digital growth. Precision, automation, and unmatched creativity.
+            We build brands that are impossible to ignore.
           </motion.p>
         </motion.div>
-        
 
+        {/* Scroll Indicator */}
+        <motion.div
+          style={{ opacity: subtitleOpacity }}
+          className="absolute bottom-12 left-6 lg:left-12 flex flex-col items-center gap-2"
+        >
+          <span className="text-xs uppercase tracking-widest text-white/40">Scroll</span>
+          <div className="w-px h-12 bg-gradient-to-b from-white/40 to-transparent" />
+        </motion.div>
 
       </div>
     </section>

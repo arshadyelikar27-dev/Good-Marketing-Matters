@@ -6,11 +6,13 @@ import { CustomCursor } from "@/components/cursor";
 import { GamesToggle } from "@/components/games-toggle";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { AnimatedBackground } from "@/components/animated-background";
-import { LoadingScreen } from "@/components/loading-screen";
 import { FloatingContactButtons } from "@/components/floating-contact-buttons";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { CookieConsent } from "@/components/cookie-consent";
 import { PageTransition } from "@/components/page-transition";
+import { ModalProvider } from "@/lib/modal-context";
+import { ContactModal } from "@/components/contact-modal";
+import { ProjectModal } from "@/components/project-modal";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -28,7 +30,7 @@ const siteUrl = "https://gmmagency.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "GMM — Great Marketing Matters | Digital Agency",
+    default: "GMM — Good Marketing Matters | Digital Agency",
     template: "%s | GMM Agency",
   },
   description:
@@ -49,7 +51,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "GMM Agency",
-    title: "GMM — Great Marketing Matters | Digital Agency",
+    title: "GMM — Good Marketing Matters | Digital Agency",
     description:
       "Premium digital agency providing Web Development, SEO, and Brand Marketing to help businesses scale rapidly.",
     images: [
@@ -57,13 +59,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "GMM Agency — Great Marketing Matters",
+        alt: "GMM Agency — Good Marketing Matters",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "GMM — Great Marketing Matters | Digital Agency",
+    title: "GMM — Good Marketing Matters | Digital Agency",
     description:
       "Premium digital agency providing Web Development, SEO, and Brand Marketing to help businesses scale rapidly.",
     images: ["/og-image.png"],
@@ -128,19 +130,22 @@ export default function RootLayout({
         <link rel="canonical" href={siteUrl} />
       </head>
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground overflow-x-hidden selection:bg-primary selection:text-primary-foreground cursor-none md:cursor-auto">
-        <LoadingScreen />
         <ScrollProgress />
         <AnimatedBackground />
         <CustomCursor />
         <PageTransition />
-        <LenisProvider>
-          <Navbar />
-          {children}
-          <FloatingContactButtons />
-          <GamesToggle />
-          <ScrollToTop />
-          <CookieConsent />
-        </LenisProvider>
+        <ModalProvider>
+          <LenisProvider>
+            <Navbar />
+            {children}
+            <FloatingContactButtons />
+            <GamesToggle />
+            <ScrollToTop />
+            <CookieConsent />
+          </LenisProvider>
+          <ContactModal />
+          <ProjectModal />
+        </ModalProvider>
       </body>
     </html>
   );

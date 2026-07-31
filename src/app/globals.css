@@ -51,6 +51,8 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
 }
 
 :root {
@@ -70,10 +72,10 @@
   --popover: rgba(255, 255, 255, 0.03);
   --popover-foreground: #FFFFFF;
   
-  /* Royal Purple Primary */
-  --primary: #6B21A8; 
-  --primary-hover: #581C87;
-  --primary-foreground: #FFFFFF;
+  /* Premium Gold/Yellow Primary */
+  --primary: #EFFD32; 
+  --primary-hover: #D7E61A;
+  --primary-foreground: #000000;
   
   --secondary: #111111;
   --secondary-foreground: #FFFFFF;
@@ -81,9 +83,9 @@
   --muted: rgba(255, 255, 255, 0.05);
   --muted-foreground: #86868B;
   
-  /* Premium Gold/Yellow Accent */
-  --accent: #EFFD32;
-  --accent-foreground: #000000;
+  /* Royal Purple Accent */
+  --accent: #6B21A8;
+  --accent-foreground: #FFFFFF;
   
   --destructive: #000000;
   
@@ -103,8 +105,8 @@
   /* Sidebar */
   --sidebar: #231F32;
   --sidebar-foreground: #FFFFFF;
-  --sidebar-primary: #6B21A8;
-  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-primary: #EFFD32;
+  --sidebar-primary-foreground: #000000;
   --sidebar-accent: #111111;
   --sidebar-accent-foreground: #FFFFFF;
   --sidebar-border: rgba(255, 255, 255, 0.1);
@@ -266,9 +268,9 @@ section[id] {
 /* ── Isometric-style diagonal grid (video signature element) ── */
 .iso-grid {
   background-image:
-    linear-gradient(60deg,  rgba(107, 33, 168, 0.07) 1px, transparent 1px),
-    linear-gradient(-60deg, rgba(107, 33, 168, 0.07) 1px, transparent 1px),
-    linear-gradient(rgba(107, 33, 168, 0.04) 1px, transparent 1px);
+    linear-gradient(60deg,  rgba(239, 253, 50, 0.07) 1px, transparent 1px),
+    linear-gradient(-60deg, rgba(239, 253, 50, 0.07) 1px, transparent 1px),
+    linear-gradient(rgba(239, 253, 50, 0.04) 1px, transparent 1px);
   background-size: 60px 60px, 60px 60px, 60px 60px;
 }
 
@@ -279,7 +281,7 @@ section[id] {
 }
 .card-lift:hover {
   transform: translateY(-8px);
-  box-shadow: 0 24px 60px rgba(107, 33, 168, 0.25);
+  box-shadow: 0 24px 60px rgba(239, 253, 50, 0.15);
 }
 
 /* ── Border shimmer on CTA card ── */
@@ -295,7 +297,7 @@ section[id] {
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(90deg, #6B21A8, #EFFD32, #6B21A8);
+  background: linear-gradient(90deg, #EFFD32, #6B21A8, #EFFD32);
   background-size: 200% 200%;
   animation: border-shimmer 4s ease infinite;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -328,4 +330,22 @@ section[id] {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
 }

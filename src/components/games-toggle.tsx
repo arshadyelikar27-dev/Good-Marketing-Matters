@@ -223,7 +223,7 @@ export function GamesToggle() {
               {/* Bottom Footer Note */}
               <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-[#BDBDBD]">
                 <span>🎮 4 Free Arcade Mini-Games</span>
-                <span className="font-medium text-white">Great Marketing Matters</span>
+                <span className="font-medium text-white">Good Marketing Matters</span>
               </div>
             </motion.div>
           </div>
