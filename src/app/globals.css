@@ -54,10 +54,10 @@
 }
 
 :root {
-  /* ONE Background Color (Deep Space Black/Purple) */
-  --background: #05000A;
-  --surface: #05000A;
-  --dark-section: #05000A;
+  /* ONE Background Color (Balanced Dark Theme) */
+  --background: #231F32;
+  --surface: #231F32;
+  --dark-section: #231F32;
   
   /* Text */
   --foreground: #F5F5F7; /* Apple's off-white */
@@ -101,7 +101,7 @@
   --radius: 1.5rem; /* Larger Apple-like curves */
   
   /* Sidebar */
-  --sidebar: #05000A;
+  --sidebar: #231F32;
   --sidebar-foreground: #FFFFFF;
   --sidebar-primary: #6B21A8;
   --sidebar-primary-foreground: #FFFFFF;
@@ -208,3 +208,124 @@ section[id] {
   60% { clip-path: inset(80% 0 5% 0); transform: translateX(-2px); }
   80% { clip-path: inset(30% 0 40% 0); transform: translateX(2px); }
 }
+
+/* ── Floating animation (3D logo element) ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-18px) rotate(2deg); }
+  66%       { transform: translateY(-8px) rotate(-1.5deg); }
+}
+
+@keyframes float-shadow {
+  0%, 100% { transform: scaleX(1); opacity: 0.3; }
+  33%       { transform: scaleX(0.8); opacity: 0.15; }
+  66%       { transform: scaleX(0.9); opacity: 0.2; }
+}
+
+/* ── Pulse glow for the logo orb ── */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50%       { opacity: 0.6;  transform: scale(1.08); }
+}
+
+/* ── Spin slow (ring/orbit decoration) ── */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-slow-reverse {
+  to { transform: rotate(-360deg); }
+}
+
+/* ── Marquee horizontal scroll ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+.animate-float {
+  animation: float 7s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation: spin-slow-reverse 18s linear infinite;
+}
+
+/* ── Isometric-style diagonal grid (video signature element) ── */
+.iso-grid {
+  background-image:
+    linear-gradient(60deg,  rgba(107, 33, 168, 0.07) 1px, transparent 1px),
+    linear-gradient(-60deg, rgba(107, 33, 168, 0.07) 1px, transparent 1px),
+    linear-gradient(rgba(107, 33, 168, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px, 60px 60px, 60px 60px;
+}
+
+/* ── Card lift helper ── */
+.card-lift {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(107, 33, 168, 0.25);
+}
+
+/* ── Border shimmer on CTA card ── */
+@keyframes border-shimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.border-shimmer::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(90deg, #6B21A8, #EFFD32, #6B21A8);
+  background-size: 200% 200%;
+  animation: border-shimmer 4s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ── Apple-style Glass Panel ── */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass-panel-highlight {
+  background: radial-gradient(120% 120% at 50% 0%, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 50%), rgba(255, 255, 255, 0.01);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+/* Hide scrollbar for clean horizontal scrolls */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

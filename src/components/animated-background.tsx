@@ -22,48 +22,51 @@ export function AnimatedBackground() {
     window.addEventListener("resize", resize);
     resize();
 
-    // Define the moving orbs for the mesh gradient
-    const orbs = [
-      { x: 0.2, y: 0.3, vx: 0.001, vy: 0.0015, radius: 0.6, color: [107, 33, 168] }, // Royal Purple
-      { x: 0.8, y: 0.7, vx: -0.0012, vy: -0.001, radius: 0.7, color: [88, 28, 135] }, // Darker Purple
-      { x: 0.5, y: 0.8, vx: 0.0008, vy: -0.0012, radius: 0.5, color: [239, 253, 50] }, // Neon Yellow/Green
-    ];
+    // Gradient orbs removed per user request
+    // Define particles
+    const particleCount = 80;
+    const particles: { x: number; y: number; vx: number; vy: number; radius: number; alpha: number }[] = [];
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random(),
+        y: Math.random(),
+        vx: (Math.random() - 0.5) * 0.001,
+        vy: (Math.random() - 0.5) * 0.001,
+        radius: Math.random() * 2 + 0.5,
+        alpha: Math.random() * 0.5 + 0.1,
+      });
+    }
 
     const render = () => {
       time += 0.01;
       
-      // Clear with Deep Space Black
-      ctx.fillStyle = "#05000A";
+      // Clear with new Balanced Dark theme color (#231F32)
+      ctx.fillStyle = "#231F32";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.globalCompositeOperation = "screen";
 
-      orbs.forEach((orb) => {
-        // Move orbs slowly
-        orb.x += orb.vx;
-        orb.y += orb.vy;
-        
-        // Bounce off edges smoothly
-        if (orb.x < -0.2 || orb.x > 1.2) orb.vx *= -1;
-        if (orb.y < -0.2 || orb.y > 1.2) orb.vy *= -1;
-
-        const x = orb.x * canvas.width;
-        const y = orb.y * canvas.height;
-        const radius = orb.radius * Math.max(canvas.width, canvas.height);
-
-        // Draw radial gradient
-        const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
-        gradient.addColorStop(0, `rgba(${orb.color[0]}, ${orb.color[1]}, ${orb.color[2]}, 0.15)`);
-        gradient.addColorStop(1, `rgba(${orb.color[0]}, ${orb.color[1]}, ${orb.color[2]}, 0)`);
-
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-      });
-      
-      // Add a subtle static noise overlay for premium texture
-      // (Rendered once per frame is slow, so we just use CSS grain overlay on top of canvas)
-
+      // Draw Particles
       ctx.globalCompositeOperation = "source-over";
+      particles.forEach((p) => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // Wrap around screen
+        if (p.x < 0) p.x = 1;
+        if (p.x > 1) p.x = 0;
+        if (p.y < 0) p.y = 1;
+        if (p.y > 1) p.y = 0;
+
+        const x = p.x * canvas.width;
+        const y = p.y * canvas.height;
+
+        ctx.beginPath();
+        ctx.arc(x, y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha})`;
+        ctx.fill();
+      });
+
       rafId = requestAnimationFrame(render);
     };
 
@@ -77,7 +80,7 @@ export function AnimatedBackground() {
 
   return (
     <div className="fixed inset-0 z-0 pointer-events-none w-full h-full">
-      <canvas ref={canvasRef} className="w-full h-full opacity-60" />
+      <canvas ref={canvasRef} className="w-full h-full opacity-80" />
       {/* Noise Texture Overlay */}
       <div 
         className="absolute inset-0 opacity-[0.03] mix-blend-overlay"
@@ -86,8 +89,8 @@ export function AnimatedBackground() {
           backgroundRepeat: 'repeat'
         }}
       />
-      {/* Vignette */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#05000A] opacity-80" />
+      {/* Vignette matching the new theme color */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#231F32] opacity-90" />
     </div>
   );
 }
