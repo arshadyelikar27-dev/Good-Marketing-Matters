@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { LenisProvider } from "@/components/lenis-provider";
 import { Navbar } from "@/components/navbar";
 import { CustomCursor } from "@/components/cursor";
@@ -148,6 +149,7 @@ export default function RootLayout({
           <ScheduleModal />
           <ProjectModal />
         </ModalProvider>
+        <Analytics />
       </body>
     </html>
   );
