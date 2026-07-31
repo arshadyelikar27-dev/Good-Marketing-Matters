@@ -74,7 +74,7 @@ export default function ServicePage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.1, ease: EASE }}
-              className="text-6xl md:text-8xl lg:text-[140px] font-black uppercase tracking-tighter leading-[0.9] py-2 mb-8 text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 drop-shadow-[0_0_20px_rgba(147,51,234,0.3)]"
+              className="text-4xl sm:text-6xl md:text-8xl lg:text-[140px] font-black uppercase tracking-tighter leading-[0.9] py-2 mb-8 text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 drop-shadow-[0_0_20px_rgba(147,51,234,0.3)] break-words hyphens-auto w-full"
             >
               {s.title}
             </motion.h1>
@@ -102,7 +102,7 @@ export default function ServicePage() {
             transition={{ duration: 1, ease: EASE }}
             className="mb-20 text-center md:text-left"
           >
-            <h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-4 text-heading drop-shadow-[0_0_15px_rgba(147,51,234,0.3)]">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-4 text-heading drop-shadow-[0_0_15px_rgba(147,51,234,0.3)] break-words hyphens-auto w-full">
               Capabilities. <br />
               <span className="text-primary">Engineered for growth.</span>
             </h2>
@@ -156,7 +156,7 @@ export default function ServicePage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease: EASE }}
-              className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9]"
+              className="text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] break-words hyphens-auto w-full"
             >
               The difference <br /> is in the <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent drop-shadow-[0_0_20px_rgba(239,253,50,0.4)]">details.</span>
             </motion.h2>
@@ -197,7 +197,7 @@ export default function ServicePage() {
         
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative">
           <div className="text-center mb-24">
-            <h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tighter text-heading drop-shadow-[0_0_15px_rgba(147,51,234,0.3)]">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tighter text-heading drop-shadow-[0_0_15px_rgba(147,51,234,0.3)] break-words hyphens-auto w-full">
               How it <span className="text-primary">works.</span>
             </h2>
           </div>
@@ -247,7 +247,7 @@ export default function ServicePage() {
             <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             
             <div className="relative z-10 flex flex-col items-center">
-              <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 max-w-4xl text-balance drop-shadow-[0_0_20px_rgba(147,51,234,0.5)]">
+              <h2 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 max-w-4xl text-balance drop-shadow-[0_0_20px_rgba(147,51,234,0.5)] break-words hyphens-auto w-full">
                 Ready to redefine your <span className="text-accent">brand&apos;s trajectory?</span>
               </h2>
               <p className="text-body-text text-2xl font-medium mb-12 max-w-2xl text-balance">
