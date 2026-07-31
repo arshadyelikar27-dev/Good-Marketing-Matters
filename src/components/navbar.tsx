@@ -91,11 +91,11 @@ export function Navbar() {
           )}
         >
           {/* LOGO */}
-          <Link href="/" className="flex items-center group relative w-[120px] sm:w-[160px] h-8 sm:h-10 z-20 shrink-0">
+          <Link href="/" className="flex items-center group relative w-[120px] sm:w-[160px] h-10 sm:h-12 z-20 shrink-0">
             <motion.div
               animate={{ scale: isScrolled ? 0.9 : 1 }}
               transition={{ duration: 0.3 }}
-              className="relative w-full h-full transition-transform hover:scale-105"
+              className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-[60px] sm:h-[80px] transition-transform hover:scale-105"
             >
               <Image 
                 src="/Logo.png" 
