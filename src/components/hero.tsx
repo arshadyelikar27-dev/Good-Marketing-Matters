@@ -29,13 +29,7 @@ export function Hero() {
           style={{ scale, opacity, y }}
           className="flex flex-col items-center justify-center text-center px-4"
         >
-          {/* Subtle top badge */}
-          <motion.div 
-            style={{ opacity: subtitleOpacity }}
-            className="mb-8 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md font-mono text-[10px] uppercase tracking-[0.2em] text-white/70"
-          >
-            Introducing the future of marketing
-          </motion.div>
+
 
           {/* Massive Cinematic Typography */}
           <h1 className="text-[14vw] sm:text-[12vw] leading-[0.85] font-semibold tracking-tighter text-white mix-blend-plus-lighter">
