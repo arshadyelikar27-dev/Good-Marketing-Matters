@@ -32,15 +32,4 @@ export function ScrollReveal({
   );
 }
 
-export const revealVariants = {
-  hidden: { opacity: 0, y: 80 },
-  visible: (i: number = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.215, 0.61, 0.355, 1.0],
-      delay: i * 0.08,
-    },
-  }),
-};
+

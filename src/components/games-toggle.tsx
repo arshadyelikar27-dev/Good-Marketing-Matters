@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Gamepad2, X, Brain, Trophy, Zap, Play, ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-export const MINI_GAMES = [
+const MINI_GAMES = [
   {
     id: "memory",
     title: "Logo Memory Match",

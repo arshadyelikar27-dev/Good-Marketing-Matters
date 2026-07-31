@@ -90,18 +90,18 @@ export function Navbar() {
               : "bg-background/40 backdrop-blur-[10px] border-white/10"
           )}
         >
-          {/* LOGO WITH 10% SHRINK ON SCROLL */}
-          <Link href="/" className="flex items-center group relative w-[130px] sm:w-[170px] h-10 sm:h-12 z-20">
+          {/* LOGO */}
+          <Link href="/" className="flex items-center group relative w-[120px] sm:w-[160px] h-8 sm:h-10 z-20 shrink-0">
             <motion.div
               animate={{ scale: isScrolled ? 0.9 : 1 }}
               transition={{ duration: 0.3 }}
-              className="absolute left-1/2 top-1/2 mt-4 sm:mt-6 -translate-x-1/2 -translate-y-1/2 w-[130px] sm:w-[170px] h-[130px] sm:h-[170px] transition-transform group-hover:scale-105"
+              className="relative w-full h-full transition-transform hover:scale-105"
             >
               <Image 
-                src="/gmm-logo-white-text-cropped.png" 
+                src="/Logo.png" 
                 alt="GMM Logo" 
                 fill
-                className="object-contain drop-shadow-[0_0_15px_rgba(147, 51, 234,0.2)]"
+                className="object-contain object-left drop-shadow-[0_0_15px_rgba(239,253,50,0.2)]"
                 priority
               />
             </motion.div>
