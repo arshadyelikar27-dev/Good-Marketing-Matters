@@ -15,7 +15,7 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 );
 
 export function FloatingContactButtons() {
-  const phoneNumber = "+15551234567";
+  const phoneNumber = "919373124002";
   const whatsappMessage = encodeURIComponent("Hello GMM Agency! I'd like to get a quote for my project.");
   const [showBadge, setShowBadge] = useState(false);
   const [badgeDismissed, setBadgeDismissed] = useState(false);

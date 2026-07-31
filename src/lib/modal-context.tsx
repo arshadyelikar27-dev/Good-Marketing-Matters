@@ -9,6 +9,9 @@ interface ModalContextType {
   isProjectOpen: boolean;
   openProjectModal: () => void;
   closeProjectModal: () => void;
+  isScheduleOpen: boolean;
+  openScheduleModal: () => void;
+  closeScheduleModal: () => void;
 }
 
 const ModalContext = createContext<ModalContextType | undefined>(undefined);
@@ -16,12 +19,16 @@ const ModalContext = createContext<ModalContextType | undefined>(undefined);
 export function ModalProvider({ children }: { children: React.ReactNode }) {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isProjectOpen, setIsProjectOpen] = useState(false);
+  const [isScheduleOpen, setIsScheduleOpen] = useState(false);
 
   const openContactModal = () => setIsContactOpen(true);
   const closeContactModal = () => setIsContactOpen(false);
 
   const openProjectModal = () => setIsProjectOpen(true);
   const closeProjectModal = () => setIsProjectOpen(false);
+
+  const openScheduleModal = () => setIsScheduleOpen(true);
+  const closeScheduleModal = () => setIsScheduleOpen(false);
 
   return (
     <ModalContext.Provider
@@ -32,6 +39,9 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
         isProjectOpen,
         openProjectModal,
         closeProjectModal,
+        isScheduleOpen,
+        openScheduleModal,
+        closeScheduleModal,
       }}
     >
       {children}

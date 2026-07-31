@@ -7,9 +7,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-outfit);
-  --font-mono: var(--font-inter);
-  --font-heading: var(--font-outfit);
+  --font-sans: var(--font-league-spartan);
+  --font-heading: var(--font-league-spartan);
   --color-surface: var(--surface);
   --color-dark-section: var(--dark-section);
   --color-heading: var(--heading);
@@ -56,60 +55,60 @@
 }
 
 :root {
-  /* ONE Background Color (Balanced Dark Theme) */
-  --background: #231F32;
-  --surface: #231F32;
-  --dark-section: #231F32;
+  /* Hyper-Creative Dark Purple Theme */
+  --background: #0A0014;
+  --surface: #140028;
+  --dark-section: #05000A;
   
   /* Text */
-  --foreground: #F5F5F7; /* Apple's off-white */
+  --foreground: #FFFFFF;
   --heading: #FFFFFF;
-  --body-text: #86868B; /* Apple's signature grey */
+  --body-text: #E2E8F0;
 
-  /* Cards/Popovers (Frosted Glass bases) */
-  --card: rgba(255, 255, 255, 0.03);
+  /* Cards/Popovers */
+  --card: #140028;
   --card-foreground: #FFFFFF;
-  --popover: rgba(255, 255, 255, 0.03);
+  --popover: #140028;
   --popover-foreground: #FFFFFF;
   
-  /* Premium Gold/Yellow Primary */
-  --primary: #EFFD32; 
-  --primary-hover: #D7E61A;
-  --primary-foreground: #000000;
+  /* Primary: Neon Purple */
+  --primary: #9333EA; 
+  --primary-hover: #A855F7;
+  --primary-foreground: #FFFFFF;
   
-  --secondary: #111111;
+  --secondary: #2E1065;
   --secondary-foreground: #FFFFFF;
   
-  --muted: rgba(255, 255, 255, 0.05);
-  --muted-foreground: #86868B;
+  --muted: #3B0764;
+  --muted-foreground: #A855F7;
   
-  /* Royal Purple Accent */
-  --accent: #6B21A8;
-  --accent-foreground: #FFFFFF;
+  /* Accent: Neon Yellow */
+  --accent: #EFFD32;
+  --accent-foreground: #000000;
   
-  --destructive: #000000;
+  --destructive: #EF4444;
   
-  --border: rgba(255, 255, 255, 0.1);
-  --input: rgba(255, 255, 255, 0.05);
-  --ring: #EFFD32; /* Gold ring for focus */
+  --border: #3B0764;
+  --input: #2E1065;
+  --ring: #9333EA;
   
   /* Charts */
-  --chart-1: #6B21A8;
+  --chart-1: #9333EA;
   --chart-2: #EFFD32;
-  --chart-3: #F5F5F7;
-  --chart-4: #333333;
-  --chart-5: #111111;
+  --chart-3: #A855F7;
+  --chart-4: #FBBF24;
+  --chart-5: #6B21A8;
   
-  --radius: 1.5rem; /* Larger Apple-like curves */
+  --radius: 1rem; /* Softer radius for modern glass feel */
   
   /* Sidebar */
-  --sidebar: #231F32;
+  --sidebar: #0A0014;
   --sidebar-foreground: #FFFFFF;
   --sidebar-primary: #EFFD32;
   --sidebar-primary-foreground: #000000;
-  --sidebar-accent: #111111;
+  --sidebar-accent: #140028;
   --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-border: #3B0764;
   --sidebar-ring: #EFFD32;
 }
 
@@ -127,7 +126,7 @@
   body {
     background-color: var(--background);
     color: var(--body-text);
-    overflow-x: hidden;
+    overflow-x: clip;
   }
   h1, h2, h3, h4, h5, h6 {
     color: var(--heading);

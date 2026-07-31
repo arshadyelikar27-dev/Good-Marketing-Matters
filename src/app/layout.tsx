@@ -12,6 +12,7 @@ import { CookieConsent } from "@/components/cookie-consent";
 import { PageTransition } from "@/components/page-transition";
 import { ModalProvider } from "@/lib/modal-context";
 import { ContactModal } from "@/components/contact-modal";
+import { ScheduleModal } from "@/components/schedule-modal";
 import { ProjectModal } from "@/components/project-modal";
 import "./globals.css";
 
@@ -144,6 +145,7 @@ export default function RootLayout({
             <CookieConsent />
           </LenisProvider>
           <ContactModal />
+          <ScheduleModal />
           <ProjectModal />
         </ModalProvider>
       </body>

@@ -26,44 +26,57 @@ const faqs = [
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const toggleFAQ = (idx: number) => {
-    setOpenIndex(openIndex === idx ? null : idx);
-  };
-
   return (
-    <section id="faq" className="py-32 w-full bg-transparent overflow-hidden">
-      <div className="max-w-4xl mx-auto px-6">
-        
-        <div className="mb-20">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tighter text-white mb-6">
-            Frequently Asked.
-          </h2>
-          <p className="text-xl text-white font-normal max-w-xl">
-            Everything you need to know about partnering with GMM.
-          </p>
-        </div>
+    <section id="faq" className="w-full py-24 sm:py-32 bg-background relative overflow-hidden">
+      {/* Background neon lines */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="absolute bottom-0 right-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
 
-        <div className="flex flex-col border-t border-white/10">
-          {faqs.map((faq, idx) => {
-            const isOpen = openIndex === idx;
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl sm:text-5xl font-bold uppercase tracking-tighter text-heading drop-shadow-[0_0_15px_rgba(147,51,234,0.3)]">
+            Got Questions?
+          </h2>
+          <p className="mt-4 text-body-text">Everything you need to know about partnering with GMM.</p>
+        </motion.div>
+
+        <div className="flex flex-col gap-4">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
 
             return (
-              <div key={idx} className="border-b border-white/10 overflow-hidden">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                key={index} 
+                className={`group border rounded-2xl overflow-hidden transition-all duration-500 bg-surface/50 backdrop-blur-md shadow-lg ${
+                  isOpen 
+                    ? "border-primary shadow-[0_0_20px_rgba(147,51,234,0.2)]" 
+                    : "border-border hover:border-primary/50"
+                }`}
+              >
                 <button
-                  onClick={() => toggleFAQ(idx)}
-                  className="w-full flex items-center justify-between py-8 text-left group"
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  className="w-full flex items-center justify-between p-6 sm:p-8 text-left focus:outline-none"
                 >
-                  <span className="text-2xl sm:text-3xl font-medium tracking-tight transition-colors duration-500 text-white">
+                  <span className={`text-lg sm:text-xl font-bold tracking-tight transition-colors duration-300 ${isOpen ? "text-primary" : "text-heading group-hover:text-primary"}`}>
                     {faq.question}
                   </span>
-                  
-                  {/* Apple-style plus icon that rotates to an X */}
                   <motion.div
                     animate={{ rotate: isOpen ? 45 : 0 }}
-                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="shrink-0 ml-6 text-white/40 group-hover:text-white transition-colors duration-500"
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className={`shrink-0 ml-6 flex items-center justify-center w-10 h-10 rounded-full transition-colors duration-300 ${
+                      isOpen ? "bg-primary text-black" : "bg-primary/10 text-primary group-hover:bg-primary/30"
+                    }`}
                   >
-                    <Plus className="w-8 h-8" strokeWidth={1.5} />
+                    <Plus className="w-5 h-5" />
                   </motion.div>
                 </button>
 
@@ -73,15 +86,16 @@ export function FAQ() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     >
-                      <div className="pb-10 pr-12 text-lg sm:text-xl text-white/90 font-normal leading-relaxed">
+                      <div className="px-6 sm:px-8 pb-6 sm:pb-8 pt-0 text-body-text leading-relaxed">
+                        <div className="w-full h-px bg-gradient-to-r from-primary/30 to-transparent mb-6" />
                         {faq.answer}
                       </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
             );
           })}
         </div>

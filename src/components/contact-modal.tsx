@@ -2,75 +2,63 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Calendar, Clock, CheckCircle2 } from "lucide-react";
+import { X, Send, User, Mail, ChevronDown, CheckCircle2 } from "lucide-react";
 import { useModal } from "@/lib/modal-context";
+import { services } from "@/data/services";
 
 export function ContactModal() {
   const { isContactOpen, openContactModal, closeContactModal } = useModal();
-  const [step, setStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
   const [formData, setFormData] = useState({
+    type: "Contact Form",
     name: "",
     email: "",
-    phone: "",
-    date: "",
-    time: "",
-    notes: "",
+    service: "",
+    message: "",
   });
-
-  const timeSlots = [
-    "09:00 AM",
-    "10:30 AM",
-    "12:00 PM",
-    "02:00 PM",
-    "03:30 PM",
-    "05:00 PM",
-  ];
-
-  useEffect(() => {
-    const handleHashChange = () => {
-      if (window.location.hash === "#contact") {
-        openContactModal();
-        window.history.replaceState(
-          null,
-          "",
-          window.location.pathname + window.location.search
-        );
-      }
-    };
-
-    handleHashChange();
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
-  }, [openContactModal]);
 
   const handleClose = () => {
     closeContactModal();
     setTimeout(() => {
-      setStep(1);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        date: "",
-        time: "",
-        notes: "",
-      });
+      setIsSuccess(false);
+      setFormData({ type: "Contact Form", name: "", email: "", service: "", message: "" });
     }, 300);
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleNext = () => setStep(2);
-  const handleSubmit = () => setStep(3);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbzVFg7OethkXkdGIxwsPviMoHP3vIqqmPJmATo_jmkVhzCcugC3Ls_sVN9wRviX81zs/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData)
+      });
+
+      // With no-cors, the response is opaque. If fetch didn't throw, we assume the data was sent.
+      setIsSuccess(true);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Failed to send message. Please try again or email us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <AnimatePresence>
       {isContactOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -84,181 +72,129 @@ export function ContactModal() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="relative w-full max-w-md bg-[#0B0B0E] border border-white/10 rounded-[2rem] shadow-2xl overflow-hidden"
+            className="relative w-full max-w-lg bg-surface border border-white/10 rounded-[2rem] shadow-[0_0_50px_rgba(147,51,234,0.15)] overflow-hidden"
           >
-            {/* Header */}
-            {step !== 3 && (
-              <div className="flex items-center justify-between p-6 pb-2">
-                <div>
-                  <h3 className="text-2xl font-semibold text-white tracking-tight">
-                    Schedule a Call
-                  </h3>
-                  <p className="text-[#86868B] text-sm mt-1">
-                    Let's discuss your project in detail.
+            <button
+              type="button"
+              onClick={handleClose}
+              className="absolute top-5 right-5 p-2 rounded-full bg-white/5 hover:bg-white/10 text-[#86868B] hover:text-white transition-colors z-50"
+            >
+              <X size={20} />
+            </button>
+
+            {/* Decorative Glow inside modal */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full blur-[80px] pointer-events-none" />
+
+            {!isSuccess ? (
+              <div className="p-8 relative z-10">
+                <div className="flex flex-col items-center text-center mb-8">
+                  <p className="text-xs bg-primary/20 text-primary font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4 border border-primary/30">
+                    Contact Us
+                  </p>
+                  <h2 className="text-3xl font-black text-white uppercase tracking-tight">Let's Get In Touch.</h2>
+                  <p className="text-gray-400 mt-2 text-sm font-medium">
+                    Or reach out manually to us at <a href="mailto:goodmarketingmatters.co" className="text-accent hover:underline">hello@goodmarketingmatters.co</a>
                   </p>
                 </div>
-                <button
-                  onClick={handleClose}
-                  className="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-[#86868B] hover:text-white transition-colors"
-                >
-                  <X size={18} />
-                </button>
-              </div>
-            )}
 
-            {/* Step 1: Contact Details */}
-            {step === 1 && (
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                className="p-6 pt-4 flex flex-col gap-4"
-              >
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-medium text-[#86868B] uppercase tracking-wider pl-1">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="John Doe"
-                    className="w-full bg-[#1A1A20] border border-white/5 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
-                  />
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-medium text-[#86868B] uppercase tracking-wider pl-1">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="john@example.com"
-                    className="w-full bg-[#1A1A20] border border-white/5 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
-                  />
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-medium text-[#86868B] uppercase tracking-wider pl-1">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="+1 (555) 000-0000"
-                    className="w-full bg-[#1A1A20] border border-white/5 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
-                  />
-                </div>
+                <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
 
-                <button
-                  onClick={handleNext}
-                  disabled={!formData.name || !formData.email}
-                  className="mt-4 w-full bg-gradient-to-r from-primary to-accent text-white font-medium py-3.5 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(147,51,234,0.2)]"
-                >
-                  Continue to Date & Time
-                </button>
-              </motion.div>
-            )}
-
-            {/* Step 2: Date & Time */}
-            {step === 2 && (
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                className="p-6 pt-4 flex flex-col gap-5"
-              >
-                {/* Date Picker */}
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-medium text-[#86868B] uppercase tracking-wider pl-1 flex items-center gap-1.5">
-                    <Calendar size={12} /> Select Date
-                  </label>
-                  <input
-                    type="date"
-                    name="date"
-                    value={formData.date}
-                    onChange={handleChange}
-                    className="w-full bg-[#1A1A20] border border-white/5 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all [color-scheme:dark]"
-                  />
-                </div>
-
-                {/* Time Slots */}
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-medium text-[#86868B] uppercase tracking-wider pl-1 flex items-center gap-1.5">
-                    <Clock size={12} /> Available Slots
-                  </label>
-                  <div className="grid grid-cols-3 gap-2">
-                    {timeSlots.map((time) => (
-                      <button
-                        key={time}
-                        onClick={() =>
-                          setFormData((prev) => ({ ...prev, time }))
-                        }
-                        className={`py-2 rounded-lg text-sm font-medium transition-all ${
-                          formData.time === time
-                            ? "bg-primary text-white shadow-[0_0_15px_rgba(147,51,234,0.3)]"
-                            : "bg-[#1A1A20] text-[#BDBDBD] border border-white/5 hover:bg-white/5 hover:text-white"
-                        }`}
-                      >
-                        {time}
-                      </button>
-                    ))}
+                  <div>
+                    <label className="text-sm font-medium text-gray-300 mb-1.5 block">Full Name</label>
+                    <div className="relative flex items-center">
+                      <User className="absolute left-3 w-5 h-5 text-gray-500" />
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        className="w-full bg-[#1A1A20] border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+                        placeholder="Enter your full name"
+                      />
+                    </div>
                   </div>
-                </div>
 
-                {/* Notes */}
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-medium text-[#86868B] uppercase tracking-wider pl-1">
-                    Additional Notes (Optional)
-                  </label>
-                  <textarea
-                    name="notes"
-                    value={formData.notes}
-                    onChange={handleChange}
-                    placeholder="Tell us a bit about your project..."
-                    rows={2}
-                    className="w-full bg-[#1A1A20] border border-white/5 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all resize-none"
-                  />
-                </div>
+                  <div>
+                    <label className="text-sm font-medium text-gray-300 mb-1.5 block">Email Address</label>
+                    <div className="relative flex items-center">
+                      <Mail className="absolute left-3 w-5 h-5 text-gray-500" />
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        className="w-full bg-[#1A1A20] border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+                        placeholder="Enter your email address"
+                      />
+                    </div>
+                  </div>
 
-                <div className="flex items-center gap-3 mt-2">
+                  <div>
+                    <label className="text-sm font-medium text-gray-300 mb-1.5 block">What service are you looking for?</label>
+                    <div className="relative flex items-center">
+                      <ChevronDown className="absolute right-3 w-5 h-5 text-gray-500 pointer-events-none" />
+                      <select
+                        name="service"
+                        value={formData.service}
+                        onChange={handleChange}
+                        required
+                        className="w-full bg-[#1A1A20] border border-white/5 rounded-xl h-12 pl-4 pr-10 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all appearance-none cursor-pointer"
+                      >
+                        <option value="" disabled className="bg-surface text-gray-500">Select a service</option>
+                        {services.map((s) => (
+                          <option key={s.slug} value={s.title} className="bg-surface">{s.title}</option>
+                        ))}
+                        <option value="Other" className="bg-surface">Other / Comprehensive Package</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="text-sm font-medium text-gray-300 mb-1.5 block">Message</label>
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      rows={3}
+                      className="w-full bg-[#1A1A20] border border-white/5 rounded-xl p-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all resize-none"
+                      placeholder="Tell us about your brand and goals..."
+                    />
+                  </div>
+
                   <button
-                    onClick={() => setStep(1)}
-                    className="px-4 py-3.5 rounded-xl bg-white/5 text-white hover:bg-white/10 font-medium transition-colors"
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="mt-4 w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-medium text-lg h-14 rounded-xl flex items-center justify-center gap-2 transition-opacity duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(147,51,234,0.2)]"
                   >
-                    Back
+                    {isSubmitting ? "Sending..." : (
+                      <>
+                        Submit Form
+                        <Send className="w-5 h-5" />
+                      </>
+                    )}
                   </button>
-                  <button
-                    onClick={handleSubmit}
-                    disabled={!formData.date || !formData.time}
-                    className="flex-1 bg-gradient-to-r from-primary to-accent text-white font-medium py-3.5 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(147,51,234,0.2)]"
-                  >
-                    Confirm Call Schedule
-                  </button>
-                </div>
-              </motion.div>
-            )}
 
-            {/* Step 3: Success Screen */}
-            {step === 3 && (
+                </form>
+              </div>
+            ) : (
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="p-10 flex flex-col items-center text-center gap-4"
+                className="p-12 flex flex-col items-center text-center gap-4 relative z-10"
               >
                 <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-2 shadow-[0_0_30px_rgba(34,197,94,0.3)]">
                   <CheckCircle2 className="w-10 h-10 text-green-500" />
                 </div>
                 <h3 className="text-3xl font-semibold text-white tracking-tight">
-                  Call Scheduled!
+                  Message Sent!
                 </h3>
                 <p className="text-[#86868B] text-base leading-relaxed">
-                  Thank you, <span className="text-white font-medium">{formData.name}</span>. <br />
-                  We'll call you on <span className="text-white font-medium">{formData.date}</span> at <span className="text-white font-medium">{formData.time}</span>.
+                  Thank you for reaching out, <span className="text-white font-medium">{formData.name}</span>. <br />
+                  Our team will get back to you shortly.
                 </p>
                 <button
                   onClick={handleClose}

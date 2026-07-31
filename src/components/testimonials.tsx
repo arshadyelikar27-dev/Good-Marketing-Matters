@@ -2,7 +2,6 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent } from '@/components/ui/card';
 import { Marquee } from '@/components/ui/3d-testimonials';
 
-// Unique reviews data
 const testimonials = [
   {
     name: 'Rahul Sharma',
@@ -71,21 +70,22 @@ const testimonials = [
 
 function TestimonialCard({ img, name, username, body, country }: (typeof testimonials)[number]) {
   return (
-    <Card className="w-64 bg-card/50 backdrop-blur-sm border-white/10 hover:border-primary/50 transition-colors">
-      <CardContent className="p-4">
-        <div className="flex items-center gap-2.5">
-          <Avatar className="size-9">
+    <Card className="w-64 bg-card/50 backdrop-blur-md border-border hover:border-primary transition-all duration-300 shadow-lg group hover:shadow-[0_0_20px_rgba(147,51,234,0.3)]">
+      <CardContent className="p-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+        <div className="flex items-center gap-2.5 relative z-10">
+          <Avatar className="size-9 border border-primary/30 group-hover:border-accent transition-colors">
             <AvatarImage src={img} alt={username} />
             <AvatarFallback>{name[0]}</AvatarFallback>
           </Avatar>
           <div className="flex flex-col">
-            <figcaption className="text-sm font-medium text-foreground flex items-center gap-1">
-              {name} <span className="text-xs">{country}</span>
+            <figcaption className="text-sm font-bold text-heading flex items-center gap-1 group-hover:text-primary transition-colors">
+              {name} <span className="text-xs font-normal text-muted-foreground">{country}</span>
             </figcaption>
-            <p className="text-xs font-medium text-muted-foreground">{username}</p>
+            <p className="text-xs font-medium text-accent">{username}</p>
           </div>
         </div>
-        <blockquote className="mt-3 text-sm text-secondary-foreground leading-snug font-light">{body}</blockquote>
+        <blockquote className="mt-3 text-sm text-body-text leading-snug relative z-10">{body}</blockquote>
       </CardContent>
     </Card>
   );
@@ -93,22 +93,23 @@ function TestimonialCard({ img, name, username, body, country }: (typeof testimo
 
 export function Testimonials() {
   return (
-    <section id="reviews" className="relative w-full py-24 sm:py-32 bg-transparent text-white overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[500px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
+    <section id="reviews" className="relative w-full py-24 sm:py-32 bg-background overflow-hidden">
+      {/* Background graphic */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[500px] bg-primary/20 rounded-full blur-[150px] pointer-events-none mix-blend-screen" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
 
       {/* Header */}
       <div className="container relative z-10 mx-auto px-6 mb-16 text-center">
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tighter mb-4">
-          Client <span className="text-primary italic">Stories</span>
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tighter mb-4 text-heading drop-shadow-[0_0_20px_rgba(147,51,234,0.3)]">
+          Client <span className="text-primary">Stories</span>
         </h2>
-        <p className="text-lg text-white/50 max-w-xl mx-auto">
+        <p className="text-lg text-body-text max-w-xl mx-auto">
           Hear from the visionaries and industry leaders who scaled their digital presence with GMM.
         </p>
       </div>
 
       <div className="w-full flex justify-center items-center py-10 relative z-10">
-        <div className="border border-white/10 rounded-2xl relative flex h-[500px] w-full max-w-[1000px] flex-row items-center justify-center overflow-hidden gap-4 [perspective:400px] bg-black/20 backdrop-blur-sm">
+        <div className="border border-border/30 rounded-3xl relative flex h-[500px] w-full max-w-[1000px] flex-row items-center justify-center overflow-hidden gap-4 [perspective:400px] bg-surface/30 backdrop-blur-sm shadow-2xl">
           <div
             className="flex flex-row items-center gap-4 w-full justify-center"
             style={{
@@ -143,10 +144,10 @@ export function Testimonials() {
           </div>
           
           {/* Gradient overlays for vertical marquee fading effect */}
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background/90 to-transparent"></div>
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background/90 to-transparent"></div>
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background/90 to-transparent"></div>
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background/90 to-transparent"></div>
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background to-transparent"></div>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background to-transparent"></div>
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background to-transparent"></div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background to-transparent"></div>
         </div>
       </div>
     </section>

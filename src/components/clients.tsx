@@ -11,25 +11,27 @@ const items = [
 
 export function Clients() {
   return (
-    <section id="clients" className="py-24 md:py-32 w-full bg-transparent overflow-hidden relative select-none">
+    <section id="clients" className="py-24 md:py-32 w-full bg-dark-section overflow-hidden relative select-none border-y border-border">
       
-      <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
-        <h2 className="text-xl md:text-2xl font-medium text-white/50 tracking-tight">
-          Trusted by our amazing clients
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 mb-16 text-center relative z-10">
+        <h2 className="text-xl md:text-2xl font-bold uppercase text-primary tracking-widest drop-shadow-[0_0_10px_rgba(147,51,234,0.5)]">
+          Trusted by visionaries
         </h2>
       </div>
 
       {/* Gradient Mask for fading edges */}
-      <div className="relative w-full overflow-hidden flex flex-col gap-8 md:gap-12"
+      <div className="relative w-full overflow-hidden flex flex-col gap-4 md:gap-8"
            style={{ maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}>
         
         {/* ROW 1: Scrolling Left */}
-        <div className="flex w-full">
+        <div className="flex w-full group">
           <motion.div
             className="flex gap-12 md:gap-24 whitespace-nowrap min-w-max items-center"
             animate={{ x: [0, "-50%"] }}
             transition={{
-              duration: 40,
+              duration: 25,
               repeat: Infinity,
               ease: "linear",
             }}
@@ -37,7 +39,7 @@ export function Clients() {
             {[...items, ...items, ...items, ...items].map((item, i) => (
               <span
                 key={i}
-                className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tighter text-white/20 hover:text-white transition-colors duration-500 cursor-default"
+                className="text-6xl sm:text-8xl md:text-9xl font-black uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/10 to-white/5 transition-all duration-500 cursor-default group-hover:blur-sm hover:!blur-none hover:!text-primary hover:drop-shadow-[0_0_30px_rgba(147,51,234,0.8)] hover:scale-110"
               >
                 {item}
               </span>
@@ -46,12 +48,12 @@ export function Clients() {
         </div>
 
         {/* ROW 2: Scrolling Right with Outline Text Effect */}
-        <div className="flex w-full">
+        <div className="flex w-full group">
           <motion.div
             className="flex gap-12 md:gap-24 whitespace-nowrap min-w-max items-center"
             animate={{ x: ["-50%", 0] }}
             transition={{
-              duration: 45,
+              duration: 30,
               repeat: Infinity,
               ease: "linear",
             }}
@@ -59,9 +61,9 @@ export function Clients() {
             {[...items, ...items, ...items, ...items].map((item, i) => (
               <span
                 key={i}
-                className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tighter cursor-default transition-colors duration-500 hover:text-accent"
+                className="text-6xl sm:text-8xl md:text-9xl font-black uppercase tracking-tighter cursor-default transition-all duration-500 group-hover:blur-sm hover:!blur-none hover:!text-accent hover:drop-shadow-[0_0_30px_rgba(239,253,50,0.8)] hover:scale-110 hover:!stroke-none"
                 style={{
-                  WebkitTextStroke: "1px rgba(255, 255, 255, 0.2)",
+                  WebkitTextStroke: "2px rgba(255, 255, 255, 0.1)",
                   color: "transparent",
                 }}
               >

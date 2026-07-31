@@ -26,7 +26,7 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
-  const { openContactModal } = useModal();
+  const { openScheduleModal } = useModal();
 
   // Track scroll depth for background opacity and logo shrink
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -235,7 +235,7 @@ export function Navbar() {
           {/* LET'S TALK BUTTON — MAGNETIC */}
           <MagneticButton className="hidden md:flex" strength={0.5}>
             <button
-              onClick={openContactModal}
+              onClick={openScheduleModal}
               className="px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-bold text-sm shadow-[0_4px_20px_rgba(147, 51, 234,0.3)] hover:shadow-[0_8px_30px_rgba(147, 51, 234,0.5)] hover:bg-[#7E22CE] transition-all duration-300 active:scale-[0.96] block"
             >
               Let&apos;s Talk
@@ -341,7 +341,7 @@ export function Navbar() {
                   <button
                     onClick={() => {
                       setMobileMenuOpen(false);
-                      openContactModal();
+                      openScheduleModal();
                     }}
                     className="relative overflow-hidden flex items-center justify-center px-6 py-4 rounded-2xl bg-primary text-primary-foreground font-black text-base w-full shadow-[0_0_30px_rgba(147, 51, 234,0.35)] group"
                   >
