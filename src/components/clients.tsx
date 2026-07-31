@@ -20,7 +20,7 @@ export function Clients() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section id="clients" className="py-16 sm:py-24 md:py-32 w-full bg-surface overflow-hidden relative select-none">
+    <section id="clients" className="py-16 sm:py-24 md:py-32 w-full bg-transparent overflow-hidden relative select-none">
       <KineticYellowBgFX />
       {/* Subtle dotted background pattern */}
       <div
@@ -60,7 +60,7 @@ export function Clients() {
               <motion.span
                 key={i}
                 whileHover={{ scale: 1.08 }}
-                className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black uppercase text-white/30 hover:text-primary transition-all duration-300 cursor-pointer inline-block"
+                className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black uppercase text-white/30 hover:text-accent transition-all duration-300 cursor-pointer inline-block"
               >
                 {item}
               </motion.span>

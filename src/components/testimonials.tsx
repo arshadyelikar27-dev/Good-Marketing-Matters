@@ -125,7 +125,7 @@ export function Testimonials() {
   };
 
   return (
-    <section id="reviews" className="relative w-full min-h-screen py-16 sm:py-24 md:py-32 bg-[#0D0020] text-white flex flex-col items-center justify-center overflow-hidden">
+    <section id="reviews" className="relative w-full min-h-screen py-16 sm:py-24 md:py-32 bg-transparent text-white flex flex-col items-center justify-center overflow-hidden">
       <KineticDarkBgFX />
       {/* Background Glowing Breathing Orb */}
       <motion.div
@@ -138,11 +138,11 @@ export function Testimonials() {
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 max-w-7xl xl:max-w-[1400px] mb-6 sm:mb-12 text-center flex flex-col items-center">
         <ScrollReveal>
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white font-bold text-xs uppercase tracking-widest mb-4">
-            <BookOpen className="w-4 h-4 text-primary" /> Interactive Client Storybook
+            <BookOpen className="w-4 h-4 text-accent" /> Interactive Client Storybook
           </div>
 
           <h2 className="font-heading text-3xl sm:text-4xl md:text-6xl font-black mb-4 tracking-tight">
-            What Our <span className="text-primary underline decoration-primary/30">Clients Say</span>
+            What Our <span className="text-accent underline decoration-primary/30">Clients Say</span>
           </h2>
 
           <p className="text-sm sm:text-base md:text-lg text-[#BDBDBD] max-w-xl mx-auto px-2 leading-relaxed">
@@ -186,18 +186,18 @@ export function Testimonials() {
             style={{ margin: "0 auto" }}
           >
             {/* COVER */}
-            <Page className="bg-[#0D0020] text-white p-3 sm:p-6 md:p-8 flex flex-col justify-between items-center text-center border-r border-[#262626]">
+            <Page className="bg-background text-white p-3 sm:p-6 md:p-8 flex flex-col justify-between items-center text-center border-r border-white/10">
               <div className="w-full flex justify-between items-center pt-1 border-b border-white/20 pb-2 sm:pb-4">
-                <span className="text-[8px] sm:text-[10px] md:text-xs font-bold uppercase tracking-widest text-primary">GMM Edition</span>
-                <Sparkles className="w-3 h-3 sm:w-4 sm:h-5 text-primary animate-pulse" />
+                <span className="text-[8px] sm:text-[10px] md:text-xs font-bold uppercase tracking-widest text-accent">GMM Edition</span>
+                <Sparkles className="w-3 h-3 sm:w-4 sm:h-5 text-accent animate-pulse" />
               </div>
 
               <div className="my-auto flex flex-col items-center">
-                <div className="w-10 h-10 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-black text-xl sm:text-3xl md:text-4xl mb-2 sm:mb-4 md:mb-6 shadow-[0_0_30px_rgba(212,224,0,0.5)]">
+                <div className="w-10 h-10 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-black text-xl sm:text-3xl md:text-4xl mb-2 sm:mb-4 md:mb-6 shadow-[0_0_30px_rgba(147, 51, 234,0.5)]">
                   G
                 </div>
                 <h1 className="text-lg sm:text-2xl md:text-4xl font-black font-heading tracking-tight mb-1 sm:mb-2">
-                  Client <span className="text-primary">Stories</span>
+                  Client <span className="text-accent">Stories</span>
                 </h1>
                 <div className="w-8 sm:w-12 md:w-16 h-0.5 sm:h-1 bg-primary rounded-full my-2 sm:my-3" />
                 <p className="text-[9px] sm:text-xs text-white/70 max-w-xs leading-relaxed font-medium">
@@ -207,14 +207,14 @@ export function Testimonials() {
 
               <div className="w-full pt-2 sm:pt-4 border-t border-white/20 flex items-center justify-between text-[9px] sm:text-xs text-white/50">
                 <span>Auto-flips every 3s 📖</span>
-                <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-primary animate-bounce" />
+                <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-accent animate-bounce" />
               </div>
             </Page>
 
             {/* INDEX PAGE */}
-            <Page className="bg-[#151515] p-3 sm:p-6 md:p-8 flex flex-col justify-between border-r border-[#262626]">
+            <Page className="bg-[#050505] p-3 sm:p-6 md:p-8 flex flex-col justify-between border-r border-white/10">
               <div>
-                <div className="flex items-center justify-between border-b border-[#262626] pb-2 mb-2 sm:mb-4">
+                <div className="flex items-center justify-between border-b border-white/10 pb-2 mb-2 sm:mb-4">
                   <h3 className="font-heading font-black text-xs sm:text-lg md:text-xl text-white">Table of Contents</h3>
                   <span className="text-[8px] sm:text-[10px] md:text-xs font-bold text-white/40">Page 1</span>
                 </div>
@@ -231,7 +231,7 @@ export function Testimonials() {
                           {t.name.charAt(0)}
                         </div>
                         <div className="min-w-0">
-                          <div className="text-[10px] sm:text-xs font-bold text-white group-hover:text-primary transition-colors truncate">{t.name}</div>
+                          <div className="text-[10px] sm:text-xs font-bold text-white group-hover:text-accent transition-colors truncate">{t.name}</div>
                           <div className="text-[8px] sm:text-[10px] text-white/50 truncate">{t.company}</div>
                         </div>
                       </div>
@@ -250,16 +250,16 @@ export function Testimonials() {
 
             {/* TESTIMONIAL PAGES */}
             {testimonialsData.map((t, idx) => (
-              <Page key={t.id} className="bg-[#151515] p-3 sm:p-6 md:p-8 flex flex-col justify-between border-r border-[#262626]">
-                <div className="flex items-center justify-between border-b border-[#262626] pb-2">
-                  <span className="text-[8px] sm:text-xs font-bold text-primary uppercase tracking-wider">Testimonial</span>
+              <Page key={t.id} className="bg-[#050505] p-3 sm:p-6 md:p-8 flex flex-col justify-between border-r border-white/10">
+                <div className="flex items-center justify-between border-b border-white/10 pb-2">
+                  <span className="text-[8px] sm:text-xs font-bold text-accent uppercase tracking-wider">Testimonial</span>
                   <span className="text-[8px] sm:text-xs font-mono font-bold text-white/40">Page {idx + 2}</span>
                 </div>
 
                 <div className="my-auto flex flex-col items-center text-center px-0.5">
                   <div className="flex gap-0.5 sm:gap-1 mb-2 sm:mb-4">
                     {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 fill-primary text-primary" />
+                      <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 fill-primary text-accent" />
                     ))}
                   </div>
 
@@ -276,7 +276,7 @@ export function Testimonials() {
                   </div>
                 </div>
 
-                <div className="pt-2 sm:pt-3 border-t border-[#262626] text-center text-[8px] sm:text-[10px] text-white/40">
+                <div className="pt-2 sm:pt-3 border-t border-white/10 text-center text-[8px] sm:text-[10px] text-white/40">
                   GMM • Reviews
                 </div>
               </Page>
@@ -284,14 +284,14 @@ export function Testimonials() {
 
             {/* BACK COVER */}
             <Page className="bg-black text-white p-3 sm:p-6 md:p-8 flex flex-col items-center justify-center text-center">
-              <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-primary mb-2 sm:mb-3 animate-bounce" />
+              <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-accent mb-2 sm:mb-3 animate-bounce" />
               <h2 className="text-lg sm:text-2xl md:text-3xl font-black font-heading text-white mb-1 sm:mb-2">Thank You!</h2>
               <p className="text-[10px] sm:text-xs md:text-sm text-white/70 max-w-xs mb-3 sm:mb-5 font-medium">
                 We appreciate our clients' trust!
               </p>
               <a
                 href="#contact"
-                className="px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full bg-primary text-white font-bold text-[9px] sm:text-xs hover:bg-[#C0CB00] transition-colors shadow-lg"
+                className="px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full bg-primary text-white font-bold text-[9px] sm:text-xs hover:bg-[#7E22CE] transition-colors shadow-lg"
               >
                 Become Next Story
               </a>

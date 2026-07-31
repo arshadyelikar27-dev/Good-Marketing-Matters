@@ -46,7 +46,7 @@ export function LoadingScreen() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.02, filter: "blur(8px)" }}
           transition={{ duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
-          className="fixed inset-0 z-[999999] bg-[#0D0020] flex flex-col items-center justify-center select-none overflow-hidden"
+          className="fixed inset-0 z-[999999] bg-background flex flex-col items-center justify-center select-none overflow-hidden"
         >
           {/* Central Radial Glow */}
           <motion.div
@@ -63,7 +63,7 @@ export function LoadingScreen() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, ease: "easeOut" }}
-                className="relative w-[170px] h-[170px] drop-shadow-[0_0_25px_rgba(212, 224, 0,0.2)]"
+                className="relative w-[170px] h-[170px] drop-shadow-[0_0_25px_rgba(147, 51, 234,0.2)]"
               >
                 <Image 
                   src="/gmm-logo-white-text-cropped.png" 
@@ -78,14 +78,14 @@ export function LoadingScreen() {
             {/* Progress Bar Container */}
             <div className="w-48 sm:w-64 h-[3px] bg-white/10 rounded-full overflow-hidden relative mt-4">
               <motion.div
-                className="h-full bg-primary shadow-[0_0_12px_rgba(212, 224, 0,0.9)]"
+                className="h-full bg-primary shadow-[0_0_12px_rgba(147, 51, 234,0.9)]"
                 style={{ width: `${progress}%` }}
                 transition={{ ease: "easeOut" }}
               />
             </div>
 
             {/* Progress Counter */}
-            <span className="font-mono text-xs font-bold text-primary/80 tracking-wider">
+            <span className="font-mono text-xs font-bold text-accent/80 tracking-wider">
               {progress}%
             </span>
           </div>

@@ -78,10 +78,10 @@ function MemoryMatchGame() {
       {/* Top Score Bar */}
       <div className="flex items-center justify-between w-full mb-6 px-5 py-3.5 bg-[#151515]/90 backdrop-blur-xl rounded-2xl border border-[#262626] shadow-xl">
         <div className="text-sm font-bold text-white">
-          Moves: <span className="text-primary font-black text-lg ml-1">{moves}</span>
+          Moves: <span className="text-accent font-black text-lg ml-1">{moves}</span>
         </div>
         <div className="text-sm font-bold text-white">
-          Matched: <span className="text-primary font-black text-lg ml-1">{matchesCount} / {MEMORY_ICONS.length}</span>
+          Matched: <span className="text-accent font-black text-lg ml-1">{matchesCount} / {MEMORY_ICONS.length}</span>
         </div>
         <button
           onClick={initializeGame}
@@ -101,13 +101,13 @@ function MemoryMatchGame() {
             onClick={() => handleCardClick(card.id)}
             className={`aspect-square rounded-2xl flex items-center justify-center text-3xl font-bold cursor-pointer transition-all duration-300 border ${
               card.matched
-                ? "bg-primary/20 text-primary border-primary shadow-[0_0_20px_rgba(212, 224, 0,0.4)]"
+                ? "bg-primary/20 text-accent border-primary shadow-[0_0_20px_rgba(212, 224, 0,0.4)]"
                 : card.flipped
                 ? "bg-[#151515] text-white border-2 border-primary shadow-2xl scale-105"
                 : "bg-[#151515]/80 text-white border-[#262626] hover:border-primary/60 hover:shadow-lg"
             }`}
           >
-            {card.flipped || card.matched ? card.icon : <span className="text-primary/40 text-2xl font-black">?</span>}
+            {card.flipped || card.matched ? card.icon : <span className="text-accent/40 text-2xl font-black">?</span>}
           </motion.div>
         ))}
       </div>
@@ -121,8 +121,8 @@ function MemoryMatchGame() {
             exit={{ opacity: 0, scale: 0.8 }}
             className="mt-8 p-8 bg-[#151515] border-2 border-primary text-white rounded-3xl text-center shadow-[0_0_40px_rgba(212, 224, 0,0.3)] w-full max-w-md"
           >
-            <Sparkles className="w-12 h-12 mx-auto mb-3 text-primary animate-bounce" />
-            <h3 className="font-heading font-black text-3xl mb-1 text-primary">Congratulations!</h3>
+            <Sparkles className="w-12 h-12 mx-auto mb-3 text-accent animate-bounce" />
+            <h3 className="font-heading font-black text-3xl mb-1 text-accent">Congratulations!</h3>
             <p className="text-sm font-medium mb-6 text-white/90">You matched all cards in {moves} moves!</p>
             <button
               onClick={initializeGame}
@@ -207,7 +207,7 @@ function TicTacToeGame() {
       <div className="grid grid-cols-3 gap-4 w-full mb-6 text-center">
         <div className="p-3.5 bg-[#151515]/90 backdrop-blur-xl rounded-2xl border border-[#262626] shadow-xl">
           <div className="text-xs font-bold text-[#BDBDBD]">YOU (X)</div>
-          <div className="text-2xl font-black text-primary">{scores.player}</div>
+          <div className="text-2xl font-black text-accent">{scores.player}</div>
         </div>
         <div className="p-3.5 bg-[#151515]/90 backdrop-blur-xl rounded-2xl border border-[#262626] shadow-xl">
           <div className="text-xs font-bold text-[#BDBDBD]">DRAWS</div>
@@ -229,7 +229,7 @@ function TicTacToeGame() {
             onClick={() => handleClick(idx)}
             className={`rounded-2xl text-4xl sm:text-5xl font-black flex items-center justify-center transition-all duration-300 border cursor-pointer ${
               cell === "X"
-                ? "bg-[#0D0020] text-primary border-2 border-primary shadow-[0_0_15px_rgba(212, 224, 0,0.4)]"
+                ? "bg-[#0D0020] text-accent border-2 border-primary shadow-[0_0_15px_rgba(212, 224, 0,0.4)]"
                 : cell === "O"
                 ? "bg-white text-white border-2 border-white shadow-xl"
                 : "bg-[#0D0020]/80 border-[#262626] hover:border-primary/60"
@@ -315,11 +315,11 @@ function RockPaperScissorsGame() {
       <div className="grid grid-cols-3 gap-4 w-full mb-6 text-center">
         <div className="p-3.5 bg-[#151515]/90 backdrop-blur-xl rounded-2xl border border-[#262626] shadow-xl">
           <div className="text-xs font-bold text-[#BDBDBD]">YOU</div>
-          <div className="text-2xl font-black text-primary">{score.player}</div>
+          <div className="text-2xl font-black text-accent">{score.player}</div>
         </div>
         <div className="p-3.5 bg-[#151515]/90 backdrop-blur-xl rounded-2xl border border-[#262626] shadow-xl">
           <div className="text-xs font-bold text-[#BDBDBD]">STREAK</div>
-          <div className="text-2xl font-black text-primary">🔥 {streak}</div>
+          <div className="text-2xl font-black text-accent">🔥 {streak}</div>
         </div>
         <div className="p-3.5 bg-[#151515]/90 backdrop-blur-xl rounded-2xl border border-[#262626] shadow-xl">
           <div className="text-xs font-bold text-[#BDBDBD]">AI BOT</div>
@@ -436,10 +436,10 @@ function ReflexTestGame() {
       {/* Top Info */}
       <div className="flex items-center justify-between w-full mb-6 px-5 py-3.5 bg-[#151515]/90 backdrop-blur-xl rounded-2xl border border-[#262626] shadow-xl">
         <div className="text-sm font-bold text-white">
-          Last: <span className="text-primary font-black text-lg ml-1">{reactionTime ? `${reactionTime} ms` : "--"}</span>
+          Last: <span className="text-accent font-black text-lg ml-1">{reactionTime ? `${reactionTime} ms` : "--"}</span>
         </div>
         <div className="text-sm font-bold text-white">
-          Best Record: <span className="text-primary font-black text-lg ml-1">{bestTime ? `${bestTime} ms` : "--"}</span>
+          Best Record: <span className="text-accent font-black text-lg ml-1">{bestTime ? `${bestTime} ms` : "--"}</span>
         </div>
       </div>
 
@@ -453,12 +453,12 @@ function ReflexTestGame() {
             ? "bg-red-500/90 text-white border-2 border-red-500 animate-pulse"
             : state === "ready"
             ? "bg-primary text-white border-2 border-primary scale-[1.03] shadow-[0_0_50px_rgba(212, 224, 0,0.8)]"
-            : "bg-primary/20 text-primary border-2 border-primary"
+            : "bg-primary/20 text-accent border-2 border-primary"
         }`}
       >
         {state === "idle" && (
           <>
-            <Zap className="w-14 h-14 text-primary mb-4 animate-bounce" />
+            <Zap className="w-14 h-14 text-accent mb-4 animate-bounce" />
             <h3 className="font-heading font-black text-2xl text-white mb-1">Reflex Speed Test</h3>
             <p className="text-xs text-[#BDBDBD] max-w-xs leading-relaxed">
               Click anywhere inside this box to start. When screen turns YELLOW, click as fast as you can!
@@ -481,8 +481,8 @@ function ReflexTestGame() {
 
         {state === "result" && (
           <>
-            <Sparkles className="w-12 h-12 mb-2 text-primary animate-pulse" />
-            <div className="text-5xl font-black font-heading mb-1 text-primary">{reactionTime} ms</div>
+            <Sparkles className="w-12 h-12 mb-2 text-accent animate-pulse" />
+            <div className="text-5xl font-black font-heading mb-1 text-accent">{reactionTime} ms</div>
             <p className="text-sm font-bold text-white mb-6">
               {reactionTime! < 200
                 ? "⚡ Lightning Speed! Incredible!"
@@ -533,20 +533,20 @@ function GamesPageContent() {
         <div className="flex items-center justify-between mb-8 sm:mb-10">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#151515] border border-[#262626] text-white font-bold text-xs sm:text-sm hover:border-primary hover:text-primary transition-all duration-300 shadow-lg group"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#151515] border border-[#262626] text-white font-bold text-xs sm:text-sm hover:border-primary hover:text-accent transition-all duration-300 shadow-lg group"
           >
-            <ArrowLeft className="w-4 h-4 text-primary group-hover:-translate-x-1 transition-transform" /> Back to Website
+            <ArrowLeft className="w-4 h-4 text-accent group-hover:-translate-x-1 transition-transform" /> Back to Website
           </Link>
 
           <div className="flex items-center gap-2 font-heading font-black text-lg sm:text-xl text-white">
-            <Gamepad2 className="w-6 h-6 sm:w-7 sm:h-7 text-primary animate-pulse" /> GMM Arcade
+            <Gamepad2 className="w-6 h-6 sm:w-7 sm:h-7 text-accent animate-pulse" /> GMM Arcade
           </div>
         </div>
 
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
           <h1 className="font-heading font-black text-4xl sm:text-6xl text-white mb-3 tracking-tight">
-            Mini Games <span className="text-primary underline decoration-primary/40">Arena</span>
+            Mini Games <span className="text-accent underline decoration-primary/40">Arena</span>
           </h1>
           <p className="text-[#BDBDBD] text-sm sm:text-base max-w-xl mx-auto font-medium px-2 leading-relaxed">
             Take a quick mental break! Play any of our 4 interactive mini-games directly in your browser.
@@ -604,7 +604,7 @@ function GamesPageContent() {
 
 export default function GamesPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-[#0D0020] flex items-center justify-center text-primary font-black">Loading Arena...</div>}>
+    <Suspense fallback={<div className="min-h-screen bg-[#0D0020] flex items-center justify-center text-accent font-black">Loading Arena...</div>}>
       <GamesPageContent />
     </Suspense>
   );

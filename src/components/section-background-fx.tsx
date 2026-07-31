@@ -59,10 +59,10 @@ export function KineticDarkBgFX() {
       duration: (i % 5) * 3 + 12,
       delay: (i % 4) * 1.5,
       // Alternate between yellow-green and lavender particles
-      color: i % 3 === 0 ? "#D4E000" : i % 3 === 1 ? "#9B6FD4" : "#7C3AED",
+      color: i % 3 === 0 ? "#9333EA" : i % 3 === 1 ? "#9B6FD4" : "#7C3AED",
       glow:
         i % 3 === 0
-          ? "0 0 14px rgba(212, 224, 0, 0.6)"
+          ? "0 0 14px rgba(147, 51, 234, 0.6)"
           : i % 3 === 1
           ? "0 0 14px rgba(155, 111, 212, 0.6)"
           : "0 0 14px rgba(124, 58, 237, 0.6)",

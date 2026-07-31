@@ -33,7 +33,7 @@ export function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-20 sm:py-28 bg-surface text-foreground relative z-10 overflow-hidden select-none">
+    <section id="faq" className="py-20 sm:py-28 bg-transparent text-foreground relative z-10 overflow-hidden select-none">
       <KineticYellowBgFX />
       {/* Subtle dotted background pattern */}
       <div
@@ -46,8 +46,8 @@ export function FAQ() {
 
       <div className="container max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
         <ScrollReveal className="text-center mb-12 sm:mb-16 flex flex-col items-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-primary font-bold text-xs uppercase tracking-widest mb-4">
-            <HelpCircle className="w-4 h-4 text-primary" /> Got Questions?
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-accent font-bold text-xs uppercase tracking-widest mb-4">
+            <HelpCircle className="w-4 h-4 text-accent" /> Got Questions?
           </div>
 
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white">
@@ -76,7 +76,7 @@ export function FAQ() {
                   onClick={() => toggleFAQ(idx)}
                   className="w-full flex items-center justify-between p-6 text-left font-heading font-bold text-base sm:text-xl text-white focus:outline-none cursor-pointer group"
                 >
-                  <span className={`transition-colors duration-300 ${isOpen ? "text-primary" : "group-hover:text-primary"}`}>
+                  <span className={`transition-colors duration-300 ${isOpen ? "text-accent" : "group-hover:text-accent"}`}>
                     {faq.question}
                   </span>
 

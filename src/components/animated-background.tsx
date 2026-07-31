@@ -1,122 +1,93 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 export function AnimatedBackground() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let rafId: number;
+    let time = 0;
+
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    
+    window.addEventListener("resize", resize);
+    resize();
+
+    // Define the moving orbs for the mesh gradient
+    const orbs = [
+      { x: 0.2, y: 0.3, vx: 0.001, vy: 0.0015, radius: 0.6, color: [107, 33, 168] }, // Royal Purple
+      { x: 0.8, y: 0.7, vx: -0.0012, vy: -0.001, radius: 0.7, color: [88, 28, 135] }, // Darker Purple
+      { x: 0.5, y: 0.8, vx: 0.0008, vy: -0.0012, radius: 0.5, color: [239, 253, 50] }, // Neon Yellow/Green
+    ];
+
+    const render = () => {
+      time += 0.01;
+      
+      // Clear with Deep Space Black
+      ctx.fillStyle = "#05000A";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.globalCompositeOperation = "screen";
+
+      orbs.forEach((orb) => {
+        // Move orbs slowly
+        orb.x += orb.vx;
+        orb.y += orb.vy;
+        
+        // Bounce off edges smoothly
+        if (orb.x < -0.2 || orb.x > 1.2) orb.vx *= -1;
+        if (orb.y < -0.2 || orb.y > 1.2) orb.vy *= -1;
+
+        const x = orb.x * canvas.width;
+        const y = orb.y * canvas.height;
+        const radius = orb.radius * Math.max(canvas.width, canvas.height);
+
+        // Draw radial gradient
+        const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
+        gradient.addColorStop(0, `rgba(${orb.color[0]}, ${orb.color[1]}, ${orb.color[2]}, 0.15)`);
+        gradient.addColorStop(1, `rgba(${orb.color[0]}, ${orb.color[1]}, ${orb.color[2]}, 0)`);
+
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      });
+      
+      // Add a subtle static noise overlay for premium texture
+      // (Rendered once per frame is slow, so we just use CSS grain overlay on top of canvas)
+
+      ctx.globalCompositeOperation = "source-over";
+      rafId = requestAnimationFrame(render);
+    };
+
+    rafId = requestAnimationFrame(render);
+
+    return () => {
+      window.removeEventListener("resize", resize);
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
+
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
-
-      {/* Aurora base — slow rotating conic gradient */}
-      <motion.div
-        animate={{ rotate: [0, 360] }}
-        transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
+    <div className="fixed inset-0 z-0 pointer-events-none w-full h-full">
+      <canvas ref={canvasRef} className="w-full h-full opacity-60" />
+      {/* Noise Texture Overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.03] mix-blend-overlay"
         style={{
-          willChange: "transform",
-          transform: "translateZ(0)",
-          background:
-            "conic-gradient(from 0deg at 50% 60%, #3D00B800 0deg, #5B00E820 60deg, #7C3AED30 120deg, #0D002000 180deg, #D4E00010 240deg, #4A00C820 300deg, #3D00B800 360deg)",
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          backgroundRepeat: 'repeat'
         }}
-        className="absolute -inset-[25%] rounded-full blur-[80px] opacity-70 pointer-events-none"
       />
-
-      {/* Blob 1 — deep violet top-left */}
-      <motion.div
-        animate={{
-          x: [0, 70, -40, 0],
-          y: [0, -90, 50, 0],
-          scale: [1, 1.18, 0.92, 1],
-        }}
-        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-        style={{ willChange: "transform", transform: "translateZ(0)" }}
-        className="absolute -top-[15%] -left-[10%] w-[55vw] h-[55vw] max-w-[760px] max-h-[760px] rounded-full blur-[110px] pointer-events-none"
-      >
-        <div
-          className="absolute inset-0 rounded-full"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(92,0,232,0.30) 0%, rgba(61,0,184,0.14) 55%, transparent 100%)",
-          }}
-        />
-      </motion.div>
-
-      {/* Blob 2 — electric yellow-green mid-right */}
-      <motion.div
-        animate={{
-          x: [0, -80, 50, 0],
-          y: [0, 70, -60, 0],
-          scale: [1, 0.88, 1.12, 1],
-        }}
-        transition={{ duration: 28, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        style={{ willChange: "transform", transform: "translateZ(0)" }}
-        className="absolute top-[35%] -right-[15%] w-[50vw] h-[50vw] max-w-[700px] max-h-[700px] rounded-full blur-[120px] pointer-events-none"
-      >
-        <div
-          className="absolute inset-0 rounded-full"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(212,224,0,0.18) 0%, rgba(180,190,0,0.08) 55%, transparent 100%)",
-          }}
-        />
-      </motion.div>
-
-      {/* Blob 3 — lavender bottom-center */}
-      <motion.div
-        animate={{
-          x: [0, 55, -55, 0],
-          y: [0, -50, 50, 0],
-          scale: [1, 1.1, 0.93, 1],
-        }}
-        transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 4 }}
-        style={{ willChange: "transform", transform: "translateZ(0)" }}
-        className="absolute -bottom-[20%] left-[15%] w-[50vw] h-[50vw] max-w-[700px] max-h-[700px] rounded-full blur-[100px] pointer-events-none"
-      >
-        <div
-          className="absolute inset-0 rounded-full"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(155,111,212,0.22) 0%, rgba(120,70,180,0.10) 55%, transparent 100%)",
-          }}
-        />
-      </motion.div>
-
-      {/* Blob 4 — violet center pulse */}
-      <motion.div
-        animate={{
-          scale: [1, 1.25, 0.85, 1],
-          opacity: [0.3, 0.55, 0.25, 0.3],
-        }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-        style={{ willChange: "transform, opacity", transform: "translateZ(0)" }}
-        className="absolute top-[20%] left-[30%] w-[40vw] h-[40vw] max-w-[560px] max-h-[560px] rounded-full blur-[130px] pointer-events-none"
-      >
-        <div
-          className="absolute inset-0 rounded-full"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(74,0,200,0.28) 0%, rgba(45,0,140,0.12) 60%, transparent 100%)",
-          }}
-        />
-      </motion.div>
-
-      {/* Blob 5 — yellow accent top-right glow */}
-      <motion.div
-        animate={{
-          x: [0, -40, 30, 0],
-          y: [0, 40, -30, 0],
-          scale: [1, 1.15, 0.9, 1],
-        }}
-        transition={{ duration: 32, repeat: Infinity, ease: "easeInOut", delay: 6 }}
-        style={{ willChange: "transform", transform: "translateZ(0)" }}
-        className="absolute -top-[10%] right-[10%] w-[35vw] h-[35vw] max-w-[480px] max-h-[480px] rounded-full blur-[100px] pointer-events-none"
-      >
-        <div
-          className="absolute inset-0 rounded-full"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(212,224,0,0.14) 0%, rgba(150,160,0,0.06) 55%, transparent 100%)",
-          }}
-        />
-      </motion.div>
+      {/* Vignette */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#05000A] opacity-80" />
     </div>
   );
 }

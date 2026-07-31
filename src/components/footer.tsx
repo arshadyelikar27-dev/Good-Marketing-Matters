@@ -51,14 +51,14 @@ export function Footer() {
   };
 
   return (
-    <footer id="contact" className="bg-black text-white py-16 sm:py-24 relative overflow-hidden w-full border-t border-white/10">
+    <footer id="contact" className="bg-background text-white py-16 sm:py-24 relative overflow-hidden w-full border-t border-white/10">
       <KineticDarkBgFX />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 max-w-7xl xl:max-w-[1400px] relative z-10">
         <ScrollReveal>
           {/* QUICK INLINE CONTACT FORM WITH FOCUS GLOW & CHECKMARK DRAW ANIMATION */}
-          <div className="mb-16 bg-[#151515]/80 border border-[#262626] rounded-3xl p-6 sm:p-10 backdrop-blur-xl shadow-2xl">
+          <div className="mb-16 bg-[#050505]/80 border border-white/10 rounded-3xl p-6 sm:p-10 backdrop-blur-xl shadow-2xl">
             <h3 className="font-heading font-black text-2xl sm:text-4xl text-white mb-2">
-              Start Your Project <span className="text-primary">With GMM</span>
+              Start Your Project <span className="text-accent">With GMM</span>
             </h3>
             <p className="text-body-text text-sm sm:text-base mb-8">
               Fill in your details below to receive a custom agency strategy proposal.
@@ -71,7 +71,7 @@ export function Footer() {
                   placeholder="Your Name"
                   value={formState.name}
                   onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                  className="w-full px-5 py-3.5 rounded-full bg-[#0D0020] border border-[#262626] text-white text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/40 transition-all duration-300 placeholder:text-white/40"
+                  className="w-full px-5 py-3.5 rounded-full bg-background border border-white/10 text-white text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/40 transition-all duration-300 placeholder:text-white/40"
                 />
               </div>
 
@@ -82,7 +82,7 @@ export function Footer() {
                   placeholder="Your Email *"
                   value={formState.email}
                   onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                  className="w-full px-5 py-3.5 rounded-full bg-[#0D0020] border border-[#262626] text-white text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/40 transition-all duration-300 placeholder:text-white/40"
+                  className="w-full px-5 py-3.5 rounded-full bg-background border border-white/10 text-white text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/40 transition-all duration-300 placeholder:text-white/40"
                 />
               </div>
 
@@ -90,7 +90,7 @@ export function Footer() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="relative group w-full px-6 py-3.5 bg-primary text-white rounded-full font-black text-sm hover:bg-primary-hover transition-all duration-300 hover:scale-[1.03] active:scale-[0.96] shadow-[0_0_20px_rgba(212, 224, 0,0.3)] hover:shadow-[0_0_30px_rgba(212, 224, 0,0.6)] flex items-center justify-center gap-2 overflow-hidden cursor-pointer"
+                  className="relative group w-full px-6 py-3.5 bg-primary text-white rounded-full font-black text-sm hover:bg-primary-hover transition-all duration-300 hover:scale-[1.03] active:scale-[0.96] shadow-[0_0_20px_rgba(147, 51, 234,0.3)] hover:shadow-[0_0_30px_rgba(147, 51, 234,0.6)] flex items-center justify-center gap-2 overflow-hidden cursor-pointer"
                 >
                   <AnimatePresence mode="wait">
                     {isSubmitted ? (
@@ -135,7 +135,7 @@ export function Footer() {
                   src="/gmm-logo-white-text-cropped.png" 
                   alt="GMM Logo" 
                   fill
-                  className="object-contain drop-shadow-[0_0_20px_rgba(212, 224, 0,0.2)]"
+                  className="object-contain drop-shadow-[0_0_20px_rgba(147, 51, 234,0.2)]"
                 />
               </motion.div>
             </Link>
@@ -148,7 +148,7 @@ export function Footer() {
               href="https://forms.google.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative group inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-full font-bold text-base hover:bg-primary-hover transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(212, 224, 0,0.3)] overflow-hidden"
+              className="relative group inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-full font-bold text-base hover:bg-primary-hover transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(147, 51, 234,0.3)] overflow-hidden"
             >
               <span className="relative z-10 flex items-center gap-2">
                 Open Full Form <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -159,18 +159,18 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-heading font-bold text-lg sm:text-xl mb-4 sm:mb-6 text-primary">Contact</h4>
+            <h4 className="font-heading font-bold text-lg sm:text-xl mb-4 sm:mb-6 text-accent">Contact</h4>
             <ul className="flex flex-col gap-3 sm:gap-4 text-white/70 text-sm sm:text-base">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary shrink-0 mt-1" />
+                <MapPin className="w-5 h-5 text-accent shrink-0 mt-1" />
                 <span>123 Innovation Drive,<br />Tech City, TC 10010</span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-primary shrink-0" />
+                <Phone className="w-5 h-5 text-accent shrink-0" />
                 <span>+1 (555) 123-4567</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-primary shrink-0" />
+                <Mail className="w-5 h-5 text-accent shrink-0" />
                 <span>hello@gmmagency.com</span>
               </li>
             </ul>
@@ -178,7 +178,7 @@ export function Footer() {
 
           {/* Socials & Links */}
           <div>
-            <h4 className="font-heading font-bold text-lg sm:text-xl mb-4 sm:mb-6 text-primary">Follow Us</h4>
+            <h4 className="font-heading font-bold text-lg sm:text-xl mb-4 sm:mb-6 text-accent">Follow Us</h4>
             {/* SOCIAL ICONS HOVER ROTATE 10° + GLOW */}
             <div className="flex gap-3 sm:gap-4 mb-6 sm:mb-8">
               {[
@@ -194,7 +194,7 @@ export function Footer() {
                     href="#"
                     whileHover={{ rotate: 10, scale: 1.15 }}
                     transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors hover:shadow-[0_0_20px_rgba(212, 224, 0,0.8)]"
+                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors hover:shadow-[0_0_20px_rgba(147, 51, 234,0.8)]"
                     aria-label={item.label}
                   >
                     <IconComp className="w-5 h-5" />
@@ -203,7 +203,7 @@ export function Footer() {
               })}
             </div>
 
-            <h4 className="font-heading font-bold text-lg sm:text-xl mb-4 sm:mb-6 text-primary">Legal</h4>
+            <h4 className="font-heading font-bold text-lg sm:text-xl mb-4 sm:mb-6 text-accent">Legal</h4>
             {/* LINKS UNDERLINE GROWS FROM LEFT */}
             <ul className="flex flex-col gap-2 text-white/70 text-sm sm:text-base">
               {["Privacy Policy", "Terms of Service"].map((text) => (

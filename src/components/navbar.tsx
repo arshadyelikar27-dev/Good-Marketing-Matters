@@ -86,8 +86,8 @@ export function Navbar() {
           className={cn(
             "pointer-events-auto flex items-center justify-between px-5 sm:px-7 py-3 rounded-full transition-all duration-500 w-full max-w-5xl border shadow-xl",
             isScrolled
-              ? "bg-[#0D0020]/85 backdrop-blur-[20px] border-[#262626] shadow-black/40 py-2.5"
-              : "bg-[#0D0020]/40 backdrop-blur-[10px] border-white/10"
+              ? "bg-background/85 backdrop-blur-[20px] border-white/10 shadow-black/40 py-2.5"
+              : "bg-background/40 backdrop-blur-[10px] border-white/10"
           )}
         >
           {/* LOGO WITH 10% SHRINK ON SCROLL */}
@@ -101,7 +101,7 @@ export function Navbar() {
                 src="/gmm-logo-white-text-cropped.png" 
                 alt="GMM Logo" 
                 fill
-                className="object-contain drop-shadow-[0_0_15px_rgba(212, 224, 0,0.2)]"
+                className="object-contain drop-shadow-[0_0_15px_rgba(147, 51, 234,0.2)]"
                 priority
               />
             </motion.div>
@@ -129,7 +129,7 @@ export function Navbar() {
                   {isActive && (
                     <motion.div
                       layoutId="activeSectionPill"
-                      className="absolute inset-0 bg-primary/20 border border-primary/40 rounded-full shadow-[0_0_15px_rgba(212, 224, 0,0.2)]"
+                      className="absolute inset-0 bg-primary/20 border border-primary/40 rounded-full shadow-[0_0_15px_rgba(147, 51, 234,0.2)]"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -145,7 +145,7 @@ export function Navbar() {
                       <div className="relative w-9 h-9">
                         {/* Face */}
                         <motion.div
-                          className="absolute w-8 h-8 bg-white rounded-full left-1/2 -translate-x-1/2 shadow-[0_0_10px_rgba(212, 224, 0,0.4)]"
+                          className="absolute w-8 h-8 bg-white rounded-full left-1/2 -translate-x-1/2 shadow-[0_0_10px_rgba(147, 51, 234,0.4)]"
                           animate={
                             isHovered
                               ? { scale: [1, 1.1, 1], rotate: [0, -5, 5, 0] }
@@ -159,14 +159,14 @@ export function Navbar() {
                         >
                           {/* Left eye */}
                           <motion.div
-                            className="absolute w-1.5 h-1.5 bg-[#0D0020] rounded-full"
+                            className="absolute w-1.5 h-1.5 bg-background rounded-full"
                             animate={isHovered ? { scaleY: [1, 0.15, 1] } : {}}
                             transition={{ duration: 0.2 }}
                             style={{ left: "24%", top: "38%" }}
                           />
                           {/* Right eye */}
                           <motion.div
-                            className="absolute w-1.5 h-1.5 bg-[#0D0020] rounded-full"
+                            className="absolute w-1.5 h-1.5 bg-background rounded-full"
                             animate={isHovered ? { scaleY: [1, 0.15, 1] } : {}}
                             transition={{ duration: 0.2 }}
                             style={{ right: "24%", top: "38%" }}
@@ -205,7 +205,7 @@ export function Navbar() {
 
                         {/* Diamond pointer below face */}
                         <motion.div
-                          className="absolute -bottom-1 left-1/2 w-3 h-3 -translate-x-1/2 bg-white rotate-45 shadow-[0_0_6px_rgba(212, 224, 0,0.3)]"
+                          className="absolute -bottom-1 left-1/2 w-3 h-3 -translate-x-1/2 bg-white rotate-45 shadow-[0_0_6px_rgba(147, 51, 234,0.3)]"
                           animate={
                             isHovered
                               ? { y: [0, -3, 0] }
@@ -234,7 +234,7 @@ export function Navbar() {
           <MagneticButton className="hidden md:flex" strength={0.5}>
             <Link
               href="#contact"
-              className="px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-bold text-sm shadow-[0_4px_20px_rgba(212, 224, 0,0.3)] hover:shadow-[0_8px_30px_rgba(212, 224, 0,0.5)] hover:bg-[#C0CB00] transition-all duration-300 active:scale-[0.96] block"
+              className="px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-bold text-sm shadow-[0_4px_20px_rgba(147, 51, 234,0.3)] hover:shadow-[0_8px_30px_rgba(147, 51, 234,0.5)] hover:bg-[#7E22CE] transition-all duration-300 active:scale-[0.96] block"
             >
               Let&apos;s Talk
             </Link>
@@ -322,7 +322,7 @@ export function Navbar() {
                         size={16}
                         className={cn(
                           "transition-colors",
-                          activeSection === link.name ? "text-primary" : "text-[#444]"
+                          activeSection === link.name ? "text-accent" : "text-[#444]"
                         )}
                       />
                     </Link>
@@ -338,7 +338,7 @@ export function Navbar() {
                 >
                   <Link
                     href="#contact"
-                    className="relative overflow-hidden flex items-center justify-center px-6 py-4 rounded-2xl bg-primary text-primary-foreground font-black text-base w-full shadow-[0_0_30px_rgba(212, 224, 0,0.35)] group"
+                    className="relative overflow-hidden flex items-center justify-center px-6 py-4 rounded-2xl bg-primary text-primary-foreground font-black text-base w-full shadow-[0_0_30px_rgba(147, 51, 234,0.35)] group"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <span className="relative z-10">Let&apos;s Talk →</span>

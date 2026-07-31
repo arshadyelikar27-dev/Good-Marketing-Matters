@@ -1,258 +1,114 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { motion, useAnimation, useMotionValue, useTransform } from "framer-motion";
-import { Monitor, Smartphone, Search, Target, Briefcase, PenTool, TrendingUp } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { useEffect } from "react";
-import { KineticYellowBgFX } from "@/components/section-background-fx";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { 
+  TrendingUp, 
+  MessageCircle, 
+  Search, 
+  Bot, 
+  Sparkles, 
+  MonitorSmartphone 
+} from "lucide-react";
 
-const IS_SERVER = typeof window === "undefined";
-
-function useMediaQuery(query: string, defaultValue = false) {
-  const [matches, setMatches] = useState<boolean>(defaultValue);
-
-  useEffect(() => {
-    const matchMedia = window.matchMedia(query);
-    const handleChange = () => setMatches(matchMedia.matches);
-    handleChange(); // Initialize after hydration
-    matchMedia.addEventListener("change", handleChange);
-    return () => matchMedia.removeEventListener("change", handleChange);
-  }, [query]);
-
-  return matches;
-}
-
-const services = [
+const servicesList = [
   {
-    id: "web",
-    title: "Web Development",
-    description: "High-performance, beautifully animated websites built with modern frameworks like Next.js and React.",
-    icon: Monitor,
-    color: "from-[#D4E000]/20 to-[#C0CB00]/10",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+    id: "performance-marketing",
+    title: "Performance Marketing",
+    description: "Tailored campaigns across Google & LinkedIn to drive explosive, measurable growth.",
+    icon: <TrendingUp className="w-10 h-10 text-accent" />
   },
   {
-    id: "app",
-    title: "App Development",
-    description: "Native and cross-platform mobile applications that deliver seamless user experiences.",
-    icon: Smartphone,
-    color: "from-[#D4E000]/15 to-[#262626]/50",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
+    id: "social-media",
+    title: "Social Media",
+    description: "Engage your audience with cinematic storytelling and impactful brand narratives.",
+    icon: <MessageCircle className="w-10 h-10 text-accent" />
   },
   {
     id: "seo",
     title: "SEO Optimization",
-    description: "Data-driven strategies to dominate search rankings and drive organic traffic.",
-    icon: Search,
-    color: "from-[#D4E000]/20 to-[#151515]/50",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+    description: "Own the search results. We engineer visibility with extreme technical precision.",
+    icon: <Search className="w-10 h-10 text-accent" />
   },
   {
-    id: "ads",
-    title: "Ads Promotion",
-    description: "Targeted PPC and social media campaigns that maximize ROI and conversion rates.",
-    icon: Target,
-    color: "from-[#C0CB00]/20 to-[#D4E000]/10",
-    image: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?auto=format&fit=crop&w=800&q=80",
+    id: "aeo",
+    title: "Answer Engine Ops",
+    description: "Dominate ChatGPT and AI Overviews. Ensure your brand is the definitive answer.",
+    icon: <Bot className="w-10 h-10 text-accent" />
   },
   {
-    id: "brand",
-    title: "Brand Marketing",
-    description: "Building strong, memorable brand identities that resonate with your target audience.",
-    icon: Briefcase,
-    color: "from-primary/20 to-primary/10",
-    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
+    id: "geo",
+    title: "Generative Engine Ops",
+    description: "We optimize your digital footprint for the next generation of generative search.",
+    icon: <Sparkles className="w-10 h-10 text-accent" />
   },
   {
-    id: "graphic",
-    title: "Graphic Designing",
-    description: "Stunning visuals, illustrations, and marketing collateral crafted by expert designers.",
-    icon: PenTool,
-    color: "from-[#D4E000]/25 to-[#262626]/30",
-    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "business",
-    title: "Business Marketing",
-    description: "Comprehensive marketing strategies tailored to scale your B2B or B2C enterprise.",
-    icon: TrendingUp,
-    color: "from-[#C0CB00]/15 to-[#D4E000]/20",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
+    id: "web-dev",
+    title: "Web Development",
+    description: "Award-winning, high-performance web applications built for speed and conversion.",
+    icon: <MonitorSmartphone className="w-10 h-10 text-accent" />
   }
 ];
 
 export function Services() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const targetRef = useRef<HTMLDivElement>(null);
   
-  // 3D Carousel Mathematics with fine-grained responsive breakpoints
-  const isMobileXs = useMediaQuery("(max-width: 480px)");
-  const isMobileSm = useMediaQuery("(max-width: 640px)");
-  const cylinderWidth = isMobileXs ? 900 : isMobileSm ? 1300 : 2500;
-  const faceCount = services.length;
-  const faceWidth = cylinderWidth / faceCount;
-  const radius = cylinderWidth / (2 * Math.PI);
-  
-  const rotation = useMotionValue(0);
-  const transform = useTransform(rotation, (value) => `rotate3d(0, 1, 0, ${value}deg)`);
-  const controls = useAnimation();
+  // Create a huge scroll area (400vh) to allow horizontal scrolling
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+  });
 
-  useEffect(() => {
-    let animationFrame: number;
-    
-    const updateRotation = () => {
-      if (hoveredIndex === null) {
-        rotation.set(rotation.get() + 0.08); 
-      }
-      animationFrame = requestAnimationFrame(updateRotation);
-    };
-    
-    animationFrame = requestAnimationFrame(updateRotation);
-    return () => cancelAnimationFrame(animationFrame);
-  }, [rotation, hoveredIndex]);
+  // Map vertical scroll (0 to 1) to horizontal translation (-75% or whatever fits the cards)
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-65%"]);
 
   return (
-    <section id="services" className="py-20 sm:py-32 w-full relative z-10 bg-surface text-foreground overflow-hidden">
-      <KineticYellowBgFX />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 max-w-7xl xl:max-w-[1400px] relative z-20">
-        <div className="flex flex-col items-center text-center mb-12 sm:mb-20">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="font-heading text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4"
-          >
-            Our Core <span className="text-primary">Services</span>
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ delay: 0.1 }}
-            className="text-body-text text-base sm:text-lg xl:text-xl max-w-2xl px-2"
-          >
-            We leverage cutting-edge technology and creative strategies to elevate your brand in the digital landscape. Drag the cards to explore.
-          </motion.p>
+    <section ref={targetRef} className="relative h-[400vh] w-full bg-transparent">
+      
+      {/* Sticky container that holds the horizontal track */}
+      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+        
+        <div className="absolute top-24 left-8 md:left-24 z-10 pointer-events-none">
+          <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-white mb-2">
+            Digital Solutions.
+          </h2>
+          <p className="text-white/50 text-lg md:text-xl font-light tracking-tight max-w-md">
+            Scroll to explore our capabilities.
+          </p>
         </div>
-      </div>
 
-      <div 
-        className="relative h-[380px] sm:h-[450px] md:h-[700px] w-full overflow-hidden flex items-center justify-center -mt-6 sm:-mt-10" 
-        style={{ perspective: "1200px" }}
-      >
-        <motion.div
-          drag="x"
-          className="relative flex h-full origin-center cursor-grab justify-center active:cursor-grabbing"
-          style={{
-            transform,
-            rotateY: rotation,
-            width: cylinderWidth,
-            transformStyle: "preserve-3d",
-          }}
-          onDrag={(_, info) => rotation.set(rotation.get() + info.offset.x * 0.05)}
-          onDragEnd={(_, info) =>
-            controls.start({
-              rotateY: rotation.get() + info.velocity.x * 0.05,
-              transition: { type: "spring", stiffness: 100, damping: 30, mass: 0.1 },
-            })
-          }
-          animate={controls}
-        >
-          {services.map((service, idx) => {
-            const Icon = service.icon;
-            const isHovered = hoveredIndex === idx;
-            const isDimmed = hoveredIndex !== null && hoveredIndex !== idx;
+        {/* The horizontal track */}
+        <motion.div style={{ x }} className="flex gap-8 px-8 md:px-24 mt-20 md:mt-0">
+          
+          {/* Spacer to push cards past the sticky title on initial load */}
+          <div className="w-[10vw] md:w-[20vw] shrink-0" />
 
-            return (
-              <motion.div
-                key={service.id}
-                onMouseEnter={() => setHoveredIndex(idx)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                className={cn(
-                  "absolute flex h-full origin-center items-center justify-center p-4",
-                  isDimmed ? "opacity-50" : "opacity-100",
-                  "transition-opacity duration-500"
-                )}
-                style={{
-                  width: `${faceWidth}px`,
-                  transform: `rotateY(${idx * (360 / faceCount)}deg) translateZ(${radius}px)`,
-                  backfaceVisibility: "hidden",
-                  WebkitBackfaceVisibility: "hidden"
-                }}
-              >
-                {/* The Card Design */}
-                  <div 
-                    className={cn(
-                      "relative group w-full h-[280px] sm:h-[320px] md:h-[360px] rounded-2xl sm:rounded-3xl p-5 sm:p-8 overflow-hidden border transition-all duration-500 flex flex-col justify-between cursor-pointer",
-                      isHovered 
-                        ? "shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-primary/50 scale-[1.03]" 
-                        : "border-[#262626] bg-[#151515]/90 backdrop-blur-xl scale-100"
-                    )}
-                >
-                  {/* Hover Image Reveal */}
-                  <div 
-                    className={cn(
-                      "absolute inset-0 bg-cover bg-center transition-all duration-700 pointer-events-none transform",
-                      isHovered ? "opacity-100 scale-100" : "opacity-0 scale-110"
-                    )}
-                    style={{ backgroundImage: `url(${service.image})` }}
-                  />
+          {servicesList.map((service) => (
+            <div 
+              key={service.id} 
+              className="group relative flex flex-col justify-between w-[85vw] sm:w-[400px] h-[450px] shrink-0 p-8 rounded-[2rem] bg-white/[0.03] backdrop-blur-3xl border border-white/10 overflow-hidden hover:bg-white/[0.05] hover:border-primary/50 transition-all duration-500"
+            >
+              {/* Top Accent Glow */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              
+              <div className="p-4 bg-white/5 rounded-2xl w-fit mb-8 shadow-inner border border-white/5 group-hover:border-accent/30 group-hover:shadow-[0_0_30px_rgba(245,158,11,0.15)] transition-all duration-500">
+                {service.icon}
+              </div>
 
-                  {/* Dark Gradient Overlay on Hover for Text Contrast */}
-                  <div 
-                    className={cn(
-                      "absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30 transition-opacity duration-500 pointer-events-none",
-                      isHovered ? "opacity-100" : "opacity-0"
-                    )}
-                  />
+              <div>
+                <h3 className="text-3xl font-semibold text-white mb-4 tracking-tight group-hover:text-accent transition-colors duration-300">
+                  {service.title}
+                </h3>
+                <p className="text-white/60 text-lg leading-relaxed font-light group-hover:text-white/80 transition-colors duration-300">
+                  {service.description}
+                </p>
+              </div>
 
-                  {/* Background Color Glow on Hover */}
-                  <div 
-                    className={cn(
-                      "absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none mix-blend-overlay",
-                      service.color
-                    )} 
-                  />
-                  
-                  {/* Content */}
-                  <div className="relative z-10 flex flex-col h-full gap-4 sm:gap-6">
-                    <div 
-                        className={cn(
-                          "w-12 h-12 sm:w-16 sm:h-16 shrink-0 rounded-full border flex items-center justify-center transition-all duration-500 shadow-sm",
-                          isHovered 
-                            ? "bg-primary border-primary text-white scale-110 shadow-lg shadow-primary/30" 
-                            : "bg-[#262626] border-[#262626] text-white"
-                        )}
-                    >
-                      <Icon className="w-6 h-6 sm:w-8 sm:h-8 transition-transform duration-500 group-hover:scale-110" />
-                    </div>
-                    
-                    <div className="mt-auto">
-                      <h3 
-                        className={cn(
-                          "text-lg sm:text-2xl font-bold mb-2 sm:mb-3 font-heading transition-colors duration-300",
-                          isHovered ? "text-white" : "text-white"
-                        )}
-                      >
-                        {service.title}
-                      </h3>
-                      <p 
-                        className={cn(
-                          "leading-tight sm:leading-relaxed text-xs sm:text-sm transition-colors duration-300",
-                          isHovered ? "text-white/90" : "text-white/70"
-                        )}
-                      >
-                        {service.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Animated Shine Effect */}
-                  <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-10 group-hover:animate-shine pointer-events-none" />
-                </div>
-              </motion.div>
-            );
-          })}
+            </div>
+          ))}
+          
+          {/* End spacer */}
+          <div className="w-[10vw] shrink-0" />
+          
         </motion.div>
       </div>
     </section>

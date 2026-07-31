@@ -39,10 +39,10 @@ export function FloatingContactButtons() {
         whileHover={{ scale: 1.1, y: -3 }}
         whileTap={{ scale: 0.92 }}
         onClick={() => setBadgeDismissed(true)}
-        className="relative group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-white shadow-[0_10px_25px_rgba(37,211,102,0.4)] hover:shadow-[0_15px_35px_rgba(37,211,102,0.7)] transition-all duration-300 border border-white/20"
+        className="relative group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-white shadow-[0_10px_25px_rgba(37,211,102,0.4)] hover:shadow-[0_15px_35px_rgba(37,211,102,0.7)] transition-all duration-300 border border-[#25D366]/20"
       >
         {/* Pulsing Outer Ring */}
-        <span className="absolute -inset-1 rounded-full bg-[#25D366]/40 animate-ping pointer-events-none" />
+        <span className="absolute -inset-1 rounded-full bg-[#25D366]/50 animate-ping pointer-events-none" />
 
         <WhatsAppIcon className="w-6 h-6 sm:w-7 sm:h-7 relative z-10" />
 
@@ -63,7 +63,7 @@ export function FloatingContactButtons() {
         </AnimatePresence>
 
         {/* Hover Tooltip Label */}
-        <span className="absolute left-16 px-3 py-1.5 rounded-xl bg-[#0D0020]/95 text-white font-bold text-xs whitespace-nowrap border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-xl font-heading">
+        <span className="absolute left-16 px-3 py-1.5 rounded-xl bg-background/95 text-white font-bold text-xs whitespace-nowrap border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-xl font-heading">
           Chat on WhatsApp
         </span>
       </motion.a>
