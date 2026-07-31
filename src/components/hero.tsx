@@ -15,7 +15,7 @@ export function Hero() {
   const textScale = useTransform(scrollYProgress, [0, 0.8], [1, 1.4]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.4, 0.8], [1, 1, 0]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
-  const textBlur = useTransform(scrollYProgress, [0, 0.8], ["blur(0px)", "blur(12px)"]);
+  // Removed textBlur as animating filter:blur on scroll is extremely expensive on mobile CPUs.
 
   // Floating Elements Scroll Animations
   const float1Y = useTransform(scrollYProgress, [0, 1], ["0%", "-300%"]);
@@ -38,7 +38,7 @@ export function Hero() {
         <div className="absolute inset-0 iso-grid opacity-30 pointer-events-none" />
 
         <motion.div
-          style={{ scale: textScale, opacity: textOpacity, y: textY, filter: textBlur }}
+          style={{ scale: textScale, opacity: textOpacity, y: textY, willChange: "transform, opacity" }}
           className="relative z-10 flex flex-col items-start text-left w-full max-w-[1400px] mx-auto px-6 md:px-12 pt-24"
         >
           {/* Left Side Content */}
@@ -96,8 +96,8 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0, y: 100 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              style={{ y: float1Y, x: float1X, rotate: float1Rotate }}
-              className="absolute top-[20%] right-[40%] w-32 h-32 rounded-full backdrop-blur-xl bg-gradient-to-br from-white/10 to-transparent border-t border-l border-white/20 flex items-center justify-center shadow-[0_20px_40px_-10px_rgba(239,253,50,0.2)]"
+              style={{ y: float1Y, x: float1X, rotate: float1Rotate, willChange: "transform" }}
+              className="absolute top-[20%] right-[40%] w-32 h-32 rounded-full md:backdrop-blur-xl bg-gradient-to-br from-white/10 to-transparent border-t border-l border-white/20 flex items-center justify-center shadow-[0_20px_40px_-10px_rgba(239,253,50,0.2)]"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-50 rounded-full" />
               <Target className="w-14 h-14 text-accent relative z-10 drop-shadow-[0_0_15px_rgba(239,253,50,0.5)]" />
@@ -107,9 +107,9 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0, scale: 0, y: 100 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              style={{ y: float2Y, x: float2X, rotate: float2Rotate }}
-              className="absolute top-[45%] right-[10%] w-48 h-48 rounded-[2rem] backdrop-blur-xl bg-gradient-to-br from-white/10 to-transparent border-t border-l border-white/20 flex items-center justify-center shadow-[0_20px_40px_-10px_rgba(147,51,234,0.3)]"
+              transition={{ duration: 1.5, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              style={{ y: float2Y, x: float2X, rotate: float2Rotate, willChange: "transform" }}
+              className="absolute top-[40%] right-[15%] w-48 h-48 rounded-[2rem] md:backdrop-blur-xl bg-gradient-to-tr from-primary/20 to-transparent border-b border-r border-primary/30 flex items-center justify-center shadow-[0_20px_50px_-10px_rgba(147,51,234,0.3)]"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-50 rounded-[2rem]" />
               <TrendingUp className="w-20 h-20 text-primary relative z-10 drop-shadow-[0_0_20px_rgba(147,51,234,0.6)]" />
@@ -119,9 +119,9 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0, scale: 0, y: 100 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              style={{ y: float3Y, x: float3X, rotate: float3Rotate }}
-              className="absolute top-[75%] right-[50%] w-28 h-28 rounded-full backdrop-blur-xl bg-gradient-to-br from-white/10 to-transparent border-t border-l border-white/20 flex items-center justify-center shadow-[0_20px_40px_-10px_rgba(255,255,255,0.1)]"
+              transition={{ duration: 1.4, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              style={{ y: float3Y, x: float3X, rotate: float3Rotate, willChange: "transform" }}
+              className="absolute top-[70%] right-[30%] w-24 h-24 rounded-2xl md:backdrop-blur-xl bg-gradient-to-bl from-accent/20 to-transparent border-t border-r border-accent/30 flex items-center justify-center shadow-[0_20px_40px_-10px_rgba(239,253,50,0.3)]"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-50 rounded-full" />
               <Megaphone className="w-12 h-12 text-white relative z-10" />
