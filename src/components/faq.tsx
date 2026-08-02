@@ -36,13 +36,13 @@ export function FAQ() {
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.15 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold uppercase tracking-tighter text-heading drop-shadow-[0_0_15px_rgba(104, 17, 201,0.3)]">
+          <h2 className="text-4xl sm:text-5xl font-bold uppercase tracking-tighter text-white drop-shadow-[0_0_15px_rgba(104, 17, 201,0.3)]">
             Got Questions?
           </h2>
-          <p className="mt-4 text-body-text">Everything you need to know about partnering with GMM.</p>
+          <p className="mt-4 text-white">Everything you need to know about partnering with GMM.</p>
         </motion.div>
 
         <div className="flex flex-col gap-4">
@@ -53,7 +53,7 @@ export function FAQ() {
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: 0.15 }}
                 transition={{ delay: index * 0.1 }}
                 key={index} 
                 className={`group border rounded-2xl overflow-hidden transition-all duration-500 bg-surface/50 backdrop-blur-md shadow-lg ${
@@ -66,14 +66,14 @@ export function FAQ() {
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   className="w-full flex items-center justify-between p-6 sm:p-8 text-left focus:outline-none"
                 >
-                  <span className={`text-lg sm:text-xl font-bold tracking-tight transition-colors duration-300 ${isOpen ? "text-primary" : "text-heading group-hover:text-primary"}`}>
+                  <span className={`text-lg sm:text-xl font-bold tracking-tight transition-colors duration-300 ${isOpen ? "text-accent" : "text-white group-hover:text-accent"}`}>
                     {faq.question}
                   </span>
                   <motion.div
                     animate={{ rotate: isOpen ? 45 : 0 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     className={`shrink-0 ml-6 flex items-center justify-center w-10 h-10 rounded-full transition-colors duration-300 ${
-                      isOpen ? "bg-primary text-black" : "bg-primary/10 text-primary group-hover:bg-primary/30"
+                      isOpen ? "bg-primary text-black" : "bg-primary/10 text-accent group-hover:bg-primary/30"
                     }`}
                   >
                     <Plus className="w-5 h-5" />
@@ -88,7 +88,7 @@ export function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     >
-                      <div className="px-6 sm:px-8 pb-6 sm:pb-8 pt-0 text-body-text leading-relaxed">
+                      <div className="px-6 sm:px-8 pb-6 sm:pb-8 pt-0 text-white leading-relaxed">
                         <div className="w-full h-px bg-gradient-to-r from-primary/30 to-transparent mb-6" />
                         {faq.answer}
                       </div>

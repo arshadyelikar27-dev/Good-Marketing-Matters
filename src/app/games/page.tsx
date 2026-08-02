@@ -76,7 +76,7 @@ function MemoryMatchGame() {
   return (
     <div className="flex flex-col items-center w-full max-w-xl mx-auto">
       {/* Top Score Bar */}
-      <div className="flex items-center justify-between w-full mb-6 px-5 py-3.5 bg-black/90 backdrop-blur-xl rounded-2xl border border-black shadow-xl">
+      <div className="flex items-center justify-between w-full mb-6 px-5 py-3.5 bg-surface/90 backdrop-blur-xl rounded-2xl border border-border shadow-xl">
         <div className="text-sm font-bold text-white">
           Moves: <span className="text-accent font-black text-lg ml-1">{moves}</span>
         </div>
@@ -103,8 +103,8 @@ function MemoryMatchGame() {
               card.matched
                 ? "bg-primary/20 text-accent border-primary shadow-[0_0_20px_rgba(212, 224, 0,0.4)]"
                 : card.flipped
-                ? "bg-black text-white border-2 border-primary shadow-2xl scale-105"
-                : "bg-black/80 text-white border-black hover:border-primary/60 hover:shadow-lg"
+                ? "bg-surface text-white border-2 border-primary shadow-2xl scale-105"
+                : "bg-surface/80 text-white border-border hover:border-primary/60 hover:shadow-lg"
             }`}
           >
             {card.flipped || card.matched ? card.icon : <span className="text-accent/40 text-2xl font-black">?</span>}
@@ -119,7 +119,7 @@ function MemoryMatchGame() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
-            className="mt-8 p-8 bg-black border-2 border-primary text-white rounded-3xl text-center shadow-[0_0_40px_rgba(212, 224, 0,0.3)] w-full max-w-md"
+            className="mt-8 p-8 bg-surface border-2 border-primary text-white rounded-3xl text-center shadow-[0_0_40px_rgba(212, 224, 0,0.3)] w-full max-w-md"
           >
             <Sparkles className="w-12 h-12 mx-auto mb-3 text-accent animate-bounce" />
             <h3 className="font-heading font-black text-3xl mb-1 text-accent">Congratulations!</h3>
@@ -205,22 +205,22 @@ function TicTacToeGame() {
     <div className="flex flex-col items-center w-full max-w-md mx-auto">
       {/* Scoreboard */}
       <div className="grid grid-cols-3 gap-4 w-full mb-6 text-center">
-        <div className="p-3.5 bg-black/90 backdrop-blur-xl rounded-2xl border border-black shadow-xl">
+        <div className="p-3.5 bg-surface/90 backdrop-blur-xl rounded-2xl border border-border shadow-xl">
           <div className="text-xs font-bold text-white">YOU (X)</div>
           <div className="text-2xl font-black text-accent">{scores.player}</div>
         </div>
-        <div className="p-3.5 bg-black/90 backdrop-blur-xl rounded-2xl border border-black shadow-xl">
+        <div className="p-3.5 bg-surface/90 backdrop-blur-xl rounded-2xl border border-border shadow-xl">
           <div className="text-xs font-bold text-white">DRAWS</div>
           <div className="text-2xl font-black text-white">{scores.draws}</div>
         </div>
-        <div className="p-3.5 bg-black/90 backdrop-blur-xl rounded-2xl border border-black shadow-xl">
+        <div className="p-3.5 bg-surface/90 backdrop-blur-xl rounded-2xl border border-border shadow-xl">
           <div className="text-xs font-bold text-white">AI BOT (O)</div>
           <div className="text-2xl font-black text-white">{scores.ai}</div>
         </div>
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-3 gap-3.5 w-full aspect-square bg-black/90 p-4 rounded-3xl border border-black backdrop-blur-xl shadow-2xl">
+      <div className="grid grid-cols-3 gap-3.5 w-full aspect-square bg-surface/90 p-4 rounded-3xl border border-border backdrop-blur-xl shadow-2xl">
         {board.map((cell, idx) => (
           <motion.button
             key={idx}
@@ -229,10 +229,10 @@ function TicTacToeGame() {
             onClick={() => handleClick(idx)}
             className={`rounded-2xl text-4xl sm:text-5xl font-black flex items-center justify-center transition-all duration-300 border cursor-pointer ${
               cell === "X"
-                ? "bg-black text-accent border-2 border-primary shadow-[0_0_15px_rgba(212, 224, 0,0.4)]"
+                ? "bg-surface text-accent border-2 border-primary shadow-[0_0_15px_rgba(212, 224, 0,0.4)]"
                 : cell === "O"
                 ? "bg-white text-white border-2 border-white shadow-xl"
-                : "bg-black/80 border-black hover:border-primary/60"
+                : "bg-surface/80 border-border hover:border-primary/60"
             }`}
           >
             {cell}
@@ -313,22 +313,22 @@ function RockPaperScissorsGame() {
     <div className="flex flex-col items-center w-full max-w-md mx-auto">
       {/* Scoreboard */}
       <div className="grid grid-cols-3 gap-4 w-full mb-6 text-center">
-        <div className="p-3.5 bg-black/90 backdrop-blur-xl rounded-2xl border border-black shadow-xl">
+        <div className="p-3.5 bg-surface/90 backdrop-blur-xl rounded-2xl border border-border shadow-xl">
           <div className="text-xs font-bold text-white">YOU</div>
           <div className="text-2xl font-black text-accent">{score.player}</div>
         </div>
-        <div className="p-3.5 bg-black/90 backdrop-blur-xl rounded-2xl border border-black shadow-xl">
+        <div className="p-3.5 bg-surface/90 backdrop-blur-xl rounded-2xl border border-border shadow-xl">
           <div className="text-xs font-bold text-white">STREAK</div>
           <div className="text-2xl font-black text-accent">🔥 {streak}</div>
         </div>
-        <div className="p-3.5 bg-black/90 backdrop-blur-xl rounded-2xl border border-black shadow-xl">
+        <div className="p-3.5 bg-surface/90 backdrop-blur-xl rounded-2xl border border-border shadow-xl">
           <div className="text-xs font-bold text-white">AI BOT</div>
           <div className="text-2xl font-black text-white">{score.ai}</div>
         </div>
       </div>
 
       {/* Showdown Arena */}
-      <div className="w-full bg-black/90 backdrop-blur-xl p-6 rounded-3xl border border-black mb-6 flex flex-col items-center justify-center min-h-[230px] shadow-2xl">
+      <div className="w-full bg-surface/90 backdrop-blur-xl p-6 rounded-3xl border border-border mb-6 flex flex-col items-center justify-center min-h-[230px] shadow-2xl">
         <div className="flex items-center justify-around w-full">
           {/* Player Choice */}
           <div className="text-center">
@@ -337,7 +337,7 @@ function RockPaperScissorsGame() {
               key={playerChoice || "none"}
               initial={{ scale: 0.5 }}
               animate={{ scale: 1 }}
-              className="w-24 h-24 rounded-2xl bg-black border-2 border-primary text-white flex items-center justify-center text-5xl shadow-[0_0_20px_rgba(212, 224, 0,0.3)]"
+              className="w-24 h-24 rounded-2xl bg-surface border-2 border-primary text-white flex items-center justify-center text-5xl shadow-[0_0_20px_rgba(212, 224, 0,0.3)]"
             >
               {getEmoji(playerChoice)}
             </motion.div>
@@ -352,7 +352,7 @@ function RockPaperScissorsGame() {
               key={aiChoice || "waiting"}
               initial={{ scale: 0.5 }}
               animate={{ scale: 1 }}
-              className="w-24 h-24 rounded-2xl bg-black border border-black text-white flex items-center justify-center text-5xl shadow-xl"
+              className="w-24 h-24 rounded-2xl bg-surface border border-border text-white flex items-center justify-center text-5xl shadow-xl"
             >
               {aiChoice ? getEmoji(aiChoice) : "❓"}
             </motion.div>
@@ -368,8 +368,8 @@ function RockPaperScissorsGame() {
               result === "win"
                 ? "bg-primary text-white border-primary shadow-[0_0_20px_rgba(212, 224, 0,0.4)]"
                 : result === "lose"
-                ? "bg-black text-white border-black"
-                : "bg-black text-white border-black"
+                ? "bg-surface text-white border-border"
+                : "bg-surface text-white border-border"
             }`}
           >
             {result === "win" && "🎉 Victory!"}
@@ -387,7 +387,7 @@ function RockPaperScissorsGame() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => handlePlay(choice.id)}
-            className="p-4 rounded-2xl bg-black border border-black hover:border-primary flex flex-col items-center justify-center shadow-lg transition-all duration-300 cursor-pointer"
+            className="p-4 rounded-2xl bg-surface border border-border hover:border-primary flex flex-col items-center justify-center shadow-lg transition-all duration-300 cursor-pointer"
           >
             <span className="text-4xl mb-1">{choice.emoji}</span>
             <span className="text-xs font-bold text-white font-heading">{choice.name}</span>
@@ -434,7 +434,7 @@ function ReflexTestGame() {
   return (
     <div className="flex flex-col items-center w-full max-w-md mx-auto">
       {/* Top Info */}
-      <div className="flex items-center justify-between w-full mb-6 px-5 py-3.5 bg-black/90 backdrop-blur-xl rounded-2xl border border-black shadow-xl">
+      <div className="flex items-center justify-between w-full mb-6 px-5 py-3.5 bg-surface/90 backdrop-blur-xl rounded-2xl border border-border shadow-xl">
         <div className="text-sm font-bold text-white">
           Last: <span className="text-accent font-black text-lg ml-1">{reactionTime ? `${reactionTime} ms` : "--"}</span>
         </div>
@@ -448,7 +448,7 @@ function ReflexTestGame() {
         onClick={state === "idle" ? startTest : handleClick}
         className={`w-full aspect-square rounded-3xl p-8 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 border shadow-2xl ${
           state === "idle"
-            ? "bg-black border-black hover:border-primary"
+            ? "bg-surface border-border hover:border-primary"
             : state === "waiting"
             ? "bg-red-500/90 text-white border-2 border-red-500 animate-pulse"
             : state === "ready"
@@ -515,7 +515,7 @@ function GamesPageContent() {
   const [activeTab, setActiveTab] = useState(initialGame);
 
   return (
-    <main className="min-h-screen w-full bg-black text-white relative flex flex-col pb-32 sm:pb-48 select-none">
+    <main className="min-h-screen w-full bg-surface text-white relative flex flex-col pb-32 sm:pb-48 select-none">
       {/* Background Dotted Pattern Effect */}
       <div 
         className="absolute inset-0 opacity-10 pointer-events-none" 
@@ -533,7 +533,7 @@ function GamesPageContent() {
         <div className="flex items-center justify-between mb-8 sm:mb-10">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-black border border-black text-white font-bold text-xs sm:text-sm hover:border-primary hover:text-accent transition-all duration-300 shadow-lg group"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface border border-border text-white font-bold text-xs sm:text-sm hover:border-primary hover:text-accent transition-all duration-300 shadow-lg group"
           >
             <ArrowLeft className="w-4 h-4 text-accent group-hover:-translate-x-1 transition-transform" /> Back to Website
           </Link>
@@ -570,7 +570,7 @@ function GamesPageContent() {
                 className={`flex items-center gap-2 px-4 sm:px-6 py-3 rounded-full font-black text-xs sm:text-sm transition-all duration-300 whitespace-nowrap cursor-pointer ${
                   isActive
                     ? "bg-primary text-white border border-primary shadow-[0_0_20px_rgba(212, 224, 0,0.4)] scale-105"
-                    : "bg-black text-white border border-black hover:border-primary/50 hover:text-white"
+                    : "bg-surface text-white border border-border hover:border-primary/50 hover:text-white"
                 }`}
               >
                 <Icon className="w-4 h-4" /> {tab.label}
@@ -604,7 +604,7 @@ function GamesPageContent() {
 
 export default function GamesPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-black flex items-center justify-center text-accent font-black">Loading Arena...</div>}>
+    <Suspense fallback={<div className="min-h-screen bg-surface flex items-center justify-center text-accent font-black">Loading Arena...</div>}>
       <GamesPageContent />
     </Suspense>
   );

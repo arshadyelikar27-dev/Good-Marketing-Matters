@@ -88,8 +88,8 @@ export function Navbar() {
           className={cn(
             "pointer-events-auto flex items-center justify-between px-5 sm:px-7 py-3 rounded-full transition-all duration-500 w-full max-w-5xl border shadow-xl",
             isScrolled
-              ? "bg-background/85 backdrop-blur-[20px] border-white/10 shadow-black/40 py-2.5"
-              : "bg-background/40 backdrop-blur-[10px] border-white/10"
+              ? "bg-black/70 backdrop-blur-[20px] border-white/10 shadow-black/40 py-2.5"
+              : "bg-black/30 backdrop-blur-[10px] border-white/10"
           )}
         >
           {/* LOGO */}
@@ -131,7 +131,7 @@ export function Navbar() {
                   {isActive && (
                     <motion.div
                       layoutId="activeSectionPill"
-                      className="absolute inset-0 bg-primary/20 border border-primary/40 rounded-full shadow-[0_0_15px_rgba(104, 17, 201,0.2)]"
+                      className="absolute inset-0 bg-accent/20 border border-accent/40 rounded-full shadow-[0_0_15px_rgba(224,243,71,0.2)]"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -179,7 +179,7 @@ export function Navbar() {
                           <div className="absolute w-1.5 h-1 bg-pink-300 rounded-full opacity-70" style={{ right: "12%", top: "56%" }} />
                           {/* Mouth */}
                           <motion.div
-                            className="absolute w-3 h-1.5 border-b-2 border-black rounded-full"
+                            className="absolute w-3 h-1.5 border-b-2 border-border rounded-full"
                             animate={isHovered ? { scaleY: 1.6, y: -1 } : { scaleY: 1, y: 0 }}
                             style={{ left: "28%", top: "60%" }}
                           />
@@ -226,7 +226,7 @@ export function Navbar() {
                   <span className="relative z-10">{link.name}</span>
 
                   {/* Underline grows from left on hover */}
-                  <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 rounded-full" />
+                  <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 rounded-full" />
                 </Link>
               );
             })}
@@ -236,7 +236,7 @@ export function Navbar() {
           <MagneticButton className="hidden md:flex" strength={0.5}>
             <button
               onClick={openScheduleModal}
-              className="px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-bold text-sm shadow-[0_4px_20px_rgba(104, 17, 201,0.3)] hover:shadow-[0_8px_30px_rgba(104, 17, 201,0.5)] hover:bg-[#6811C9] transition-all duration-300 active:scale-[0.96] block"
+              className="px-6 py-2.5 rounded-full bg-primary text-white font-bold text-sm shadow-[0_4px_20px_rgba(104,17,201,0.3)] hover:shadow-[0_8px_30px_rgba(224,243,71,0.5)] hover:border hover:border-accent hover:bg-primary transition-all duration-300 active:scale-[0.96] block"
             >
               Let&apos;s Talk
             </button>
@@ -264,7 +264,7 @@ export function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-[48] bg-black/60 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-[48] bg-surface/60 backdrop-blur-sm md:hidden"
               onClick={() => setMobileMenuOpen(false)}
             />
 
@@ -275,12 +275,12 @@ export function Navbar() {
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
               transition={{ type: "spring", stiffness: 350, damping: 35 }}
-              className="fixed bottom-0 inset-x-0 z-[49] md:hidden bg-black border-t border-black rounded-t-3xl shadow-[0_-20px_60px_rgba(0,0,0,0.8)] pointer-events-auto overflow-hidden"
+              className="fixed bottom-0 inset-x-0 z-[49] md:hidden bg-surface border-t border-border rounded-t-3xl shadow-[0_-20px_60px_rgba(0,0,0,0.8)] pointer-events-auto overflow-hidden"
               style={{ maxHeight: "85svh" }}
             >
               {/* Drag handle */}
               <div className="flex justify-center pt-3 pb-1">
-                <div className="w-10 h-1 rounded-full bg-black" />
+                <div className="w-10 h-1 rounded-full bg-surface" />
               </div>
 
               {/* Top accent line */}
@@ -311,7 +311,7 @@ export function Navbar() {
                       className={cn(
                         "flex items-center justify-between py-3.5 px-4 rounded-2xl font-bold text-base transition-all",
                         activeSection === link.name
-                          ? "text-primary-foreground bg-primary/15 border border-primary/30"
+                          ? "text-white bg-accent/15 border border-accent/30"
                           : "text-white hover:text-white hover:bg-white/5 border border-transparent"
                       )}
                       onClick={() => {

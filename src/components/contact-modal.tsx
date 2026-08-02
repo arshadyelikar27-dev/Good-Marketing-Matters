@@ -64,7 +64,7 @@ export function ContactModal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={handleClose}
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            className="absolute inset-0 bg-surface/80 backdrop-blur-sm"
           />
 
           <motion.div
@@ -89,11 +89,11 @@ export function ContactModal() {
             {!isSuccess ? (
               <div className="p-8 relative z-10">
                 <div className="flex flex-col items-center text-center mb-8">
-                  <p className="text-xs bg-primary/20 text-primary font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4 border border-primary/30">
+                  <p className="text-xs bg-primary/20 text-accent font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4 border border-primary/30">
                     Contact Us
                   </p>
                   <h2 className="text-3xl font-black text-white uppercase tracking-tight">Let's Get In Touch.</h2>
-                  <p className="text-gray-400 mt-2 text-sm font-medium">
+                  <p className="text-white mt-2 text-sm font-medium">
                     Or reach out manually to us at <a href="mailto:goodmarketingmatters.co" className="text-accent hover:underline">hello@goodmarketingmatters.co</a>
                   </p>
                 </div>
@@ -101,49 +101,49 @@ export function ContactModal() {
                 <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
 
                   <div>
-                    <label className="text-sm font-medium text-gray-300 mb-1.5 block">Full Name</label>
+                    <label className="text-sm font-medium text-white mb-1.5 block">Full Name</label>
                     <div className="relative flex items-center">
-                      <User className="absolute left-3 w-5 h-5 text-gray-500" />
+                      <User className="absolute left-3 w-5 h-5 text-white" />
                       <input
                         type="text"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full bg-black border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+                        className="w-full bg-surface border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
                         placeholder="Enter your full name"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-gray-300 mb-1.5 block">Email Address</label>
+                    <label className="text-sm font-medium text-white mb-1.5 block">Email Address</label>
                     <div className="relative flex items-center">
-                      <Mail className="absolute left-3 w-5 h-5 text-gray-500" />
+                      <Mail className="absolute left-3 w-5 h-5 text-white" />
                       <input
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full bg-black border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+                        className="w-full bg-surface border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
                         placeholder="Enter your email address"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-gray-300 mb-1.5 block">What service are you looking for?</label>
+                    <label className="text-sm font-medium text-white mb-1.5 block">What service are you looking for?</label>
                     <div className="relative flex items-center">
-                      <ChevronDown className="absolute right-3 w-5 h-5 text-gray-500 pointer-events-none" />
+                      <ChevronDown className="absolute right-3 w-5 h-5 text-white pointer-events-none" />
                       <select
                         name="service"
                         value={formData.service}
                         onChange={handleChange}
                         required
-                        className="w-full bg-black border border-white/5 rounded-xl h-12 pl-4 pr-10 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all appearance-none cursor-pointer"
+                        className="w-full bg-surface border border-white/5 rounded-xl h-12 pl-4 pr-10 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all appearance-none cursor-pointer"
                       >
-                        <option value="" disabled className="bg-surface text-gray-500">Select a service</option>
+                        <option value="" disabled className="bg-surface text-white">Select a service</option>
                         {services.map((s) => (
                           <option key={s.slug} value={s.title} className="bg-surface">{s.title}</option>
                         ))}
@@ -153,14 +153,14 @@ export function ContactModal() {
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-gray-300 mb-1.5 block">Message</label>
+                    <label className="text-sm font-medium text-white mb-1.5 block">Message</label>
                     <textarea
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       required
                       rows={3}
-                      className="w-full bg-black border border-white/5 rounded-xl p-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all resize-none"
+                      className="w-full bg-surface border border-white/5 rounded-xl p-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all resize-none"
                       placeholder="Tell us about your brand and goals..."
                     />
                   </div>

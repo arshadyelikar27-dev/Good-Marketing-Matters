@@ -44,28 +44,53 @@ export function Hero() {
           {/* Left Side Content */}
           <div className="w-full lg:w-3/5">
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col text-heading font-medium tracking-tight items-start w-max mx-auto lg:mx-0"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: { staggerChildren: 0.2, delayChildren: 0.1 }
+                }
+              }}
+              className="flex flex-col text-white font-medium tracking-tight items-start w-max mx-auto lg:mx-0"
             >
-              <div className="flex items-center text-[12vw] sm:text-[13vw] lg:text-[9vw] leading-[0.9] text-white lowercase">
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
+                }}
+                className="flex items-center whitespace-nowrap text-[12vw] sm:text-[13vw] lg:text-[9vw] leading-[0.9] text-white lowercase"
+              >
                 <span>g</span>
-                <span className="inline-block w-[3.5em] h-[0.7em] border-[0.09em] border-white rounded-full mx-[0.1em]" />
+                <span className="inline-block w-[2.8em] h-[0.55em] border-[0.09em] border-white rounded-full mx-[0.1em]" />
+                <span>o</span>
                 <span>d</span>
-              </div>
-              <div className="text-[12vw] sm:text-[13vw] lg:text-[9vw] leading-[0.9] text-white lowercase">
+              </motion.div>
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
+                }}
+                className="text-[12vw] sm:text-[13vw] lg:text-[9vw] leading-[0.9] text-white lowercase"
+              >
                 marketing
-              </div>
-              <div className="text-[12vw] sm:text-[13vw] lg:text-[9vw] leading-[0.9] text-white lowercase">
+              </motion.div>
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
+                }}
+                className="text-[12vw] sm:text-[13vw] lg:text-[9vw] leading-[0.9] text-white lowercase"
+              >
                 matters.
-              </div>
+              </motion.div>
             </motion.div>
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="mt-4 sm:mt-12 text-xl sm:text-2xl font-medium text-accent max-w-xl tracking-wide normal-case text-center lg:text-left w-full lg:ml-1"
             >
               We build brands that are impossible to ignore.
@@ -74,14 +99,14 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
               className="mt-6 md:mt-12 flex justify-center lg:justify-start lg:ml-1"
             >
               <button 
                 data-cursor-text="Explore" 
-                className="group relative px-8 py-4 md:px-10 md:py-5 bg-transparent overflow-hidden rounded-full font-bold text-lg text-white border border-primary/50 hover:border-primary transition-colors duration-500"
+                className="group relative px-8 py-4 md:px-10 md:py-5 bg-transparent overflow-hidden rounded-full font-bold text-lg text-white border border-accent/50 hover:border-accent transition-colors duration-500"
               >
-                <div className="absolute inset-0 bg-primary translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
+                <div className="absolute inset-0 bg-accent translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
                 <span className="relative z-10 group-hover:text-black transition-colors duration-500">
                   Discover Our Work
                 </span>
@@ -97,7 +122,7 @@ export function Hero() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
               style={{ y: float1Y, x: float1X, rotate: float1Rotate, willChange: "transform" }}
-              className="absolute top-[20%] right-[40%] w-32 h-32 rounded-full md:backdrop-blur-xl bg-gradient-to-br from-white/10 to-transparent border-t border-l border-white/20 flex items-center justify-center shadow-[0_20px_40px_-10px_rgba(224, 243, 71,0.2)]"
+              className="absolute top-[20%] right-[40%] w-32 h-32 rounded-full md:backdrop-blur-xl bg-gradient-to-br from-accent/20 to-transparent border-t border-l border-accent/30 flex items-center justify-center shadow-[0_20px_40px_-10px_rgba(224, 243, 71,0.2)]"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-50 rounded-full" />
               <Target className="w-14 h-14 text-accent relative z-10 drop-shadow-[0_0_15px_rgba(224, 243, 71,0.5)]" />
@@ -109,10 +134,10 @@ export function Hero() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.5, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
               style={{ y: float2Y, x: float2X, rotate: float2Rotate, willChange: "transform" }}
-              className="absolute top-[40%] right-[15%] w-48 h-48 rounded-[2rem] md:backdrop-blur-xl bg-gradient-to-tr from-primary/20 to-transparent border-b border-r border-primary/30 flex items-center justify-center shadow-[0_20px_50px_-10px_rgba(104, 17, 201,0.3)]"
+              className="absolute top-[40%] right-[15%] w-48 h-48 rounded-[2rem] md:backdrop-blur-xl bg-gradient-to-tr from-accent/20 to-transparent border-b border-r border-accent/30 flex items-center justify-center shadow-[0_20px_50px_-10px_rgba(224, 243, 71,0.3)]"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-50 rounded-[2rem]" />
-              <TrendingUp className="w-20 h-20 text-primary relative z-10 drop-shadow-[0_0_20px_rgba(104, 17, 201,0.6)]" />
+              <TrendingUp className="w-20 h-20 text-accent relative z-10 drop-shadow-[0_0_20px_rgba(224, 243, 71,0.6)]" />
             </motion.div>
 
             {/* Megaphone Element */}
@@ -124,7 +149,7 @@ export function Hero() {
               className="absolute top-[70%] right-[30%] w-24 h-24 rounded-2xl md:backdrop-blur-xl bg-gradient-to-bl from-accent/20 to-transparent border-t border-r border-accent/30 flex items-center justify-center shadow-[0_20px_40px_-10px_rgba(224, 243, 71,0.3)]"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-50 rounded-full" />
-              <Megaphone className="w-12 h-12 text-white relative z-10" />
+              <Megaphone className="w-12 h-12 text-accent relative z-10 drop-shadow-[0_0_15px_rgba(224, 243, 71,0.5)]" />
             </motion.div>
           </div>
         </motion.div>
@@ -134,8 +159,8 @@ export function Hero() {
           style={{ opacity: textOpacity }}
           className="absolute bottom-12 left-12 flex flex-col items-center gap-4"
         >
-          <span className="text-xs uppercase tracking-widest text-primary font-bold">Scroll</span>
-          <div className="w-px h-16 bg-gradient-to-b from-primary to-transparent overflow-hidden relative">
+          <span className="text-xs uppercase tracking-widest text-accent font-bold">Scroll</span>
+          <div className="w-px h-16 bg-gradient-to-b from-accent to-transparent overflow-hidden relative">
             <div className="w-full h-1/3 bg-accent animate-[marquee-vertical_1.5s_linear_infinite]" />
           </div>
         </motion.div>

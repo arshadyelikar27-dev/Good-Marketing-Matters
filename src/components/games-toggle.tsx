@@ -121,7 +121,7 @@ export function GamesToggle() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="absolute inset-0 bg-black/75 backdrop-blur-xl"
+              className="absolute inset-0 bg-surface/75 backdrop-blur-xl"
             />
 
             {/* Modal Container */}
@@ -130,7 +130,7 @@ export function GamesToggle() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.85, y: 30 }}
               transition={{ type: "spring", stiffness: 350, damping: 25 }}
-              className="relative w-full max-w-2xl bg-black rounded-[2rem] sm:rounded-[2.5rem] p-5 sm:p-8 shadow-2xl border border-white/10 overflow-y-auto max-h-[85vh] z-10"
+              className="relative w-full max-w-2xl bg-surface rounded-[2rem] sm:rounded-[2.5rem] p-5 sm:p-8 shadow-2xl border border-white/10 overflow-y-auto max-h-[85vh] z-10"
             >
               {/* Header */}
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
@@ -150,7 +150,7 @@ export function GamesToggle() {
 
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="w-10 h-10 rounded-full bg-black hover:bg-black/80 flex items-center justify-center text-white transition-colors"
+                  className="w-10 h-10 rounded-full bg-surface hover:bg-surface/80 flex items-center justify-center text-white transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -180,7 +180,7 @@ export function GamesToggle() {
                         <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${game.bgAccent}`}>
                           <Icon className="w-5 h-5" />
                         </div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-black text-white">
+                        <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-surface text-white">
                           {game.badge}
                         </span>
                       </div>

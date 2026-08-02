@@ -79,13 +79,13 @@ function TestimonialCard({ img, name, username, body, country }: (typeof testimo
             <AvatarFallback>{name[0]}</AvatarFallback>
           </Avatar>
           <div className="flex flex-col">
-            <figcaption className="text-sm font-bold text-heading flex items-center gap-1 group-hover:text-primary transition-colors">
-              {name} <span className="text-xs font-normal text-muted-foreground">{country}</span>
+            <figcaption className="text-sm font-bold text-white flex items-center gap-1 group-hover:text-accent transition-colors">
+              {name} <span className="text-xs font-normal text-white">{country}</span>
             </figcaption>
             <p className="text-xs font-medium text-accent">{username}</p>
           </div>
         </div>
-        <blockquote className="mt-3 text-sm text-body-text leading-snug relative z-10">{body}</blockquote>
+        <blockquote className="mt-3 text-sm text-white leading-snug relative z-10">{body}</blockquote>
       </CardContent>
     </Card>
   );
@@ -100,10 +100,10 @@ export function Testimonials() {
 
       {/* Header */}
       <div className="container relative z-10 mx-auto px-6 mb-16 text-center">
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tighter mb-4 text-heading drop-shadow-[0_0_20px_rgba(104, 17, 201,0.3)]">
-          Client <span className="text-primary">Stories</span>
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tighter mb-4 text-white drop-shadow-[0_0_20px_rgba(104, 17, 201,0.3)]">
+          Client <span className="text-accent">Stories</span>
         </h2>
-        <p className="text-lg text-body-text max-w-xl mx-auto">
+        <p className="text-lg text-white max-w-xl mx-auto">
           Hear from the visionaries and industry leaders who scaled their digital presence with GMM.
         </p>
       </div>

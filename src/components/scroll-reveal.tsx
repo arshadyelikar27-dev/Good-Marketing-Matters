@@ -19,7 +19,7 @@ export function ScrollReveal({
     <motion.div
       initial={{ opacity: 0, y: 80 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: false, amount: 0.15 }}
       transition={{
         duration: 0.8,
         ease: [0.215, 0.61, 0.355, 1.0], // Ease in out cubic

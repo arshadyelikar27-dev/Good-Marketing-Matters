@@ -20,10 +20,15 @@ import {
   type LucideIcon
 } from "lucide-react";
 
+import type { ElementType } from 'react';
+import { FaYoutube, FaGoogle, FaWordpress, FaApple, FaAndroid, FaReact } from 'react-icons/fa';
+import { FaMeta } from 'react-icons/fa6';
+
 export interface SubService {
-  icon: LucideIcon;
+  icon: ElementType;
   title: string;
   description: string;
+  image?: string;
 }
 
 export interface WhyChooseItem {
@@ -42,7 +47,7 @@ export interface ServiceData {
   title: string;
   tagline: string;
   shortDescription: string;
-  icon: LucideIcon;
+  icon: ElementType;
   heroDescription: string;
   imageUrl?: string;
   subServices: SubService[];
@@ -61,11 +66,11 @@ export const services: ServiceData[] = [
     imageUrl: "/services/perf_marketing.png",
     heroDescription: "At GMM, we deliver impactful performance marketing solutions to scale your business with precision-driven campaigns across leading platforms. Every rupee you spend works harder, tracked to the last click.",
     subServices: [
-      { icon: Target, title: "Facebook & Instagram Ads", description: "Launch hyper-targeted ad campaigns on Facebook and Instagram to engage audiences and drive conversions. Maximize ROI with data-driven strategies." },
-      { icon: Search, title: "Google Ads", description: "Reach customers with high intent using search, display, and shopping campaigns. Optimize ad performance for maximum visibility and conversions." },
-      { icon: BarChart3, title: "YouTube Ads", description: "Create compelling video ads to connect with your audience on YouTube. Leverage skippable and non-skippable ad formats for optimal reach." },
-      { icon: RefreshCw, title: "Conversion Rate Optimization", description: "Enhance user experience and optimize landing pages to boost conversions. Utilize analytics to implement data-backed improvements." },
-      { icon: Zap, title: "Performance Analytics", description: "Track campaign performance with detailed reports. Leverage actionable insights to refine your marketing strategies and achieve business goals." },
+      { icon: FaMeta, title: "Facebook & Instagram Ads", description: "Launch hyper-targeted ad campaigns on Facebook and Instagram to engage audiences and drive conversions. Maximize ROI with data-driven strategies.", image: "/services/cards/meta_ads.png" },
+      { icon: FaGoogle, title: "Google Ads", description: "Reach customers with high intent using search, display, and shopping campaigns. Optimize ad performance for maximum visibility and conversions.", image: "/services/cards/google_ads.png" },
+      { icon: FaYoutube, title: "YouTube Ads", description: "Create compelling video ads to connect with your audience on YouTube. Leverage skippable and non-skippable ad formats for optimal reach.", image: "/services/cards/youtube_ads.png" },
+      { icon: RefreshCw, title: "Conversion Rate Optimization", description: "Enhance user experience and optimize landing pages to boost conversions. Utilize analytics to implement data-backed improvements.", image: "/services/cards/cro_ads.png" },
+      { icon: Zap, title: "Performance Analytics", description: "Track campaign performance with detailed reports. Leverage actionable insights to refine your marketing strategies and achieve business goals.", image: "/services/cards/analytics_ads.png" },
     ],
     whyChoose: [
       { title: "Proven Expertise", description: "Our team has a track record of delivering successful performance marketing campaigns across Google Ads, Facebook, Instagram, and YouTube, tailored to meet diverse business goals." },
@@ -94,11 +99,11 @@ export const services: ServiceData[] = [
     imageUrl: "/services/social_marketing.png",
     heroDescription: "At GMM, we specialize in crafting impactful social media campaigns that amplify your brand, engage your audience, and drive meaningful results. We turn followers into loyal customers.",
     subServices: [
-      { icon: Users, title: "Social Media Strategy Development", description: "Tailored strategies to align with your business goals and audience preferences. Platform-specific approaches for Facebook, Instagram, LinkedIn, Twitter, and more." },
-      { icon: PenTool, title: "Content Creation", description: "Create engaging posts, graphics, and videos that resonate with your audience. Maintain a consistent tone and aesthetic across all platforms." },
-      { icon: Target, title: "Paid Social Advertising", description: "Launch targeted ad campaigns to boost reach and conversions. Optimize ad spend for maximum ROI across all social platforms." },
-      { icon: MessageCircle, title: "Community Management", description: "Monitor and respond to comments, messages, and reviews to foster engagement. Build lasting relationships with your audience." },
-      { icon: BarChart3, title: "Social Media Analytics", description: "Track performance metrics like reach, engagement, and conversions. Provide detailed reports and actionable insights to refine strategies." },
+      { icon: Users, title: "Social Media Strategy Development", description: "Tailored strategies to align with your business goals and audience preferences. Platform-specific approaches for Facebook, Instagram, LinkedIn, Twitter, and more.", image: "/services/cards/sm_strategy_1785666607970.png" },
+      { icon: PenTool, title: "Content Creation", description: "Create engaging posts, graphics, and videos that resonate with your audience. Maintain a consistent tone and aesthetic across all platforms.", image: "/services/cards/sm_content_1785666619370.png" },
+      { icon: Target, title: "Paid Social Advertising", description: "Launch targeted ad campaigns to boost reach and conversions. Optimize ad spend for maximum ROI across all social platforms.", image: "/services/cards/sm_paid_1785666630242.png" },
+      { icon: MessageCircle, title: "Community Management", description: "Monitor and respond to comments, messages, and reviews to foster engagement. Build lasting relationships with your audience.", image: "/services/cards/sm_community_1785666644197.png" },
+      { icon: BarChart3, title: "Social Media Analytics", description: "Track performance metrics like reach, engagement, and conversions. Provide detailed reports and actionable insights to refine strategies.", image: "/services/cards/sm_analytics_1785666654952.png" },
     ],
     whyChoose: [
       { title: "Creative Excellence", description: "Our team crafts visually stunning and narrative-driven content that captures attention and builds an emotional connection between your brand and your audience." },
@@ -127,11 +132,11 @@ export const services: ServiceData[] = [
     imageUrl: "/services/seo_image.png",
     heroDescription: "At GMM, we engineer search dominance through a combination of technical precision, strategic content, and authoritative link-building. We don't just get you on page one — we keep you there.",
     subServices: [
-      { icon: Shield, title: "Technical SEO", description: "Audit and fix site speed, crawlability, indexation, Core Web Vitals, and structured data to give search engines exactly what they need to rank you." },
-      { icon: PenTool, title: "On-Page Optimization", description: "Strategic keyword mapping, meta-tag optimization, content enhancement, and internal linking to make every page a ranking asset." },
-      { icon: Globe, title: "Off-Page & Link Building", description: "Build domain authority with high-quality backlinks from reputable industry sources, digital PR, and guest contributions." },
-      { icon: Target, title: "Local SEO", description: "Dominate local search results with optimized Google Business Profile, local citations, and geo-targeted content strategies." },
-      { icon: BarChart3, title: "SEO Reporting", description: "Transparent, easy-to-understand monthly reports tracking keyword rankings, organic traffic growth, and ROI." },
+      { icon: Shield, title: "Technical SEO", description: "Audit and fix site speed, crawlability, indexation, Core Web Vitals, and structured data to give search engines exactly what they need to rank you.", image: "/services/cards/seo_tech_1785666665860.png" },
+      { icon: PenTool, title: "On-Page Optimization", description: "Strategic keyword mapping, meta-tag optimization, content enhancement, and internal linking to make every page a ranking asset.", image: "/services/cards/seo_onpage_1785666679364.png" },
+      { icon: Globe, title: "Off-Page & Link Building", description: "Build domain authority with high-quality backlinks from reputable industry sources, digital PR, and guest contributions.", image: "/services/cards/seo_offpage_1785666691902.png" },
+      { icon: Target, title: "Local SEO", description: "Dominate local search results with optimized Google Business Profile, local citations, and geo-targeted content strategies.", image: "/services/cards/seo_tech_1785666665860.png" },
+      { icon: BarChart3, title: "SEO Reporting", description: "Transparent, easy-to-understand monthly reports tracking keyword rankings, organic traffic growth, and ROI.", image: "/services/cards/seo_offpage_1785666691902.png" },
     ],
     whyChoose: [
       { title: "White-Hat Practices", description: "We strictly follow Google's guidelines. Our strategies are built for long-term sustainable growth, not risky shortcuts that can get you penalized." },
@@ -294,7 +299,7 @@ export const services: ServiceData[] = [
     subServices: [
       { icon: Globe, title: "Custom Web Development", description: "Bespoke websites built from scratch using modern frameworks like Next.js and React, tailored precisely to your business requirements." },
       { icon: Target, title: "E-Commerce Development", description: "Scalable online stores with seamless checkout experiences, inventory management, and payment gateway integrations that maximize sales." },
-      { icon: PenTool, title: "CMS Development (WordPress)", description: "Powerful, easy-to-manage WordPress websites with custom themes and plugins that give your team full control of content." },
+      { icon: FaWordpress, title: "CMS Development (WordPress)", description: "Powerful, easy-to-manage WordPress websites with custom themes and plugins that give your team full control of content." },
       { icon: Zap, title: "UI/UX Design & Implementation", description: "User-centered design that prioritizes intuitive navigation, accessibility, and conversion-optimized user journeys." },
       { icon: Shield, title: "Performance & Security Optimization", description: "Core Web Vitals optimization, security hardening, SSL implementation, and regular performance audits to keep your site fast and safe." },
     ],
@@ -325,9 +330,9 @@ export const services: ServiceData[] = [
     imageUrl: "/services/app_dev.png",
     heroDescription: "At GMM, we build high-performance mobile applications that deliver exceptional user experiences on iOS and Android. From concept to App Store launch, we handle every phase of the app development lifecycle.",
     subServices: [
-      { icon: Smartphone, title: "iOS App Development", description: "Native Swift-based iOS apps with beautiful interfaces that meet Apple's strict quality guidelines and deliver premium experiences." },
-      { icon: Globe, title: "Android App Development", description: "Native Kotlin-based Android apps optimized for performance across thousands of Android devices and screen sizes." },
-      { icon: Zap, title: "Cross-Platform Development", description: "React Native and Flutter apps that give you a single codebase with near-native performance on both iOS and Android — faster and more cost-effective." },
+      { icon: FaApple, title: "iOS App Development", description: "Native Swift-based iOS apps with beautiful interfaces that meet Apple's strict quality guidelines and deliver premium experiences." },
+      { icon: FaAndroid, title: "Android App Development", description: "Native Kotlin-based Android apps optimized for performance across thousands of Android devices and screen sizes." },
+      { icon: FaReact, title: "Cross-Platform Development", description: "React Native and Flutter apps that give you a single codebase with near-native performance on both iOS and Android — faster and more cost-effective." },
       { icon: Shield, title: "App Maintenance & Updates", description: "Ongoing app maintenance, OS compatibility updates, performance monitoring, and new feature development post-launch." },
       { icon: BarChart3, title: "App Analytics & Growth", description: "In-app analytics setup, App Store Optimization (ASO), and growth marketing strategies to maximize downloads and retention." },
     ],

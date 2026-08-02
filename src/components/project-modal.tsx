@@ -76,7 +76,7 @@ export function ProjectModal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={handleClose}
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm overflow-y-auto"
+            className="absolute inset-0 bg-surface/80 backdrop-blur-sm overflow-y-auto"
           />
 
           <motion.div
@@ -84,7 +84,7 @@ export function ProjectModal() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-black border border-white/10 rounded-[2rem] shadow-2xl custom-scrollbar"
+            className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-surface border border-white/10 rounded-[2rem] shadow-2xl custom-scrollbar"
           >
             {/* Header */}
             {!isSubmitted && (
@@ -124,7 +124,7 @@ export function ProjectModal() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Enter your Name"
-                      className="w-full bg-black border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder:text-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+                      className="w-full bg-surface border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder:text-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
                     />
                   </div>
                   {/* Email */}
@@ -139,7 +139,7 @@ export function ProjectModal() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="Enter your Email"
-                      className="w-full bg-black border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder:text-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+                      className="w-full bg-surface border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder:text-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
                     />
                   </div>
                 </div>
@@ -160,7 +160,7 @@ export function ProjectModal() {
                         className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                           formData.service === srv
                             ? "bg-primary text-white shadow-[0_0_15px_rgba(104, 17, 201,0.3)]"
-                            : "bg-black text-white border border-white/5 hover:bg-white/10 hover:text-white"
+                            : "bg-surface text-white border border-white/5 hover:bg-white/10 hover:text-white"
                         }`}
                       >
                         {srv}
@@ -181,7 +181,7 @@ export function ProjectModal() {
                     onChange={handleChange}
                     placeholder="Tell us about your project..."
                     rows={4}
-                    className="w-full bg-black border border-white/5 rounded-xl px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all resize-none"
+                    className="w-full bg-surface border border-white/5 rounded-xl px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all resize-none"
                   />
                 </div>
 

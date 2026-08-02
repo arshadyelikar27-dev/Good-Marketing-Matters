@@ -58,7 +58,7 @@ export function CursorRevealCard({ service }: CursorRevealCardProps) {
           transition={{ duration: 0.3, ease: "easeOut" }}
           className="absolute z-0 pointer-events-none w-80 h-60 rounded-xl overflow-hidden shadow-2xl"
         >
-          <div className="absolute inset-0 bg-black/20 z-10" />
+          <div className="absolute inset-0 bg-surface/20 z-10" />
           <Image 
             src={service.imageUrl}
             alt={service.title}
@@ -72,11 +72,11 @@ export function CursorRevealCard({ service }: CursorRevealCardProps) {
       {/* Content */}
       <div className="flex items-center gap-6 relative z-10 mix-blend-difference text-white">
         <div className="p-4 rounded-xl bg-white/10 group-hover:bg-primary/20 transition-colors">
-          <ServiceIcon className="w-8 h-8 group-hover:text-primary transition-colors" />
+          <ServiceIcon className="w-8 h-8 group-hover:text-accent transition-colors" />
         </div>
         <div>
           <h3 className="text-2xl font-semibold mb-2 group-hover:text-white transition-colors">{service.title}</h3>
-          <p className="text-gray-300 max-w-md group-hover:text-gray-200 transition-colors">{service.shortDescription}</p>
+          <p className="text-white max-w-md group-hover:text-white transition-colors">{service.shortDescription}</p>
         </div>
       </div>
       

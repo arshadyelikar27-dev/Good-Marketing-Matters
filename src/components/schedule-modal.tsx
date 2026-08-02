@@ -62,7 +62,7 @@ export function ScheduleModal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={handleClose}
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            className="absolute inset-0 bg-surface/80 backdrop-blur-sm"
           />
 
           <motion.div
@@ -91,7 +91,7 @@ export function ScheduleModal() {
                     Schedule a Call
                   </p>
                   <h2 className="text-3xl font-black text-white uppercase tracking-tight">Let's Talk Strategy.</h2>
-                  <p className="text-gray-400 mt-2 text-sm font-medium">
+                  <p className="text-white mt-2 text-sm font-medium">
                     Pick a time and we'll call you to discuss your brand.
                   </p>
                 </div>
@@ -99,61 +99,61 @@ export function ScheduleModal() {
                 <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
                   
                   <div>
-                    <label className="text-sm font-medium text-gray-300 mb-1.5 block">Full Name</label>
+                    <label className="text-sm font-medium text-white mb-1.5 block">Full Name</label>
                     <div className="relative flex items-center">
-                      <User className="absolute left-3 w-5 h-5 text-gray-500" />
+                      <User className="absolute left-3 w-5 h-5 text-white" />
                       <input 
                         type="text" 
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
                         required 
-                        className="w-full bg-black border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all"
+                        className="w-full bg-surface border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all"
                         placeholder="Enter your full name"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-gray-300 mb-1.5 block">Phone Number</label>
+                    <label className="text-sm font-medium text-white mb-1.5 block">Phone Number</label>
                     <div className="relative flex items-center">
-                      <Phone className="absolute left-3 w-5 h-5 text-gray-500" />
+                      <Phone className="absolute left-3 w-5 h-5 text-white" />
                       <input 
                         type="tel"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange} 
                         required 
-                        className="w-full bg-black border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all"
+                        className="w-full bg-surface border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all"
                         placeholder="Enter your phone number"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-gray-300 mb-1.5 block">Preferred Date & Time</label>
+                    <label className="text-sm font-medium text-white mb-1.5 block">Preferred Date & Time</label>
                     <div className="relative flex items-center">
-                      <Calendar className="absolute left-3 w-5 h-5 text-gray-500 pointer-events-none" />
+                      <Calendar className="absolute left-3 w-5 h-5 text-white pointer-events-none" />
                       <input 
                         type="datetime-local"
                         name="dateTime"
                         value={formData.dateTime}
                         onChange={handleChange} 
                         required 
-                        className="w-full bg-black border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all"
+                        className="w-full bg-surface border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-gray-300 mb-1.5 block">Purpose of Call</label>
+                    <label className="text-sm font-medium text-white mb-1.5 block">Purpose of Call</label>
                     <textarea 
                       name="purpose"
                       value={formData.purpose}
                       onChange={handleChange}
                       required 
                       rows={2}
-                      className="w-full bg-black border border-white/5 rounded-xl p-4 text-white placeholder-white/20 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all resize-none"
+                      className="w-full bg-surface border border-white/5 rounded-xl p-4 text-white placeholder-white/20 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all resize-none"
                       placeholder="Briefly describe what you'd like to discuss..."
                     />
                   </div>

@@ -16,7 +16,7 @@ export function Clients() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 mb-16 text-center relative z-10">
-        <h2 className="text-xl md:text-2xl font-bold uppercase text-primary tracking-widest drop-shadow-[0_0_10px_rgba(104, 17, 201,0.5)]">
+        <h2 className="text-xl md:text-2xl font-bold uppercase text-accent tracking-widest drop-shadow-[0_0_10px_rgba(104, 17, 201,0.5)]">
           Trusted by visionaries
         </h2>
       </div>
@@ -39,7 +39,7 @@ export function Clients() {
             {[...items, ...items, ...items, ...items].map((item, i) => (
               <span
                 key={i}
-                className="text-6xl sm:text-8xl md:text-9xl font-black uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/10 to-white/5 transition-all duration-500 cursor-default group-hover:blur-sm hover:!blur-none hover:!text-primary hover:drop-shadow-[0_0_30px_rgba(104, 17, 201,0.8)] hover:scale-110"
+                className="text-6xl sm:text-8xl md:text-9xl font-black uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/10 to-white/5 transition-all duration-500 cursor-default group-hover:blur-sm hover:!blur-none hover:!text-accent hover:drop-shadow-[0_0_30px_rgba(104, 17, 201,0.8)] hover:scale-110"
               >
                 {item}
               </span>

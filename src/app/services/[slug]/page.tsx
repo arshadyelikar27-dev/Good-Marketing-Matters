@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { useParams } from "next/navigation";
 import { services } from "@/data/services";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ArrowUpRight, Zap } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { CursorRevealCard } from "@/components/cursor-reveal-card";
@@ -98,13 +99,13 @@ export default function ServicePage() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.15 }}
             transition={{ duration: 1, ease: EASE }}
             className="mb-20 text-center md:text-left"
           >
-            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-4 text-heading drop-shadow-[0_0_15px_rgba(104, 17, 201,0.3)] break-words hyphens-auto w-full">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-4 text-white drop-shadow-[0_0_15px_rgba(104, 17, 201,0.3)] break-words hyphens-auto w-full">
               Capabilities. <br />
-              <span className="text-primary">Engineered for growth.</span>
+              <span className="text-accent">Engineered for growth.</span>
             </h2>
           </motion.div>
 
@@ -119,7 +120,7 @@ export default function ServicePage() {
                   key={i}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
+                  viewport={{ once: false, amount: 0.15 }}
                   transition={{ duration: 0.8, delay: (i % 3) * 0.1, ease: EASE }}
                   className={`group relative bg-surface/30 backdrop-blur-md rounded-3xl p-10 flex flex-col justify-between overflow-hidden border border-border hover:border-primary/50 transition-colors duration-500 shadow-xl hover:shadow-[0_0_30px_rgba(104, 17, 201,0.2)] ${isLarge ? 'md:col-span-2' : 'md:col-span-1'}`}
                 >
@@ -127,14 +128,26 @@ export default function ServicePage() {
                   
                   <div className="relative z-10">
                     <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-8 group-hover:bg-primary group-hover:border-primary transition-colors duration-500 shadow-[0_0_15px_rgba(104, 17, 201,0.1)]">
-                      <SubIcon className="w-8 h-8 text-primary group-hover:text-black transition-colors" strokeWidth={2} />
+                      <SubIcon className="w-8 h-8 text-accent group-hover:text-black transition-colors" strokeWidth={2} />
                     </div>
                   </div>
+                  
+                  {sub.image && (
+                    <div className="relative z-10 mb-8 w-full aspect-video rounded-2xl overflow-hidden border border-primary/20 group-hover:border-primary/50 transition-colors duration-500 shadow-2xl">
+                      <Image 
+                        src={sub.image} 
+                        alt={sub.title} 
+                        fill 
+                        className="object-cover group-hover:scale-110 transition-transform duration-1000"
+                      />
+                    </div>
+                  )}
+
                   <div className="relative z-10 mt-auto">
                     <h3 className="text-3xl font-bold uppercase tracking-tight text-white mb-4 group-hover:text-accent transition-colors duration-500">
                       {sub.title}
                     </h3>
-                    <p className="text-body-text text-lg leading-relaxed font-medium">
+                    <p className="text-white text-lg leading-relaxed font-medium">
                       {sub.description}
                     </p>
                   </div>
@@ -154,7 +167,7 @@ export default function ServicePage() {
             <motion.h2 
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.15 }}
               transition={{ duration: 1, ease: EASE }}
               className="text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] break-words hyphens-auto w-full"
             >
@@ -181,7 +194,7 @@ export default function ServicePage() {
                 <h3 className="text-4xl font-bold uppercase tracking-tight text-white mb-6">
                   {item.title}
                 </h3>
-                <p className="text-body-text text-xl leading-relaxed font-medium">
+                <p className="text-white text-xl leading-relaxed font-medium">
                   {item.description}
                 </p>
               </motion.div>
@@ -197,8 +210,8 @@ export default function ServicePage() {
         
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative">
           <div className="text-center mb-24">
-            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tighter text-heading drop-shadow-[0_0_15px_rgba(104, 17, 201,0.3)] break-words hyphens-auto w-full">
-              How it <span className="text-primary">works.</span>
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tighter text-white drop-shadow-[0_0_15px_rgba(104, 17, 201,0.3)] break-words hyphens-auto w-full">
+              How it <span className="text-accent">works.</span>
             </h2>
           </div>
 
@@ -208,11 +221,11 @@ export default function ServicePage() {
                 key={i}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
+                viewport={{ once: false, amount: 0.15 }}
                 transition={{ duration: 0.8, delay: i * 0.1, ease: EASE }}
                 className="relative group"
               >
-                <div className="text-primary/10 text-[140px] font-black tracking-tighter leading-none mb-6 -ml-6 group-hover:text-primary/30 transition-colors duration-500">
+                <div className="text-accent/10 text-[140px] font-black tracking-tighter leading-none mb-6 -ml-6 group-hover:text-accent/30 transition-colors duration-500">
                   {step.step}
                 </div>
                 <div className="relative z-10">
@@ -220,7 +233,7 @@ export default function ServicePage() {
                     <Zap className="w-6 h-6 text-accent" />
                     {step.title}
                   </h3>
-                  <p className="text-body-text text-lg leading-relaxed font-medium">
+                  <p className="text-white text-lg leading-relaxed font-medium">
                     {step.description}
                   </p>
                 </div>
@@ -240,7 +253,7 @@ export default function ServicePage() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.15 }}
             transition={{ duration: 1, ease: EASE }}
             className="relative rounded-[3rem] overflow-hidden bg-surface/50 backdrop-blur-md p-12 md:p-24 text-center border border-primary/30 shadow-2xl group"
           >
@@ -250,7 +263,7 @@ export default function ServicePage() {
               <h2 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 max-w-4xl text-balance drop-shadow-[0_0_20px_rgba(104, 17, 201,0.5)] break-words hyphens-auto w-full">
                 Ready to redefine your <span className="text-accent">brand&apos;s trajectory?</span>
               </h2>
-              <p className="text-body-text text-2xl font-medium mb-12 max-w-2xl text-balance">
+              <p className="text-white text-2xl font-medium mb-12 max-w-2xl text-balance">
                 Let&apos;s orchestrate a strategy that places you at the forefront of your industry.
               </p>
               
@@ -270,7 +283,7 @@ export default function ServicePage() {
       <section className="py-24 px-6 lg:px-12 bg-dark-section border-t border-primary/20">
         <div className="max-w-[1400px] mx-auto">
           <div className="mb-16">
-            <h2 className="text-4xl font-bold uppercase tracking-tighter text-body-text">
+            <h2 className="text-4xl font-bold uppercase tracking-tighter text-white">
               More Services
             </h2>
           </div>
@@ -285,7 +298,7 @@ export default function ServicePage() {
                     key={svc.slug}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false, amount: 0.15 }}
                     transition={{ duration: 0.6, delay: i * 0.05, ease: EASE }}
                   >
                     <CursorRevealCard service={svc} />
