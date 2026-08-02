@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 
 export function AnimatedBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -22,9 +24,8 @@ export function AnimatedBackground() {
     window.addEventListener("resize", resize);
     resize();
 
-    // Gradient orbs removed per user request
-    // Define particles
-    const particleCount = 80;
+    // Reduce particles on mobile for smooth 60fps
+    const particleCount = isMobile ? 25 : 80;
     const particles: { x: number; y: number; vx: number; vy: number; radius: number; alpha: number }[] = [];
     for (let i = 0; i < particleCount; i++) {
       particles.push({
@@ -40,7 +41,6 @@ export function AnimatedBackground() {
     const render = () => {
       time += 0.01;
       
-      // Clear with new Balanced Dark theme color (#231F32)
       ctx.fillStyle = "#231F32";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -76,7 +76,7 @@ export function AnimatedBackground() {
       window.removeEventListener("resize", resize);
       cancelAnimationFrame(rafId);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <div className="fixed inset-0 z-0 pointer-events-none w-full h-full">

@@ -121,7 +121,7 @@
   }
   html {
     font-family: var(--font-sans);
-    scroll-behavior: smooth;
+    /* Native smooth scroll removed to fix Lenis conflict */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -142,6 +142,17 @@
   @media (pointer: fine) {
     * {
       cursor: none !important;
+    }
+  }
+  /* Faster tap response on touch devices */
+  @media (pointer: coarse) {
+    a, button, [role="button"] {
+      touch-action: manipulation;
+    }
+    /* Reduce heavy blurs on mobile GPUs */
+    .backdrop-blur-xl {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
   }
 }

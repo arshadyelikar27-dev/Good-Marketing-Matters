@@ -43,7 +43,7 @@ function SpotlightCard({ service, index }: { service: ServiceData; index: number
   return (
     <motion.div
       style={{ perspective: 1000 }}
-      className="w-[85vw] md:w-[450px] shrink-0 h-[340px] md:h-[450px]"
+      className="w-[80vw] sm:w-[85vw] md:w-[450px] shrink-0 h-[300px] sm:h-[340px] md:h-[450px]"
     >
       <Link href={`/services/${service.slug}`} className="block h-full outline-none">
         <motion.div
@@ -51,7 +51,7 @@ function SpotlightCard({ service, index }: { service: ServiceData; index: number
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-          className="group relative h-full flex flex-col justify-between p-6 md:p-10 rounded-[2.5rem] bg-white/60 backdrop-blur-md border border-border overflow-hidden transition-colors duration-300 hover:border-primary/50 shadow-lg"
+          className="group relative h-full flex flex-col justify-between p-5 sm:p-6 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] bg-white/60 backdrop-blur-md border border-border overflow-hidden transition-colors duration-300 hover:border-primary/50 shadow-lg"
         >
           {/* Background Image Reveal */}
           {service.imageUrl && (
@@ -60,6 +60,7 @@ function SpotlightCard({ service, index }: { service: ServiceData; index: number
                 src={service.imageUrl} 
                 alt={service.title}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover transition-all duration-700 opacity-40 md:opacity-0 md:group-hover:opacity-40 translate-y-0 md:translate-y-12 md:group-hover:translate-y-0 scale-100 md:scale-110 md:group-hover:scale-100"
               />
               {/* Dark overlay gradient for text readability */}
@@ -83,22 +84,22 @@ function SpotlightCard({ service, index }: { service: ServiceData; index: number
 
           <div 
             style={{ transform: "translateZ(60px)" }} 
-            className="relative z-10 flex justify-between items-start mb-12"
+            className="relative z-10 flex justify-between items-start mb-6 sm:mb-12"
           >
-            <div className="w-14 h-14 md:w-20 md:h-20 rounded-3xl bg-primary/10 border border-primary/20 flex items-center justify-center shadow-[0_0_20px_rgba(104, 17, 201,0.1)] group-hover:shadow-[0_0_35px_rgba(224, 243, 71,0.25)] transition-all duration-500 group-hover:scale-110">
-              <Icon className="w-7 h-7 md:w-10 md:h-10 text-accent group-hover:text-accent transition-colors duration-500" strokeWidth={1.5} />
+            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20 rounded-2xl sm:rounded-3xl bg-primary/10 border border-primary/20 flex items-center justify-center shadow-[0_0_20px_rgba(104, 17, 201,0.1)] group-hover:shadow-[0_0_35px_rgba(224, 243, 71,0.25)] transition-all duration-500 group-hover:scale-110">
+              <Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-10 md:h-10 text-accent group-hover:text-accent transition-colors duration-500" strokeWidth={1.5} />
             </div>
             
-            <div className="w-14 h-14 rounded-full bg-surface flex items-center justify-center group-hover:bg-primary transition-colors duration-500 border border-border group-hover:border-primary">
-              <ArrowUpRight className="w-7 h-7 text-body-text/50 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
+            <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-surface flex items-center justify-center group-hover:bg-primary transition-colors duration-500 border border-border group-hover:border-primary">
+              <ArrowUpRight className="w-5 h-5 sm:w-7 sm:h-7 text-body-text/50 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
             </div>
           </div>
 
           <div style={{ transform: "translateZ(40px)" }} className="relative z-10 mt-auto">
-            <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-heading mb-2 md:mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-accent transition-all duration-500 leading-none">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tighter text-heading mb-1 sm:mb-2 md:mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-accent transition-all duration-500 leading-none">
               {service.title}
             </h3>
-            <p className="text-body-text text-base md:text-lg leading-relaxed font-medium line-clamp-3">
+            <p className="text-body-text text-sm sm:text-base md:text-lg leading-relaxed font-medium line-clamp-2 sm:line-clamp-3">
               {service.shortDescription}
             </p>
           </div>
@@ -122,7 +123,7 @@ export function Services() {
     <section 
       id="services" 
       ref={targetRef} 
-      className="relative w-full bg-dark-section h-[400vh]" // 400vh gives enough scroll distance
+      className="relative w-full bg-dark-section h-[300vh] sm:h-[400vh]" // shorter on mobile
     >
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
         
@@ -135,20 +136,20 @@ export function Services() {
           style={{ opacity: useTransform(scrollYProgress, [0, 0.15], [1, 0]), x: useTransform(scrollYProgress, [0, 0.15], [0, -100]), willChange: "transform, opacity" }}
           className="absolute left-6 lg:left-12 top-1/4 z-10 max-w-xl pointer-events-none"
         >
-          <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-heading uppercase mb-6">
+          <h2 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter text-heading uppercase mb-4 sm:mb-6">
             Digital <br/><span className="text-accent">Domination.</span>
           </h2>
-          <p className="text-body-text text-xl md:text-2xl font-medium leading-relaxed max-w-lg mb-8">
+          <p className="text-body-text text-base sm:text-xl md:text-2xl font-medium leading-relaxed max-w-lg mb-4 sm:mb-8">
             Scroll down to explore our full-funnel digital marketing services engineered for explosive growth.
           </p>
-          <div className="w-16 h-16 rounded-full border border-primary/30 flex flex-col items-center justify-center animate-bounce">
-            <span className="text-xs uppercase tracking-widest text-accent mb-1">Scroll</span>
-            <div className="w-1 h-3 rounded-full bg-primary" />
+          <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-primary/30 flex flex-col items-center justify-center animate-bounce">
+            <span className="text-[10px] sm:text-xs uppercase tracking-widest text-accent mb-1">Scroll</span>
+            <div className="w-1 h-2 sm:h-3 rounded-full bg-primary" />
           </div>
         </motion.div>
 
         {/* Horizontal Scrolling Track */}
-        <motion.div style={{ x, willChange: "transform" }} className="flex gap-8 pl-[100vw] lg:pl-[60vw] pr-[10vw] md:pr-[20vw] relative z-20 items-center h-full pt-20">
+        <motion.div style={{ x, willChange: "transform" }} className="flex gap-4 sm:gap-8 pl-[85vw] sm:pl-[100vw] lg:pl-[60vw] pr-[10vw] md:pr-[20vw] relative z-20 items-center h-full pt-16 sm:pt-20">
           {services.map((service, index) => (
             <SpotlightCard key={service.slug} service={service} index={index} />
           ))}

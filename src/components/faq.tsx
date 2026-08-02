@@ -27,25 +27,25 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="w-full py-24 sm:py-32 bg-background relative overflow-hidden">
+    <section id="faq" className="w-full py-16 sm:py-24 md:py-32 bg-background relative overflow-hidden">
       {/* Background neon lines */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       <div className="absolute bottom-0 right-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.15 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold uppercase tracking-tighter text-heading drop-shadow-[0_0_15px_rgba(104, 17, 201,0.3)]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tighter text-heading drop-shadow-[0_0_15px_rgba(104, 17, 201,0.3)]">
             Got Questions?
           </h2>
-          <p className="mt-4 text-heading">Everything you need to know about partnering with GMM.</p>
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base text-heading">Everything you need to know about partnering with GMM.</p>
         </motion.div>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-3 sm:gap-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
@@ -56,7 +56,7 @@ export function FAQ() {
                 viewport={{ once: false, amount: 0.15 }}
                 transition={{ delay: index * 0.1 }}
                 key={index} 
-                className={`group border rounded-2xl overflow-hidden transition-all duration-500 bg-white/40 backdrop-blur-md shadow-lg ${
+                className={`group border rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-500 bg-white/40 backdrop-blur-md shadow-lg ${
                   isOpen 
                     ? "border-primary shadow-[0_0_20px_rgba(104, 17, 201,0.2)]" 
                     : "border-black/10 hover:border-primary/50"
@@ -64,19 +64,19 @@ export function FAQ() {
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full flex items-center justify-between p-6 sm:p-8 text-left focus:outline-none"
+                  className="w-full flex items-center justify-between p-4 sm:p-6 md:p-8 text-left focus:outline-none"
                 >
-                  <span className={`text-lg sm:text-xl font-bold tracking-tight transition-colors duration-300 ${isOpen ? "text-primary" : "text-heading group-hover:text-primary"}`}>
+                  <span className={`text-sm sm:text-lg md:text-xl font-bold tracking-tight transition-colors duration-300 ${isOpen ? "text-primary" : "text-heading group-hover:text-primary"}`}>
                     {faq.question}
                   </span>
                   <motion.div
                     animate={{ rotate: isOpen ? 45 : 0 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className={`shrink-0 ml-6 flex items-center justify-center w-10 h-10 rounded-full transition-colors duration-300 ${
+                    className={`shrink-0 ml-3 sm:ml-6 flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full transition-colors duration-300 ${
                       isOpen ? "bg-primary text-white" : "bg-primary/10 text-primary group-hover:bg-primary/30"
                     }`}
                   >
-                    <Plus className="w-5 h-5" />
+                    <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
                   </motion.div>
                 </button>
 
@@ -88,7 +88,7 @@ export function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     >
-                      <div className="px-6 sm:px-8 pb-6 sm:pb-8 pt-0 text-heading leading-relaxed">
+                      <div className="px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8 pt-0 text-heading text-sm sm:text-base leading-relaxed">
                         <div className="w-full h-px bg-gradient-to-r from-primary/30 to-transparent mb-6" />
                         {faq.answer}
                       </div>

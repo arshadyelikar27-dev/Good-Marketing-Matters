@@ -88,22 +88,23 @@ export function Navbar() {
           className={cn(
             "pointer-events-auto flex items-center justify-between px-5 sm:px-7 py-3 rounded-full transition-all duration-500 w-full max-w-5xl border shadow-xl",
             isScrolled
-              ? "bg-card/95 backdrop-blur-[20px] border-primary/15 shadow-black/10 py-2.5"
-              : "bg-card/70 backdrop-blur-[10px] border-primary/10"
+              ? "bg-foreground/95 backdrop-blur-[20px] border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.3)] py-2.5"
+              : "bg-foreground/80 backdrop-blur-[10px] border-white/5"
           )}
         >
           {/* LOGO */}
-          <Link href="/" className="flex items-center group relative w-[120px] sm:w-[160px] h-10 sm:h-12 z-20 shrink-0">
+          <Link href="/" className="flex items-center group relative w-[60px] sm:w-[80px] h-10 sm:h-12 z-20 shrink-0">
             <motion.div
               animate={{ scale: isScrolled ? 0.9 : 1 }}
               transition={{ duration: 0.3 }}
-              className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-[60px] sm:h-[80px] transition-transform hover:scale-105"
+              className="absolute left-[-20px] sm:left-[-10px] top-1/2 -translate-y-1/2 mt-2 w-[145px] h-[145px] transition-transform hover:scale-105"
             >
               <Image 
                 src="/Logo.png" 
                 alt="GMM Logo" 
                 fill
-                className="object-contain object-left drop-shadow-[0_0_15px_rgba(224, 243, 71,0.2)]"
+                sizes="145px"
+                className="object-contain drop-shadow-[0_0_15px_rgba(224, 243, 71,0.2)]"
                 priority
               />
             </motion.div>
@@ -124,7 +125,7 @@ export function Navbar() {
                   onMouseLeave={() => setHoveredTab(null)}
                   className={cn(
                     "relative px-4 py-1.5 text-sm font-medium transition-colors group",
-                    isActive ? "text-white font-bold" : "text-heading hover:text-primary"
+                    isActive ? "text-white font-bold" : "text-white/70 hover:text-white"
                   )}
                 >
                   {/* Active Radius Indicator Pill */}
@@ -244,7 +245,7 @@ export function Navbar() {
 
           {/* MOBILE MENU TOGGLE */}
           <button
-            className="md:hidden text-heading p-2 rounded-full bg-black/5 hover:bg-black/10 transition-colors focus:outline-none"
+            className="md:hidden text-white p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors focus:outline-none"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Navigation Menu"
           >

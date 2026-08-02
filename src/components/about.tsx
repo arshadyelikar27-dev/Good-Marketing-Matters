@@ -43,19 +43,19 @@ export function AboutAnimation() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section id="about" ref={containerRef} className="relative w-full py-24 lg:py-48 bg-background overflow-hidden">
+    <section id="about" ref={containerRef} className="relative w-full py-16 sm:py-24 lg:py-48 bg-background overflow-hidden">
       
       {/* Background Orbs */}
       <div className="absolute top-[10%] right-[5%] w-96 h-96 bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-[10%] left-[5%] w-96 h-96 bg-black/5 rounded-full blur-[150px] pointer-events-none" />
 
       {/* Header */}
-      <div className="max-w-[1400px] mx-auto px-6 mb-24 md:mb-40 text-center relative z-10">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 mb-16 sm:mb-24 md:mb-40 text-center relative z-10">
         <motion.h2 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.2 }}
-          className="text-4xl md:text-5xl lg:text-[5rem] font-black uppercase tracking-tighter text-heading mb-6"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-[5rem] font-black uppercase tracking-tighter text-heading mb-4 sm:mb-6"
         >
           Our <span className="text-primary drop-shadow-[0_0_20px_rgba(104,17,201,0.3)]">Journey</span>
         </motion.h2>
@@ -64,7 +64,7 @@ export function AboutAnimation() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.2 }}
           transition={{ delay: 0.2 }}
-          className="text-heading text-lg md:text-2xl max-w-3xl mx-auto font-medium"
+          className="text-heading text-sm sm:text-lg md:text-2xl max-w-3xl mx-auto font-medium"
         >
           We don't just execute. We interpret, sharpen, and deliver the digital signal you need to grow.
         </motion.p>
@@ -74,15 +74,15 @@ export function AboutAnimation() {
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* The background line */}
-        <div className="absolute left-[40px] md:left-1/2 top-0 bottom-0 w-1 bg-surface -translate-x-1/2 rounded-full" />
+        <div className="absolute left-[28px] sm:left-[40px] md:left-1/2 top-0 bottom-0 w-0.5 sm:w-1 bg-surface -translate-x-1/2 rounded-full" />
         
         {/* The animated filled line */}
         <motion.div 
           style={{ height: lineHeight }}
-          className="absolute left-[40px] md:left-1/2 top-0 w-1 bg-primary -translate-x-1/2 rounded-full shadow-[0_0_15px_rgba(104,17,201,0.5)] origin-top z-0"
+          className="absolute left-[28px] sm:left-[40px] md:left-1/2 top-0 w-0.5 sm:w-1 bg-primary -translate-x-1/2 rounded-full shadow-[0_0_15px_rgba(104,17,201,0.5)] origin-top z-0"
         />
 
-        <div className="relative z-10 flex flex-col gap-12 md:gap-0">
+        <div className="relative z-10 flex flex-col gap-8 sm:gap-12 md:gap-0">
           {timelineData.map((item, index) => {
             const isEven = index % 2 === 0;
             return (
@@ -98,12 +98,12 @@ export function AboutAnimation() {
                   viewport={{ once: false, amount: 0.5 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.2 }}
                   className={cn(
-                    "absolute left-0 md:left-1/2 -translate-x-0 md:-translate-x-1/2 w-20 h-20 rounded-full border-4 border-background bg-surface flex items-center justify-center z-10 shadow-xl",
+                    "absolute left-0 md:left-1/2 -translate-x-0 md:-translate-x-1/2 w-14 h-14 sm:w-20 sm:h-20 rounded-full border-4 border-background bg-surface flex items-center justify-center z-10 shadow-xl",
                     "order-1 md:order-2 top-0 md:top-auto"
                   )}
                 >
                   <div className="absolute inset-0 rounded-full border border-primary/40 md:group-hover:border-primary animate-[spin_4s_linear_infinite]" />
-                  <item.icon className="w-8 h-8 text-primary drop-shadow-[0_0_10px_rgba(104,17,201,0.5)]" />
+                  <item.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary drop-shadow-[0_0_10px_rgba(104,17,201,0.5)]" />
                 </motion.div>
 
                 {/* Content Card */}
@@ -113,21 +113,21 @@ export function AboutAnimation() {
                   viewport={{ once: false, amount: 0.2 }}
                   transition={{ duration: 0.8, delay: 0.2, type: "spring", bounce: 0.4 }}
                   className={cn(
-                    "w-full md:w-5/12 pl-[100px] md:pl-0 pt-2 md:pt-0",
+                    "w-full md:w-5/12 pl-[72px] sm:pl-[100px] md:pl-0 pt-1 sm:pt-2 md:pt-0",
                     isEven ? "order-1 md:pr-12 lg:pr-16" : "order-2 md:pl-12 lg:pl-16"
                   )}
                 >
                   <div className={cn(
-                    "p-6 sm:p-10 rounded-[2rem] bg-white/40 backdrop-blur-xl border border-black/10 hover:border-primary/50 transition-all duration-500 shadow-2xl group flex flex-col",
+                    "p-4 sm:p-6 md:p-10 rounded-xl sm:rounded-[2rem] bg-white/40 backdrop-blur-xl border border-black/10 hover:border-primary/50 transition-all duration-500 shadow-2xl group flex flex-col",
                     isEven ? "md:items-end text-left md:text-right" : "text-left"
                   )}>
-                    <span className="inline-block px-5 py-2 rounded-full bg-primary/15 text-primary font-bold tracking-widest text-sm mb-6 border border-primary/30 w-fit">
+                    <span className="inline-block px-3 sm:px-5 py-1.5 sm:py-2 rounded-full bg-primary/15 text-primary font-bold tracking-widest text-xs sm:text-sm mb-3 sm:mb-6 border border-primary/30 w-fit">
                       {item.year}
                     </span>
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-heading mb-4 uppercase tracking-tight group-hover:text-primary transition-colors duration-300">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-heading mb-2 sm:mb-4 uppercase tracking-tight group-hover:text-primary transition-colors duration-300">
                       {item.title}
                     </h3>
-                    <p className="text-heading text-base sm:text-lg leading-relaxed">
+                    <p className="text-heading text-sm sm:text-base md:text-lg leading-relaxed">
                       {item.description}
                     </p>
                   </div>

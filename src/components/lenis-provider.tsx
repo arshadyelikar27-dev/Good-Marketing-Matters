@@ -9,6 +9,16 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
+    // Skip Lenis on touch/mobile devices — native scroll is smoother on phones
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+    if (isTouchDevice) {
+      // Still refresh ScrollTrigger for GSAP animations
+      const refreshTimer = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 150);
+      return () => clearTimeout(refreshTimer);
+    }
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -47,3 +57,4 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
 
   return <>{children}</>;
 }
+

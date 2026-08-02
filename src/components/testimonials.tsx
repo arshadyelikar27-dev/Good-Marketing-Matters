@@ -70,11 +70,11 @@ const testimonials = [
 
 function TestimonialCard({ img, name, username, body, country }: (typeof testimonials)[number]) {
   return (
-    <Card className="w-64 bg-white/80 backdrop-blur-md border-border hover:border-primary transition-all duration-300 shadow-md group hover:shadow-lg">
-      <CardContent className="p-4 relative overflow-hidden">
+    <Card className="w-52 sm:w-64 bg-white/80 backdrop-blur-md border-border hover:border-primary transition-all duration-300 shadow-md group hover:shadow-lg">
+      <CardContent className="p-3 sm:p-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
         <div className="flex items-center gap-2.5 relative z-10">
-          <Avatar className="size-9 border border-primary/30 group-hover:border-accent transition-colors">
+          <Avatar className="size-7 sm:size-9 border border-primary/30 group-hover:border-accent transition-colors">
             <AvatarImage src={img} alt={username} />
             <AvatarFallback>{name[0]}</AvatarFallback>
           </Avatar>
@@ -85,7 +85,7 @@ function TestimonialCard({ img, name, username, body, country }: (typeof testimo
             <p className="text-xs font-medium text-primary">{username}</p>
           </div>
         </div>
-        <blockquote className="mt-3 text-sm text-body-text leading-snug relative z-10">{body}</blockquote>
+        <blockquote className="mt-2 sm:mt-3 text-xs sm:text-sm text-body-text leading-snug relative z-10">{body}</blockquote>
       </CardContent>
     </Card>
   );
@@ -93,28 +93,28 @@ function TestimonialCard({ img, name, username, body, country }: (typeof testimo
 
 export function Testimonials() {
   return (
-    <section id="reviews" className="relative w-full py-24 sm:py-32 bg-background overflow-hidden">
+    <section id="reviews" className="relative w-full py-16 sm:py-24 md:py-32 bg-background overflow-hidden">
       {/* Background graphic */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[500px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
 
       {/* Header */}
       <div className="container relative z-10 mx-auto px-6 mb-16 text-center">
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tighter mb-4 text-heading">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter mb-3 sm:mb-4 text-heading">
           Client <span className="text-accent">Stories</span>
         </h2>
-        <p className="text-lg text-body-text max-w-xl mx-auto">
+        <p className="text-sm sm:text-lg text-body-text max-w-xl mx-auto">
           Hear from the visionaries and industry leaders who scaled their digital presence with GMM.
         </p>
       </div>
 
       <div className="w-full flex justify-center items-center py-10 relative z-10">
-        <div className="border border-border rounded-3xl relative flex h-[500px] w-full max-w-[1000px] flex-row items-center justify-center overflow-hidden gap-4 [perspective:400px] bg-white/40 backdrop-blur-sm shadow-lg">
+        <div className="border border-border rounded-2xl sm:rounded-3xl relative flex h-[380px] sm:h-[500px] w-full max-w-[1000px] flex-row items-center justify-center overflow-hidden gap-2 sm:gap-4 [perspective:300px] sm:[perspective:400px] bg-white/40 backdrop-blur-sm shadow-lg">
           <div
             className="flex flex-row items-center gap-4 w-full justify-center"
             style={{
               transform:
-                'translateX(0px) translateY(0px) translateZ(-50px) rotateX(15deg) rotateY(-10deg) rotateZ(10deg)',
+                'translateX(0px) translateY(0px) translateZ(-50px) rotateX(12deg) rotateY(-8deg) rotateZ(8deg)',
             }}
           >
             {/* Vertical Marquee (downwards) */}

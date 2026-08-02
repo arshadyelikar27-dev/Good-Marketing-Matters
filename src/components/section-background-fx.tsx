@@ -2,11 +2,15 @@
 
 import { useMemo } from "react";
 import { motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 
 // Kinetic floating geometric icons for Purple Sections (Services, FAQ, Clients)
 export function KineticYellowBgFX() {
+  const isMobile = useIsMobile();
+  const count = isMobile ? 6 : 12;
+
   const shapes = useMemo(() => {
-    return Array.from({ length: 12 }).map((_, i) => ({
+    return Array.from({ length: count }).map((_, i) => ({
       id: i,
       left: `${(i * 23) % 90 + 5}%`,
       top: `${(i * 31) % 85 + 10}%`,
@@ -15,7 +19,7 @@ export function KineticYellowBgFX() {
       delay: (i % 3) * 2,
       type: i % 3 === 0 ? "+" : i % 3 === 1 ? "◇" : "○",
     }));
-  }, []);
+  }, [count]);
 
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
@@ -50,8 +54,11 @@ export function KineticYellowBgFX() {
 
 // Kinetic floating glowing particle constellation for Dark Sections (About, Testimonials, Footer)
 export function KineticDarkBgFX() {
+  const isMobile = useIsMobile();
+  const count = isMobile ? 8 : 16;
+
   const particles = useMemo(() => {
-    return Array.from({ length: 16 }).map((_, i) => ({
+    return Array.from({ length: count }).map((_, i) => ({
       id: i,
       left: `${(i * 19) % 92 + 4}%`,
       top: `${(i * 29) % 88 + 6}%`,
@@ -67,7 +74,7 @@ export function KineticDarkBgFX() {
           ? "0 0 14px rgba(155, 111, 212, 0.6)"
           : "0 0 14px rgba(124, 58, 237, 0.6)",
     }));
-  }, []);
+  }, [count]);
 
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
