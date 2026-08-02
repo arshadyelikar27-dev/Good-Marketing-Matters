@@ -62,7 +62,7 @@ export function ScheduleModal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={handleClose}
-            className="absolute inset-0 bg-surface/80 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/20 backdrop-blur-sm"
           />
 
           <motion.div
@@ -70,12 +70,12 @@ export function ScheduleModal() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="relative w-full max-w-lg bg-surface border border-white/10 rounded-[2rem] shadow-[0_0_50px_rgba(224, 243, 71,0.15)] overflow-hidden"
+            className="relative w-full max-w-lg bg-card border border-border rounded-[2rem] shadow-xl overflow-hidden"
           >
             <button
               type="button"
               onClick={handleClose}
-              className="absolute top-5 right-5 p-2 rounded-full bg-white/5 hover:bg-white/10 text-white hover:text-white transition-colors z-50"
+              className="absolute top-5 right-5 p-2 rounded-full bg-black/5 hover:bg-black/10 text-heading hover:text-heading transition-colors z-50"
             >
               <X size={20} />
             </button>
@@ -90,8 +90,8 @@ export function ScheduleModal() {
                   <p className="text-xs bg-accent/20 text-accent font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4 border border-accent/30">
                     Schedule a Call
                   </p>
-                  <h2 className="text-3xl font-black text-white uppercase tracking-tight">Let's Talk Strategy.</h2>
-                  <p className="text-white mt-2 text-sm font-medium">
+                  <h2 className="text-3xl font-black text-heading uppercase tracking-tight">Let's Talk Strategy.</h2>
+                  <p className="text-body-text mt-2 text-sm font-medium">
                     Pick a time and we'll call you to discuss your brand.
                   </p>
                 </div>
@@ -99,61 +99,61 @@ export function ScheduleModal() {
                 <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
                   
                   <div>
-                    <label className="text-sm font-medium text-white mb-1.5 block">Full Name</label>
+                    <label className="text-sm font-medium text-heading mb-1.5 block">Full Name</label>
                     <div className="relative flex items-center">
-                      <User className="absolute left-3 w-5 h-5 text-white" />
+                      <User className="absolute left-3 w-5 h-5 text-primary" />
                       <input 
                         type="text" 
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
                         required 
-                        className="w-full bg-surface border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all"
+                        className="w-full bg-surface border border-border rounded-xl h-12 pl-10 pr-4 text-heading placeholder-body-text/30 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
                         placeholder="Enter your full name"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-white mb-1.5 block">Phone Number</label>
+                    <label className="text-sm font-medium text-heading mb-1.5 block">Phone Number</label>
                     <div className="relative flex items-center">
-                      <Phone className="absolute left-3 w-5 h-5 text-white" />
+                      <Phone className="absolute left-3 w-5 h-5 text-primary" />
                       <input 
                         type="tel"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange} 
                         required 
-                        className="w-full bg-surface border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all"
+                        className="w-full bg-surface border border-border rounded-xl h-12 pl-10 pr-4 text-heading placeholder-body-text/30 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
                         placeholder="Enter your phone number"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-white mb-1.5 block">Preferred Date & Time</label>
+                    <label className="text-sm font-medium text-heading mb-1.5 block">Preferred Date & Time</label>
                     <div className="relative flex items-center">
-                      <Calendar className="absolute left-3 w-5 h-5 text-white pointer-events-none" />
+                      <Calendar className="absolute left-3 w-5 h-5 text-primary pointer-events-none" />
                       <input 
                         type="datetime-local"
                         name="dateTime"
                         value={formData.dateTime}
                         onChange={handleChange} 
                         required 
-                        className="w-full bg-surface border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all"
+                        className="w-full bg-surface border border-border rounded-xl h-12 pl-10 pr-4 text-heading focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-white mb-1.5 block">Purpose of Call</label>
+                    <label className="text-sm font-medium text-heading mb-1.5 block">Purpose of Call</label>
                     <textarea 
                       name="purpose"
                       value={formData.purpose}
                       onChange={handleChange}
                       required 
                       rows={2}
-                      className="w-full bg-surface border border-white/5 rounded-xl p-4 text-white placeholder-white/20 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all resize-none"
+                      className="w-full bg-surface border border-border rounded-xl p-4 text-heading placeholder-body-text/30 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all resize-none"
                       placeholder="Briefly describe what you'd like to discuss..."
                     />
                   </div>
@@ -161,7 +161,7 @@ export function ScheduleModal() {
                   <button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="mt-4 w-full bg-gradient-to-r from-accent to-[#E0F347] text-black hover:opacity-90 font-bold text-lg h-14 rounded-xl flex items-center justify-center gap-2 transition-opacity duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(224, 243, 71,0.3)]"
+                    className="mt-4 w-full bg-primary hover:bg-primary-hover text-white font-bold text-lg h-14 rounded-xl flex items-center justify-center gap-2 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_4px_20px_rgba(104,17,201,0.2)]"
                   >
                     {isSubmitting ? "Scheduling..." : (
                       <>
@@ -182,11 +182,11 @@ export function ScheduleModal() {
                 <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-2 shadow-[0_0_30px_rgba(34,197,94,0.3)]">
                   <CheckCircle2 className="w-10 h-10 text-green-500" />
                 </div>
-                <h3 className="text-3xl font-semibold text-white tracking-tight">
+                <h3 className="text-3xl font-semibold text-heading tracking-tight">
                   Call Scheduled!
                 </h3>
-                <p className="text-white text-base leading-relaxed">
-                  Thanks <span className="text-white font-medium">{formData.name}</span>. <br />
+                <p className="text-body-text text-base leading-relaxed">
+                  Thanks <span className="text-heading font-medium">{formData.name}</span>. <br />
                   We will call you at your requested time.
                 </p>
                 <button

@@ -41,7 +41,7 @@ export function KineticYellowBgFX() {
           }}
           className="font-mono font-black text-lg sm:text-2xl opacity-20"
         >
-          <span style={{ color: "rgba(180, 130, 255, 0.5)" }}>{s.type}</span>
+          <span style={{ color: "rgba(104, 17, 201, 0.2)" }}>{s.type}</span>
         </motion.div>
       ))}
     </div>

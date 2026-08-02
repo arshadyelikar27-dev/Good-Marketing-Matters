@@ -70,7 +70,7 @@ export function GamesToggle() {
           whileHover={{ x: -5 }}
           whileTap={{ scale: 0.92 }}
           aria-label="Open Mini Games"
-          className="relative flex flex-col items-center justify-center gap-3 px-3 py-6 bg-background border border-primary/40 border-r-0 rounded-l-2xl text-white shadow-[-6px_0px_30px_rgba(104, 17, 201,0.18)] hover:shadow-[-10px_0px_40px_rgba(104, 17, 201,0.35)] hover:border-primary/80 hover:bg-background transition-all duration-300 group"
+          className="relative flex flex-col items-center justify-center gap-3 px-3 py-6 bg-card border border-primary/40 border-r-0 rounded-l-2xl text-heading shadow-[-6px_0px_30px_rgba(104,17,201,0.1)] hover:shadow-[-10px_0px_40px_rgba(104,17,201,0.2)] hover:border-primary/80 hover:bg-card transition-all duration-300 group"
         >
           {/* Top & bottom accent lines */}
           <span className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
@@ -121,7 +121,7 @@ export function GamesToggle() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="absolute inset-0 bg-surface/75 backdrop-blur-xl"
+              className="absolute inset-0 bg-black/20 backdrop-blur-xl"
             />
 
             {/* Modal Container */}
@@ -130,19 +130,19 @@ export function GamesToggle() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.85, y: 30 }}
               transition={{ type: "spring", stiffness: 350, damping: 25 }}
-              className="relative w-full max-w-2xl bg-surface rounded-[2rem] sm:rounded-[2.5rem] p-5 sm:p-8 shadow-2xl border border-white/10 overflow-y-auto max-h-[85vh] z-10"
+              className="relative w-full max-w-2xl bg-card rounded-[2rem] sm:rounded-[2.5rem] p-5 sm:p-8 shadow-xl border border-border overflow-y-auto max-h-[85vh] z-10"
             >
               {/* Header */}
-              <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
+              <div className="flex items-center justify-between mb-6 pb-4 border-b border-border">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center text-white shadow-md">
                     <Gamepad2 className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-heading text-2xl font-black text-white">
+                    <h3 className="font-heading text-2xl font-black text-heading">
                       GMM Arcade <span className="text-accent">Zone</span>
                     </h3>
-                    <p className="text-xs sm:text-sm text-white font-medium">
+                    <p className="text-xs sm:text-sm text-body-text font-medium">
                       Select a mini-game to play and challenge your skills!
                     </p>
                   </div>
@@ -150,7 +150,7 @@ export function GamesToggle() {
 
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="w-10 h-10 rounded-full bg-surface hover:bg-surface/80 flex items-center justify-center text-white transition-colors"
+                  className="w-10 h-10 rounded-full bg-surface hover:bg-surface/80 flex items-center justify-center text-heading transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -171,7 +171,7 @@ export function GamesToggle() {
                       whileHover={{ scale: 1.02, y: -2 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => handleLaunchGame(game.id)}
-                      className={`relative group p-5 rounded-2xl border border-white/10 bg-background hover:border-primary/40 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-xl overflow-hidden ${
+                      className={`relative group p-5 rounded-2xl border border-border bg-surface hover:border-primary/40 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-lg overflow-hidden ${
                         isLaunching ? "ring-2 ring-primary scale-[0.98]" : ""
                       }`}
                     >
@@ -180,27 +180,27 @@ export function GamesToggle() {
                         <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${game.bgAccent}`}>
                           <Icon className="w-5 h-5" />
                         </div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-surface text-white">
+                        <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-primary/10 text-primary">
                           {game.badge}
                         </span>
                       </div>
 
                       {/* Info */}
-                      <h4 className="font-heading font-bold text-lg text-white mb-1 group-hover:text-accent transition-colors flex items-center gap-1.5">
+                      <h4 className="font-heading font-bold text-lg text-heading mb-1 group-hover:text-primary transition-colors flex items-center gap-1.5">
                         {game.title}
                         <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                       </h4>
-                      <p className="text-xs text-white leading-relaxed mb-4">
+                      <p className="text-xs text-body-text leading-relaxed mb-4">
                         {game.description}
                       </p>
 
                       {/* Launch Button */}
-                      <div className="flex items-center justify-between pt-2 border-t border-white/10 text-xs font-bold text-white group-hover:text-white">
+                      <div className="flex items-center justify-between pt-2 border-t border-border text-xs font-bold text-heading group-hover:text-primary">
                         <span className="flex items-center gap-1">
-                          <Play className="w-3.5 h-3.5 fill-white text-white group-hover:fill-white group-hover:text-white" />
+                          <Play className="w-3.5 h-3.5 fill-heading text-heading group-hover:fill-primary group-hover:text-primary" />
                           Play Now
                         </span>
-                        <span className="text-[11px] text-white/60 font-normal">
+                        <span className="text-[11px] text-body-text/60 font-normal">
                           Instant Load
                         </span>
                       </div>

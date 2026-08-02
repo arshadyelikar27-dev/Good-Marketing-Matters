@@ -76,7 +76,7 @@ export function ProjectModal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={handleClose}
-            className="absolute inset-0 bg-surface/80 backdrop-blur-sm overflow-y-auto"
+            className="absolute inset-0 bg-black/20 backdrop-blur-sm overflow-y-auto"
           />
 
           <motion.div
@@ -84,22 +84,22 @@ export function ProjectModal() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-surface border border-white/10 rounded-[2rem] shadow-2xl custom-scrollbar"
+            className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-card border border-border rounded-[2rem] shadow-xl custom-scrollbar"
           >
             {/* Header */}
             {!isSubmitted && (
               <div className="flex items-center justify-between p-6 md:p-8 pb-4">
                 <div>
-                  <h3 className="text-3xl font-semibold text-white tracking-tight">
+                  <h3 className="text-3xl font-semibold text-heading tracking-tight">
                     Start Your Project
                   </h3>
-                  <p className="text-white text-sm md:text-base mt-1">
+                  <p className="text-body-text text-sm md:text-base mt-1">
                     Let's Create Something Amazing Together
                   </p>
                 </div>
                 <button
                   onClick={handleClose}
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-white hover:text-white transition-colors shrink-0"
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-black/5 hover:bg-black/10 text-heading hover:text-heading transition-colors shrink-0"
                 >
                   <X size={20} />
                 </button>
@@ -114,7 +114,7 @@ export function ProjectModal() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Name */}
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-medium text-white/80 pl-1">
+                    <label className="text-sm font-medium text-heading/80 pl-1">
                       Your Name
                     </label>
                     <input
@@ -124,12 +124,12 @@ export function ProjectModal() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Enter your Name"
-                      className="w-full bg-surface border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder:text-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+                      className="w-full bg-surface border border-border rounded-xl px-4 py-3.5 text-heading placeholder:text-body-text/30 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
                     />
                   </div>
                   {/* Email */}
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-medium text-white/80 pl-1">
+                    <label className="text-sm font-medium text-heading/80 pl-1">
                       Email Address
                     </label>
                     <input
@@ -139,14 +139,14 @@ export function ProjectModal() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="Enter your Email"
-                      className="w-full bg-surface border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder:text-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+                      className="w-full bg-surface border border-border rounded-xl px-4 py-3.5 text-heading placeholder:text-body-text/30 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
                     />
                   </div>
                 </div>
 
                 {/* Services Pills */}
                 <div className="flex flex-col gap-3">
-                  <label className="text-sm font-medium text-white/80 pl-1">
+                  <label className="text-sm font-medium text-heading/80 pl-1">
                     Service Interested In
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -159,8 +159,8 @@ export function ProjectModal() {
                         }
                         className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                           formData.service === srv
-                            ? "bg-primary text-white shadow-[0_0_15px_rgba(104, 17, 201,0.3)]"
-                            : "bg-surface text-white border border-white/5 hover:bg-white/10 hover:text-white"
+                            ? "bg-primary text-white shadow-[0_0_15px_rgba(104,17,201,0.2)]"
+                            : "bg-surface text-heading border border-border hover:bg-primary/5 hover:text-primary"
                         }`}
                       >
                         {srv}
@@ -171,7 +171,7 @@ export function ProjectModal() {
 
                 {/* Message */}
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm font-medium text-white/80 pl-1">
+                  <label className="text-sm font-medium text-heading/80 pl-1">
                     Your Message
                   </label>
                   <textarea
@@ -181,7 +181,7 @@ export function ProjectModal() {
                     onChange={handleChange}
                     placeholder="Tell us about your project..."
                     rows={4}
-                    className="w-full bg-surface border border-white/5 rounded-xl px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all resize-none"
+                    className="w-full bg-surface border border-border rounded-xl px-4 py-4 text-heading placeholder:text-body-text/30 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all resize-none"
                   />
                 </div>
 
@@ -189,7 +189,7 @@ export function ProjectModal() {
                 <button
                   type="submit"
                   disabled={!formData.name || !formData.email || !formData.message}
-                  className="mt-2 w-full bg-gradient-to-r from-primary to-accent text-white font-medium py-4 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(104, 17, 201,0.2)]"
+                  className="mt-2 w-full bg-primary text-white font-medium py-4 rounded-xl hover:bg-primary-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_4px_20px_rgba(104,17,201,0.15)]"
                 >
                   Send Message
                 </button>
@@ -203,11 +203,11 @@ export function ProjectModal() {
                 <div className="w-24 h-24 bg-green-500/20 rounded-full flex items-center justify-center mb-4 shadow-[0_0_40px_rgba(34,197,94,0.3)]">
                   <CheckCircle2 className="w-12 h-12 text-green-500" />
                 </div>
-                <h3 className="text-3xl font-semibold text-white tracking-tight">
+                <h3 className="text-3xl font-semibold text-heading tracking-tight">
                   Project Request Sent!
                 </h3>
-                <p className="text-white text-base leading-relaxed max-w-sm">
-                  Thank you, <span className="text-white font-medium">{formData.name}</span>. We've received your project inquiry regarding <span className="text-white font-medium">{formData.service}</span> and will get back to you shortly.
+                <p className="text-body-text text-base leading-relaxed max-w-sm">
+                  Thank you, <span className="text-heading font-medium">{formData.name}</span>. We've received your project inquiry regarding <span className="text-heading font-medium">{formData.service}</span> and will get back to you shortly.
                 </p>
                 <button
                   onClick={handleClose}

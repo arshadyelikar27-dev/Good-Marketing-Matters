@@ -51,7 +51,7 @@ function SpotlightCard({ service, index }: { service: ServiceData; index: number
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-          className="group relative h-full flex flex-col justify-between p-6 md:p-10 rounded-[2.5rem] bg-surface/40 backdrop-blur-md border border-white/10 overflow-hidden transition-colors duration-300 hover:border-primary/50 shadow-2xl"
+          className="group relative h-full flex flex-col justify-between p-6 md:p-10 rounded-[2.5rem] bg-white/60 backdrop-blur-md border border-border overflow-hidden transition-colors duration-300 hover:border-primary/50 shadow-lg"
         >
           {/* Background Image Reveal */}
           {service.imageUrl && (
@@ -89,16 +89,16 @@ function SpotlightCard({ service, index }: { service: ServiceData; index: number
               <Icon className="w-7 h-7 md:w-10 md:h-10 text-accent group-hover:text-accent transition-colors duration-500" strokeWidth={1.5} />
             </div>
             
-            <div className="w-14 h-14 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary transition-colors duration-500 border border-white/10 group-hover:border-primary">
-              <ArrowUpRight className="w-7 h-7 text-white/50 group-hover:text-black group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
+            <div className="w-14 h-14 rounded-full bg-surface flex items-center justify-center group-hover:bg-primary transition-colors duration-500 border border-border group-hover:border-primary">
+              <ArrowUpRight className="w-7 h-7 text-body-text/50 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
             </div>
           </div>
 
           <div style={{ transform: "translateZ(40px)" }} className="relative z-10 mt-auto">
-            <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-white mb-2 md:mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-accent transition-all duration-500 leading-none">
+            <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-heading mb-2 md:mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-accent transition-all duration-500 leading-none">
               {service.title}
             </h3>
-            <p className="text-white text-base md:text-lg leading-relaxed font-medium line-clamp-3">
+            <p className="text-body-text text-base md:text-lg leading-relaxed font-medium line-clamp-3">
               {service.shortDescription}
             </p>
           </div>
@@ -135,10 +135,10 @@ export function Services() {
           style={{ opacity: useTransform(scrollYProgress, [0, 0.15], [1, 0]), x: useTransform(scrollYProgress, [0, 0.15], [0, -100]), willChange: "transform, opacity" }}
           className="absolute left-6 lg:left-12 top-1/4 z-10 max-w-xl pointer-events-none"
         >
-          <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-white uppercase mb-6 drop-shadow-[0_0_20px_rgba(104, 17, 201,0.3)]">
+          <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-heading uppercase mb-6">
             Digital <br/><span className="text-accent">Domination.</span>
           </h2>
-          <p className="text-white text-xl md:text-2xl font-medium leading-relaxed max-w-lg mb-8">
+          <p className="text-body-text text-xl md:text-2xl font-medium leading-relaxed max-w-lg mb-8">
             Scroll down to explore our full-funnel digital marketing services engineered for explosive growth.
           </p>
           <div className="w-16 h-16 rounded-full border border-primary/30 flex flex-col items-center justify-center animate-bounce">

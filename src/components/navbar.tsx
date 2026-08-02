@@ -88,8 +88,8 @@ export function Navbar() {
           className={cn(
             "pointer-events-auto flex items-center justify-between px-5 sm:px-7 py-3 rounded-full transition-all duration-500 w-full max-w-5xl border shadow-xl",
             isScrolled
-              ? "bg-black/70 backdrop-blur-[20px] border-white/10 shadow-black/40 py-2.5"
-              : "bg-black/30 backdrop-blur-[10px] border-white/10"
+              ? "bg-card/95 backdrop-blur-[20px] border-primary/15 shadow-black/10 py-2.5"
+              : "bg-card/70 backdrop-blur-[10px] border-primary/10"
           )}
         >
           {/* LOGO */}
@@ -124,14 +124,14 @@ export function Navbar() {
                   onMouseLeave={() => setHoveredTab(null)}
                   className={cn(
                     "relative px-4 py-1.5 text-sm font-medium transition-colors group",
-                    isActive ? "text-white font-bold" : "text-white hover:text-white"
+                    isActive ? "text-white font-bold" : "text-heading hover:text-primary"
                   )}
                 >
                   {/* Active Radius Indicator Pill */}
                   {isActive && (
                     <motion.div
                       layoutId="activeSectionPill"
-                      className="absolute inset-0 bg-accent/20 border border-accent/40 rounded-full shadow-[0_0_15px_rgba(224,243,71,0.2)]"
+                      className="absolute inset-0 bg-primary/90 border border-primary/20 rounded-full shadow-[0_0_15px_rgba(104,17,201,0.2)]"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -244,7 +244,7 @@ export function Navbar() {
 
           {/* MOBILE MENU TOGGLE */}
           <button
-            className="md:hidden text-white p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors focus:outline-none"
+            className="md:hidden text-heading p-2 rounded-full bg-black/5 hover:bg-black/10 transition-colors focus:outline-none"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Navigation Menu"
           >
@@ -264,7 +264,7 @@ export function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-[48] bg-surface/60 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-[48] bg-black/20 backdrop-blur-sm md:hidden"
               onClick={() => setMobileMenuOpen(false)}
             />
 
@@ -275,7 +275,7 @@ export function Navbar() {
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
               transition={{ type: "spring", stiffness: 350, damping: 35 }}
-              className="fixed bottom-0 inset-x-0 z-[49] md:hidden bg-surface border-t border-border rounded-t-3xl shadow-[0_-20px_60px_rgba(0,0,0,0.8)] pointer-events-auto overflow-hidden"
+              className="fixed bottom-0 inset-x-0 z-[49] md:hidden bg-card border-t border-border rounded-t-3xl shadow-[0_-20px_60px_rgba(0,0,0,0.1)] pointer-events-auto overflow-hidden"
               style={{ maxHeight: "85svh" }}
             >
               {/* Drag handle */}
@@ -289,10 +289,10 @@ export function Navbar() {
               <div className="px-6 pt-2 pb-8 flex flex-col gap-2 overflow-y-auto">
                 {/* Header */}
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-bold tracking-[0.2em] uppercase text-white">Navigation</span>
+                  <span className="text-xs font-bold tracking-[0.2em] uppercase text-heading">Navigation</span>
                   <button
                     onClick={() => setMobileMenuOpen(false)}
-                    className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-white hover:text-white transition-colors"
+                    className="w-8 h-8 rounded-full bg-black/5 hover:bg-black/10 flex items-center justify-center text-heading hover:text-heading transition-colors"
                   >
                     <X size={16} />
                   </button>
@@ -311,8 +311,8 @@ export function Navbar() {
                       className={cn(
                         "flex items-center justify-between py-3.5 px-4 rounded-2xl font-bold text-base transition-all",
                         activeSection === link.name
-                          ? "text-white bg-accent/15 border border-accent/30"
-                          : "text-white hover:text-white hover:bg-white/5 border border-transparent"
+                          ? "text-primary bg-primary/10 border border-primary/30"
+                          : "text-heading hover:text-primary hover:bg-black/5 border border-transparent"
                       )}
                       onClick={() => {
                         setActiveSection(link.name);
@@ -324,7 +324,7 @@ export function Navbar() {
                         size={16}
                         className={cn(
                           "transition-colors",
-                          activeSection === link.name ? "text-accent" : "text-white"
+                          activeSection === link.name ? "text-primary" : "text-body-text"
                         )}
                       />
                     </Link>

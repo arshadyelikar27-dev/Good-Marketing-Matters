@@ -70,7 +70,7 @@ const testimonials = [
 
 function TestimonialCard({ img, name, username, body, country }: (typeof testimonials)[number]) {
   return (
-    <Card className="w-64 bg-card/50 backdrop-blur-md border-border hover:border-primary transition-all duration-300 shadow-lg group hover:shadow-[0_0_20px_rgba(104, 17, 201,0.3)]">
+    <Card className="w-64 bg-white/80 backdrop-blur-md border-border hover:border-primary transition-all duration-300 shadow-md group hover:shadow-lg">
       <CardContent className="p-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
         <div className="flex items-center gap-2.5 relative z-10">
@@ -79,13 +79,13 @@ function TestimonialCard({ img, name, username, body, country }: (typeof testimo
             <AvatarFallback>{name[0]}</AvatarFallback>
           </Avatar>
           <div className="flex flex-col">
-            <figcaption className="text-sm font-bold text-white flex items-center gap-1 group-hover:text-accent transition-colors">
-              {name} <span className="text-xs font-normal text-white">{country}</span>
+            <figcaption className="text-sm font-bold text-heading flex items-center gap-1 group-hover:text-primary transition-colors">
+              {name} <span className="text-xs font-normal text-body-text">{country}</span>
             </figcaption>
-            <p className="text-xs font-medium text-accent">{username}</p>
+            <p className="text-xs font-medium text-primary">{username}</p>
           </div>
         </div>
-        <blockquote className="mt-3 text-sm text-white leading-snug relative z-10">{body}</blockquote>
+        <blockquote className="mt-3 text-sm text-body-text leading-snug relative z-10">{body}</blockquote>
       </CardContent>
     </Card>
   );
@@ -95,21 +95,21 @@ export function Testimonials() {
   return (
     <section id="reviews" className="relative w-full py-24 sm:py-32 bg-background overflow-hidden">
       {/* Background graphic */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[500px] bg-primary/20 rounded-full blur-[150px] pointer-events-none mix-blend-screen" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[500px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
 
       {/* Header */}
       <div className="container relative z-10 mx-auto px-6 mb-16 text-center">
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tighter mb-4 text-white drop-shadow-[0_0_20px_rgba(104, 17, 201,0.3)]">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tighter mb-4 text-heading">
           Client <span className="text-accent">Stories</span>
         </h2>
-        <p className="text-lg text-white max-w-xl mx-auto">
+        <p className="text-lg text-body-text max-w-xl mx-auto">
           Hear from the visionaries and industry leaders who scaled their digital presence with GMM.
         </p>
       </div>
 
       <div className="w-full flex justify-center items-center py-10 relative z-10">
-        <div className="border border-border/30 rounded-3xl relative flex h-[500px] w-full max-w-[1000px] flex-row items-center justify-center overflow-hidden gap-4 [perspective:400px] bg-surface/30 backdrop-blur-sm shadow-2xl">
+        <div className="border border-border rounded-3xl relative flex h-[500px] w-full max-w-[1000px] flex-row items-center justify-center overflow-hidden gap-4 [perspective:400px] bg-white/40 backdrop-blur-sm shadow-lg">
           <div
             className="flex flex-row items-center gap-4 w-full justify-center"
             style={{

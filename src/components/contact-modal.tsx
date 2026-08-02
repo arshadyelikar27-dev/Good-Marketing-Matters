@@ -64,7 +64,7 @@ export function ContactModal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={handleClose}
-            className="absolute inset-0 bg-surface/80 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/20 backdrop-blur-sm"
           />
 
           <motion.div
@@ -72,12 +72,12 @@ export function ContactModal() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="relative w-full max-w-lg bg-surface border border-white/10 rounded-[2rem] shadow-[0_0_50px_rgba(104, 17, 201,0.15)] overflow-hidden"
+            className="relative w-full max-w-lg bg-card border border-border rounded-[2rem] shadow-xl overflow-hidden"
           >
             <button
               type="button"
               onClick={handleClose}
-              className="absolute top-5 right-5 p-2 rounded-full bg-white/5 hover:bg-white/10 text-white hover:text-white transition-colors z-50"
+              className="absolute top-5 right-5 p-2 rounded-full bg-black/5 hover:bg-black/10 text-heading hover:text-heading transition-colors z-50"
             >
               <X size={20} />
             </button>
@@ -92,8 +92,8 @@ export function ContactModal() {
                   <p className="text-xs bg-primary/20 text-accent font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4 border border-primary/30">
                     Contact Us
                   </p>
-                  <h2 className="text-3xl font-black text-white uppercase tracking-tight">Let's Get In Touch.</h2>
-                  <p className="text-white mt-2 text-sm font-medium">
+                  <h2 className="text-3xl font-black text-heading uppercase tracking-tight">Let's Get In Touch.</h2>
+                  <p className="text-body-text mt-2 text-sm font-medium">
                     Or reach out manually to us at <a href="mailto:goodmarketingmatters.co" className="text-accent hover:underline">hello@goodmarketingmatters.co</a>
                   </p>
                 </div>
@@ -101,49 +101,49 @@ export function ContactModal() {
                 <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
 
                   <div>
-                    <label className="text-sm font-medium text-white mb-1.5 block">Full Name</label>
+                    <label className="text-sm font-medium text-heading mb-1.5 block">Full Name</label>
                     <div className="relative flex items-center">
-                      <User className="absolute left-3 w-5 h-5 text-white" />
+                      <User className="absolute left-3 w-5 h-5 text-primary" />
                       <input
                         type="text"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full bg-surface border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+                        className="w-full bg-surface border border-border rounded-xl h-12 pl-10 pr-4 text-heading placeholder-body-text/30 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
                         placeholder="Enter your full name"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-white mb-1.5 block">Email Address</label>
+                    <label className="text-sm font-medium text-heading mb-1.5 block">Email Address</label>
                     <div className="relative flex items-center">
-                      <Mail className="absolute left-3 w-5 h-5 text-white" />
+                      <Mail className="absolute left-3 w-5 h-5 text-primary" />
                       <input
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full bg-surface border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+                        className="w-full bg-surface border border-border rounded-xl h-12 pl-10 pr-4 text-heading placeholder-body-text/30 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
                         placeholder="Enter your email address"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-white mb-1.5 block">What service are you looking for?</label>
+                    <label className="text-sm font-medium text-heading mb-1.5 block">What service are you looking for?</label>
                     <div className="relative flex items-center">
-                      <ChevronDown className="absolute right-3 w-5 h-5 text-white pointer-events-none" />
+                      <ChevronDown className="absolute right-3 w-5 h-5 text-primary pointer-events-none" />
                       <select
                         name="service"
                         value={formData.service}
                         onChange={handleChange}
                         required
-                        className="w-full bg-surface border border-white/5 rounded-xl h-12 pl-4 pr-10 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all appearance-none cursor-pointer"
+                        className="w-full bg-surface border border-border rounded-xl h-12 pl-4 pr-10 text-heading focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all appearance-none cursor-pointer"
                       >
-                        <option value="" disabled className="bg-surface text-white">Select a service</option>
+                        <option value="" disabled className="bg-white text-heading">Select a service</option>
                         {services.map((s) => (
                           <option key={s.slug} value={s.title} className="bg-surface">{s.title}</option>
                         ))}
@@ -153,14 +153,14 @@ export function ContactModal() {
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-white mb-1.5 block">Message</label>
+                    <label className="text-sm font-medium text-heading mb-1.5 block">Message</label>
                     <textarea
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       required
                       rows={3}
-                      className="w-full bg-surface border border-white/5 rounded-xl p-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all resize-none"
+                      className="w-full bg-surface border border-border rounded-xl p-4 text-heading placeholder-body-text/30 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all resize-none"
                       placeholder="Tell us about your brand and goals..."
                     />
                   </div>
@@ -168,7 +168,7 @@ export function ContactModal() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="mt-4 w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-medium text-lg h-14 rounded-xl flex items-center justify-center gap-2 transition-opacity duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(104, 17, 201,0.2)]"
+                    className="mt-4 w-full bg-primary hover:bg-primary-hover text-white font-medium text-lg h-14 rounded-xl flex items-center justify-center gap-2 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_4px_20px_rgba(104,17,201,0.2)]"
                   >
                     {isSubmitting ? "Sending..." : (
                       <>
@@ -189,11 +189,11 @@ export function ContactModal() {
                 <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-2 shadow-[0_0_30px_rgba(34,197,94,0.3)]">
                   <CheckCircle2 className="w-10 h-10 text-green-500" />
                 </div>
-                <h3 className="text-3xl font-semibold text-white tracking-tight">
+                <h3 className="text-3xl font-semibold text-heading tracking-tight">
                   Message Sent!
                 </h3>
-                <p className="text-white text-base leading-relaxed">
-                  Thank you for reaching out, <span className="text-white font-medium">{formData.name}</span>. <br />
+                <p className="text-body-text text-base leading-relaxed">
+                  Thank you for reaching out, <span className="text-heading font-medium">{formData.name}</span>. <br />
                   Our team will get back to you shortly.
                 </p>
                 <button
