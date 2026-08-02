@@ -40,7 +40,7 @@ export function CookieConsent() {
           transition={{ type: "spring", stiffness: 320, damping: 28, delay: 0.1 }}
           className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[9990] w-[calc(100%-2rem)] max-w-2xl"
         >
-          <div className="relative rounded-2xl bg-[#111111]/95 backdrop-blur-xl border border-[#2A2A2A] shadow-[0_20px_60px_rgba(0,0,0,0.7)] px-5 py-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 overflow-hidden">
+          <div className="relative rounded-2xl bg-black/95 backdrop-blur-xl border border-black shadow-[0_20px_60px_rgba(0,0,0,0.7)] px-5 py-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 overflow-hidden">
             {/* Accent line */}
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
 
@@ -52,7 +52,7 @@ export function CookieConsent() {
             {/* Text */}
             <div className="flex-1 min-w-0">
               <p className="text-sm font-bold text-white mb-0.5">We use cookies 🍪</p>
-              <p className="text-xs text-[#BDBDBD] leading-relaxed">
+              <p className="text-xs text-white leading-relaxed">
                 We use cookies to enhance your experience, analyse site traffic, and personalise content. By clicking
                 &quot;Accept&quot; you consent to our use of cookies.
               </p>
@@ -62,7 +62,7 @@ export function CookieConsent() {
             <div className="flex items-center gap-2 flex-shrink-0 w-full sm:w-auto">
               <button
                 onClick={decline}
-                className="flex-1 sm:flex-none px-4 py-2 rounded-xl text-xs font-bold text-[#BDBDBD] hover:text-white border border-[#2A2A2A] hover:border-[#444] bg-transparent transition-all duration-200"
+                className="flex-1 sm:flex-none px-4 py-2 rounded-xl text-xs font-bold text-white hover:text-white border border-black hover:border-white bg-transparent transition-all duration-200"
               >
                 Decline
               </button>
@@ -70,7 +70,7 @@ export function CookieConsent() {
                 onClick={accept}
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
-                className="flex-1 sm:flex-none px-5 py-2 rounded-xl text-xs font-black bg-primary text-primary-foreground shadow-[0_4px_15px_rgba(147, 51, 234,0.35)] hover:shadow-[0_6px_20px_rgba(147, 51, 234,0.55)] transition-all duration-200"
+                className="flex-1 sm:flex-none px-5 py-2 rounded-xl text-xs font-black bg-primary text-primary-foreground shadow-[0_4px_15px_rgba(104, 17, 201,0.35)] hover:shadow-[0_6px_20px_rgba(104, 17, 201,0.55)] transition-all duration-200"
               >
                 Accept All
               </motion.button>
@@ -80,7 +80,7 @@ export function CookieConsent() {
             <button
               onClick={decline}
               aria-label="Close cookie banner"
-              className="absolute top-3 right-3 sm:static sm:top-auto sm:right-auto w-7 h-7 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-[#666] hover:text-white transition-colors flex-shrink-0"
+              className="absolute top-3 right-3 sm:static sm:top-auto sm:right-auto w-7 h-7 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-white hover:text-white transition-colors flex-shrink-0"
             >
               <X size={14} />
             </button>

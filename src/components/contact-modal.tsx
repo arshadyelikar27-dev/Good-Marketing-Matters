@@ -72,12 +72,12 @@ export function ContactModal() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="relative w-full max-w-lg bg-surface border border-white/10 rounded-[2rem] shadow-[0_0_50px_rgba(147,51,234,0.15)] overflow-hidden"
+            className="relative w-full max-w-lg bg-surface border border-white/10 rounded-[2rem] shadow-[0_0_50px_rgba(104, 17, 201,0.15)] overflow-hidden"
           >
             <button
               type="button"
               onClick={handleClose}
-              className="absolute top-5 right-5 p-2 rounded-full bg-white/5 hover:bg-white/10 text-[#86868B] hover:text-white transition-colors z-50"
+              className="absolute top-5 right-5 p-2 rounded-full bg-white/5 hover:bg-white/10 text-white hover:text-white transition-colors z-50"
             >
               <X size={20} />
             </button>
@@ -110,7 +110,7 @@ export function ContactModal() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full bg-[#1A1A20] border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+                        className="w-full bg-black border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
                         placeholder="Enter your full name"
                       />
                     </div>
@@ -126,7 +126,7 @@ export function ContactModal() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full bg-[#1A1A20] border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+                        className="w-full bg-black border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
                         placeholder="Enter your email address"
                       />
                     </div>
@@ -141,7 +141,7 @@ export function ContactModal() {
                         value={formData.service}
                         onChange={handleChange}
                         required
-                        className="w-full bg-[#1A1A20] border border-white/5 rounded-xl h-12 pl-4 pr-10 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all appearance-none cursor-pointer"
+                        className="w-full bg-black border border-white/5 rounded-xl h-12 pl-4 pr-10 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all appearance-none cursor-pointer"
                       >
                         <option value="" disabled className="bg-surface text-gray-500">Select a service</option>
                         {services.map((s) => (
@@ -160,7 +160,7 @@ export function ContactModal() {
                       onChange={handleChange}
                       required
                       rows={3}
-                      className="w-full bg-[#1A1A20] border border-white/5 rounded-xl p-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all resize-none"
+                      className="w-full bg-black border border-white/5 rounded-xl p-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all resize-none"
                       placeholder="Tell us about your brand and goals..."
                     />
                   </div>
@@ -168,7 +168,7 @@ export function ContactModal() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="mt-4 w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-medium text-lg h-14 rounded-xl flex items-center justify-center gap-2 transition-opacity duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(147,51,234,0.2)]"
+                    className="mt-4 w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-medium text-lg h-14 rounded-xl flex items-center justify-center gap-2 transition-opacity duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(104, 17, 201,0.2)]"
                   >
                     {isSubmitting ? "Sending..." : (
                       <>
@@ -192,7 +192,7 @@ export function ContactModal() {
                 <h3 className="text-3xl font-semibold text-white tracking-tight">
                   Message Sent!
                 </h3>
-                <p className="text-[#86868B] text-base leading-relaxed">
+                <p className="text-white text-base leading-relaxed">
                   Thank you for reaching out, <span className="text-white font-medium">{formData.name}</span>. <br />
                   Our team will get back to you shortly.
                 </p>

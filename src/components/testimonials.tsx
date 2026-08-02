@@ -70,7 +70,7 @@ const testimonials = [
 
 function TestimonialCard({ img, name, username, body, country }: (typeof testimonials)[number]) {
   return (
-    <Card className="w-64 bg-card/50 backdrop-blur-md border-border hover:border-primary transition-all duration-300 shadow-lg group hover:shadow-[0_0_20px_rgba(147,51,234,0.3)]">
+    <Card className="w-64 bg-card/50 backdrop-blur-md border-border hover:border-primary transition-all duration-300 shadow-lg group hover:shadow-[0_0_20px_rgba(104, 17, 201,0.3)]">
       <CardContent className="p-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
         <div className="flex items-center gap-2.5 relative z-10">
@@ -100,7 +100,7 @@ export function Testimonials() {
 
       {/* Header */}
       <div className="container relative z-10 mx-auto px-6 mb-16 text-center">
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tighter mb-4 text-heading drop-shadow-[0_0_20px_rgba(147,51,234,0.3)]">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tighter mb-4 text-heading drop-shadow-[0_0_20px_rgba(104, 17, 201,0.3)]">
           Client <span className="text-primary">Stories</span>
         </h2>
         <p className="text-lg text-body-text max-w-xl mx-auto">

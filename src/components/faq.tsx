@@ -39,7 +39,7 @@ export function FAQ() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold uppercase tracking-tighter text-heading drop-shadow-[0_0_15px_rgba(147,51,234,0.3)]">
+          <h2 className="text-4xl sm:text-5xl font-bold uppercase tracking-tighter text-heading drop-shadow-[0_0_15px_rgba(104, 17, 201,0.3)]">
             Got Questions?
           </h2>
           <p className="mt-4 text-body-text">Everything you need to know about partnering with GMM.</p>
@@ -58,7 +58,7 @@ export function FAQ() {
                 key={index} 
                 className={`group border rounded-2xl overflow-hidden transition-all duration-500 bg-surface/50 backdrop-blur-md shadow-lg ${
                   isOpen 
-                    ? "border-primary shadow-[0_0_20px_rgba(147,51,234,0.2)]" 
+                    ? "border-primary shadow-[0_0_20px_rgba(104, 17, 201,0.2)]" 
                     : "border-border hover:border-primary/50"
                 }`}
               >

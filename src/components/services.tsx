@@ -74,7 +74,7 @@ function SpotlightCard({ service, index }: { service: ServiceData; index: number
               background: useMotionTemplate`
                 radial-gradient(
                   500px circle at ${mouseX}px ${mouseY}px,
-                  rgba(147, 51, 234, 0.2),
+                  rgba(104, 17, 201, 0.2),
                   transparent 80%
                 )
               `,
@@ -85,7 +85,7 @@ function SpotlightCard({ service, index }: { service: ServiceData; index: number
             style={{ transform: "translateZ(60px)" }} 
             className="relative z-10 flex justify-between items-start mb-12"
           >
-            <div className="w-14 h-14 md:w-20 md:h-20 rounded-3xl bg-primary/10 border border-primary/20 flex items-center justify-center shadow-[0_0_20px_rgba(147,51,234,0.1)] group-hover:shadow-[0_0_35px_rgba(239,253,50,0.25)] transition-all duration-500 group-hover:scale-110">
+            <div className="w-14 h-14 md:w-20 md:h-20 rounded-3xl bg-primary/10 border border-primary/20 flex items-center justify-center shadow-[0_0_20px_rgba(104, 17, 201,0.1)] group-hover:shadow-[0_0_35px_rgba(224, 243, 71,0.25)] transition-all duration-500 group-hover:scale-110">
               <Icon className="w-7 h-7 md:w-10 md:h-10 text-primary group-hover:text-accent transition-colors duration-500" strokeWidth={1.5} />
             </div>
             
@@ -135,7 +135,7 @@ export function Services() {
           style={{ opacity: useTransform(scrollYProgress, [0, 0.15], [1, 0]), x: useTransform(scrollYProgress, [0, 0.15], [0, -100]), willChange: "transform, opacity" }}
           className="absolute left-6 lg:left-12 top-1/4 z-10 max-w-xl pointer-events-none"
         >
-          <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-heading uppercase mb-6 drop-shadow-[0_0_20px_rgba(147,51,234,0.3)]">
+          <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-heading uppercase mb-6 drop-shadow-[0_0_20px_rgba(104, 17, 201,0.3)]">
             Digital <br/><span className="text-primary">Domination.</span>
           </h2>
           <p className="text-body-text text-xl md:text-2xl font-medium leading-relaxed max-w-lg mb-8">

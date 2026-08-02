@@ -55,61 +55,60 @@
 }
 
 :root {
-  /* Hyper-Creative Dark Purple Theme */
-  --background: #0A0014;
-  --surface: #140028;
-  --dark-section: #05000A;
+  --background: #000000;
+  --surface: #000000;
+  --dark-section: #000000;
   
   /* Text */
   --foreground: #FFFFFF;
   --heading: #FFFFFF;
-  --body-text: #E2E8F0;
+  --body-text: #FFFFFF;
 
   /* Cards/Popovers */
-  --card: #140028;
+  --card: #000000;
   --card-foreground: #FFFFFF;
-  --popover: #140028;
+  --popover: #000000;
   --popover-foreground: #FFFFFF;
   
-  /* Primary: Neon Purple */
-  --primary: #9333EA; 
-  --primary-hover: #A855F7;
+  /* Primary */
+  --primary: #6811C9; 
+  --primary-hover: #540D9E;
   --primary-foreground: #FFFFFF;
   
-  --secondary: #2E1065;
-  --secondary-foreground: #FFFFFF;
+  --secondary: #FFFFFF;
+  --secondary-foreground: #000000;
   
-  --muted: #3B0764;
-  --muted-foreground: #A855F7;
+  --muted: #000000;
+  --muted-foreground: #FFFFFF;
   
-  /* Accent: Neon Yellow */
-  --accent: #EFFD32;
+  /* Accent */
+  --accent: #E0F347;
   --accent-foreground: #000000;
   
   --destructive: #EF4444;
   
-  --border: #3B0764;
-  --input: #2E1065;
-  --ring: #9333EA;
+  --border: #333333;
+  --input: #333333;
+  --ring: #6811C9;
   
   /* Charts */
-  --chart-1: #9333EA;
-  --chart-2: #EFFD32;
-  --chart-3: #A855F7;
-  --chart-4: #FBBF24;
-  --chart-5: #6B21A8;
+  --chart-1: #6811C9;
+  --chart-2: #E0F347;
+  --chart-3: #FFFFFF;
+  --chart-4: #000000;
+  --chart-5: #6811C9;
   
-  --radius: 1rem; /* Softer radius for modern glass feel */
+  --radius: 1rem;
   
   /* Sidebar */
-  --sidebar: #0A0014;
+  --sidebar: #000000;
   --sidebar-foreground: #FFFFFF;
-  --sidebar-primary: #EFFD32;
-  --sidebar-primary-foreground: #000000;
-  --sidebar-accent: #140028;
-  --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: #3B0764;
-  --sidebar-ring: #EFFD32;
+  --sidebar-primary: #6811C9;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #E0F347;
+  --sidebar-accent-foreground: #000000;
+  --sidebar-border: #333333;
+  --sidebar-ring: #E0F347;
 }
 
 @layer base {
@@ -267,9 +266,9 @@ section[id] {
 /* ── Isometric-style diagonal grid (video signature element) ── */
 .iso-grid {
   background-image:
-    linear-gradient(60deg,  rgba(239, 253, 50, 0.07) 1px, transparent 1px),
-    linear-gradient(-60deg, rgba(239, 253, 50, 0.07) 1px, transparent 1px),
-    linear-gradient(rgba(239, 253, 50, 0.04) 1px, transparent 1px);
+    linear-gradient(60deg,  rgba(224, 243, 71, 0.07) 1px, transparent 1px),
+    linear-gradient(-60deg, rgba(224, 243, 71, 0.07) 1px, transparent 1px),
+    linear-gradient(rgba(224, 243, 71, 0.04) 1px, transparent 1px);
   background-size: 60px 60px, 60px 60px, 60px 60px;
 }
 
@@ -280,7 +279,7 @@ section[id] {
 }
 .card-lift:hover {
   transform: translateY(-8px);
-  box-shadow: 0 24px 60px rgba(239, 253, 50, 0.15);
+  box-shadow: 0 24px 60px rgba(224, 243, 71, 0.15);
 }
 
 /* ── Border shimmer on CTA card ── */

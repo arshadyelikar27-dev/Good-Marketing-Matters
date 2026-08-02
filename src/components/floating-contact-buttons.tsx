@@ -39,10 +39,10 @@ export function FloatingContactButtons() {
         whileHover={{ scale: 1.1, y: -3 }}
         whileTap={{ scale: 0.92 }}
         onClick={() => setBadgeDismissed(true)}
-        className="relative group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-white shadow-[0_10px_25px_rgba(37,211,102,0.4)] hover:shadow-[0_15px_35px_rgba(37,211,102,0.7)] transition-all duration-300 border border-[#25D366]/20"
+        className="relative group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#E0F347] text-white shadow-[0_10px_25px_rgba(37,211,102,0.4)] hover:shadow-[0_15px_35px_rgba(37,211,102,0.7)] transition-all duration-300 border border-[#E0F347]/20"
       >
         {/* Pulsing Outer Ring */}
-        <span className="absolute -inset-1 rounded-full bg-[#25D366]/50 animate-ping pointer-events-none" />
+        <span className="absolute -inset-1 rounded-full bg-[#E0F347]/50 animate-ping pointer-events-none" />
 
         <WhatsAppIcon className="w-6 h-6 sm:w-7 sm:h-7 relative z-10" />
 
@@ -55,7 +55,7 @@ export function FloatingContactButtons() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0, opacity: 0 }}
               transition={{ type: "spring", stiffness: 500, damping: 20 }}
-              className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-red-500 text-white text-[10px] font-black flex items-center justify-center shadow-[0_0_10px_rgba(239,68,68,0.8)] z-20 border border-[#0D0020]"
+              className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-red-500 text-white text-[10px] font-black flex items-center justify-center shadow-[0_0_10px_rgba(239,68,68,0.8)] z-20 border border-black"
             >
               1
             </motion.span>

@@ -21,9 +21,9 @@ export function AboutAnimation() {
           className="text-5xl sm:text-6xl md:text-[5rem] lg:text-[6rem] font-bold tracking-tighter leading-[1] text-heading uppercase"
         >
           We don't just execute.<br />
-          <span className="text-primary drop-shadow-[0_0_20px_rgba(147,51,234,0.4)]">We interpret, sharpen,</span><br />
+          <span className="text-primary drop-shadow-[0_0_20px_rgba(104, 17, 201,0.4)]">We interpret, sharpen,</span><br />
           and deliver the<br />
-          <span className="text-black bg-accent px-4 py-2 mr-2 shadow-[0_0_30px_rgba(239,253,50,0.5)] border border-yellow-300">digital signal</span>
+          <span className="text-black bg-accent px-4 py-2 mr-2 shadow-[0_0_30px_rgba(224, 243, 71,0.5)] border border-yellow-300">digital signal</span>
           you need to grow.
         </motion.h2>
       </div>
@@ -42,7 +42,7 @@ export function AboutAnimation() {
           <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
           
           <div className="relative z-10">
-            <div className="p-4 bg-primary/20 text-primary border border-primary/30 w-fit rounded-2xl mb-8 group-hover:bg-primary group-hover:text-black transition-colors duration-500 shadow-[0_0_15px_rgba(147,51,234,0.2)]">
+            <div className="p-4 bg-primary/20 text-primary border border-primary/30 w-fit rounded-2xl mb-8 group-hover:bg-primary group-hover:text-black transition-colors duration-500 shadow-[0_0_15px_rgba(104, 17, 201,0.2)]">
               <Target className="w-8 h-8" />
             </div>
             <h3 className="text-4xl font-bold mb-4 tracking-tight uppercase text-heading">Relentless Pursuit of ROI.</h3>
@@ -64,7 +64,7 @@ export function AboutAnimation() {
           <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-tl from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
           <div className="relative z-10">
-            <div className="p-4 bg-accent/20 text-accent border border-accent/30 w-fit rounded-2xl mb-8 group-hover:bg-accent group-hover:text-black transition-colors duration-500 shadow-[0_0_15px_rgba(239,253,50,0.2)]">
+            <div className="p-4 bg-accent/20 text-accent border border-accent/30 w-fit rounded-2xl mb-8 group-hover:bg-accent group-hover:text-black transition-colors duration-500 shadow-[0_0_15px_rgba(224, 243, 71,0.2)]">
               <Zap className="w-8 h-8" />
             </div>
             <h3 className="text-3xl font-bold text-heading mb-4 tracking-tight uppercase">Speed & Agility.</h3>
@@ -80,7 +80,7 @@ export function AboutAnimation() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="md:col-span-3 group relative p-10 md:p-14 rounded-3xl bg-primary text-black transition-colors duration-500 overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-10 shadow-[0_0_30px_rgba(147,51,234,0.3)] hover:shadow-[0_0_50px_rgba(147,51,234,0.5)]"
+          className="md:col-span-3 group relative p-10 md:p-14 rounded-3xl bg-primary text-black transition-colors duration-500 overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-10 shadow-[0_0_30px_rgba(104, 17, 201,0.3)] hover:shadow-[0_0_50px_rgba(104, 17, 201,0.5)]"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:animate-shine pointer-events-none" />
 

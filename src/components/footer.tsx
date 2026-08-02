@@ -25,7 +25,7 @@ export function Footer() {
                   src="/FinalLogoWhite_Cropped.png"
                   alt="Good Marketing Matters"
                   fill
-                  className="object-contain object-left-bottom drop-shadow-[0_0_15px_rgba(239,253,50,0.2)] transition-transform duration-500 group-hover:scale-105"
+                  className="object-contain object-left-bottom drop-shadow-[0_0_15px_rgba(224, 243, 71,0.2)] transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
             </Link>
@@ -34,13 +34,13 @@ export function Footer() {
             </p>
 
             <div className="mt-12 flex gap-4">
-              <Link href="#" className="w-12 h-12 rounded-full border border-primary/30 flex items-center justify-center text-primary hover:bg-primary hover:text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(147,51,234,0.5)]">
+              <Link href="#" className="w-12 h-12 rounded-full border border-primary/30 flex items-center justify-center text-primary hover:bg-primary hover:text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(104, 17, 201,0.5)]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
               </Link>
-              <Link href="#" className="w-12 h-12 rounded-full border border-primary/30 flex items-center justify-center text-primary hover:bg-primary hover:text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(147,51,234,0.5)]">
+              <Link href="#" className="w-12 h-12 rounded-full border border-primary/30 flex items-center justify-center text-primary hover:bg-primary hover:text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(104, 17, 201,0.5)]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg>
               </Link>
-              <Link href="#" className="w-12 h-12 rounded-full border border-primary/30 flex items-center justify-center text-primary hover:bg-primary hover:text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(147,51,234,0.5)]">
+              <Link href="#" className="w-12 h-12 rounded-full border border-primary/30 flex items-center justify-center text-primary hover:bg-primary hover:text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(104, 17, 201,0.5)]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" /></svg>
               </Link>
             </div>
@@ -49,7 +49,7 @@ export function Footer() {
           {/* Links Columns */}
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-12 lg:gap-8">
             <div className="flex flex-col gap-6">
-              <h4 className="text-xl font-bold uppercase tracking-widest text-primary mb-4 drop-shadow-[0_0_10px_rgba(147,51,234,0.5)]">Explore</h4>
+              <h4 className="text-xl font-bold uppercase tracking-widest text-primary mb-4 drop-shadow-[0_0_10px_rgba(104, 17, 201,0.5)]">Explore</h4>
               <nav className="flex flex-col gap-4">
                 {["Services", "About Us", "Our Work", "Insights", "Contact"].map((item) => (
                   <Link
@@ -65,7 +65,7 @@ export function Footer() {
             </div>
 
             <div className="flex flex-col gap-6">
-              <h4 className="text-xl font-bold uppercase tracking-widest text-primary mb-4 drop-shadow-[0_0_10px_rgba(147,51,234,0.5)]">Contact</h4>
+              <h4 className="text-xl font-bold uppercase tracking-widest text-primary mb-4 drop-shadow-[0_0_10px_rgba(104, 17, 201,0.5)]">Contact</h4>
 
               <div className="flex items-start gap-4 text-gray-300 group cursor-pointer hover:text-accent transition-colors">
                 <MapPin className="w-6 h-6 shrink-0 mt-1 text-primary group-hover:text-accent transition-colors" />
@@ -89,7 +89,7 @@ export function Footer() {
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-white uppercase group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-accent transition-all duration-500">
               Ready to <br className="hidden md:block" />dominate?
             </h2>
-            <div className="w-20 h-20 md:w-32 md:h-32 rounded-full bg-primary flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-500 shadow-[0_0_30px_rgba(147,51,234,0.6)] group-hover:shadow-[0_0_50px_rgba(239,253,50,0.8)] shrink-0">
+            <div className="w-20 h-20 md:w-32 md:h-32 rounded-full bg-primary flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-500 shadow-[0_0_30px_rgba(104, 17, 201,0.6)] group-hover:shadow-[0_0_50px_rgba(224, 243, 71,0.8)] shrink-0">
               <ArrowRight className="w-10 h-10 md:w-16 md:h-16 text-black -rotate-45 group-hover:rotate-0 transition-transform duration-500" />
             </div>
           </button>

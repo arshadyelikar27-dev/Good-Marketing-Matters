@@ -103,7 +103,7 @@ export function Navbar() {
                 src="/Logo.png" 
                 alt="GMM Logo" 
                 fill
-                className="object-contain object-left drop-shadow-[0_0_15px_rgba(239,253,50,0.2)]"
+                className="object-contain object-left drop-shadow-[0_0_15px_rgba(224, 243, 71,0.2)]"
                 priority
               />
             </motion.div>
@@ -124,14 +124,14 @@ export function Navbar() {
                   onMouseLeave={() => setHoveredTab(null)}
                   className={cn(
                     "relative px-4 py-1.5 text-sm font-medium transition-colors group",
-                    isActive ? "text-white font-bold" : "text-[#BDBDBD] hover:text-white"
+                    isActive ? "text-white font-bold" : "text-white hover:text-white"
                   )}
                 >
                   {/* Active Radius Indicator Pill */}
                   {isActive && (
                     <motion.div
                       layoutId="activeSectionPill"
-                      className="absolute inset-0 bg-primary/20 border border-primary/40 rounded-full shadow-[0_0_15px_rgba(147, 51, 234,0.2)]"
+                      className="absolute inset-0 bg-primary/20 border border-primary/40 rounded-full shadow-[0_0_15px_rgba(104, 17, 201,0.2)]"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -147,7 +147,7 @@ export function Navbar() {
                       <div className="relative w-9 h-9">
                         {/* Face */}
                         <motion.div
-                          className="absolute w-8 h-8 bg-white rounded-full left-1/2 -translate-x-1/2 shadow-[0_0_10px_rgba(147, 51, 234,0.4)]"
+                          className="absolute w-8 h-8 bg-white rounded-full left-1/2 -translate-x-1/2 shadow-[0_0_10px_rgba(104, 17, 201,0.4)]"
                           animate={
                             isHovered
                               ? { scale: [1, 1.1, 1], rotate: [0, -5, 5, 0] }
@@ -179,7 +179,7 @@ export function Navbar() {
                           <div className="absolute w-1.5 h-1 bg-pink-300 rounded-full opacity-70" style={{ right: "12%", top: "56%" }} />
                           {/* Mouth */}
                           <motion.div
-                            className="absolute w-3 h-1.5 border-b-2 border-[#0D0020] rounded-full"
+                            className="absolute w-3 h-1.5 border-b-2 border-black rounded-full"
                             animate={isHovered ? { scaleY: 1.6, y: -1 } : { scaleY: 1, y: 0 }}
                             style={{ left: "28%", top: "60%" }}
                           />
@@ -207,7 +207,7 @@ export function Navbar() {
 
                         {/* Diamond pointer below face */}
                         <motion.div
-                          className="absolute -bottom-1 left-1/2 w-3 h-3 -translate-x-1/2 bg-white rotate-45 shadow-[0_0_6px_rgba(147, 51, 234,0.3)]"
+                          className="absolute -bottom-1 left-1/2 w-3 h-3 -translate-x-1/2 bg-white rotate-45 shadow-[0_0_6px_rgba(104, 17, 201,0.3)]"
                           animate={
                             isHovered
                               ? { y: [0, -3, 0] }
@@ -236,7 +236,7 @@ export function Navbar() {
           <MagneticButton className="hidden md:flex" strength={0.5}>
             <button
               onClick={openScheduleModal}
-              className="px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-bold text-sm shadow-[0_4px_20px_rgba(147, 51, 234,0.3)] hover:shadow-[0_8px_30px_rgba(147, 51, 234,0.5)] hover:bg-[#7E22CE] transition-all duration-300 active:scale-[0.96] block"
+              className="px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-bold text-sm shadow-[0_4px_20px_rgba(104, 17, 201,0.3)] hover:shadow-[0_8px_30px_rgba(104, 17, 201,0.5)] hover:bg-[#6811C9] transition-all duration-300 active:scale-[0.96] block"
             >
               Let&apos;s Talk
             </button>
@@ -275,12 +275,12 @@ export function Navbar() {
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
               transition={{ type: "spring", stiffness: 350, damping: 35 }}
-              className="fixed bottom-0 inset-x-0 z-[49] md:hidden bg-[#0D0D0D] border-t border-[#1E1E1E] rounded-t-3xl shadow-[0_-20px_60px_rgba(0,0,0,0.8)] pointer-events-auto overflow-hidden"
+              className="fixed bottom-0 inset-x-0 z-[49] md:hidden bg-black border-t border-black rounded-t-3xl shadow-[0_-20px_60px_rgba(0,0,0,0.8)] pointer-events-auto overflow-hidden"
               style={{ maxHeight: "85svh" }}
             >
               {/* Drag handle */}
               <div className="flex justify-center pt-3 pb-1">
-                <div className="w-10 h-1 rounded-full bg-[#333]" />
+                <div className="w-10 h-1 rounded-full bg-black" />
               </div>
 
               {/* Top accent line */}
@@ -289,10 +289,10 @@ export function Navbar() {
               <div className="px-6 pt-2 pb-8 flex flex-col gap-2 overflow-y-auto">
                 {/* Header */}
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#555]">Navigation</span>
+                  <span className="text-xs font-bold tracking-[0.2em] uppercase text-white">Navigation</span>
                   <button
                     onClick={() => setMobileMenuOpen(false)}
-                    className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-[#888] hover:text-white transition-colors"
+                    className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-white hover:text-white transition-colors"
                   >
                     <X size={16} />
                   </button>
@@ -312,7 +312,7 @@ export function Navbar() {
                         "flex items-center justify-between py-3.5 px-4 rounded-2xl font-bold text-base transition-all",
                         activeSection === link.name
                           ? "text-primary-foreground bg-primary/15 border border-primary/30"
-                          : "text-[#BDBDBD] hover:text-white hover:bg-white/5 border border-transparent"
+                          : "text-white hover:text-white hover:bg-white/5 border border-transparent"
                       )}
                       onClick={() => {
                         setActiveSection(link.name);
@@ -324,7 +324,7 @@ export function Navbar() {
                         size={16}
                         className={cn(
                           "transition-colors",
-                          activeSection === link.name ? "text-accent" : "text-[#444]"
+                          activeSection === link.name ? "text-accent" : "text-white"
                         )}
                       />
                     </Link>
@@ -343,7 +343,7 @@ export function Navbar() {
                       setMobileMenuOpen(false);
                       openScheduleModal();
                     }}
-                    className="relative overflow-hidden flex items-center justify-center px-6 py-4 rounded-2xl bg-primary text-primary-foreground font-black text-base w-full shadow-[0_0_30px_rgba(147, 51, 234,0.35)] group"
+                    className="relative overflow-hidden flex items-center justify-center px-6 py-4 rounded-2xl bg-primary text-primary-foreground font-black text-base w-full shadow-[0_0_30px_rgba(104, 17, 201,0.35)] group"
                   >
                     <span className="relative z-10">Let&apos;s Talk →</span>
                     <span className="absolute -inset-full w-[200%] h-[200%] bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:animate-shine pointer-events-none" />

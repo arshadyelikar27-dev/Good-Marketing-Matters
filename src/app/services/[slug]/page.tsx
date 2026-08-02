@@ -62,7 +62,7 @@ export default function ServicePage() {
           <div className="absolute top-28 left-6 md:left-12 lg:left-24 z-20">
             <Link
               href="/#services"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary/30 text-sm font-bold text-white uppercase tracking-widest hover:text-black hover:bg-primary transition-all duration-300 shadow-[0_0_15px_rgba(147,51,234,0.3)] hover:shadow-[0_0_25px_rgba(147,51,234,0.6)]"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary/30 text-sm font-bold text-white uppercase tracking-widest hover:text-black hover:bg-primary transition-all duration-300 shadow-[0_0_15px_rgba(104, 17, 201,0.3)] hover:shadow-[0_0_25px_rgba(104, 17, 201,0.6)]"
             >
               <ArrowLeft size={16} /> All Services
             </Link>
@@ -74,7 +74,7 @@ export default function ServicePage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.1, ease: EASE }}
-              className="text-4xl sm:text-6xl md:text-8xl lg:text-[140px] font-black uppercase tracking-tighter leading-[0.9] py-2 mb-8 text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 drop-shadow-[0_0_20px_rgba(147,51,234,0.3)] break-words hyphens-auto w-full"
+              className="text-4xl sm:text-6xl md:text-8xl lg:text-[140px] font-black uppercase tracking-tighter leading-[0.9] py-2 mb-8 text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 drop-shadow-[0_0_20px_rgba(104, 17, 201,0.3)] break-words hyphens-auto w-full"
             >
               {s.title}
             </motion.h1>
@@ -102,7 +102,7 @@ export default function ServicePage() {
             transition={{ duration: 1, ease: EASE }}
             className="mb-20 text-center md:text-left"
           >
-            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-4 text-heading drop-shadow-[0_0_15px_rgba(147,51,234,0.3)] break-words hyphens-auto w-full">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-4 text-heading drop-shadow-[0_0_15px_rgba(104, 17, 201,0.3)] break-words hyphens-auto w-full">
               Capabilities. <br />
               <span className="text-primary">Engineered for growth.</span>
             </h2>
@@ -121,12 +121,12 @@ export default function ServicePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.8, delay: (i % 3) * 0.1, ease: EASE }}
-                  className={`group relative bg-surface/30 backdrop-blur-md rounded-3xl p-10 flex flex-col justify-between overflow-hidden border border-border hover:border-primary/50 transition-colors duration-500 shadow-xl hover:shadow-[0_0_30px_rgba(147,51,234,0.2)] ${isLarge ? 'md:col-span-2' : 'md:col-span-1'}`}
+                  className={`group relative bg-surface/30 backdrop-blur-md rounded-3xl p-10 flex flex-col justify-between overflow-hidden border border-border hover:border-primary/50 transition-colors duration-500 shadow-xl hover:shadow-[0_0_30px_rgba(104, 17, 201,0.2)] ${isLarge ? 'md:col-span-2' : 'md:col-span-1'}`}
                 >
                   <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-primary/20 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                   
                   <div className="relative z-10">
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-8 group-hover:bg-primary group-hover:border-primary transition-colors duration-500 shadow-[0_0_15px_rgba(147,51,234,0.1)]">
+                    <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-8 group-hover:bg-primary group-hover:border-primary transition-colors duration-500 shadow-[0_0_15px_rgba(104, 17, 201,0.1)]">
                       <SubIcon className="w-8 h-8 text-primary group-hover:text-black transition-colors" strokeWidth={2} />
                     </div>
                   </div>
@@ -158,7 +158,7 @@ export default function ServicePage() {
               transition={{ duration: 1, ease: EASE }}
               className="text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] break-words hyphens-auto w-full"
             >
-              The difference <br /> is in the <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent drop-shadow-[0_0_20px_rgba(239,253,50,0.4)]">details.</span>
+              The difference <br /> is in the <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent drop-shadow-[0_0_20px_rgba(224, 243, 71,0.4)]">details.</span>
             </motion.h2>
           </div>
 
@@ -175,7 +175,7 @@ export default function ServicePage() {
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                 
-                <div className="text-black bg-accent font-black text-xl mb-8 rounded-full w-14 h-14 flex items-center justify-center shadow-[0_0_20px_rgba(239,253,50,0.5)]">
+                <div className="text-black bg-accent font-black text-xl mb-8 rounded-full w-14 h-14 flex items-center justify-center shadow-[0_0_20px_rgba(224, 243, 71,0.5)]">
                   0{i + 1}
                 </div>
                 <h3 className="text-4xl font-bold uppercase tracking-tight text-white mb-6">
@@ -197,7 +197,7 @@ export default function ServicePage() {
         
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative">
           <div className="text-center mb-24">
-            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tighter text-heading drop-shadow-[0_0_15px_rgba(147,51,234,0.3)] break-words hyphens-auto w-full">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tighter text-heading drop-shadow-[0_0_15px_rgba(104, 17, 201,0.3)] break-words hyphens-auto w-full">
               How it <span className="text-primary">works.</span>
             </h2>
           </div>
@@ -247,7 +247,7 @@ export default function ServicePage() {
             <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             
             <div className="relative z-10 flex flex-col items-center">
-              <h2 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 max-w-4xl text-balance drop-shadow-[0_0_20px_rgba(147,51,234,0.5)] break-words hyphens-auto w-full">
+              <h2 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 max-w-4xl text-balance drop-shadow-[0_0_20px_rgba(104, 17, 201,0.5)] break-words hyphens-auto w-full">
                 Ready to redefine your <span className="text-accent">brand&apos;s trajectory?</span>
               </h2>
               <p className="text-body-text text-2xl font-medium mb-12 max-w-2xl text-balance">
@@ -256,7 +256,7 @@ export default function ServicePage() {
               
               <Link
                 href="/#contact"
-                className="group inline-flex items-center gap-4 px-10 py-5 rounded-full bg-primary text-black font-bold uppercase tracking-widest text-lg hover:bg-accent transition-all duration-300 shadow-[0_0_30px_rgba(147,51,234,0.6)] hover:shadow-[0_0_50px_rgba(239,253,50,0.8)]"
+                className="group inline-flex items-center gap-4 px-10 py-5 rounded-full bg-primary text-black font-bold uppercase tracking-widest text-lg hover:bg-accent transition-all duration-300 shadow-[0_0_30px_rgba(104, 17, 201,0.6)] hover:shadow-[0_0_50px_rgba(224, 243, 71,0.8)]"
               >
                 Start the Conversation 
                 <ArrowUpRight size={24} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

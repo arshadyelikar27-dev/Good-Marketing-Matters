@@ -97,10 +97,10 @@ export function Hero() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
               style={{ y: float1Y, x: float1X, rotate: float1Rotate, willChange: "transform" }}
-              className="absolute top-[20%] right-[40%] w-32 h-32 rounded-full md:backdrop-blur-xl bg-gradient-to-br from-white/10 to-transparent border-t border-l border-white/20 flex items-center justify-center shadow-[0_20px_40px_-10px_rgba(239,253,50,0.2)]"
+              className="absolute top-[20%] right-[40%] w-32 h-32 rounded-full md:backdrop-blur-xl bg-gradient-to-br from-white/10 to-transparent border-t border-l border-white/20 flex items-center justify-center shadow-[0_20px_40px_-10px_rgba(224, 243, 71,0.2)]"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-50 rounded-full" />
-              <Target className="w-14 h-14 text-accent relative z-10 drop-shadow-[0_0_15px_rgba(239,253,50,0.5)]" />
+              <Target className="w-14 h-14 text-accent relative z-10 drop-shadow-[0_0_15px_rgba(224, 243, 71,0.5)]" />
             </motion.div>
 
             {/* Growth Element */}
@@ -109,10 +109,10 @@ export function Hero() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.5, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
               style={{ y: float2Y, x: float2X, rotate: float2Rotate, willChange: "transform" }}
-              className="absolute top-[40%] right-[15%] w-48 h-48 rounded-[2rem] md:backdrop-blur-xl bg-gradient-to-tr from-primary/20 to-transparent border-b border-r border-primary/30 flex items-center justify-center shadow-[0_20px_50px_-10px_rgba(147,51,234,0.3)]"
+              className="absolute top-[40%] right-[15%] w-48 h-48 rounded-[2rem] md:backdrop-blur-xl bg-gradient-to-tr from-primary/20 to-transparent border-b border-r border-primary/30 flex items-center justify-center shadow-[0_20px_50px_-10px_rgba(104, 17, 201,0.3)]"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-50 rounded-[2rem]" />
-              <TrendingUp className="w-20 h-20 text-primary relative z-10 drop-shadow-[0_0_20px_rgba(147,51,234,0.6)]" />
+              <TrendingUp className="w-20 h-20 text-primary relative z-10 drop-shadow-[0_0_20px_rgba(104, 17, 201,0.6)]" />
             </motion.div>
 
             {/* Megaphone Element */}
@@ -121,7 +121,7 @@ export function Hero() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.4, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
               style={{ y: float3Y, x: float3X, rotate: float3Rotate, willChange: "transform" }}
-              className="absolute top-[70%] right-[30%] w-24 h-24 rounded-2xl md:backdrop-blur-xl bg-gradient-to-bl from-accent/20 to-transparent border-t border-r border-accent/30 flex items-center justify-center shadow-[0_20px_40px_-10px_rgba(239,253,50,0.3)]"
+              className="absolute top-[70%] right-[30%] w-24 h-24 rounded-2xl md:backdrop-blur-xl bg-gradient-to-bl from-accent/20 to-transparent border-t border-r border-accent/30 flex items-center justify-center shadow-[0_20px_40px_-10px_rgba(224, 243, 71,0.3)]"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-50 rounded-full" />
               <Megaphone className="w-12 h-12 text-white relative z-10" />

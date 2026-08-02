@@ -70,12 +70,12 @@ export function ScheduleModal() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="relative w-full max-w-lg bg-surface border border-white/10 rounded-[2rem] shadow-[0_0_50px_rgba(239,253,50,0.15)] overflow-hidden"
+            className="relative w-full max-w-lg bg-surface border border-white/10 rounded-[2rem] shadow-[0_0_50px_rgba(224, 243, 71,0.15)] overflow-hidden"
           >
             <button
               type="button"
               onClick={handleClose}
-              className="absolute top-5 right-5 p-2 rounded-full bg-white/5 hover:bg-white/10 text-[#86868B] hover:text-white transition-colors z-50"
+              className="absolute top-5 right-5 p-2 rounded-full bg-white/5 hover:bg-white/10 text-white hover:text-white transition-colors z-50"
             >
               <X size={20} />
             </button>
@@ -108,7 +108,7 @@ export function ScheduleModal() {
                         value={formData.name}
                         onChange={handleChange}
                         required 
-                        className="w-full bg-[#1A1A20] border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all"
+                        className="w-full bg-black border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all"
                         placeholder="Enter your full name"
                       />
                     </div>
@@ -124,7 +124,7 @@ export function ScheduleModal() {
                         value={formData.phone}
                         onChange={handleChange} 
                         required 
-                        className="w-full bg-[#1A1A20] border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all"
+                        className="w-full bg-black border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white placeholder-white/20 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all"
                         placeholder="Enter your phone number"
                       />
                     </div>
@@ -140,7 +140,7 @@ export function ScheduleModal() {
                         value={formData.dateTime}
                         onChange={handleChange} 
                         required 
-                        className="w-full bg-[#1A1A20] border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all"
+                        className="w-full bg-black border border-white/5 rounded-xl h-12 pl-10 pr-4 text-white focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all"
                       />
                     </div>
                   </div>
@@ -153,7 +153,7 @@ export function ScheduleModal() {
                       onChange={handleChange}
                       required 
                       rows={2}
-                      className="w-full bg-[#1A1A20] border border-white/5 rounded-xl p-4 text-white placeholder-white/20 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all resize-none"
+                      className="w-full bg-black border border-white/5 rounded-xl p-4 text-white placeholder-white/20 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all resize-none"
                       placeholder="Briefly describe what you'd like to discuss..."
                     />
                   </div>
@@ -161,7 +161,7 @@ export function ScheduleModal() {
                   <button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="mt-4 w-full bg-gradient-to-r from-accent to-[#d5e32d] text-black hover:opacity-90 font-bold text-lg h-14 rounded-xl flex items-center justify-center gap-2 transition-opacity duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(239,253,50,0.3)]"
+                    className="mt-4 w-full bg-gradient-to-r from-accent to-[#E0F347] text-black hover:opacity-90 font-bold text-lg h-14 rounded-xl flex items-center justify-center gap-2 transition-opacity duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(224, 243, 71,0.3)]"
                   >
                     {isSubmitting ? "Scheduling..." : (
                       <>
@@ -185,7 +185,7 @@ export function ScheduleModal() {
                 <h3 className="text-3xl font-semibold text-white tracking-tight">
                   Call Scheduled!
                 </h3>
-                <p className="text-[#86868B] text-base leading-relaxed">
+                <p className="text-white text-base leading-relaxed">
                   Thanks <span className="text-white font-medium">{formData.name}</span>. <br />
                   We will call you at your requested time.
                 </p>

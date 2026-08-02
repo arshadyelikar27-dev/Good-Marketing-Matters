@@ -62,7 +62,7 @@ export function KineticDarkBgFX() {
       color: i % 3 === 0 ? "#9333EA" : i % 3 === 1 ? "#9B6FD4" : "#7C3AED",
       glow:
         i % 3 === 0
-          ? "0 0 14px rgba(147, 51, 234, 0.6)"
+          ? "0 0 14px rgba(104, 17, 201, 0.6)"
           : i % 3 === 1
           ? "0 0 14px rgba(155, 111, 212, 0.6)"
           : "0 0 14px rgba(124, 58, 237, 0.6)",

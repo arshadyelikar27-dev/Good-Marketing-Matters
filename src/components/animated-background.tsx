@@ -90,7 +90,7 @@ export function AnimatedBackground() {
         }}
       />
       {/* Vignette matching the new theme color */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#231F32] opacity-90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black opacity-90" />
     </div>
   );
 }

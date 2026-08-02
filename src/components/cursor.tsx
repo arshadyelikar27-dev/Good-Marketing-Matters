@@ -77,7 +77,7 @@ export function CustomCursor() {
     <div className="pointer-events-none hidden md:block">
       {/* INNER DOT */}
       <motion.div
-        className="fixed top-0 left-0 w-2.5 h-2.5 bg-primary rounded-full pointer-events-none z-[999999] mix-blend-difference origin-center shadow-[0_0_15px_rgba(147,51,234,0.9)]"
+        className="fixed top-0 left-0 w-2.5 h-2.5 bg-primary rounded-full pointer-events-none z-[999999] mix-blend-difference origin-center shadow-[0_0_15px_rgba(104, 17, 201,0.9)]"
         style={{
           x: springX,
           y: springY,
@@ -102,12 +102,12 @@ export function CustomCursor() {
         animate={{
           width: cursorState === "hover" ? 72 : cursorState === "click" ? 24 : 40,
           height: cursorState === "hover" ? 72 : cursorState === "click" ? 24 : 40,
-          backgroundColor: cursorState === "hover" ? "rgba(239, 253, 50, 0.95)" : "rgba(147, 51, 234, 0)",
+          backgroundColor: cursorState === "hover" ? "rgba(224, 243, 71, 0.95)" : "rgba(104, 17, 201, 0)",
           borderWidth: cursorState === "hover" ? "0px" : "1.5px",
-          borderColor: cursorState === "hover" ? "rgba(239, 253, 50, 0.8)" : "rgba(147, 51, 234, 0.8)",
+          borderColor: cursorState === "hover" ? "rgba(224, 243, 71, 0.8)" : "rgba(104, 17, 201, 0.8)",
           boxShadow: cursorState === "hover"
-            ? "0 0 40px rgba(239, 253, 50, 0.6)"
-            : "0 0 20px rgba(147, 51, 234, 0.3)",
+            ? "0 0 40px rgba(224, 243, 71, 0.6)"
+            : "0 0 20px rgba(104, 17, 201, 0.3)",
           scale: cursorState === "hidden" ? 0 : 1,
         }}
         transition={{ type: "spring", stiffness: 350, damping: 24 }}
