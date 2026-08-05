@@ -15,9 +15,9 @@ export function Hero() {
   });
 
   // Lighter transforms on mobile
-  const textScale = useTransform(scrollYProgress, [0, 0.8], [1, isMobile ? 1 : 1.4]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.4, 0.8], [1, 1, isMobile ? 1 : 0]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", isMobile ? "0%" : "40%"]);
+  const textScale = useTransform(scrollYProgress, [0, 0.8], [1, isMobile ? 1.15 : 1.4]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.4, 0.8], [1, 1, 0]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", isMobile ? "15%" : "40%"]);
 
   // Floating Elements Scroll Animations (desktop only)
   const float1Y = useTransform(scrollYProgress, [0, 1], ["0%", "-300%"]);
@@ -33,15 +33,15 @@ export function Hero() {
   const float3Rotate = useTransform(scrollYProgress, [0, 1], [-20, 90]);
 
   return (
-    <section id="hero" ref={containerRef} className="relative w-full h-auto sm:h-[250vh] bg-transparent pb-32 sm:pb-0">
-      <div className="sm:sticky sm:top-0 w-full h-auto sm:h-screen flex flex-col items-center justify-start sm:justify-center overflow-hidden pt-28 sm:pt-0">
+    <section id="hero" ref={containerRef} className="relative w-full h-[150vh] sm:h-[250vh] bg-transparent">
+      <div className="sticky top-0 w-full h-[100dvh] sm:h-screen flex flex-col items-center justify-center overflow-hidden">
         
         {/* Isometric Grid Background */}
         <div className="absolute inset-0 iso-grid opacity-30 pointer-events-none" />
 
         <motion.div
           style={{ scale: textScale, opacity: textOpacity, y: textY, willChange: isMobile ? "auto" : "transform, opacity" }}
-          className="relative z-10 flex flex-col items-start text-left w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 pt-8 sm:pt-24"
+          className="relative z-10 flex flex-col items-start text-left w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12"
         >
           {/* Left Side Content */}
           <div className="w-full lg:w-3/5">
