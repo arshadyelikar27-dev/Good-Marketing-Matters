@@ -34,14 +34,14 @@ export function Hero() {
 
   return (
     <section id="hero" ref={containerRef} className="relative w-full h-[150vh] sm:h-[250vh] bg-transparent">
-      <div className="sticky top-0 w-full h-[100dvh] sm:h-screen flex flex-col items-center justify-center overflow-hidden">
+      <div className="sticky top-0 w-full h-[100dvh] sm:h-screen flex flex-col items-center justify-center overflow-hidden pt-12 sm:pt-20 pb-4">
         
         {/* Isometric Grid Background */}
         <div className="absolute inset-0 iso-grid opacity-30 pointer-events-none" />
 
         <motion.div
           style={{ scale: textScale, opacity: textOpacity, y: textY, willChange: isMobile ? "auto" : "transform, opacity" }}
-          className="relative z-10 flex flex-col items-start text-left w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 sm:mt-24"
+          className="relative z-10 flex flex-col items-start text-left w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12"
         >
           {/* Left Side Content */}
           <div className="w-full lg:w-3/5">
@@ -62,7 +62,7 @@ export function Hero() {
                   hidden: { opacity: 0, y: 50 },
                   visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
                 }}
-                className="flex items-center whitespace-nowrap text-[11.5vw] sm:text-[11vw] md:text-[10vw] lg:text-[9vw] leading-[0.9] text-heading lowercase"
+                className="flex items-center whitespace-nowrap text-[11.5vw] sm:text-[10vw] md:text-[9vw] lg:text-[8vw] xl:text-[7.5vw] leading-[0.9] text-heading lowercase"
               >
                 <span>g</span>
                 <span className="inline-block w-[2.8em] h-[0.55em] border-[0.09em] border-heading bg-transparent rounded-full mx-[0.1em]" />
@@ -74,7 +74,7 @@ export function Hero() {
                   hidden: { opacity: 0, y: 50 },
                   visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
                 }}
-                className="text-[11.5vw] sm:text-[11vw] md:text-[10vw] lg:text-[9vw] leading-[0.9] text-heading lowercase"
+                className="text-[11.5vw] sm:text-[10vw] md:text-[9vw] lg:text-[8vw] xl:text-[7.5vw] leading-[0.9] text-heading lowercase"
               >
                 marketing
               </motion.div>
@@ -83,7 +83,7 @@ export function Hero() {
                   hidden: { opacity: 0, y: 50 },
                   visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
                 }}
-                className="text-[11.5vw] sm:text-[11vw] md:text-[10vw] lg:text-[9vw] leading-[0.9] text-heading lowercase"
+                className="text-[11.5vw] sm:text-[10vw] md:text-[9vw] lg:text-[8vw] xl:text-[7.5vw] leading-[0.9] text-heading lowercase"
               >
                 matters.
               </motion.div>
@@ -93,7 +93,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-4 sm:mt-8 md:mt-12 text-base sm:text-xl md:text-2xl font-medium text-accent max-w-xl tracking-wide normal-case text-left w-full ml-0 lg:ml-1"
+              className="mt-4 sm:mt-6 md:mt-8 text-base sm:text-xl md:text-2xl font-medium text-accent max-w-xl tracking-wide normal-case text-left w-full ml-0 lg:ml-1"
             >
               We build brands that are impossible to ignore.
             </motion.p>
@@ -102,7 +102,7 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-4 sm:mt-8 md:mt-12 flex justify-start ml-0 lg:ml-1"
+              className="mt-4 sm:mt-6 md:mt-8 flex justify-start ml-0 lg:ml-1"
             >
               <button 
                 data-cursor-text="Explore" 
@@ -159,7 +159,7 @@ export function Hero() {
         {/* Scroll Indicator — hidden on mobile for compact feel */}
         <motion.div
           style={{ opacity: textOpacity }}
-          className="absolute bottom-6 sm:bottom-12 left-6 sm:left-12 flex flex-col items-center gap-2 sm:gap-4"
+          className="absolute bottom-4 sm:bottom-6 left-6 sm:left-12 flex flex-col items-center gap-2 sm:gap-4"
         >
           <span className="text-[10px] sm:text-xs uppercase tracking-widest text-primary font-bold">Scroll</span>
           <div className="w-px h-8 sm:h-16 bg-gradient-to-b from-primary to-transparent overflow-hidden relative">
