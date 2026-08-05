@@ -116,10 +116,19 @@
   }
   html {
     font-family: var(--font-sans);
-    /* Native smooth scroll removed to fix Lenis conflict */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+  }
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
   }
   body {
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #040508 100%);

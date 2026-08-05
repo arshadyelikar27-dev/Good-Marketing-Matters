@@ -50,21 +50,19 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-5 flex flex-col">
             <ScrollReveal>
-              <Link href="/" className="relative inline-block w-full h-[40px] sm:h-[50px] mb-6 sm:mb-8 group">
-                <div className="absolute bottom-0 left-0 w-[200px] h-[90px] sm:w-[280px] sm:h-[120px] md:w-[400px] md:h-[160px] -ml-2">
-                  <Image
-                    src="/GMM_LOGO.png"
-                    alt="Good Marketing Matters"
-                    fill
-                    sizes="120px"
-                    className="object-contain object-left-bottom transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
+              <Link href="/" className="inline-block w-[140px] sm:w-[180px] md:w-[220px] mb-6 sm:mb-8 group">
+                <Image
+                  src="/FinalLogoWhite_Cropped.png"
+                  alt="Good Marketing Matters"
+                  width={600}
+                  height={600}
+                  className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                />
               </Link>
             </ScrollReveal>
-            
-            <TextReveal 
-              text="We engineer digital experiences that demand attention and drive uncompromising growth." 
+
+            <TextReveal
+              text="We engineer digital experiences that demand attention and drive uncompromising growth."
               className="text-white text-sm sm:text-lg md:text-xl font-medium max-w-md leading-relaxed flex flex-wrap"
               delay={0.2}
             />
@@ -123,7 +121,7 @@ export function Footer() {
           <div className="w-full py-8 sm:py-10 md:py-16 relative group overflow-hidden bg-transparent mb-10 sm:mb-16">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
             <button onClick={openContactModal} className="flex flex-col md:flex-row items-center justify-between w-full text-center md:text-left gap-4 sm:gap-6 md:gap-8 px-4 sm:px-6 md:px-16 relative z-10 cursor-pointer">
-              <motion.h2 
+              <motion.h2
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: false, amount: 0.2 }}
@@ -147,7 +145,7 @@ export function Footer() {
                   </span>
                 ))}
               </motion.h2>
-              <motion.div 
+              <motion.div
                 initial={{ scale: 0, rotate: -90 }}
                 whileInView={{ scale: 1, rotate: 0 }}
                 viewport={{ once: false, amount: 0.2 }}

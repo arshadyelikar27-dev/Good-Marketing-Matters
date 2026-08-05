@@ -9,6 +9,7 @@ import { Menu, X, ChevronRight } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { MagneticButton } from "@/components/magnetic-button";
 import { useModal } from "@/lib/modal-context";
+import { useLenis } from "@/components/lenis-provider";
 
 const navLinks = [
   { name: "Home", href: "#hero", id: "hero" },
@@ -21,12 +22,28 @@ const navLinks = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const lenis = useLenis();
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
   const { openScheduleModal } = useModal();
+
+  const handleNavClick = (e: React.MouseEvent, id: string, name: string) => {
+    setActiveSection(name);
+    if (pathname === "/" || pathname === "") {
+      const el = document.getElementById(id);
+      if (el) {
+        e.preventDefault();
+        if (lenis) {
+          lenis.scrollTo(el, { offset: -90, duration: 1.4 });
+        } else {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+  };
 
   // Track scroll depth for background opacity and logo shrink
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -120,7 +137,7 @@ export function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  onClick={() => setActiveSection(link.name)}
+                  onClick={(e) => handleNavClick(e, link.id, link.name)}
                   onMouseEnter={() => setHoveredTab(link.name)}
                   onMouseLeave={() => setHoveredTab(null)}
                   className={cn(
@@ -316,8 +333,8 @@ export function Navbar() {
                           ? "text-primary bg-primary/10 border border-primary/30"
                           : "text-heading hover:text-accent hover:bg-black/5 border border-transparent"
                       )}
-                      onClick={() => {
-                        setActiveSection(link.name);
+                      onClick={(e) => {
+                        handleNavClick(e, link.id, link.name);
                         setMobileMenuOpen(false);
                       }}
                     >

@@ -116,8 +116,9 @@ export function ParticleBackground() {
       canvas.height = window.innerHeight;
       stars = [];
       
-      // Huge amount of particles (up to 800) for a dense space field
-      const particleCount = Math.min(window.innerWidth, 800); 
+      // Optimized particle count for stable 60fps rendering
+      const isMobile = window.innerWidth < 768;
+      const particleCount = isMobile ? 120 : 250; 
       for (let i = 0; i < particleCount; i++) {
         stars.push(new Star(canvas.width, canvas.height));
       }
