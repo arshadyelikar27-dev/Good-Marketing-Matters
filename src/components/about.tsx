@@ -122,7 +122,7 @@ export function AboutAnimation() {
                     <span className="inline-block px-3 sm:px-5 py-1.5 sm:py-2 rounded-full bg-primary/15 text-primary font-bold tracking-widest text-xs sm:text-sm mb-3 sm:mb-6 border border-primary/30 w-fit">
                       {item.year}
                     </span>
-                    <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-heading mb-2 sm:mb-4 uppercase tracking-tight group-hover:text-primary transition-colors duration-300">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-heading mb-2 sm:mb-4 uppercase tracking-tight group-hover:text-accent transition-colors duration-300">
                       {item.title}
                     </h3>
                     <p className="text-heading text-sm sm:text-base md:text-lg leading-relaxed">

@@ -314,7 +314,7 @@ export function Navbar() {
                         "flex items-center justify-between py-3.5 px-4 rounded-2xl font-bold text-base transition-all",
                         activeSection === link.name
                           ? "text-primary bg-primary/10 border border-primary/30"
-                          : "text-heading hover:text-primary hover:bg-black/5 border border-transparent"
+                          : "text-heading hover:text-accent hover:bg-black/5 border border-transparent"
                       )}
                       onClick={() => {
                         setActiveSection(link.name);

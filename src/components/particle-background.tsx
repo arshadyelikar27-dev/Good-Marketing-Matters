@@ -74,20 +74,11 @@ class Star {
 
   draw(ctx: CanvasRenderingContext2D, drawX: number, drawY: number) {
     ctx.globalAlpha = Math.max(0, Math.min(1, this.opacity));
-    ctx.fillStyle = "#ffffff"; // Always white particles as requested
-    
-    // Draw with slight glow for closer stars
-    if (this.z < 2) {
-      ctx.shadowBlur = 5;
-      ctx.shadowColor = "#ffffff";
-    } else {
-      ctx.shadowBlur = 0;
-    }
+    ctx.fillStyle = "#ffffff";
 
     ctx.beginPath();
     ctx.arc(drawX, drawY, this.size, 0, Math.PI * 2);
     ctx.fill();
-    ctx.shadowBlur = 0; // Reset
   }
 }
 
@@ -107,7 +98,7 @@ export function ParticleBackground() {
     const handleMouseMove = (e: MouseEvent) => {
       mousePos.current = { x: e.clientX, y: e.clientY };
     };
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 

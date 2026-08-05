@@ -91,9 +91,9 @@ export function Footer() {
                   <Link
                     key={item}
                     href="#"
-                    className="text-lg font-medium text-white hover:text-primary transition-colors duration-300 w-fit group flex items-center gap-2"
+                    className="text-lg font-medium text-white hover:text-accent transition-colors duration-300 w-fit group flex items-center gap-2"
                   >
-                    <span className="w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-4" />
+                    <span className="w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-4" />
                     {item}
                   </Link>
                 ))}
@@ -101,17 +101,17 @@ export function Footer() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.4} className="flex flex-col gap-6">
-              <h4 className="text-xl font-bold uppercase tracking-widest text-primary mb-4">Contact</h4>
+              <h4 className="text-xl font-bold uppercase tracking-widest text-accent mb-4">Contact</h4>
 
-              <div className="flex items-start gap-4 text-white group cursor-pointer hover:text-primary transition-colors">
-                <MapPin className="w-6 h-6 shrink-0 mt-1 text-primary group-hover:text-primary transition-colors" />
+              <div className="flex items-start gap-4 text-white group cursor-pointer hover:text-accent transition-colors">
+                <MapPin className="w-6 h-6 shrink-0 mt-1 text-accent group-hover:text-accent transition-colors" />
                 <p className="text-lg font-medium leading-relaxed">
                   Walmmiki Nagar, Latur-413512
                 </p>
               </div>
 
-              <div className="flex items-center gap-4 text-white mt-4 group cursor-pointer hover:text-primary transition-colors">
-                <Mail className="w-6 h-6 shrink-0 text-primary group-hover:text-primary transition-colors" />
+              <div className="flex items-center gap-4 text-white mt-4 group cursor-pointer hover:text-accent transition-colors">
+                <Mail className="w-6 h-6 shrink-0 text-accent group-hover:text-accent transition-colors" />
                 <p className="text-lg font-medium">goodmarketingmatters.co</p>
               </div>
             </ScrollReveal>
@@ -165,8 +165,8 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 pt-6 sm:pt-8 text-white text-sm sm:text-base font-medium">
             <p>© {new Date().getFullYear()} GMM. All rights reserved.</p>
             <div className="flex gap-8 text-sm uppercase tracking-widest">
-              <Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link>
-              <Link href="#" className="hover:text-primary transition-colors">Terms of Service</Link>
+              <Link href="#" className="hover:text-accent transition-colors">Privacy Policy</Link>
+              <Link href="#" className="hover:text-accent transition-colors">Terms of Service</Link>
             </div>
           </div>
         </ScrollReveal>

@@ -79,7 +79,7 @@ function TestimonialCard({ img, name, username, body, country }: (typeof testimo
             <AvatarFallback>{name[0]}</AvatarFallback>
           </Avatar>
           <div className="flex flex-col">
-            <figcaption className="text-sm font-bold text-heading flex items-center gap-1 group-hover:text-primary transition-colors">
+            <figcaption className="text-sm font-bold text-heading flex items-center gap-1 group-hover:text-accent transition-colors">
               {name} <span className="text-xs font-normal text-body-text">{country}</span>
             </figcaption>
             <p className="text-xs font-medium text-primary">{username}</p>

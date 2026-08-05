@@ -16,7 +16,7 @@ export function Clients() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-8 sm:mb-16 text-center relative z-10">
-        <h2 className="text-base sm:text-xl md:text-2xl font-bold uppercase text-primary tracking-widest">
+        <h2 className="text-base sm:text-xl md:text-2xl font-bold uppercase text-accent tracking-widest">
           Trusted by visionaries
         </h2>
       </div>
@@ -39,7 +39,7 @@ export function Clients() {
             {[...items, ...items, ...items, ...items].map((item, i) => (
               <span
                 key={i}
-                className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/20 to-white/5 transition-all duration-500 cursor-default group-hover:blur-sm hover:!blur-none hover:!text-primary hover:scale-110"
+                className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/20 to-white/5 transition-all duration-500 cursor-default group-hover:blur-sm hover:!blur-none hover:!text-accent hover:scale-110"
               >
                 {item}
               </span>
@@ -61,7 +61,7 @@ export function Clients() {
             {[...items, ...items, ...items, ...items].map((item, i) => (
               <span
                 key={i}
-                className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter cursor-default transition-all duration-500 group-hover:blur-sm hover:!blur-none hover:!text-primary hover:scale-110 hover:!stroke-none"
+                className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter cursor-default transition-all duration-500 group-hover:blur-sm hover:!blur-none hover:!text-accent hover:scale-110 hover:!stroke-none"
                 style={{
                   WebkitTextStroke: "2px rgba(255, 255, 255, 0.1)",
                   color: "transparent",

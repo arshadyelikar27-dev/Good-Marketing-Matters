@@ -93,7 +93,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-4 sm:mt-8 md:mt-12 text-base sm:text-xl md:text-2xl font-medium text-primary max-w-xl tracking-wide normal-case text-center lg:text-left w-full lg:ml-1"
+              className="mt-4 sm:mt-8 md:mt-12 text-base sm:text-xl md:text-2xl font-medium text-body-text max-w-xl tracking-wide normal-case text-center lg:text-left w-full lg:ml-1"
             >
               We build brands that are impossible to ignore.
             </motion.p>

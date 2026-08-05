@@ -63,7 +63,7 @@ export function FAQ() {
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   className="w-full flex items-center justify-between p-4 sm:p-6 md:p-8 text-left focus:outline-none"
                 >
-                  <span className={`text-sm sm:text-lg md:text-xl font-bold tracking-tight transition-colors duration-300 ${isOpen ? "text-primary" : "text-heading group-hover:text-primary"}`}>
+                  <span className={`text-sm sm:text-lg md:text-xl font-bold tracking-tight transition-colors duration-300 ${isOpen ? "text-accent" : "text-heading group-hover:text-accent"}`}>
                     {faq.question}
                   </span>
                   <motion.div

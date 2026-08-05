@@ -133,7 +133,7 @@ export default function ServicePage() {
                   )}
 
                   <div className="relative z-10 mt-auto">
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold uppercase tracking-tight text-heading mb-2 sm:mb-4 group-hover:text-primary transition-colors duration-500">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold uppercase tracking-tight text-heading mb-2 sm:mb-4 group-hover:text-accent transition-colors duration-500">
                       {sub.title}
                     </h3>
                     <p className="text-body-text text-sm sm:text-base md:text-lg leading-relaxed font-medium">

@@ -93,7 +93,7 @@ export function CursorRevealCard({ service }: CursorRevealCardProps) {
           <ServiceIcon className={`w-6 h-6 sm:w-8 sm:h-8 ${isMobile ? 'text-primary' : 'group-hover:text-accent'} transition-colors`} />
         </div>
         <div>
-          <h3 className={`text-lg sm:text-2xl font-semibold mb-1 sm:mb-2 group-hover:text-primary transition-colors`}>{service.title}</h3>
+          <h3 className={`text-lg sm:text-2xl font-semibold mb-1 sm:mb-2 group-hover:text-accent transition-colors`}>{service.title}</h3>
           <p className={`text-sm sm:text-base max-w-md text-body-text transition-colors line-clamp-2`}>{service.shortDescription}</p>
         </div>
       </div>
