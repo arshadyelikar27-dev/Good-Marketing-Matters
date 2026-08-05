@@ -24,19 +24,19 @@ import type { ElementType } from 'react';
 import { FaYoutube, FaGoogle, FaWordpress, FaApple, FaAndroid, FaReact } from 'react-icons/fa';
 import { FaMeta } from 'react-icons/fa6';
 
-export interface SubService {
+interface SubService {
   icon: ElementType;
   title: string;
   description: string;
   image?: string;
 }
 
-export interface WhyChooseItem {
+interface WhyChooseItem {
   title: string;
   description: string;
 }
 
-export interface ProcessStep {
+interface ProcessStep {
   step: string;
   title: string;
   description: string;
