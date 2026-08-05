@@ -131,7 +131,7 @@ export function Footer() {
                   visible: { transition: { staggerChildren: 0.08 } },
                   hidden: {},
                 }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tight text-white uppercase group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-primary transition-all duration-500 flex flex-wrap justify-center md:justify-start"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tight text-white uppercase transition-all duration-500 flex flex-wrap justify-center md:justify-start"
               >
                 {"Ready to dominate?".split(" ").map((word, i) => (
                   <span key={i} className="inline-flex overflow-hidden mr-[0.3em] pb-2 -mb-2">

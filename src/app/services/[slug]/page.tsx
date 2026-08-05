@@ -246,11 +246,9 @@ export default function ServicePage() {
             transition={{ duration: 1, ease: EASE }}
             className="relative overflow-hidden bg-transparent p-6 sm:p-10 md:p-16 lg:p-24 text-center group"
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            
             <div className="relative z-10 flex flex-col items-center">
               <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-black uppercase tracking-tighter mb-4 sm:mb-6 md:mb-8 max-w-4xl text-balance break-words hyphens-auto w-full">
-                Ready to redefine your <span className="text-primary">brand&apos;s trajectory?</span>
+                Ready to redefine your brand&apos;s trajectory?
               </h2>
               <p className="text-body-text text-base sm:text-lg md:text-2xl font-medium mb-6 sm:mb-8 md:mb-12 max-w-2xl text-balance">
                 Let&apos;s orchestrate a strategy that places you at the forefront of your industry.
