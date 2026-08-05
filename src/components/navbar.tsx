@@ -99,28 +99,28 @@ export function Navbar() {
       <motion.nav
         initial={{ y: 0, opacity: 1 }}
         animate={{ y: 0, opacity: 1 }}
-        className="fixed top-0 inset-x-0 z-50 pt-6 px-4 flex justify-center pointer-events-none"
+        className="fixed top-0 inset-x-0 z-50 pt-3 sm:pt-6 px-2 sm:px-4 flex justify-center pointer-events-none"
       >
         <div
           className={cn(
-            "pointer-events-auto flex items-center justify-between px-5 sm:px-7 py-3 rounded-full transition-all duration-500 w-full max-w-5xl border shadow-xl",
+            "pointer-events-auto flex items-center justify-between px-4 sm:px-7 py-2 sm:py-3 rounded-full transition-all duration-500 w-full max-w-5xl border shadow-xl",
             isScrolled
-              ? "bg-surface/95 backdrop-blur-[20px] border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.3)] py-2.5"
+              ? "bg-surface/95 backdrop-blur-[20px] border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.3)] py-1.5 sm:py-2.5"
               : "bg-surface/80 backdrop-blur-[10px] border-white/5"
           )}
         >
           {/* LOGO */}
-          <Link href="/" className="flex items-center group relative w-[60px] sm:w-[80px] h-10 sm:h-12 z-20 shrink-0">
+          <Link href="/" className="flex items-center group relative w-[45px] sm:w-[80px] h-8 sm:h-12 z-20 shrink-0">
             <motion.div
               animate={{ scale: isScrolled ? 0.9 : 1 }}
               transition={{ duration: 0.3 }}
-              className="absolute left-[-20px] sm:left-[-10px] top-1/2 -translate-y-1/2 mt-2 w-[145px] h-[145px] transition-transform hover:scale-105"
+              className="absolute left-[-22px] sm:left-[-10px] top-1/2 -translate-y-1/2 mt-2 w-[110px] sm:w-[145px] h-[110px] sm:h-[145px] transition-transform hover:scale-105"
             >
               <Image 
                 src="/Logo.png" 
                 alt="GMM Logo" 
                 fill
-                sizes="145px"
+                sizes="(max-width: 640px) 110px, 145px"
                 className="object-contain"
                 priority
               />
@@ -263,11 +263,11 @@ export function Navbar() {
 
           {/* MOBILE MENU TOGGLE */}
           <button
-            className="md:hidden text-white p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors focus:outline-none"
+            className="md:hidden text-white p-1.5 sm:p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors focus:outline-none"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Navigation Menu"
           >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileMenuOpen ? <X size={20} className="sm:w-[22px] sm:h-[22px]" /> : <Menu size={20} className="sm:w-[22px] sm:h-[22px]" />}
           </button>
         </div>
       </motion.nav>
