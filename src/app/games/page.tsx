@@ -85,7 +85,7 @@ function MemoryMatchGame() {
         </div>
         <button
           onClick={initializeGame}
-          className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-white text-xs font-black hover:bg-primary-hover transition-all duration-300 shadow-[0_0_15px_rgba(212, 224, 0,0.3)] cursor-pointer"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-white text-xs font-black hover:bg-primary-hover transition-all duration-300 cursor-pointer"
         >
           <RotateCcw className="w-3.5 h-3.5" /> Restart
         </button>
@@ -101,7 +101,7 @@ function MemoryMatchGame() {
             onClick={() => handleCardClick(card.id)}
             className={`aspect-square rounded-2xl flex items-center justify-center text-3xl font-bold cursor-pointer transition-all duration-300 border ${
               card.matched
-                ? "bg-primary/20 text-primary border-primary shadow-[0_0_20px_rgba(212, 224, 0,0.4)]"
+                ? "bg-primary/20 text-primary border-primary"
                 : card.flipped
                 ? "bg-surface text-heading border-2 border-primary shadow-2xl scale-105"
                 : "bg-surface/80 text-heading border-border hover:border-primary/60 hover:shadow-lg"
@@ -119,7 +119,7 @@ function MemoryMatchGame() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
-            className="mt-8 p-8 bg-surface border-2 border-primary text-heading rounded-3xl text-center shadow-[0_0_40px_rgba(212, 224, 0,0.3)] w-full max-w-md"
+            className="mt-8 p-8 bg-surface border-2 border-primary text-heading rounded-3xl text-center w-full max-w-md"
           >
             <Sparkles className="w-12 h-12 mx-auto mb-3 text-primary animate-bounce" />
             <h3 className="font-heading font-black text-3xl mb-1 text-primary">Congratulations!</h3>
@@ -229,7 +229,7 @@ function TicTacToeGame() {
             onClick={() => handleClick(idx)}
             className={`rounded-2xl text-4xl sm:text-5xl font-black flex items-center justify-center transition-all duration-300 border cursor-pointer ${
               cell === "X"
-                ? "bg-surface text-primary border-2 border-primary shadow-[0_0_15px_rgba(212, 224, 0,0.4)]"
+                ? "bg-surface text-primary border-2 border-primary"
                 : cell === "O"
                 ? "bg-white text-heading border-2 border-white shadow-xl"
                 : "bg-surface/80 text-heading border-border hover:border-primary/60"
@@ -253,7 +253,7 @@ function TicTacToeGame() {
         </span>
         <button
           onClick={resetGame}
-          className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-primary text-white text-xs font-black hover:bg-primary-hover transition-all duration-300 shadow-[0_0_15px_rgba(212, 224, 0,0.3)] cursor-pointer"
+          className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-primary text-white text-xs font-black hover:bg-primary-hover transition-all duration-300 cursor-pointer"
         >
           <RotateCcw className="w-3.5 h-3.5" /> Next Round
         </button>
@@ -337,7 +337,7 @@ function RockPaperScissorsGame() {
               key={playerChoice || "none"}
               initial={{ scale: 0.5 }}
               animate={{ scale: 1 }}
-              className="w-24 h-24 rounded-2xl bg-surface border-2 border-primary text-heading flex items-center justify-center text-5xl shadow-[0_0_20px_rgba(212, 224, 0,0.3)]"
+              className="w-24 h-24 rounded-2xl bg-surface border-2 border-primary text-heading flex items-center justify-center text-5xl"
             >
               {getEmoji(playerChoice)}
             </motion.div>
@@ -366,7 +366,7 @@ function RockPaperScissorsGame() {
             animate={{ opacity: 1, y: 0 }}
             className={`mt-6 text-lg font-black font-heading px-6 py-2 rounded-full border shadow-lg ${
               result === "win"
-                ? "bg-primary text-white border-primary shadow-[0_0_20px_rgba(212, 224, 0,0.4)]"
+                ? "bg-primary text-white border-primary"
                 : result === "lose"
                 ? "bg-surface text-heading border-border"
                 : "bg-surface text-heading border-border"
@@ -452,7 +452,7 @@ function ReflexTestGame() {
             : state === "waiting"
             ? "bg-red-500/90 text-white border-2 border-red-500 animate-pulse"
             : state === "ready"
-            ? "bg-primary text-white border-2 border-primary scale-[1.03] shadow-[0_0_50px_rgba(212, 224, 0,0.8)]"
+            ? "bg-primary text-white border-2 border-primary scale-[1.03]"
             : "bg-primary/20 text-primary border-2 border-primary"
         }`}
       >
@@ -525,8 +525,7 @@ function GamesPageContent() {
         }} 
       />
 
-      {/* Blurred Ambient Glow Orbs */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] bg-primary/10 rounded-full blur-[160px] pointer-events-none" />
+      {/* Blurred Ambient Glow Orbs removed */}
 
       <div className="container mx-auto px-4 sm:px-6 pt-8 sm:pt-10 pb-24 relative z-10 max-w-5xl flex-1 flex flex-col">
         {/* Top Navbar */}
@@ -569,7 +568,7 @@ function GamesPageContent() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-2 px-4 sm:px-6 py-3 rounded-full font-black text-xs sm:text-sm transition-all duration-300 whitespace-nowrap cursor-pointer ${
                   isActive
-                    ? "bg-primary text-white border border-primary shadow-[0_0_20px_rgba(212, 224, 0,0.4)] scale-105"
+                    ? "bg-primary text-white border border-primary scale-105"
                     : "bg-surface text-heading border border-border hover:border-primary/50 hover:text-primary"
                 }`}
               >

@@ -45,7 +45,7 @@ export function CursorRevealCard({ service }: CursorRevealCardProps) {
       onMouseEnter={() => !isMobile && setIsHovered(true)}
       onMouseLeave={() => !isMobile && setIsHovered(false)}
       onMouseMove={handleMouseMove}
-      className="group relative flex items-center justify-between p-4 sm:p-8 rounded-2xl glass-panel transition-all hover:bg-white/5 overflow-hidden"
+      className="group relative flex items-center justify-between p-4 sm:p-8 rounded-2xl transition-all hover:bg-white/5 overflow-hidden"
     >
       {/* On mobile: show image directly as background. On desktop: cursor-follow reveal */}
       {service.imageUrl && (
@@ -88,19 +88,19 @@ export function CursorRevealCard({ service }: CursorRevealCardProps) {
       )}
 
       {/* Content */}
-      <div className={`flex items-center gap-4 sm:gap-6 relative z-10 ${isMobile ? 'text-heading' : 'mix-blend-difference text-white'}`}>
+      <div className={`flex items-center gap-4 sm:gap-6 relative z-10 text-heading`}>
         <div className={`p-3 sm:p-4 rounded-xl ${isMobile ? 'bg-primary/10' : 'bg-white/10 group-hover:bg-primary/20'} transition-colors`}>
           <ServiceIcon className={`w-6 h-6 sm:w-8 sm:h-8 ${isMobile ? 'text-primary' : 'group-hover:text-accent'} transition-colors`} />
         </div>
         <div>
-          <h3 className={`text-lg sm:text-2xl font-semibold mb-1 sm:mb-2 ${isMobile ? 'text-heading' : 'group-hover:text-white'} transition-colors`}>{service.title}</h3>
-          <p className={`text-sm sm:text-base max-w-md ${isMobile ? 'text-body-text line-clamp-2' : 'text-white group-hover:text-white'} transition-colors`}>{service.shortDescription}</p>
+          <h3 className={`text-lg sm:text-2xl font-semibold mb-1 sm:mb-2 group-hover:text-primary transition-colors`}>{service.title}</h3>
+          <p className={`text-sm sm:text-base max-w-md text-body-text transition-colors line-clamp-2`}>{service.shortDescription}</p>
         </div>
       </div>
       
       {/* Icon */}
-      <div className={`p-3 sm:p-4 rounded-full ${isMobile ? 'bg-primary/10' : 'bg-white/5 group-hover:bg-primary'} transition-colors relative z-10 ${isMobile ? 'text-primary' : 'mix-blend-difference text-white'}`}>
-        <ArrowUpRight className={`w-5 h-5 sm:w-6 sm:h-6 ${isMobile ? '' : 'group-hover:text-white'} transition-colors`} />
+      <div className={`p-3 sm:p-4 rounded-full ${isMobile ? 'bg-primary/10' : 'bg-white/5 group-hover:bg-primary'} transition-colors relative z-10 text-heading`}>
+        <ArrowUpRight className={`w-5 h-5 sm:w-6 sm:h-6 group-hover:text-background transition-colors`} />
       </div>
     </Link>
   );

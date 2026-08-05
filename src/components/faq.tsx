@@ -27,11 +27,8 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="w-full py-16 sm:py-24 md:py-32 bg-background relative overflow-hidden">
-      {/* Background neon lines */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-      <div className="absolute bottom-0 right-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-
+    <section id="faq" className="w-full py-16 sm:py-24 md:py-32 bg-transparent relative overflow-hidden">
+      {/* No neon lines as requested */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -39,7 +36,7 @@ export function FAQ() {
           viewport={{ once: false, amount: 0.15 }}
           className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tighter text-heading drop-shadow-[0_0_15px_rgba(104, 17, 201,0.3)]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tighter text-heading">
             Got Questions?
           </h2>
           <p className="mt-3 sm:mt-4 text-sm sm:text-base text-heading">Everything you need to know about partnering with GMM.</p>
@@ -56,10 +53,10 @@ export function FAQ() {
                 viewport={{ once: false, amount: 0.15 }}
                 transition={{ delay: index * 0.1 }}
                 key={index} 
-                className={`group border rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-500 bg-white/40 backdrop-blur-md shadow-lg ${
+                className={`group rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-500 bg-transparent ${
                   isOpen 
-                    ? "border-primary shadow-[0_0_20px_rgba(104, 17, 201,0.2)]" 
-                    : "border-black/10 hover:border-primary/50"
+                    ? "border-transparent" 
+                    : "border-transparent"
                 }`}
               >
                 <button

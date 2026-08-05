@@ -70,7 +70,7 @@ export function GamesToggle() {
           whileHover={{ x: -5 }}
           whileTap={{ scale: 0.92 }}
           aria-label="Open Mini Games"
-          className="relative flex flex-col items-center justify-center gap-3 px-3 py-6 bg-card border border-primary/40 border-r-0 rounded-l-2xl text-heading shadow-[-6px_0px_30px_rgba(104,17,201,0.1)] hover:shadow-[-10px_0px_40px_rgba(104,17,201,0.2)] hover:border-primary/80 hover:bg-card transition-all duration-300 group"
+          className="relative flex flex-col items-center justify-center gap-3 px-3 py-6 bg-card border border-primary/40 border-r-0 rounded-l-2xl text-heading hover:border-primary/80 transition-all duration-300 group"
         >
           {/* Top & bottom accent lines */}
           <span className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
@@ -210,7 +210,7 @@ export function GamesToggle() {
                         <motion.div
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
-                          className="absolute inset-0 bg-primary/20 backdrop-blur-[2px] flex items-center justify-center font-heading font-bold text-white"
+                          className="absolute inset-0 bg-primary/20 flex items-center justify-center font-heading font-bold text-white"
                         >
                           Launching Game...
                         </motion.div>

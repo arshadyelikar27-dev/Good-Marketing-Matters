@@ -159,7 +159,7 @@ export function ProjectModal() {
                         }
                         className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                           formData.service === srv
-                            ? "bg-primary text-white shadow-[0_0_15px_rgba(104,17,201,0.2)]"
+                            ? "bg-primary text-white"
                             : "bg-surface text-heading border border-border hover:bg-primary/5 hover:text-primary"
                         }`}
                       >
@@ -189,7 +189,7 @@ export function ProjectModal() {
                 <button
                   type="submit"
                   disabled={!formData.name || !formData.email || !formData.message}
-                  className="mt-2 w-full bg-primary text-white font-medium py-4 rounded-xl hover:bg-primary-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_4px_20px_rgba(104,17,201,0.15)]"
+                  className="mt-2 w-full bg-primary text-white font-medium py-4 rounded-xl hover:bg-primary-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Send Message
                 </button>
@@ -200,7 +200,7 @@ export function ProjectModal() {
                 animate={{ opacity: 1, scale: 1 }}
                 className="p-10 md:p-16 flex flex-col items-center text-center gap-4"
               >
-                <div className="w-24 h-24 bg-green-500/20 rounded-full flex items-center justify-center mb-4 shadow-[0_0_40px_rgba(34,197,94,0.3)]">
+                <div className="w-24 h-24 bg-green-500/20 rounded-full flex items-center justify-center mb-4">
                   <CheckCircle2 className="w-12 h-12 text-green-500" />
                 </div>
                 <h3 className="text-3xl font-semibold text-heading tracking-tight">

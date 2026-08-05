@@ -82,9 +82,7 @@ export function ContactModal() {
               <X size={20} />
             </button>
 
-            {/* Decorative Glow inside modal */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full blur-[80px] pointer-events-none" />
+            {/* Background neon glows removed */}
 
             {!isSuccess ? (
               <div className="p-8 relative z-10">
@@ -168,7 +166,7 @@ export function ContactModal() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="mt-4 w-full bg-primary hover:bg-primary-hover text-white font-medium text-lg h-14 rounded-xl flex items-center justify-center gap-2 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_4px_20px_rgba(104,17,201,0.2)]"
+                    className="mt-4 w-full bg-primary hover:bg-primary-hover text-white font-medium text-lg h-14 rounded-xl flex items-center justify-center gap-2 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? "Sending..." : (
                       <>
@@ -186,7 +184,7 @@ export function ContactModal() {
                 animate={{ opacity: 1, scale: 1 }}
                 className="p-12 flex flex-col items-center text-center gap-4 relative z-10"
               >
-                <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-2 shadow-[0_0_30px_rgba(34,197,94,0.3)]">
+                <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-2">
                   <CheckCircle2 className="w-10 h-10 text-green-500" />
                 </div>
                 <h3 className="text-3xl font-semibold text-heading tracking-tight">

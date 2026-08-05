@@ -88,8 +88,8 @@ export function Navbar() {
           className={cn(
             "pointer-events-auto flex items-center justify-between px-5 sm:px-7 py-3 rounded-full transition-all duration-500 w-full max-w-5xl border shadow-xl",
             isScrolled
-              ? "bg-foreground/95 backdrop-blur-[20px] border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.3)] py-2.5"
-              : "bg-foreground/80 backdrop-blur-[10px] border-white/5"
+              ? "bg-surface/95 backdrop-blur-[20px] border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.3)] py-2.5"
+              : "bg-surface/80 backdrop-blur-[10px] border-white/5"
           )}
         >
           {/* LOGO */}
@@ -104,7 +104,7 @@ export function Navbar() {
                 alt="GMM Logo" 
                 fill
                 sizes="145px"
-                className="object-contain drop-shadow-[0_0_15px_rgba(224, 243, 71,0.2)]"
+                className="object-contain"
                 priority
               />
             </motion.div>
@@ -128,11 +128,12 @@ export function Navbar() {
                     isActive ? "text-white font-bold" : "text-white/70 hover:text-white"
                   )}
                 >
+
                   {/* Active Radius Indicator Pill */}
                   {isActive && (
                     <motion.div
                       layoutId="activeSectionPill"
-                      className="absolute inset-0 bg-primary/90 border border-primary/20 rounded-full shadow-[0_0_15px_rgba(104,17,201,0.2)]"
+                      className="absolute inset-0 bg-primary/90 border border-primary/20 rounded-full"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -148,7 +149,7 @@ export function Navbar() {
                       <div className="relative w-9 h-9">
                         {/* Face */}
                         <motion.div
-                          className="absolute w-8 h-8 bg-white rounded-full left-1/2 -translate-x-1/2 shadow-[0_0_10px_rgba(104, 17, 201,0.4)]"
+                          className="absolute w-8 h-8 bg-white rounded-full left-1/2 -translate-x-1/2"
                           animate={
                             isHovered
                               ? { scale: [1, 1.1, 1], rotate: [0, -5, 5, 0] }
@@ -208,7 +209,7 @@ export function Navbar() {
 
                         {/* Diamond pointer below face */}
                         <motion.div
-                          className="absolute -bottom-1 left-1/2 w-3 h-3 -translate-x-1/2 bg-white rotate-45 shadow-[0_0_6px_rgba(104, 17, 201,0.3)]"
+                          className="absolute -bottom-1 left-1/2 w-3 h-3 -translate-x-1/2 bg-white rotate-45"
                           animate={
                             isHovered
                               ? { y: [0, -3, 0] }
@@ -237,7 +238,7 @@ export function Navbar() {
           <MagneticButton className="hidden md:flex" strength={0.5}>
             <button
               onClick={openScheduleModal}
-              className="px-6 py-2.5 rounded-full bg-primary text-white font-bold text-sm shadow-[0_4px_20px_rgba(104,17,201,0.3)] hover:shadow-[0_8px_30px_rgba(224,243,71,0.5)] hover:border hover:border-accent hover:bg-primary transition-all duration-300 active:scale-[0.96] block"
+              className="px-6 py-2.5 rounded-full bg-primary text-white font-bold text-sm hover:border hover:border-accent hover:bg-primary transition-all duration-300 active:scale-[0.96] block"
             >
               Let&apos;s Talk
             </button>
@@ -344,7 +345,7 @@ export function Navbar() {
                       setMobileMenuOpen(false);
                       openScheduleModal();
                     }}
-                    className="relative overflow-hidden flex items-center justify-center px-6 py-4 rounded-2xl bg-primary text-primary-foreground font-black text-base w-full shadow-[0_0_30px_rgba(104, 17, 201,0.35)] group"
+                    className="relative overflow-hidden flex items-center justify-center px-6 py-4 rounded-2xl bg-primary text-primary-foreground font-black text-base w-full group"
                   >
                     <span className="relative z-10">Let&apos;s Talk →</span>
                     <span className="absolute -inset-full w-[200%] h-[200%] bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:animate-shine pointer-events-none" />

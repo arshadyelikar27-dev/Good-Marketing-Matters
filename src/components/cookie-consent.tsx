@@ -70,7 +70,7 @@ export function CookieConsent() {
                 onClick={accept}
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
-                className="flex-1 sm:flex-none px-5 py-2 rounded-xl text-xs font-black bg-primary text-primary-foreground shadow-[0_4px_15px_rgba(104, 17, 201,0.35)] hover:shadow-[0_6px_20px_rgba(104, 17, 201,0.55)] transition-all duration-200"
+                className="flex-1 sm:flex-none px-5 py-2 rounded-xl text-xs font-black bg-primary text-primary-foreground transition-all duration-200"
               >
                 Accept All
               </motion.button>

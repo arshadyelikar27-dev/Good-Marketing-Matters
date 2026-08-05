@@ -4,9 +4,9 @@ import { Analytics } from "@vercel/analytics/next";
 import { LenisProvider } from "@/components/lenis-provider";
 import { Navbar } from "@/components/navbar";
 import { CustomCursor } from "@/components/cursor";
+import { ParticleBackground } from "@/components/particle-background";
 import { GamesToggle } from "@/components/games-toggle";
 import { ScrollProgress } from "@/components/scroll-progress";
-import { AnimatedBackground } from "@/components/animated-background";
 import { FloatingContactButtons } from "@/components/floating-contact-buttons";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { CookieConsent } from "@/components/cookie-consent";
@@ -132,8 +132,8 @@ export default function RootLayout({
         <link rel="canonical" href={siteUrl} />
       </head>
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground overflow-x-hidden selection:bg-primary selection:text-primary-foreground cursor-none md:cursor-auto">
+        <ParticleBackground />
         <ScrollProgress />
-        <AnimatedBackground />
         <CustomCursor />
         <PageTransition />
         <ModalProvider>

@@ -43,11 +43,9 @@ export function AboutAnimation() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section id="about" ref={containerRef} className="relative w-full py-16 sm:py-24 lg:py-48 bg-background overflow-hidden">
+    <section id="about" ref={containerRef} className="relative w-full py-16 sm:py-24 lg:py-48 bg-transparent overflow-hidden">
       
-      {/* Background Orbs */}
-      <div className="absolute top-[10%] right-[5%] w-96 h-96 bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-[10%] left-[5%] w-96 h-96 bg-black/5 rounded-full blur-[150px] pointer-events-none" />
+      {/* Background neon glows removed */}
 
       {/* Header */}
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 mb-16 sm:mb-24 md:mb-40 text-center relative z-10">
@@ -57,7 +55,7 @@ export function AboutAnimation() {
           viewport={{ once: false, amount: 0.2 }}
           className="text-3xl sm:text-4xl md:text-5xl lg:text-[5rem] font-black uppercase tracking-tighter text-heading mb-4 sm:mb-6"
         >
-          Our <span className="text-primary drop-shadow-[0_0_20px_rgba(104,17,201,0.3)]">Journey</span>
+          Our <span className="text-primary">Journey</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 30 }}
@@ -79,7 +77,7 @@ export function AboutAnimation() {
         {/* The animated filled line */}
         <motion.div 
           style={{ height: lineHeight }}
-          className="absolute left-[28px] sm:left-[40px] md:left-1/2 top-0 w-0.5 sm:w-1 bg-primary -translate-x-1/2 rounded-full shadow-[0_0_15px_rgba(104,17,201,0.5)] origin-top z-0"
+          className="absolute left-[28px] sm:left-[40px] md:left-1/2 top-0 w-0.5 sm:w-1 bg-primary -translate-x-1/2 rounded-full origin-top z-0"
         />
 
         <div className="relative z-10 flex flex-col gap-8 sm:gap-12 md:gap-0">
@@ -98,12 +96,12 @@ export function AboutAnimation() {
                   viewport={{ once: false, amount: 0.5 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.2 }}
                   className={cn(
-                    "absolute left-0 md:left-1/2 -translate-x-0 md:-translate-x-1/2 w-14 h-14 sm:w-20 sm:h-20 rounded-full border-4 border-background bg-surface flex items-center justify-center z-10 shadow-xl",
+                    "absolute left-0 md:left-1/2 -translate-x-0 md:-translate-x-1/2 w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-transparent flex items-center justify-center z-10",
                     "order-1 md:order-2 top-0 md:top-auto"
                   )}
                 >
                   <div className="absolute inset-0 rounded-full border border-primary/40 md:group-hover:border-primary animate-[spin_4s_linear_infinite]" />
-                  <item.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary drop-shadow-[0_0_10px_rgba(104,17,201,0.5)]" />
+                  <item.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
                 </motion.div>
 
                 {/* Content Card */}
@@ -118,7 +116,7 @@ export function AboutAnimation() {
                   )}
                 >
                   <div className={cn(
-                    "p-4 sm:p-6 md:p-10 rounded-xl sm:rounded-[2rem] bg-white/40 backdrop-blur-xl border border-black/10 hover:border-primary/50 transition-all duration-500 shadow-2xl group flex flex-col",
+                    "p-4 sm:p-6 md:p-10 bg-transparent transition-all duration-500 group flex flex-col",
                     isEven ? "md:items-end text-left md:text-right" : "text-left"
                   )}>
                     <span className="inline-block px-3 sm:px-5 py-1.5 sm:py-2 rounded-full bg-primary/15 text-primary font-bold tracking-widest text-xs sm:text-sm mb-3 sm:mb-6 border border-primary/30 w-fit">

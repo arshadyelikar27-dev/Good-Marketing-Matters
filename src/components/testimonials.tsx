@@ -70,7 +70,7 @@ const testimonials = [
 
 function TestimonialCard({ img, name, username, body, country }: (typeof testimonials)[number]) {
   return (
-    <Card className="w-52 sm:w-64 bg-white/80 backdrop-blur-md border-border hover:border-primary transition-all duration-300 shadow-md group hover:shadow-lg">
+    <Card className="w-52 sm:w-64 bg-transparent border-transparent transition-all duration-300 group">
       <CardContent className="p-3 sm:p-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
         <div className="flex items-center gap-2.5 relative z-10">
@@ -93,10 +93,8 @@ function TestimonialCard({ img, name, username, body, country }: (typeof testimo
 
 export function Testimonials() {
   return (
-    <section id="reviews" className="relative w-full py-16 sm:py-24 md:py-32 bg-background overflow-hidden">
-      {/* Background graphic */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[500px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+    <section id="reviews" className="relative w-full py-16 sm:py-24 md:py-32 bg-transparent overflow-hidden">
+      {/* Background neon glows removed */}
 
       {/* Header */}
       <div className="container relative z-10 mx-auto px-6 mb-16 text-center">

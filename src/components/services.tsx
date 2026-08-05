@@ -51,7 +51,7 @@ function SpotlightCard({ service, index }: { service: ServiceData; index: number
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-          className="group relative h-full flex flex-col justify-between p-5 sm:p-6 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] bg-white/60 backdrop-blur-md border border-border overflow-hidden transition-colors duration-300 hover:border-primary/50 shadow-lg"
+          className="group relative h-full flex flex-col justify-between p-5 sm:p-6 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] bg-transparent border-transparent overflow-hidden transition-colors duration-300"
         >
           {/* Background Image Reveal */}
           {service.imageUrl && (
@@ -68,26 +68,14 @@ function SpotlightCard({ service, index }: { service: ServiceData; index: number
             </div>
           )}
 
-          {/* Spotlight Effect */}
-          <motion.div
-            className="pointer-events-none absolute -inset-px rounded-[2.5rem] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-            style={{
-              background: useMotionTemplate`
-                radial-gradient(
-                  500px circle at ${mouseX}px ${mouseY}px,
-                  rgba(104, 17, 201, 0.2),
-                  transparent 80%
-                )
-              `,
-            }}
-          />
+          {/* Spotlight Effect removed */}
 
           <div 
             style={{ transform: "translateZ(60px)" }} 
             className="relative z-10 flex justify-between items-start mb-6 sm:mb-12"
           >
-            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20 rounded-2xl sm:rounded-3xl bg-primary/10 border border-primary/20 flex items-center justify-center shadow-[0_0_20px_rgba(104, 17, 201,0.1)] group-hover:shadow-[0_0_35px_rgba(224, 243, 71,0.25)] transition-all duration-500 group-hover:scale-110">
-              <Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-10 md:h-10 text-accent group-hover:text-accent transition-colors duration-500" strokeWidth={1.5} />
+            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20 rounded-2xl sm:rounded-3xl bg-transparent flex items-center justify-center transition-all duration-500 group-hover:scale-110">
+              <Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-10 md:h-10 text-white transition-colors duration-500" strokeWidth={1.5} />
             </div>
             
             <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-surface flex items-center justify-center group-hover:bg-primary transition-colors duration-500 border border-border group-hover:border-primary">
@@ -96,7 +84,7 @@ function SpotlightCard({ service, index }: { service: ServiceData; index: number
           </div>
 
           <div style={{ transform: "translateZ(40px)" }} className="relative z-10 mt-auto">
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tighter text-heading mb-1 sm:mb-2 md:mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-accent transition-all duration-500 leading-none">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tighter text-heading mb-1 sm:mb-2 md:mb-4 transition-all duration-500 leading-none">
               {service.title}
             </h3>
             <p className="text-body-text text-sm sm:text-base md:text-lg leading-relaxed font-medium line-clamp-2 sm:line-clamp-3">
@@ -123,13 +111,12 @@ export function Services() {
     <section 
       id="services" 
       ref={targetRef} 
-      className="relative w-full bg-dark-section h-[300vh] sm:h-[400vh]" // shorter on mobile
+      className="relative w-full bg-transparent h-[300vh] sm:h-[400vh]" // shorter on mobile
     >
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
         
         {/* Background Gradients */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-background to-transparent pointer-events-none" />
         
         {/* Left Intro Text (Scrolls out slightly as you scroll down) */}
         <motion.div 

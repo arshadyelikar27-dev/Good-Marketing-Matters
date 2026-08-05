@@ -33,7 +33,7 @@ export function Hero() {
   const float3Rotate = useTransform(scrollYProgress, [0, 1], [-20, 90]);
 
   return (
-    <section id="hero" ref={containerRef} className="relative w-full h-[180vh] sm:h-[250vh] bg-background">
+    <section id="hero" ref={containerRef} className="relative w-full h-[180vh] sm:h-[250vh] bg-transparent">
       <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden">
         
         {/* Isometric Grid Background */}
@@ -124,10 +124,10 @@ export function Hero() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
               style={{ y: float1Y, x: float1X, rotate: float1Rotate, willChange: "transform" }}
-              className="absolute top-[12%] right-[48%] w-32 h-32 rounded-full md:backdrop-blur-xl bg-gradient-to-br from-primary/50 to-primary/10 border-t-2 border-l-2 border-primary/60 flex items-center justify-center shadow-[0_20px_40px_-10px_rgba(104,17,201,0.4)]"
+              className="absolute top-[12%] right-[48%] w-32 h-32 rounded-full md:backdrop-blur-xl bg-gradient-to-br from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-80 rounded-full" />
-              <Target className="w-14 h-14 text-primary relative z-10 drop-shadow-[0_0_15px_rgba(104,17,201,0.8)]" />
+              <Target className="w-14 h-14 text-primary relative z-10" />
             </motion.div>
 
             {/* Growth Element */}
@@ -136,10 +136,10 @@ export function Hero() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.5, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
               style={{ y: float2Y, x: float2X, rotate: float2Rotate, willChange: "transform" }}
-              className="absolute top-[45%] right-[5%] w-48 h-48 rounded-[2rem] md:backdrop-blur-xl bg-gradient-to-tr from-primary/50 to-primary/10 border-b-2 border-r-2 border-primary/60 flex items-center justify-center shadow-[0_20px_50px_-10px_rgba(104,17,201,0.5)]"
+              className="absolute top-[45%] right-[5%] w-48 h-48 rounded-[2rem] md:backdrop-blur-xl bg-gradient-to-tr from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-80 rounded-[2rem]" />
-              <TrendingUp className="w-20 h-20 text-primary relative z-10 drop-shadow-[0_0_20px_rgba(104,17,201,0.8)]" />
+              <TrendingUp className="w-20 h-20 text-primary relative z-10" />
             </motion.div>
 
             {/* Megaphone Element */}
@@ -148,10 +148,10 @@ export function Hero() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.4, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
               style={{ y: float3Y, x: float3X, rotate: float3Rotate, willChange: "transform" }}
-              className="absolute top-[78%] right-[35%] w-24 h-24 rounded-2xl md:backdrop-blur-xl bg-gradient-to-bl from-primary/50 to-primary/10 border-t-2 border-r-2 border-primary/60 flex items-center justify-center shadow-[0_20px_40px_-10px_rgba(104,17,201,0.4)]"
+              className="absolute top-[78%] right-[35%] w-24 h-24 rounded-2xl md:backdrop-blur-xl bg-gradient-to-bl from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-80 rounded-2xl" />
-              <Megaphone className="w-12 h-12 text-primary relative z-10 drop-shadow-[0_0_15px_rgba(104,17,201,0.8)]" />
+              <Megaphone className="w-12 h-12 text-primary relative z-10" />
             </motion.div>
           </div>
         </motion.div>
