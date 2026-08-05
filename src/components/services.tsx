@@ -118,10 +118,15 @@ export function Services() {
         {/* Background Gradients */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent pointer-events-none" />
         
-        {/* Left Intro Text (Scrolls out slightly as you scroll down) */}
+        {/* Left Intro Text (Scrolls out aggressively as you scroll down) */}
         <motion.div 
-          style={{ opacity: useTransform(scrollYProgress, [0, 0.15], [1, 0]), x: useTransform(scrollYProgress, [0, 0.15], [0, -100]), willChange: "transform, opacity" }}
-          className="absolute left-6 lg:left-12 top-1/4 z-10 max-w-xl pointer-events-none"
+          style={{ 
+            opacity: useTransform(scrollYProgress, [0, 0.1], [1, 0]), 
+            x: useTransform(scrollYProgress, [0, 0.1], ["0vw", "-100vw"]),
+            y: useTransform(scrollYProgress, [0, 0.1], ["0vh", "-50vh"]),
+            willChange: "transform, opacity" 
+          }}
+          className="absolute left-6 lg:left-12 top-1/4 sm:top-1/3 z-10 max-w-xl pointer-events-none"
         >
           <h2 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter text-heading uppercase mb-4 sm:mb-6">
             Digital <br/><span className="text-accent">Domination.</span>
@@ -136,7 +141,7 @@ export function Services() {
         </motion.div>
 
         {/* Horizontal Scrolling Track */}
-        <motion.div style={{ x, willChange: "transform" }} className="flex gap-4 sm:gap-8 pl-[85vw] sm:pl-[100vw] lg:pl-[60vw] pr-[10vw] md:pr-[20vw] relative z-20 items-center h-full pt-16 sm:pt-20">
+        <motion.div style={{ x, willChange: "transform" }} className="flex gap-4 sm:gap-8 pl-[100vw] lg:pl-[50vw] xl:pl-[40vw] pr-[10vw] md:pr-[20vw] relative z-20 items-center h-full pt-16 sm:pt-20">
           {services.map((service, index) => (
             <SpotlightCard key={service.slug} service={service} index={index} />
           ))}
