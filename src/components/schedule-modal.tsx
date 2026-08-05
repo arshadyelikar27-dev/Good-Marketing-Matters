@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, User, Phone, Calendar, CheckCircle2 } from "lucide-react";
 import { useModal } from "@/lib/modal-context";
@@ -17,6 +17,17 @@ export function ScheduleModal() {
     dateTime: "",
     purpose: "",
   });
+
+  useEffect(() => {
+    if (isScheduleOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isScheduleOpen]);
 
   const handleClose = () => {
     closeScheduleModal();
@@ -56,13 +67,14 @@ export function ScheduleModal() {
   return (
     <AnimatePresence>
       {isScheduleOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" data-lenis-prevent>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={handleClose}
             className="absolute inset-0 bg-black/20 backdrop-blur-sm"
+            data-lenis-prevent
           />
 
           <motion.div
@@ -70,88 +82,87 @@ export function ScheduleModal() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="relative w-full max-w-lg bg-card border border-border rounded-[2rem] shadow-xl overflow-hidden"
+            className="relative w-full max-w-lg bg-card border border-border rounded-2xl sm:rounded-[2rem] shadow-xl overflow-hidden max-h-[85vh] overflow-y-auto"
+            data-lenis-prevent
           >
             <button
               type="button"
               onClick={handleClose}
-              className="absolute top-5 right-5 p-2 rounded-full bg-black/5 hover:bg-black/10 text-heading hover:text-heading transition-colors z-50"
+              className="absolute top-3 right-3 sm:top-5 sm:right-5 p-1.5 sm:p-2 rounded-full bg-black/5 hover:bg-black/10 text-heading hover:text-heading transition-colors z-50"
             >
-              <X size={20} />
+              <X className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
-            {/* Background neon glows removed */}
-
             {!isSuccess ? (
-              <div className="p-8 relative z-10">
-                <div className="flex flex-col items-center text-center mb-8">
-                  <p className="text-xs bg-accent/20 text-accent font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4 border border-accent/30">
+              <div className="p-4 sm:p-8 relative z-10">
+                <div className="flex flex-col items-center text-center mb-4 sm:mb-8">
+                  <p className="text-[10px] sm:text-xs bg-accent/20 text-accent font-bold tracking-widest uppercase px-3 py-1 sm:px-4 sm:py-1.5 rounded-full mb-2 sm:mb-4 border border-accent/30">
                     Schedule a Call
                   </p>
-                  <h2 className="text-3xl font-black text-heading uppercase tracking-tight">Let's Talk Strategy.</h2>
-                  <p className="text-body-text mt-2 text-sm font-medium">
+                  <h2 className="text-xl sm:text-3xl font-black text-heading uppercase tracking-tight">Let's Talk Strategy.</h2>
+                  <p className="text-body-text mt-1 sm:mt-2 text-xs sm:text-sm font-medium">
                     Pick a time and we'll call you to discuss your brand.
                   </p>
                 </div>
 
-                <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+                <form className="flex flex-col gap-2.5 sm:gap-4" onSubmit={handleSubmit}>
                   
                   <div>
-                    <label className="text-sm font-medium text-heading mb-1.5 block">Full Name</label>
+                    <label className="text-xs sm:text-sm font-medium text-heading mb-1 sm:mb-1.5 block">Full Name</label>
                     <div className="relative flex items-center">
-                      <User className="absolute left-3 w-5 h-5 text-primary" />
+                      <User className="absolute left-3 w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                       <input 
                         type="text" 
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
                         required 
-                        className="w-full bg-surface border border-border rounded-xl h-12 pl-10 pr-4 text-heading placeholder-body-text/30 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+                        className="w-full bg-surface border border-border rounded-lg sm:rounded-xl h-9 sm:h-12 pl-9 sm:pl-10 pr-3 sm:pr-4 text-xs sm:text-base text-heading placeholder-body-text/30 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
                         placeholder="Enter your full name"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-heading mb-1.5 block">Phone Number</label>
+                    <label className="text-xs sm:text-sm font-medium text-heading mb-1 sm:mb-1.5 block">Phone Number</label>
                     <div className="relative flex items-center">
-                      <Phone className="absolute left-3 w-5 h-5 text-primary" />
+                      <Phone className="absolute left-3 w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                       <input 
                         type="tel"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange} 
                         required 
-                        className="w-full bg-surface border border-border rounded-xl h-12 pl-10 pr-4 text-heading placeholder-body-text/30 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+                        className="w-full bg-surface border border-border rounded-lg sm:rounded-xl h-9 sm:h-12 pl-9 sm:pl-10 pr-3 sm:pr-4 text-xs sm:text-base text-heading placeholder-body-text/30 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
                         placeholder="Enter your phone number"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-heading mb-1.5 block">Preferred Date & Time</label>
+                    <label className="text-xs sm:text-sm font-medium text-heading mb-1 sm:mb-1.5 block">Preferred Date & Time</label>
                     <div className="relative flex items-center">
-                      <Calendar className="absolute left-3 w-5 h-5 text-primary pointer-events-none" />
+                      <Calendar className="absolute left-3 w-4 h-4 sm:w-5 sm:h-5 text-primary pointer-events-none" />
                       <input 
                         type="datetime-local"
                         name="dateTime"
                         value={formData.dateTime}
                         onChange={handleChange} 
                         required 
-                        className="w-full bg-surface border border-border rounded-xl h-12 pl-10 pr-4 text-heading focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
+                        className="w-full bg-surface border border-border rounded-lg sm:rounded-xl h-9 sm:h-12 pl-9 sm:pl-10 pr-3 sm:pr-4 text-xs sm:text-base text-heading focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-heading mb-1.5 block">Purpose of Call</label>
+                    <label className="text-xs sm:text-sm font-medium text-heading mb-1 sm:mb-1.5 block">Purpose of Call</label>
                     <textarea 
                       name="purpose"
                       value={formData.purpose}
                       onChange={handleChange}
                       required 
                       rows={2}
-                      className="w-full bg-surface border border-border rounded-xl p-4 text-heading placeholder-body-text/30 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all resize-none"
+                      className="w-full bg-surface border border-border rounded-lg sm:rounded-xl p-2.5 sm:p-4 text-xs sm:text-base text-heading placeholder-body-text/30 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all resize-none"
                       placeholder="Briefly describe what you'd like to discuss..."
                     />
                   </div>
@@ -159,12 +170,12 @@ export function ScheduleModal() {
                   <button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="mt-4 w-full bg-primary hover:bg-primary-hover text-white font-bold text-lg h-14 rounded-xl flex items-center justify-center gap-2 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="mt-2 sm:mt-4 w-full bg-primary hover:bg-primary-hover text-white font-bold text-sm sm:text-lg h-10 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center gap-2 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? "Scheduling..." : (
                       <>
                         Confirm Schedule
-                        <Send className="w-5 h-5" />
+                        <Send className="w-4 h-4 sm:w-5 sm:h-5" />
                       </>
                     )}
                   </button>

@@ -45,7 +45,7 @@ export function Hero() {
         >
           {/* Left Side Content */}
           <div className="w-full lg:w-3/5">
-            <motion.div
+            <motion.div 
               initial="hidden"
               animate="visible"
               variants={{
@@ -55,7 +55,7 @@ export function Hero() {
                   transition: { staggerChildren: 0.2, delayChildren: 0.1 }
                 }
               }}
-              className="flex flex-col text-heading font-medium tracking-tight items-center lg:items-start w-full lg:w-max mx-auto lg:mx-0"
+              className="flex flex-col text-heading font-medium tracking-tight items-start w-full lg:w-max mx-0"
             >
               <motion.div 
                 variants={{
@@ -93,7 +93,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-4 sm:mt-8 md:mt-12 text-base sm:text-xl md:text-2xl font-medium text-accent max-w-xl tracking-wide normal-case text-center lg:text-left w-full lg:ml-1"
+              className="mt-4 sm:mt-8 md:mt-12 text-base sm:text-xl md:text-2xl font-medium text-accent max-w-xl tracking-wide normal-case text-left w-full ml-0 lg:ml-1"
             >
               We build brands that are impossible to ignore.
             </motion.p>
@@ -102,7 +102,7 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-4 sm:mt-8 md:mt-12 flex justify-center lg:justify-start lg:ml-1"
+              className="mt-4 sm:mt-8 md:mt-12 flex justify-start ml-0 lg:ml-1"
             >
               <button 
                 data-cursor-text="Explore" 
@@ -116,30 +116,30 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Side Floating 3D Elements */}
-          <div className="absolute right-0 top-0 w-2/5 h-full hidden lg:block pointer-events-none">
+          {/* Right Side Floating 3D Elements — Enabled on mobile with responsive compact sizes & clean spacing */}
+          <div className="absolute right-0 top-0 w-1/4 sm:w-2/5 h-full pointer-events-none z-0">
             {/* Target Element */}
             <motion.div
               initial={{ opacity: 0, scale: 0, y: 100 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
               style={{ y: float1Y, x: float1X, rotate: float1Rotate, willChange: "transform" }}
-              className="absolute top-[12%] right-[48%] w-32 h-32 rounded-full md:backdrop-blur-xl bg-gradient-to-br from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
+              className="absolute top-[16%] right-[2%] sm:right-[35%] lg:right-[48%] w-12 h-12 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full backdrop-blur-md sm:backdrop-blur-xl bg-gradient-to-br from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-80 rounded-full" />
-              <Target className="w-14 h-14 text-primary relative z-10" />
+              <Target className="w-5 h-5 sm:w-10 sm:h-10 md:w-14 md:h-14 text-primary relative z-10" />
             </motion.div>
 
-            {/* Growth Element */}
+            {/* Growth Element (Center element shifted right for clean spacing) */}
             <motion.div
               initial={{ opacity: 0, scale: 0, y: 100 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.5, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
               style={{ y: float2Y, x: float2X, rotate: float2Rotate, willChange: "transform" }}
-              className="absolute top-[45%] right-[5%] w-48 h-48 rounded-[2rem] md:backdrop-blur-xl bg-gradient-to-tr from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
+              className="absolute top-[44%] -right-2 sm:right-[5%] w-16 h-16 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-xl sm:rounded-[2rem] backdrop-blur-md sm:backdrop-blur-xl bg-gradient-to-tr from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
             >
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-80 rounded-[2rem]" />
-              <TrendingUp className="w-20 h-20 text-primary relative z-10" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-80 rounded-xl sm:rounded-[2rem]" />
+              <TrendingUp className="w-7 h-7 sm:w-14 sm:h-14 md:w-20 md:h-20 text-primary relative z-10" />
             </motion.div>
 
             {/* Megaphone Element */}
@@ -148,10 +148,10 @@ export function Hero() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.4, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
               style={{ y: float3Y, x: float3X, rotate: float3Rotate, willChange: "transform" }}
-              className="absolute top-[78%] right-[35%] w-24 h-24 rounded-2xl md:backdrop-blur-xl bg-gradient-to-bl from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
+              className="absolute top-[72%] right-[4%] sm:right-[25%] lg:right-[35%] w-10 h-10 sm:w-16 sm:h-16 md:w-24 md:h-24 rounded-lg sm:rounded-2xl backdrop-blur-md sm:backdrop-blur-xl bg-gradient-to-bl from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
             >
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-80 rounded-2xl" />
-              <Megaphone className="w-12 h-12 text-primary relative z-10" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-80 rounded-lg sm:rounded-2xl" />
+              <Megaphone className="w-4 h-4 sm:w-8 sm:h-8 md:w-12 md:h-12 text-primary relative z-10" />
             </motion.div>
           </div>
         </motion.div>
