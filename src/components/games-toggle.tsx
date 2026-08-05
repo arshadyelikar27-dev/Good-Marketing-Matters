@@ -70,16 +70,16 @@ export function GamesToggle() {
           whileHover={{ x: -5 }}
           whileTap={{ scale: 0.92 }}
           aria-label="Open Mini Games"
-          className="relative flex flex-col items-center justify-center gap-3 px-3 py-6 bg-card border border-primary/40 border-r-0 rounded-l-2xl text-heading hover:border-primary/80 transition-all duration-300 group"
+          className="relative flex flex-col items-center justify-center gap-2 sm:gap-3 px-2 sm:px-3 py-4 sm:py-6 bg-card border border-primary/40 border-r-0 rounded-l-xl sm:rounded-l-2xl text-heading hover:border-primary/80 transition-all duration-300 group"
         >
           {/* Top & bottom accent lines */}
           <span className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
           <span className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
 
           {/* Pulsing live dot */}
-          <span className="relative flex h-2 w-2">
+          <span className="relative flex h-1.5 w-1.5 sm:h-2 sm:w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-primary" />
           </span>
 
           {/* Icon: Gamepad or X */}
@@ -92,7 +92,7 @@ export function GamesToggle() {
                 exit={{ rotate: 90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <X className="w-5 h-5 text-accent" />
+                <X className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
               </motion.div>
             ) : (
               <motion.div
@@ -102,7 +102,7 @@ export function GamesToggle() {
                 exit={{ rotate: -90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <Gamepad2 className="w-5 h-5 text-accent group-hover:scale-110 transition-transform duration-300" />
+                <Gamepad2 className="w-4 h-4 sm:w-5 sm:h-5 text-accent group-hover:scale-110 transition-transform duration-300" />
               </motion.div>
             )}
           </AnimatePresence>

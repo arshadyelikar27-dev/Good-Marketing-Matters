@@ -15,9 +15,9 @@ export function Hero() {
   });
 
   // Lighter transforms on mobile
-  const textScale = useTransform(scrollYProgress, [0, 0.8], [1, isMobile ? 1.15 : 1.4]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.4, 0.8], [1, 1, 0]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", isMobile ? "20%" : "40%"]);
+  const textScale = useTransform(scrollYProgress, [0, 0.8], [1, isMobile ? 1 : 1.4]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.4, 0.8], [1, 1, isMobile ? 1 : 0]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", isMobile ? "0%" : "40%"]);
 
   // Floating Elements Scroll Animations (desktop only)
   const float1Y = useTransform(scrollYProgress, [0, 1], ["0%", "-300%"]);
@@ -33,15 +33,15 @@ export function Hero() {
   const float3Rotate = useTransform(scrollYProgress, [0, 1], [-20, 90]);
 
   return (
-    <section id="hero" ref={containerRef} className="relative w-full h-[100dvh] sm:h-[250vh] bg-transparent">
-      <div className="sticky top-0 w-full h-[100dvh] sm:h-screen flex flex-col items-center justify-center overflow-hidden">
+    <section id="hero" ref={containerRef} className="relative w-full min-h-[100dvh] sm:h-[250vh] bg-transparent">
+      <div className="sm:sticky sm:top-0 w-full min-h-[100dvh] sm:h-screen flex flex-col items-center justify-start sm:justify-center overflow-hidden pt-28 sm:pt-0">
         
         {/* Isometric Grid Background */}
         <div className="absolute inset-0 iso-grid opacity-30 pointer-events-none" />
 
         <motion.div
-          style={{ scale: textScale, opacity: textOpacity, y: textY, willChange: "transform, opacity" }}
-          className="relative z-10 flex flex-col items-start text-left w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 pt-16 sm:pt-24"
+          style={{ scale: textScale, opacity: textOpacity, y: textY, willChange: isMobile ? "auto" : "transform, opacity" }}
+          className="relative z-10 flex flex-col items-start text-left w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 pt-8 sm:pt-24"
         >
           {/* Left Side Content */}
           <div className="w-full lg:w-3/5">
@@ -123,8 +123,8 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0, y: 100 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              style={{ y: float1Y, x: float1X, rotate: float1Rotate, willChange: "transform" }}
-              className="absolute top-[16%] right-[2%] sm:right-[35%] lg:right-[48%] w-12 h-12 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full backdrop-blur-md sm:backdrop-blur-xl bg-gradient-to-br from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
+              style={{ y: isMobile ? 0 : float1Y, x: isMobile ? 0 : float1X, rotate: isMobile ? -10 : float1Rotate, willChange: isMobile ? "auto" : "transform" }}
+              className="absolute top-[16%] right-[2%] sm:right-[35%] lg:right-[48%] w-12 h-12 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full sm:backdrop-blur-xl bg-gradient-to-br from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-80 rounded-full" />
               <Target className="w-5 h-5 sm:w-10 sm:h-10 md:w-14 md:h-14 text-primary relative z-10" />
@@ -135,8 +135,8 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0, y: 100 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.5, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              style={{ y: float2Y, x: float2X, rotate: float2Rotate, willChange: "transform" }}
-              className="absolute top-[44%] -right-2 sm:right-[5%] w-16 h-16 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-xl sm:rounded-[2rem] backdrop-blur-md sm:backdrop-blur-xl bg-gradient-to-tr from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
+              style={{ y: isMobile ? 0 : float2Y, x: isMobile ? 0 : float2X, rotate: isMobile ? 15 : float2Rotate, willChange: isMobile ? "auto" : "transform" }}
+              className="absolute top-[44%] -right-2 sm:right-[5%] w-16 h-16 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-xl sm:rounded-[2rem] sm:backdrop-blur-xl bg-gradient-to-tr from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-80 rounded-xl sm:rounded-[2rem]" />
               <TrendingUp className="w-7 h-7 sm:w-14 sm:h-14 md:w-20 md:h-20 text-primary relative z-10" />
@@ -147,8 +147,8 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0, y: 100 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.4, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              style={{ y: float3Y, x: float3X, rotate: float3Rotate, willChange: "transform" }}
-              className="absolute top-[72%] right-[4%] sm:right-[25%] lg:right-[35%] w-10 h-10 sm:w-16 sm:h-16 md:w-24 md:h-24 rounded-lg sm:rounded-2xl backdrop-blur-md sm:backdrop-blur-xl bg-gradient-to-bl from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
+              style={{ y: isMobile ? 0 : float3Y, x: isMobile ? 0 : float3X, rotate: isMobile ? -20 : float3Rotate, willChange: isMobile ? "auto" : "transform" }}
+              className="absolute top-[72%] right-[4%] sm:right-[25%] lg:right-[35%] w-10 h-10 sm:w-16 sm:h-16 md:w-24 md:h-24 rounded-lg sm:rounded-2xl sm:backdrop-blur-xl bg-gradient-to-bl from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-80 rounded-lg sm:rounded-2xl" />
               <Megaphone className="w-4 h-4 sm:w-8 sm:h-8 md:w-12 md:h-12 text-primary relative z-10" />

@@ -118,7 +118,7 @@ export function ParticleBackground() {
       
       // Optimized particle count for stable 60fps rendering
       const isMobile = window.innerWidth < 768;
-      const particleCount = isMobile ? 120 : 250; 
+      const particleCount = isMobile ? 40 : 200; 
       for (let i = 0; i < particleCount; i++) {
         stars.push(new Star(canvas.width, canvas.height));
       }
@@ -127,9 +127,12 @@ export function ParticleBackground() {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
+      const isMobile = window.innerWidth < 768;
+      const scrollVal = isMobile ? 0 : currentScrollY.current;
+
       stars.forEach((star) => {
         const { drawX, drawY } = star.update(
-          currentScrollY.current, 
+          scrollVal, 
           mousePos.current.x, 
           mousePos.current.y,
           canvas.width,
