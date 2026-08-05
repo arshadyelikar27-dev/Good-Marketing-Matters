@@ -35,9 +35,7 @@ export function Hero() {
   return (
     <section id="hero" ref={containerRef} className="relative w-full h-[150vh] sm:h-[250vh] bg-transparent">
       <div className="sticky top-0 w-full h-[100dvh] sm:h-screen flex flex-col items-center justify-center overflow-hidden pt-12 sm:pt-20 pb-4">
-        
-        {/* Isometric Grid Background */}
-        <div className="absolute inset-0 iso-grid opacity-30 pointer-events-none" />
+
 
         <motion.div
           style={{ scale: textScale, opacity: textOpacity, y: textY, willChange: isMobile ? "auto" : "transform, opacity" }}
