@@ -69,18 +69,18 @@ export function AboutAnimation() {
       </div>
 
       {/* Timeline */}
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-        
-        {/* The background line */}
-        <div className="absolute left-[28px] sm:left-[40px] md:left-1/2 top-0 bottom-0 w-0.5 sm:w-1 bg-surface -translate-x-1/2 rounded-full" />
-        
-        {/* The animated filled line */}
-        <motion.div 
-          style={{ height: lineHeight }}
-          className="absolute left-[28px] sm:left-[40px] md:left-1/2 top-0 w-0.5 sm:w-1 bg-primary -translate-x-1/2 rounded-full origin-top z-0"
-        />
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="relative">
+          {/* The background line */}
+          <div className="absolute left-[28px] sm:left-[40px] md:left-1/2 top-0 bottom-0 w-0.5 sm:w-1 bg-surface -translate-x-1/2 rounded-full" />
+          
+          {/* The animated filled line */}
+          <motion.div 
+            style={{ height: lineHeight }}
+            className="absolute left-[28px] sm:left-[40px] md:left-1/2 top-0 w-0.5 sm:w-1 bg-primary -translate-x-1/2 rounded-full origin-top z-0"
+          />
 
-        <div className="relative z-10 flex flex-col gap-8 sm:gap-12 md:gap-0">
+          <div className="relative z-10 flex flex-col gap-8 sm:gap-12 md:gap-0">
           {timelineData.map((item, index) => {
             const isEven = index % 2 === 0;
             return (
@@ -134,6 +134,7 @@ export function AboutAnimation() {
               </div>
             )
           })}
+        </div>
         </div>
       </div>
     </section>

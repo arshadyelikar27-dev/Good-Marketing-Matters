@@ -33,7 +33,7 @@ export function Hero() {
   const float3Rotate = useTransform(scrollYProgress, [0, 1], [-20, 90]);
 
   return (
-    <section id="hero" ref={containerRef} className="relative w-full h-[180vh] sm:h-[250vh] bg-transparent">
+    <section id="hero" ref={containerRef} className="relative w-full h-[140vh] sm:h-[250vh] bg-transparent">
       <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden">
         
         {/* Isometric Grid Background */}

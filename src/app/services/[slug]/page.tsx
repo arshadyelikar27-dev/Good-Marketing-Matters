@@ -43,10 +43,10 @@ export default function ServicePage() {
     <main ref={containerRef} className="min-h-screen bg-transparent text-foreground overflow-x-hidden font-sans selection:bg-primary/30">
       
       {/* ─── HERO SECTION (Sticky & Cinematic) ─── */}
-      <section ref={heroRef} className="relative h-[150vh]">
+      <section ref={heroRef} className="relative h-[80vh] sm:h-[150vh]">
         <motion.div 
           style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
-          className="sticky top-0 h-screen flex flex-col justify-center px-4 sm:px-6 md:px-16 lg:px-32 overflow-hidden bg-transparent"
+          className="sticky top-0 h-[80vh] sm:h-screen flex flex-col justify-center px-4 sm:px-6 md:px-16 lg:px-32 overflow-hidden bg-transparent"
         >
           {/* Deep abstract glow removed as requested */}
 
