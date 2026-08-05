@@ -126,7 +126,7 @@ export function Services() {
             y: useTransform(scrollYProgress, [0, 0.1], ["0vh", "-50vh"]),
             willChange: "transform, opacity" 
           }}
-          className="absolute left-6 lg:left-12 top-1/4 sm:top-1/3 z-10 max-w-xl pointer-events-none"
+          className="absolute left-6 lg:left-12 top-20 sm:top-1/3 z-10 max-w-xl pointer-events-none"
         >
           <h2 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter text-heading uppercase mb-4 sm:mb-6">
             Digital <br/><span className="text-accent">Domination.</span>
