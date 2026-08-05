@@ -41,7 +41,7 @@ export function Hero() {
 
         <motion.div
           style={{ scale: textScale, opacity: textOpacity, y: textY, willChange: isMobile ? "auto" : "transform, opacity" }}
-          className="relative z-10 flex flex-col items-start text-left w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12"
+          className="relative z-10 flex flex-col items-start text-left w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 sm:mt-24"
         >
           {/* Left Side Content */}
           <div className="w-full lg:w-3/5">
