@@ -113,7 +113,7 @@ export function Services() {
       ref={targetRef} 
       className="relative w-full bg-transparent h-[300vh] sm:h-[400vh]" // shorter on mobile
     >
-      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+      <div className="sticky top-0 h-[100dvh] sm:h-screen flex items-center overflow-hidden">
         
         {/* Background Gradients */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent pointer-events-none" />
