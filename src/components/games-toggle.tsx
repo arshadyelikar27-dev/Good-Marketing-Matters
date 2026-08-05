@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { Gamepad2, X, Brain, Trophy, Zap, Play, ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 
@@ -47,7 +47,21 @@ const MINI_GAMES = [
 export function GamesToggle() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedGame, setSelectedGame] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
   const router = useRouter();
+  const { scrollY } = useScroll();
+
+  useEffect(() => {
+    return scrollY.on("change", (latest) => {
+      // Show when scrolled past 300px (out of the main hero view)
+      if (latest > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+        if (isOpen) setIsOpen(false); // also close it if they scroll back up
+      }
+    });
+  }, [scrollY, isOpen]);
 
   const handleLaunchGame = (gameId: string) => {
     setSelectedGame(gameId);
@@ -59,7 +73,15 @@ export function GamesToggle() {
   };
 
   return (
-    <>
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 20 }}
+          transition={{ duration: 0.3 }}
+          className="fixed right-0 top-1/2 -translate-y-1/2 z-50 pointer-events-auto"
+        >
       {/* FLOATING TOGGLE — Right Edge, Vertically Centered, Connected to Edge */}
       <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 pointer-events-auto">
         <motion.button
@@ -229,6 +251,8 @@ export function GamesToggle() {
           </div>
         )}
       </AnimatePresence>
-    </>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
