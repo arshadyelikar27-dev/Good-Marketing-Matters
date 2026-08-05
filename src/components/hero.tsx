@@ -33,7 +33,7 @@ export function Hero() {
   const float3Rotate = useTransform(scrollYProgress, [0, 1], [-20, 90]);
 
   return (
-    <section id="hero" ref={containerRef} className="relative w-full h-auto sm:h-[250vh] bg-transparent pb-16 sm:pb-0">
+    <section id="hero" ref={containerRef} className="relative w-full h-auto sm:h-[250vh] bg-transparent pb-32 sm:pb-0">
       <div className="sm:sticky sm:top-0 w-full h-auto sm:h-screen flex flex-col items-center justify-start sm:justify-center overflow-hidden pt-28 sm:pt-0">
         
         {/* Isometric Grid Background */}
@@ -124,7 +124,7 @@ export function Hero() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
               style={{ y: isMobile ? 0 : float1Y, x: isMobile ? 0 : float1X, rotate: isMobile ? -10 : float1Rotate, willChange: isMobile ? "auto" : "transform" }}
-              className="absolute top-[16%] right-[2%] sm:right-[35%] lg:right-[48%] w-12 h-12 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full sm:backdrop-blur-xl bg-gradient-to-br from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
+              className="absolute top-[16%] right-[10%] sm:right-[35%] lg:right-[48%] w-12 h-12 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full sm:backdrop-blur-xl bg-gradient-to-br from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-80 rounded-full" />
               <Target className="w-5 h-5 sm:w-10 sm:h-10 md:w-14 md:h-14 text-primary relative z-10" />
@@ -136,7 +136,7 @@ export function Hero() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.5, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
               style={{ y: isMobile ? 0 : float2Y, x: isMobile ? 0 : float2X, rotate: isMobile ? 15 : float2Rotate, willChange: isMobile ? "auto" : "transform" }}
-              className="absolute top-[44%] -right-2 sm:right-[5%] w-16 h-16 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-xl sm:rounded-[2rem] sm:backdrop-blur-xl bg-gradient-to-tr from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
+              className="absolute top-[44%] right-[5%] sm:right-[5%] w-16 h-16 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-xl sm:rounded-[2rem] sm:backdrop-blur-xl bg-gradient-to-tr from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-80 rounded-xl sm:rounded-[2rem]" />
               <TrendingUp className="w-7 h-7 sm:w-14 sm:h-14 md:w-20 md:h-20 text-primary relative z-10" />
@@ -148,7 +148,7 @@ export function Hero() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.4, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
               style={{ y: isMobile ? 0 : float3Y, x: isMobile ? 0 : float3X, rotate: isMobile ? -20 : float3Rotate, willChange: isMobile ? "auto" : "transform" }}
-              className="absolute top-[72%] right-[4%] sm:right-[25%] lg:right-[35%] w-10 h-10 sm:w-16 sm:h-16 md:w-24 md:h-24 rounded-lg sm:rounded-2xl sm:backdrop-blur-xl bg-gradient-to-bl from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
+              className="absolute top-[72%] right-[15%] sm:right-[25%] lg:right-[35%] w-10 h-10 sm:w-16 sm:h-16 md:w-24 md:h-24 rounded-lg sm:rounded-2xl sm:backdrop-blur-xl bg-gradient-to-bl from-primary/20 to-transparent border border-primary/30 flex items-center justify-center"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-80 rounded-lg sm:rounded-2xl" />
               <Megaphone className="w-4 h-4 sm:w-8 sm:h-8 md:w-12 md:h-12 text-primary relative z-10" />
@@ -159,10 +159,10 @@ export function Hero() {
         {/* Scroll Indicator — hidden on mobile for compact feel */}
         <motion.div
           style={{ opacity: textOpacity }}
-          className="absolute bottom-8 sm:bottom-12 left-6 sm:left-12 flex-col items-center gap-4 hidden sm:flex"
+          className="absolute bottom-6 sm:bottom-12 left-6 sm:left-12 flex flex-col items-center gap-2 sm:gap-4"
         >
-          <span className="text-xs uppercase tracking-widest text-primary font-bold">Scroll</span>
-          <div className="w-px h-12 sm:h-16 bg-gradient-to-b from-primary to-transparent overflow-hidden relative">
+          <span className="text-[10px] sm:text-xs uppercase tracking-widest text-primary font-bold">Scroll</span>
+          <div className="w-px h-8 sm:h-16 bg-gradient-to-b from-primary to-transparent overflow-hidden relative">
             <div className="w-full h-1/3 bg-primary animate-[marquee-vertical_1.5s_linear_infinite]" />
           </div>
         </motion.div>
