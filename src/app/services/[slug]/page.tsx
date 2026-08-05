@@ -52,7 +52,7 @@ export default function ServicePage() {
 
 
           {/* Back Button */}
-          <div className="absolute top-20 sm:top-28 left-4 sm:left-6 md:left-12 lg:left-24 z-20">
+          <div className="absolute top-32 sm:top-36 left-4 sm:left-6 md:left-12 lg:left-24 z-20">
             <Link
               href="/#services"
               className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-full border border-primary/30 text-xs sm:text-sm font-bold text-heading uppercase tracking-widest hover:text-black hover:bg-primary transition-all duration-300"
